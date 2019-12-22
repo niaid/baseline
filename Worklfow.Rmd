@@ -1,0 +1,687 @@
+---
+title: "Reproducible workflow for the project"
+subtitle: "\"Broad immune activation underlies shared set point signatures for vaccine responsiveness in healthy individuals and disease activity in lupus patients\""
+author: "Yuri Kotliarov, Yong Lu, John S. Tsang"
+output: 
+  html_notebook: 
+    toc: yes
+---
+
+## Introduction
+
+The following workflow was used to analyze the data and generate the figures for our paper "Broad immune activation underlies shared set point signatures for vaccine responsiveness in healthy individuals and disease activity in lupus patients" published in Nature Medicine in 2020.
+
+To avoid inavailability or version change in R packages we recommend to run the workflow using our Singularity container. 
+<br/>
+
+## Prepare the working directory
+
+Before running the workflow prepare the working directory with the following subfloders:
+
+```
+data
+figure_generation
+generated_data
+R
+```
+
+* Download the archived data folder from and unpack it into the ```data``` folder 
+* Download the archived directory with R code and unpack it into the ```R``` folder. 
+* Make sure to put the ```.Rprofile``` file into the working directory itself. Modify the ```PROJECT_DIR``` variable with the full path to the working directory.
+* Create empty folders generated_data and figure_generation.
+* If you are going to use the Singularity container download it from . It should be located outside of the working directory. 
+
+## Using Singularity container
+
+If you are using Singularity on NIAID HPC, follow these steps to start the container and run R
+```
+    $ module load Singularity
+    $ cd /hpcdata/sg/sg_data/singularity/baseline
+    $ singularity shell -B \
+             /full_path_to_the_working_dir/:/var/workflow1 \
+              baseline_rstudio_r_3.4.1.img
+    $ cd /var/workflow1
+    $ R
+```
+<br/>For outside usage check that Singularity is installed and works properly. Singularity installation and usage guide can be found at https://sylabs.io/docs/.
+<br/>
+
+## Using R without Singularity container
+
+If Singularity is not available, it is possible to use standalone R but we cannot guarantee the error-free flow and the exact results. 
+
+<br/>Our pipeline requires the following R packages:
+
+```
+# CRAN:
+install.packages(c("plyr", "tidyverse", "data.table", "pROC", "lme4", "tmod", "MASS", "latex2exp", "xtable", "gplots", "GGally", "effects", "stargazer", "car", "gdata", "effsize", "formatR", "cowplot"))
+
+# Bioconductor 3.4:
+source("http://bioconductor.org/biocLite.R")
+biocLite()
+biocLite(c("hgu133plus2.db","illuminaHumanv4.db","GO.db", "WGCNA","fgsea","impute","qusage",
+"BitSeq"))
+
+install.packages("MetaDE")
+
+# GitHub (ImmuneSpaceR and ImmSig2 packages have to be installed before ImmuneSignatures. Currently the latest development versions of these packages are required to download HIPC data). We do not include this packages in the Singularity container, since this version once outdated most probably will not not work with ImmuneSpace server.
+install.packages("devtools")
+devtools::install_github("rglab/ImmuneSpaceR")
+devtools::install_github("ehfhcrc/ImmSig2")
+devtools::install_github("rglab/ImmuneSignatures", build_vignettes = FALSE)
+```
+<br/>
+
+### Notes
+If while running some scripts you get X11 forwarding related error, check if you have X11 forwarding turned on (in Putty it is in Connection-SSH-X11) and turn it off. 
+Sometime an error may appear due to a conflict between R packages. In this case restart R and rerun the script that previously returned the error.
+<br/>
+
+---
+
+# CHI data analysis
+
+## Input data
+
+Input data are stored in data folder:
+
+  * Demographics (gender, age, ethnicity)
+    * data/CHI/phenotypes/CHI_demographics.txt
+  * Microneutralization titer, processed
+    * data/CHI/phenotypes/titer_processed.txt
+  * Expression data after correction of batch effect (hybridization date) downloaded from https://chi.niaid.nih.gov/
+    * data/CHI/expression/corrected.batch.txt
+    * data/CHI/expression/affy_hugene_1.0_ID_unique_PC1.txt (probeset-gene mapping)
+  * Flow cytometry (cell counts of selected cell populations exported from FlowJo v9.9.3)
+    * data/CHI/flow/bp_flow_data.txt
+  * Visual quality assessment of cell viability and the detection of CD38 marker (pass or fail)
+    * data/CHI/flow/bp_flow_sample_flagged.txt
+    
+All data except flow are available on the CHI data portal (https://chi.niaid.nih.gov/web/new/data.html)
+<br/>
+
+## Step 1. Data formatting and preparation
+
+```{r}
+source("R/chi_dataprep/chi_data_from_public.r")
+source("R/chi_dataprep/chi_probes2genes.r")
+source("R/chi_dataprep/chi_add_demo_and_titer.r")
+source("R/chi_dataprep/chi_flow_procents.r")
+source("R/chi_dataprep/chi_flow_filtering.r")
+
+```
+
+Output will be saved to ./generated_data/CHI/.
+<br/>
+
+## Step 2. Calculate and plot correlation between titer response and percent of CD38 high cells for 3 baseline time points
+
+```{r}
+source("R/chi_flow-titer_correlarion/chi_flow_titer_corr_with_roc_p.r")
+
+```
+
+<br/>It will generate the following figure (Ext. Data Fig. 1b)
+```
+./figure_generation/CHI_flow_vs_respones_3time_p.pdf
+```
+<br/>
+
+## Step 3. Compare newly gated cell populations with previous gates by predictive power (AUC) and temporal stability:
+
+```{r}
+source("R/chi_flow_analysis/selected_gates_auc.r")
+source("R/chi_flow_analysis/selected_gates_stability.r")
+
+```
+
+<br/>The script generates two plots for Figure 1b.
+
+```
+./figure_generation/CHI_flow_selected_gates_AUC.pdf
+./figure_generation/CHI_flow_selected_gates_ISV.pdf
+```
+<br/>
+
+## Step 4. Calculate inter-subject variation (ISV) of expression of individual genes to quantify their stability across baseline time points (days -7, 0, and 70):
+
+```{r}
+source("R/chi_stability/chi_gene_stability.r")
+```
+
+<br/>The script generates a table of gene stability metrics:
+```
+./generated_data/CHI/CHI_genes_stability.txt
+```
+<br/>
+
+## Step 5. Analysis of correlation between gene expression and percentage of CD38 high cells:
+
+Correlation using stable genes only
+```{r}
+source("R/chi_flow-ge_correlarion/chi_ge_flow_correlation.r") 
+```
+
+<br/>Correlation using all genes to generate correlations with CD20+CD38++ B cells for futher test of random signatures
+```{r}
+source("R/chi_flow-ge_correlarion/chi_ge_flow_correlation_all.genes.r")
+```
+
+<br/>The scripts adds percent of CD38++ cells to sample information table 
+```
+./generated_data/CHI/CHI_sample_info_2_CD38hi.txt
+```
+and generates the following files with robust correlation results:
+```
+./generated_data/CHI/robust_corr_genes.txt
+./generated_data/CHI/robust_corr_all.genes.txt
+```
+
+<br/>Testing correlations using 500 random signatures computed by permuting subject labels for flow data. At each iteration the correlation computed exactly the same way as for the real data. **Long computation!**
+
+```
+source("R/chi_signature_analysis/rand.sig_generate.r")
+```
+The output file with correlation data for each iteration is store as ```./generated_data/CHI/gene_sig_random_500_from_all.txt```. 
+Instead you can download pre-computed random signatures generated previously and put it into the data folder. 
+```{r}
+source("R/chi_signature_analysis/cd38_10gene_random_sig_FIGURE.r")
+```
+
+The scripts generate a table and AUC table, as well as a plot for Ext. Data Fig. 2e:
+```
+./generated_data/CHI/chi_random.sig.500_3times.rds
+./generated_data/figure_generation
+```
+<br/>
+
+## Step 6. Determine the optimal number of genes as expression surrogate signature for CD20+CD38++ B cells. 
+
+Evaluate prediction power of titer response for top 20 individual genes (Fig. 1d): 
+```{r}
+source("R/chi_signature_analysis/cd38_20genes_single.gene.auc_barplot_FIGURE.r")
+```
+
+<br/>Evaluate prediction power of titer response for different number of genes in the signature (Ext. Data Fig. 2c):
+```{r}
+source("R/chi_signature_analysis/cd38_Ngene_sig_analysis_FIGURE.r")
+```
+
+<br/>Generate ROC for titer response prediction based on 10-gene signature, and box plot comparing low- and high- responders based on TGSig for day 0, day -7 and day 70 (Fig. 1e-f). Output the TGSig scores for low and high responders for these time points.
+```{r}
+source("R/chi_signature_analysis/cd38_10gene_sig_analysis_FIGURES_with_roc_p.r")
+```
+
+<br/>Effect on AUC after removal of individual genes in TGSig (Ext. Data Fig. 2g): 
+```{r}
+source("R/chi_signature_analysis/cd38_10gene_sig_rm_genes_FIGURES.r")
+```
+
+<br/>Check stability of relative rank of CD38++ signature genes applying different ISV threshold (Ext. Data Fig. 2f):
+```{r}
+source("R/chi_signature_analysis/cd38.cor_rel.rank_vs_ISV.th_FIGURES.r")
+```
+
+<br/>Save the final gene lists for both TGSig and plasmablast signature: 
+```{r}
+source("R/chi_signature_analysis/ge_sig_prep.r")
+```
+
+<br/>Generate box plots comparing  low-, middle- and high- responders based on TGSig score for day 0 (Ext. Data Fig. 3b):
+```{r}
+source("R/chi_signature_analysis/cd38_10gene_sig_analysis_FIGURES_with_mid.r")
+```
+
+<br/>Generate box plots comparing  male and female subject based on TGSig score for day 0 (Ext. Data Fig. 10b-e): 
+```{r}
+source("R/chi_signature_analysis/cd38_10gene_sig_analysis_FIGURES_gender.r")
+source("R/chi_signature_analysis/TGSig_vs_gender_HL.r")
+source("R/chi_signature_analysis/TGSig_vs_gender_HML.r")
+```
+
+<br/>Generated data files and figures are saved in ```./generated_data/CHI``` and ```./figure_generation```, respectively. The signature files are saved in ```./generated_data/signatures```.
+<br/>
+
+## Step 7. Analyze blood transcription module genes enrichment in genes correlated with percentage of CD38-high cells varying selection threshold for gene inter-subject variation.
+
+Run GSEA on “LI” and “DC” modules separately and save the results in RDS file.
+```{r}
+source("R/fgsea_with_btm_modules/chi_CD38_cor_by_ISV_fgsea_BTM.r")
+```
+
+Generated RDS files are saved in ```./generated_data/fgsea_with_btm_modules```.
+<br/>
+
+---
+
+# HIPC data analysis
+
+## Input data
+
+HAI expression and titer data were downloaded from [ImmuneSpace](http://immunespace.org) and pre-processed using part of the R script to reproduce figures for HIPC meta-analysis paper [Multicohort analysis reveals baseline transcriptional predictors of influenza vaccination responses. Sci Immunol. 2017 Aug 25;2(14)](https://immunology.sciencemag.org/content/2/14/eaal4656). The script downloads the data, corrects the labels for swapped samples, and calculates adjMFC titers.
+For SDY404 we use locally computed adjMFC in ```./data/SDY404_young_hai_titer_table_2016.txt```. 
+
+**Required file from previous analysis**
+```
+./generated_data/signatures/CD38_ge_sig.txt
+```
+
+
+
+## Step 1. Data formatting and preparation
+
+Load the data preloaded from ImmuneSpace
+```{r}
+source("R/hipc_dataprep/hipc_data_from_IS_preloaded.r")
+```
+
+To load the data directly from ImmuneSpace we run this script. The script requires creating account and configuration file to access Immunespace. We cannot guarantee that the script will continue working in the future.
+```
+source("R/hipc_dataprep/hipc_data_from_IS.r")
+```
+
+<br/>Prepare data files for young subjects with titer response
+```{r}
+source("R/hipc_dataprep/hipc_dataprep.r")
+```
+
+<br/>Mapping probes to genes
+```{r}
+source("R/hipc_dataprep/hipc_generate_probe2gene_map.r")
+source("R/hipc_dataprep/hipc_probes2genes.r")
+```
+
+<br/>Filter baseline (day 0) samples and subjects with low and high response 
+```{r}
+source("R/hipc_dataprep/hipc_sample_filtering.r")
+```
+
+<br/>Generated data files are saved in ```./generated_data/HIPC```.
+<br/>
+
+## Step 2. Validation of prediction power of CD38 signature in HIPC datasets (young subjects only)
+
+<br/>Calculate TGSig scores using data from day 0
+```{r}
+source("R/hipc_signature_analysis/hipc_d0_cd38_score.r")
+```
+
+<br/>Generate ROC for titer response prediction based on 10-gene signature, and box plot comparing low- and high- responders based on TGSig:
+```{r}
+source("R/hipc_signature_analysis/hipc_cd38_10gene_sig_analysis_FIGURE.r")
+```
+
+<br/>Generate box plots comparing low-, middle- and high- responders based on TGSig:
+```{r}
+source("R/hipc_signature_analysis/hipc_cd38_10gene_sig_analysis_FIGURE_with_mid.r")
+```
+
+<br/>Generated data files and figures (Fig. 2a and Ext. Data Fig. 3b) are saved in ```./generated_data/HIPC``` and ```./figure_generation```, respectively.
+<br/>
+
+---
+
+# Yellow Fever data analysis
+
+## Input data
+
+* Sample information from GEO including Neutralization antibody titer data
+  * data/YF/expression/sample_info.txt
+* Expression data from GEO processed by RMA-sketch (Affymetrix Power Tools)
+  * data/YF/expression/rma-sketch.summary.txt
+* Probeset-gene mapping (for reproducibility, originally obtained using hgu133plus2.db R package)
+  * data/YF/expression/YF_probe_map.txt
+<br/>
+
+## Step 1. Data formatting and preparation
+
+```{r}
+source("R/yf_dataprep/yf_data_from_apt.r")
+source("R/yf_dataprep/yf_probes2genes.r")
+source("R/yf_dataprep/yf_sample_filtering.r")
+```
+<br/>
+
+# Step 2. Validation of prediction power of CD38 signature in yellow fever datasets
+
+Calculate TGSig scores using data from day 0
+```{r}
+source("R/yf_signature_analysis/yf_d0_cd38_score.r")
+```
+
+<br/>Generate ROC for titer response prediction based on 10-gene signature, and box plot comparing low- and high- responders based on TGSig (trials 1 for Figure 2b, and trial 2 for Ext. Data Fig. 4a):
+```{r}
+source("R/yf_signature_analysis/yf_cd38_10gene_sig_analysis_FIGURES_with_roc_p.r")
+```
+
+<br/>Generate box plot comparing low-, middle- and high- responders based on TGSig in trial 1 (Ext. Data Fig. 3d):
+```{r}
+source("R/yf_signature_analysis/yf_cd38_10gene_sig_analysis_FIGURES_with_mid.r")
+```
+
+<br/>Generated data files and figures are saved in ```./generated_data/YF``` and ```./figure_generation```, respectively.
+<br/>
+
+---
+
+# SLE data analysis
+
+## Input data
+
+* Expression data downloaded from http://websle.com (Data tab) -- Batch-corrected, probe filtered, latest probe-gene annotation.
+  * data/SLE/expression/SLE_Longitudinal_972_eset.RData
+* Subjects assignment to patient groups (from the SLE paper, figure 6A)
+  * data/SLE/SLE_SUBJECT_PG.txt
+<br/>
+
+## Step 1. Data formatting and preparation
+
+```{r}
+source("R/sle_dataprep/sle_dataprep.r")
+source("R/sle_dataprep/sle_probes2genes.r")
+source("R/sle_dataprep/sle_add_DA_and_PG.r")
+source("R/sle_dataprep/sle_sample_filtering.r")
+source("R/sle_dataprep/sle_ge.mean_by_subject.r")
+source("R/sle_dataprep/sle_sledai.lowDA.mean_by_subject.r")
+```
+
+<br/>Generate figure of SLEDAI change at different visit for a single patient (Fig. 2d):
+```{r}
+source("R/sle_example_profile/SLE_SLEDAI_TIME_profiles.r")
+```
+<br/>
+
+## Step 2. Calculate inter-subject variation (ISV) of expression of individual genes to quantify their stability across visits with low disease activity
+
+```{r}
+source("R/sle_dataprep/sle_gene_stability.r")
+```
+<br/>Generated data files and figures are saved in ```./generated_data/SLE``` and ```./figure_generation```, respectively.
+<br/>
+
+## Step 3. Calculate TGSig and Plasmablast signature scores
+
+<br/>Calculate TGSig scores using data from low-disease-activity samples
+```{r}
+source("R/sle_signature_analysis/sle_lowDA_cd38_score.r")
+```
+
+<br/>Calculate Plasmablast signature scores using data from low-disease-activity samples
+```{r}
+source("R/sle_signature_analysis/sle_lowDA_PB_score.r")
+```
+
+<br/>Calculate DaCP using mixed-effect model
+```{r}
+source("R/sle_signature_analysis/sle_PB_score_from_mixed_model.r")
+```
+
+<br/>Generate scatter plot between DaCP and average TGSig scores for low-disease-activity samples (Fig. 2e) and the table of correlation data
+```{r}
+source("R/sle_signature_analysis/sle_PB.SLEDAI.corr_vs_CD38.mean.score_FIGURE.r")
+source("R/sle_signature_analysis/sle_PB.SLEDAI.corr_vs_CD38.mean.score_table.r")
+```
+
+<br/>Generate scatter plot between DaCP and average Plasmablast signature scores for low-disease-activity samples (Fig. 2f)
+```{r}
+source("R/sle_signature_analysis/sle_PB.SLEDAI.corr_vs_PB.lowDA.mean.score_FIGURE.r")
+```
+
+<br/>Generate scatter plot between DaCP and average Plasmablast signature scores for low-disease-activity samples analyzing correlation at different DaCP thresholds (Ext. Data Fig. 5c-d)
+```{r}
+source("R/sle_signature_analysis/sle_PB.SLEDAI.corr_vs_CD38.mean.score_thresholds.r")
+```
+
+<br/>Generated data files and figures are saved in ```./generated_data/SLE``` and ```./figure_generation```, respectively.
+<br/>
+
+
+## Analysis of the blood gene expression signatures associated with disease activity/flares
+
+<br/>Correlation between DaCP and delta in Plasmablast score (Ext. Data Fig. 5b):
+```{r}
+source("R/sle_signature_analysis/sle_BTM_score_from_DA.delta.r")
+```
+
+<br/>Heatmaps of blood gene expression signatures association with disease activity/flares (Fig. 2c and Ext. Data Fig. 5a):
+```{r}
+source("R/sle_signature_analysis/sle_BTM_score_from_DA.delta.r")
+```
+
+<br/>Generated plots are stored in ```./figure_generation```.
+<br/>
+
+---
+
+# Discovery of co-expression module in SLE datasets
+
+## Input data:
+
+* Gene stability table 
+  * ./generated_data/SLE_lowDA_genes_stability.txt
+* Gene expression table by subjects (average across low-disease-activity visits)
+  * ./generated_data/SLE_lowDA_PG234_ge.mean_matrix.txt
+<br/>
+
+## Step 1. Apply WGCNA analysis to split genes to discover expression modules.
+
+<br/>Gene modules discovery by WGCNA
+```{r}
+source("R/WGCNA-modules-from-SLE-low-DA/script.R")
+```
+
+<br/>Generate Eigengene heatmap
+```{r}
+source("R/WGCNA-eigengene-heatmap/script.R")
+```
+
+<br/>The generated figures (Fig. 3a) are saved in ```./figure_generation/SLE_Sig```.
+<br/>
+
+## Step 2. Assess correlation between gene modules and DaCP.
+
+```{r}
+source("R/PB-score-vs-WGCNA-modules/script.R")
+```
+
+<br/>The generated figures (Fig. 3b-c) are saved in ```./figure_generation/SLE-Sig```.
+Table with correlation data for all modules is saved in ```./generated_data/PB-score-vs-WGCNA-modules```.
+<br/>
+
+## Step 3. Perform GSEA analysis with WGCNA modules and extract the brown module leading edge genes (SLE-Sig).
+
+```{r}
+source("R/fgsea_with_wgcna_modules/chi_CD38_cor_by_ISV_fgsea_leadingEdge.r")
+```
+
+<br/>Generate a barplot (Fig. 3e) to show enrichment of brown module (with the enrichment plot) and blood transcriptome modules in genes ranked by correlation of their intensity with CD38++ cell frequency. The genes were filtered with ISV >= 0.5. The previously generated data (step 7 in CHI data analysis) were used for GSEA results of BTM enrichment. 
+
+```{r}
+source("R/fgsea_with_wgcna_modules/chi_CD38_cor_by_ISV_fgsea_FIGURE.r")
+```
+
+<br/>Generate table of three BTM module genes in SLE-Sig (Fig. 3f) 
+```{r}
+source("R/fgsea_with_wgcna_modules/brown-leading-edge-BTM-table.R")
+```
+Output files: ```./generated_data/fgsea_with_wgcna_modules/```
+The generated figure is saved as ```./figure_generation/SLE-Sig```
+<br/>
+
+## Step 4. Analysis of enrichment of Blood Transcription Modules genes in WGCNA modules. Generate the heatmap of enrichment p-values (-log10) - Supplemental Figure 1c.
+```{r}
+source("R/WGCNA-modules-from-SLE-low-DA-tmod/script.R")
+```
+The generated figure is saved as ```./figure_generation/SLE-Sig/WGCNA-BTM-enrichment-p.adjust.pdf```.
+Output files are saved in ```./ganareted_data/WGCNA-modules-from-SLE-low-DA-tmod```
+<br/>
+
+Output table to Fig. 3f is saved as ```./ganareted_data/***/brown-mod-m75-m150-m165-genes-short.csv```
+<br/>
+
+---
+
+# Meta analysis of gene expression in vaccination datasets and the analysis of brown module
+
+## Input data:
+
+* Gene expression tables for all datasets (gene vs. subjects at day0)
+* Sample information with titer response
+
+## Step 1. Perform meta-analysis of 4 flu datasets. Generates table of genes with effect size (with regard to titer response).
+
+```{r}
+source("R/MetaDE-flu-titer-response-from-expression-in-four-cohorts/script.R")
+```
+Output files are saved in ```./generated_data/MetaDE```.
+<br/>
+
+## Step 2. Generate forest plot for meta-analysis of 4 flu datasets (Ext. Data Fig 4b). 
+
+```{r}
+source("R/MetaDE_forest_plot/Flu_meta_forest_plot.r")
+```
+The generated figure is saved in ```./figure_generation/MetaDE```.
+<br/>
+
+## Step 3. Calculate effect sizes and generate effect size plot for trial 1 cohort of Yellow Fever dataset (Ext. Data Fig 4c). 
+```{r}
+source("R/YF1-effect-sizes/script.R")
+source("R/MetaDE_forest_plot/YF1_effect_size_plot.r")
+```
+The output files are saved in ```./generated_data/MetaDE```.
+The generated figure is saved in ```./figure_generation/MetaDE```.
+<br/>
+
+## Step 4. GSEA analyses of vaccine response genes from meta analysis. WGCNA modules against flu response genes
+```{r}
+source("R/GSEA-using-genes-common-to-stable-SLE-low-DA-and-4flu/script.R")
+```    
+The output files are saved in ```./generated_data/MetaDE```.
+The generated figure (Fig. 3d) is saved in ```./figure_generation/MetaDE```.
+<br/>
+
+
+## Step 5. Predictive profiles of select signatures for influenza vaccine response
+```{r}
+source("R/brown-module-leading-genes-low-mid-high-eigengene/script.R")
+```
+Output files are saved in ```./generated_data/brown-module-leading-genes-low-mid-high-eigengene```. 
+<br/>
+
+```{r}
+source("R/recalc-and-check-10gene-CD38plusSig/script.R")
+```
+Output figures (Ext. Data Fig. 6 a-b, e) are saved in ```./figure_generation/SLE-Sig```.
+<br/>
+
+Test removing SLE-Sig genes from brown module
+```{r}
+source("R/brown-mod-minus-leading-edge/script.R")
+```
+Output files are saved in ```./generated_data/brown-mod-minus-leading-edge/```.
+<br/>
+
+```{r}
+source("R/brown-mod-minus-leading-edge-combined/script.R")
+```
+Output figure (Ext. Data Fig. 6d) is saved in ```./figure_generation/SLE-Sig```.
+
+---
+
+# Analysis of IFN-I-DC signature
+```{r}
+source("R/IFN_signature_analysis/setup.r")
+source("R/IFN_signature_analysis/chi_IFN26_sig_analysis_FIGURES2.r")
+source("R/IFN_signature_analysis/hipc_d0_IFN26_score.r")
+source("R/IFN_signature_analysis/sle_lowDA_IFN26_score.r")
+source("R/IFN_signature_analysis/logistic_regr_4flu.r")
+```
+Output files are saved in ```./generated_data/IFN26```.
+Output figures (Ext. Data Fig. 6c,f) are saved in ```./figure_generation/IFN26```.
+<br/>
+<br/>
+
+---
+
+
+Loaded libraries and session information:
+```
+> sessionInfo()
+R version 3.3.1 (2016-06-21)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Red Hat Enterprise Linux Server 7.2 (Maipo)
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
+
+attached base packages:
+ [1] stats4    tools     parallel  stats     graphics  grDevices utils
+ [8] datasets  methods   base
+
+other attached packages:
+ [1] fgsea_1.0.2               Rcpp_0.12.12
+ [3] WGCNA_1.61                fastcluster_1.1.24
+ [5] dynamicTreeCut_1.63-1     illuminaHumanv4.db_1.26.0
+ [7] hgu133plus2.db_3.2.3      org.Hs.eg.db_3.4.0
+ [9] AnnotationDbi_1.36.2      IRanges_2.6.1
+[11] S4Vectors_0.10.3          BiocInstaller_1.24.0
+[13] effsize_0.7.1             MetaDE_1.0.5
+[15] combinat_0.0-8            Biobase_2.32.0
+[17] BiocGenerics_0.18.0       impute_1.46.0
+[19] survival_2.41-3           gdata_2.18.0
+[21] car_2.1-5                 stargazer_5.2
+[23] effects_4.0-0             carData_3.0-0
+[25] GGally_1.3.2              gplots_3.0.1
+[27] xtable_1.8-2              latex2exp_0.4.0
+[29] MASS_7.3-47               tmod_0.31
+[31] lme4_1.1-13               Matrix_1.2-11
+[33] pROC_1.10.0               data.table_1.10.4
+[35] dplyr_0.7.3               purrr_0.2.3
+[37] readr_1.1.1               tidyr_0.7.1
+[39] tibble_1.3.4              ggplot2_2.2.1
+[41] tidyverse_1.1.1           plyr_1.8.4
+
+loaded via a namespace (and not attached):
+ [1] readxl_1.0.0          backports_1.1.0       fastmatch_1.1-0
+ [4] Hmisc_4.0-3           lazyeval_0.2.0        splines_3.3.1
+ [7] BiocParallel_1.6.6    robust_0.4-18         digest_0.6.12
+[10] plotwidgets_0.4       foreach_1.4.3         htmltools_0.3.6
+[13] GO.db_3.4.0           magrittr_1.5          checkmate_1.8.3
+[16] memoise_1.1.0         fit.models_0.5-14     cluster_2.0.6
+[19] doParallel_1.0.10     modelr_0.1.1          matrixStats_0.52.2
+[22] colorspace_1.3-2      rrcov_1.4-3           blob_1.1.0
+[25] rvest_0.3.2           haven_1.1.0           jsonlite_1.5
+[28] tagcloud_0.6          bindr_0.1             iterators_1.0.8
+[31] glue_1.1.1            gtable_0.2.0          MatrixModels_0.4-1
+[34] DEoptimR_1.0-8        SparseM_1.77          scales_0.5.0
+[37] mvtnorm_1.0-6         DBI_0.7               htmlTable_1.9
+[40] foreign_0.8-69        bit_1.1-12            preprocessCore_1.36.0
+[43] Formula_1.2-2         survey_3.32-1         htmlwidgets_0.9
+[46] httr_1.3.1            RColorBrewer_1.1-2    acepack_1.4.1
+[49] pkgconfig_2.0.1       reshape_0.8.7         XML_3.98-1.9
+[52] nnet_7.3-12           rlang_0.1.2           reshape2_1.4.2
+[55] munsell_0.4.3         cellranger_1.1.0      pca3d_0.10
+[58] RSQLite_2.0           broom_0.4.2           stringr_1.2.0
+[61] knitr_1.17            bit64_0.9-7           robustbase_0.92-7
+[64] caTools_1.17.1        bindrcpp_0.2          nlme_3.1-131
+[67] mime_0.5              quantreg_5.33         xml2_1.1.1
+[70] pbkrtest_0.4-7        beeswarm_0.2.3        pcaPP_1.9-72
+[73] stringi_1.1.5         forcats_0.2.0         lattice_0.20-35
+[76] psych_1.7.8           nloptr_1.0.4          bitops_1.0-6
+[79] httpuv_1.3.5          R6_2.2.2              latticeExtra_0.6-28
+[82] KernSmooth_2.23-15    gridExtra_2.3         codetools_0.2-15
+[85] gtools_3.5.0          assertthat_0.2.0      mnormt_1.5-5
+[88] mgcv_1.8-22           hms_0.3               grid_3.3.1
+[91] rpart_4.1-11          minqa_1.2.4           shiny_1.0.5
+[94] lubridate_1.6.0       base64enc_0.1-3       ellipse_0.3-8
+```
+
+
+
+
