@@ -25,11 +25,11 @@ generated_data
 R
 ```
 
-* Download the archived data folder from and unpack it into the ```data``` folder 
+* Download the archived data folder from [here]() and unpack it into the ```data``` folder 
 * Download the archived directory with R code and unpack it into the ```R``` folder. 
 * Make sure to put the ```.Rprofile``` file into the working directory itself. Modify the ```PROJECT_DIR``` variable with the full path to the working directory.
 * Create empty folders generated_data and figure_generation.
-* If you are going to use the Singularity container download it from . It should be located outside of the working directory. 
+* If you are going to use the Singularity container download it from [here](). It should be located outside of the working directory. 
 
 ## Using Singularity container
 
