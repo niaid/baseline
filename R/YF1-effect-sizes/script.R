@@ -13,16 +13,15 @@ process <- function(fn, expr, annot) {
                x0 = x[response.grp0]
                x1 = x[response.grp1]
                r = cohen.d(x1, x0, hedges.correction=T)
-               c(r$estimate, r$var, r$conf.int)
+               c(r$estimate, r$conf.int)
   })
   
   es = t(es)
   es = as.data.table(es, keep.rownames=T)
   setnames(es, 1, "Gene")
   setnames(es, 2, "Hedges.g")
-  setnames(es, 3, "Var")
-  setnames(es, 4, "Conf95.lower")
-  setnames(es, 5, "Conf95.upper")
+  setnames(es, 3, "Conf95.lower")
+  setnames(es, 4, "Conf95.upper")
 
   es[,Gene:=toupper(Gene)]
   setkey(es, Gene)
