@@ -8,9 +8,8 @@ PG.group.names = c("SLE patients with plasmablast\nsignature during flare", "Oth
 
 df = full_join(df.cd38, df.pb, by="SUBJECT") %>% 
   dplyr::filter(!is.na(PG)) %>%
-  # full_join(df.pg, by=c("SUBJECT"="subject")) %>% 
+  mutate(PG = ifelse(PG %in% 2:3, PG, "Other")) %>% 
   mutate(PG = factor(PG)) %>% 
-  mutate(PG = fct_other(PG, keep=2:3)) %>% 
   mutate(PG.group = ifelse(PG %in% 2:3, PG.group.names[1], PG.group.names[2])) %>% 
   mutate(PG.group = factor(PG.group, levels=PG.group.names))
 
@@ -50,9 +49,10 @@ for(i in seq_along(ths)){
               use = "pairwise.complete.obs")$p.value
 }
 
-df.cc = data_frame(th = ths, `N subjects` = nn, `Pearson's r` = cc, `-log10(p)` = -log10(pv)) %>% 
+df.cc = tibble(th = ths, `N subjects` = nn, `Pearson's r` = cc, `-log10(p)` = -log10(pv))
+df.cc = df.cc %>% 
   gather("metric","value", -th) %>% 
-  mutate(metric = fct_inorder(metric))
+  mutate(metric = factor(metric, levels=names(df.cc)[-1]))
 df.vl = data.frame(metric = "-log10(p)", x = -log10(c(0.05, 0.1)))
 ggplot(df.cc, aes(value, th)) +
   geom_point(size=3) +

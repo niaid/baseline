@@ -123,7 +123,7 @@ dev.off()
 DF2 = DF %>% 
   gather("ID", "p", -SUBJECT, -PG) %>% 
   left_join(df.btm, by="ID") %>% 
-  mutate(Group = fct_inorder(Group)) %>% 
+  mutate(Group = factor(Group, levels=unique(Group))) %>% 
   group_by(PG, Group) %>% 
   summarise(p.mean = mean(p, na.rm=T)) %>% 
   ungroup() %>% 

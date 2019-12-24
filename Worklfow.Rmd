@@ -35,7 +35,6 @@ R
 
 If you are using Singularity on NIAID HPC, follow these steps to start the container and run R
 ```
-    $ module load Singularity
     $ cd /hpcdata/sg/sg_data/singularity/baseline
     $ singularity shell -B \
              /full_path_to_the_working_dir/:/var/workflow1 \
@@ -440,7 +439,7 @@ source("R/sle_signature_analysis/sle_PB.SLEDAI.corr_vs_CD38.mean.score_threshold
 
 <br/>Correlation between DaCP and delta in Plasmablast score (Ext. Data Fig. 5b):
 ```{r}
-source("R/sle_signature_analysis/sle_BTM_score_from_DA.delta.r")
+source("R/sle_signature_analysis/sle_DaCP_vs_dPB.r")
 ```
 
 <br/>Heatmaps of blood gene expression signatures association with disease activity/flares (Fig. 2c and Ext. Data Fig. 5a):

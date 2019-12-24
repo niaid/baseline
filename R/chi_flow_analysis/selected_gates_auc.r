@@ -14,7 +14,7 @@ flow.info = fread(fn.info)
 
 fn.titer = file.path(PROJECT_DIR, "data", "CHI", "phenotypes", "titer_processed.txt")
 df.titer = fread(fn.titer) %>% 
-  # mutate(Subject = as.character(Subject)) %>% 
+  mutate(Subject = as.character(Subject)) %>%
   mutate(Response = ifelse(adjMFC_class==0, "low",
                            ifelse(adjMFC_class==2, "high", "middle")))
 

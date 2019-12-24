@@ -55,7 +55,7 @@ N2 = length(ID2)
 res.brown = res[WGCNA=="brown"] %>% 
   as.data.frame() %>% 
   arrange(adj.P.Val) %>% 
-  mutate(Desc = fct_inorder(Desc) %>% fct_rev())
+  mutate(Desc = factor(Desc, levels = rev(unique(Desc))))
 ggplot(res.brown, aes(Desc, -log10(adj.P.Val))) +
   geom_col() +
   geom_hline(yintercept = -log10(0.01), col="red", lty=2) +
