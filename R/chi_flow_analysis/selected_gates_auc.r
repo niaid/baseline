@@ -10,11 +10,12 @@ flow.poB = fread(fn.poB) %>%
 
 
 fn.info = file.path(PROJECT_DIR, "generated_data", "CHI", "flow_sample_info_filtered_day0.txt")
-flow.info = fread(fn.info)
+flow.info = fread(fn.info) %>% 
+  mutate(sibject = as.integer(subject))
 
 fn.titer = file.path(PROJECT_DIR, "data", "CHI", "phenotypes", "titer_processed.txt")
 df.titer = fread(fn.titer) %>% 
-  mutate(Subject = as.character(Subject)) %>%
+  # mutate(Subject = as.character(Subject)) %>%
   mutate(Response = ifelse(adjMFC_class==0, "low",
                            ifelse(adjMFC_class==2, "high", "middle")))
 
@@ -28,15 +29,15 @@ flow.titer = flow.info %>%
 fn.old = file.path(PROJECT_DIR, "data", "CHI/flow/original_gates", "day0.log10.txt")
 flow.old = read.table(fn.old, sep="\t", header=T, row.names=1, stringsAsFactors=F)
 flow.old = as.data.frame(t(flow.old)) %>% 
-  dplyr::select(ID87, ID91, ID96, ID103, ID108) %>% 
+  dplyr::select(ID87) %>% 
   tibble::rownames_to_column("subject") %>% 
-  mutate(subject=sub("X","",subject) %>% as.numeric())
+  mutate(subject=sub("X","",subject) %>% as.integer())
 
 flow = flow.poB %>% 
   inner_join(flow.titer, by="sample") %>% 
   inner_join(flow.old, by="subject")
 
-pops = names(flow)[c(rev(2:5),12)]
+pops = names(flow)[c(rev(2:5),ncol(flow))]
 pops.name = pops
 pops.name[1:4] = 1:4
 pops.group = (1:3)[c(2,2,2,2,3)] %>% factor()
