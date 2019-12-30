@@ -136,7 +136,9 @@ DF2.mat = DF2 %>%
 library(corrplot)
 
 DF2.mat[DF2.mat>15] = 15
-cm.cor = pals::brewer.rdylbu(12) %>% rev()
+# cm.cor = pals::brewer.rdylbu(12) %>% rev() #avoid pals package
+cm.cor = c("#313695","#436FB1","#6BA2CB","#9CCDE2","#CCE9F2","#F0F9D8",
+           "#FEF0A9","#FDCD7E","#FA9C58","#EE613D","#D22B26","#A50026")
 fn.hm2 = file.path(dn.out, "SLE_BTM_PG_compressed")
 png(paste0(fn.hm2, ".png"), w=300, h=200)
 corrplot(DF2.mat, is.corr = F, col=cm.cor, cl.lim=c(0,15), cl.length = 4,
