@@ -8,7 +8,7 @@ dn.fig = file.path(PROJECT_DIR, "figure_generation/SLE-Sig")
 dir.create(dn.fig, showWarnings = F)
 
 WGCNA.mods = fread(file.path(PROJECT_DIR, "generated_data/WGCNA-modules-from-SLE-low-DA/SLE-low-34sbj-9601probes-gene.in.module.minModSize20.signed-hybrid.txt"))
-tab0 = fread(file.path(PROJECT_DIR, "generated_data/MetaDE/MetaDE-Effect-Size-from-four-datasets-16083genes.csv"))
+tab0 = fread(file.path(PROJECT_DIR, "generated_data/MetaDE/MetaDE-Effect-Size-from-four-datasets.csv"))
 
 common.genes.mask = (tab0$gene %in% WGCNA.mods$Symbol)
 

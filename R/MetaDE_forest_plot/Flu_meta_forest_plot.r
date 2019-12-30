@@ -1,4 +1,4 @@
-fn.in = file.path(PROJECT_DIR, "generated_data","MetaDE", "MetaDE-Effect-Size-from-four-datasets-16083genes.csv")
+fn.in = file.path(PROJECT_DIR, "generated_data","MetaDE", "MetaDE-Effect-Size-from-four-datasets.csv")
 meta.res = fread(fn.in)
 
 # load CD38 signature genes

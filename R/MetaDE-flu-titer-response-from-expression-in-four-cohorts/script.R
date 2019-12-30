@@ -20,7 +20,7 @@ res.dt[,gene:=names(res[[1]])]
 setkey(res.dt, FDR.REM)
 setkey(res.dt, zval)
 res.dt = res.dt[nrow(res.dt):1]
-fn = sprintf("%s/MetaDE-Effect-Size-from-four-datasets-%dgenes.csv", dn.out, nrow(res.dt))
+fn = file.path(dn.out, "MetaDE-Effect-Size-from-four-datasets.csv")
 fwrite(file=fn, res.dt, quote=T)
 
 
@@ -36,6 +36,6 @@ names(mods) <- mod.names
 
 res.fgsea = fgsea(mods, ranks, nperm=100)
 
-fn = sprintf("%s/enrichment-of-%dWGCNA-modules-in-4flu-datasets-%dcommon-genes.csv", dn.out, length(mod.names), nrow(res.dt))
+fn = sprintf("%s/enrichment-of-%dWGCNA-modules-in-4flu-datasets.csv", dn.out, length(mod.names))
 fwrite(file=fn, res.fgsea, quote=T)
 

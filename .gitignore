@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+data
+generated_data
+figure_generation
+Figshare.Rproj
