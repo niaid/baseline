@@ -61,7 +61,9 @@ biocLite()
 biocLite(c("hgu133plus2.db","illuminaHumanv4.db","GO.db", "WGCNA","fgsea","impute","qusage",
 "BitSeq"))
 
-install.packages("MetaDE")
+# older versioni of MetaDE
+install.packages("https://cran.r-project.org/src/contrib/Archive/MetaDE/MetaDE_1.0.5.tar.gz", repos = NULL, type = "source")
+
 
 # GitHub (ImmuneSpaceR and ImmSig2 packages have to be installed before ImmuneSignatures. Currently the latest development versions of these packages are required to download HIPC data). We do not include this packages in the Singularity container, since this version once outdated most probably will not not work with ImmuneSpace server.
 install.packages("devtools")
