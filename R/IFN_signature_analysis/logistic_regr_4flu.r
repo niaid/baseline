@@ -1,3 +1,5 @@
+library(effects)
+
 fn.st = file.path(PROJECT_DIR, "generated_data/brown-module-leading-genes-low-mid-high-eigengene/st.rds")
 st = readRDS(fn.st) %>% 
   dplyr::rename(subject = Sample, CD38 = CD38_score) %>% 
