@@ -11,7 +11,7 @@ flow.poB = fread(fn.poB) %>%
 
 fn.info = file.path(PROJECT_DIR, "generated_data", "CHI", "flow_sample_info_filtered_day0.txt")
 flow.info = fread(fn.info) %>% 
-  mutate(sibject = as.integer(subject))
+  mutate(subject = as.integer(subject))
 
 fn.titer = file.path(PROJECT_DIR, "data", "CHI", "phenotypes", "titer_processed.txt")
 df.titer = fread(fn.titer) %>% 
