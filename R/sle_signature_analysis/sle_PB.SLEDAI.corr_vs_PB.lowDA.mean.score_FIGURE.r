@@ -4,6 +4,8 @@ fn.pb.low = file.path(PROJECT_DIR, "generated_data", "SLE", "SLE_lowDA_PB.DC_ge_
 df.pb = fread(fn.pb)
 df.pb.low = fread(fn.pb.low)
 
+PG.group.names = c("SLE patients with plasmablast\nsignature during flare", "Other SLE patients")
+
 df = inner_join(df.pb, df.pb.low, by="SUBJECT") %>%
   dplyr::filter(PG %in% 2:4) %>% 
   mutate(PG = factor(PG)) %>% 

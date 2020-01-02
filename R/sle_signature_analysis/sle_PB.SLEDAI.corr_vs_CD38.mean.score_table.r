@@ -7,10 +7,6 @@ df.pb = fread(fn.pb)
 fn.pg = file.path(PROJECT_DIR, "data", "SLE", "phenotypes", "SLE_SUBJECT_PG.txt")
 df.pg = read_tsv(fn.pg)
 
-# df = inner_join(df.cd38, df.pb, by="SUBJECT") %>% 
-#   mutate(PG = factor(PG)) %>% 
-#   filter(PG %in% 2:4)
-
 PG.group.names = c("SLE patients with plasmablast signature during flare", "Other SLE patients")
 
 df = inner_join(df.cd38, df.pb, by="SUBJECT") %>% 
