@@ -1,3 +1,5 @@
+library(pROC)
+
 # load gene expression data
 fn.ge = file.path(PROJECT_DIR, "generated_data", "CHI", "CHI_GE_matrix_gene.txt")
 dat = fread(fn.ge, data.table = F) %>% 
@@ -20,8 +22,6 @@ flow.df = flow.info %>% dplyr::select(sample) %>% add_column(CD38hi = flow.poB[,
 
 info = info %>% left_join(flow.df, by="sample")
 
-# fn.si.new = sub(".txt", "_CD38hi.txt", fn.si)
-# fwrite(info, fn.si.new, sep="\t", quote=T)
 
 si = with(info, time == 0 & Response %in% c("low","high") & !is.na(CD38hi))
 sum(si)
