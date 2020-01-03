@@ -53,13 +53,12 @@ If Singularity is not available, it is possible to use standalone R but we canno
 
 ```
 # CRAN:
-install.packages(c("plyr", "tidyverse", "data.table", "pROC", "lme4", "tmod", "MASS", "latex2exp", "xtable", "gplots", "GGally", "effects", "stargazer", "car", "gdata", "effsize", "formatR", "cowplot"))
+install.packages(c("plyr", "tidyverse", "data.table", "pROC", "lme4", "limma", "tmod", "MASS", "latex2exp", "gplots", "GGally", "effects", "car", "effsize", "cowplot", "circlize"))
 
 # Bioconductor 3.4:
 source("http://bioconductor.org/biocLite.R")
 biocLite()
-biocLite(c("hgu133plus2.db","illuminaHumanv4.db","GO.db", "WGCNA","fgsea","impute","qusage",
-"BitSeq"))
+biocLite(c("WGCNA", "tmod", "fgsea", "ComplexHeatmap", "hgu133plus2.db"))
 
 # older versioni of MetaDE
 install.packages("https://cran.r-project.org/src/contrib/Archive/MetaDE/MetaDE_1.0.5.tar.gz", repos = NULL, type = "source")
