@@ -3,6 +3,7 @@ require(tmod)
 require(gplots)
 require(RColorBrewer)
 require(scales)
+library(methods)
 library(ggplot2)
 
 dn.out = file.path(PROJECT_DIR, "generated_data/WGCNA-modules-from-SLE-low-DA-tmod")

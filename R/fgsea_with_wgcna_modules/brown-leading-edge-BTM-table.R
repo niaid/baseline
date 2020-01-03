@@ -1,6 +1,7 @@
 library(data.table)
 library(tmod)
 library(fgsea)
+library(methods)
 
 dn.out = file.path(PROJECT_DIR, "generated_data/fgsea_with_wgcna_modules/")
 dir.create(dn.out, showWarnings = F)
