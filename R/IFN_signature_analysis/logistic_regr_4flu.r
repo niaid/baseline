@@ -1,4 +1,5 @@
 library(effects)
+library(gplots)
 
 fn.st = file.path(PROJECT_DIR, "generated_data/brown-module-leading-genes-low-mid-high-eigengene/st.rds")
 st = readRDS(fn.st) %>% 
