@@ -59,7 +59,7 @@ df.pg = read_tsv(fn.pg)
 dn.out = file.path(PROJECT_DIR, "figure_generation")
 dir.create(dn.out, showWarnings = F)
 
-res.all = matrix(NA, nrow = length(list.mod), ncol = ncol(dat2))
+res.all = matrix(NA, nrow = nrow(list.mod$MODULES), ncol = ncol(dat2))
 rownames(res.all) = df.btm$ID
 colnames(res.all) = colnames(dat2)
 
