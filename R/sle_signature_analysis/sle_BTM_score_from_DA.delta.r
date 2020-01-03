@@ -97,20 +97,20 @@ pg = DF %>%
 
 cm = palette()[-8]
 df.n = df.btm %>% 
-  mutate(Group = fct_inorder(Group)) %>% 
+  mutate(Group = factor(Group, levels = unique(df.btm$Group))) %>% 
   group_by(Group) %>% 
   tally()
 
 Heatmap(mat.btm, name = "-log10(p.adj)", cluster_columns = F, cluster_rows = F, split=pg,
         col = colorRamp2(c(0, 3), c("black", "#F3EC18"))) + 
   Heatmap(pg, name="PG", col = cm, show_row_names = F, show_heatmap_legend = F)
-for(i in 1:7){
-  decorate_heatmap_body("-log10(p.adj)", slice = i, {
-    for(j in 1:(nrow(df.n)-1)){
-      grid.lines(rep(sum(df.n$n[1:j])/sum(df.n$n),2), c(0,1), gp = gpar(col = "white", lwd=3, lty = 1))
-    }
-    })
-}
+# for(i in 1:7){
+#   decorate_heatmap_body("-log10(p.adj)", slice = i, {
+#     for(j in 1:(nrow(df.n)-1)){
+#       grid.lines(rep(sum(df.n$n[1:j])/sum(df.n$n),2), c(0,1), gp = gpar(col = "white", lwd=3, lty = 1))
+#     }
+#     })
+# }
 fn.hm1 = file.path(dn.out, "SLE_BTM_PG.png")
 dev.copy(png, fn.hm1, w=800, h=800)
 dev.off()
@@ -120,31 +120,25 @@ dev.off()
 
 
 # Compressed heatmap
+
 DF2 = DF %>% 
   gather("ID", "p", -SUBJECT, -PG) %>% 
   left_join(df.btm, by="ID") %>% 
-  mutate(Group = factor(Group, levels=unique(Group))) %>% 
+  mutate(Group = factor(Group, levels=rev(unique(Group)))) %>% 
   group_by(PG, Group) %>% 
   summarise(p.mean = mean(p, na.rm=T)) %>% 
   ungroup() %>% 
-  mutate(PG = paste0("PG",PG)) %>% 
-  spread(PG, p.mean)
-DF2.mat = DF2 %>% 
-  tibble::column_to_rownames("Group") %>%
-  data.matrix()
+  mutate(PG = paste0("PG",PG))
 
-library(corrplot)
-
-DF2.mat[DF2.mat>15] = 15
-# cm.cor = pals::brewer.rdylbu(12) %>% rev() #avoid pals package
-cm.cor = c("#313695","#436FB1","#6BA2CB","#9CCDE2","#CCE9F2","#F0F9D8",
-           "#FEF0A9","#FDCD7E","#FA9C58","#EE613D","#D22B26","#A50026")
-fn.hm2 = file.path(dn.out, "SLE_BTM_PG_compressed")
-png(paste0(fn.hm2, ".png"), w=300, h=200)
-corrplot(DF2.mat, is.corr = F, col=cm.cor, cl.lim=c(0,15), cl.length = 4,
-         tl.col="black", cl.pos="b", order="original")
-dev.off()
-pdf(paste0(fn.hm2, ".pdf"), w=3, h=2, useDingbats=F)
-corrplot(DF2.mat, is.corr = F, col=cm.cor, cl.lim=c(0,15), cl.length = 4,
-         tl.col="black", cl.pos="b", order="original")
-dev.off()
+ggplot(DF2, aes(PG, Group, col=p.mean, size=p.mean)) +
+  geom_point() +
+  scale_color_distiller(palette = "YlOrRd", direction = 1, 
+                        guide = guide_colorbar(title="mean -log(FDR)", title.position = "top", title.hjust = 0.5)) +
+  scale_size_continuous(range = c(0, 25), guide = F) +
+  scale_x_discrete(position = "top") +
+  xlab("SLE Patient Groups") +
+  ylab(NULL) +
+  theme_bw() + theme(legend.position = "bottom")
+fn.hm2 = file.path(dn.out, "SLE_BTM_PG_compressed2")
+ggsave(paste0(fn.hm2, ".png"), w=7, h=5)
+ggsave(paste0(fn.hm2, ".pdf"), w=7, h=5, useDingbats=F)
