@@ -5,4 +5,9 @@
 data
 generated_data
 figure_generation
+citeseq/data
+citeseq/generated_data
+citeseq/sig
+citeseq/results
+citeseq/figures
 Figshare.Rproj

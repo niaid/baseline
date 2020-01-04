@@ -1,0 +1,476 @@
+---
+title: "Reproducible workflow for the analysis of **CITE-seq data** for the project"
+subtitle: "\"Broad immune activation underlies shared set point signatures for vaccine responsiveness in healthy individuals and disease activity in lupus patients\""
+author: "Yuri Kotliarov, Matthew Mule, Andrew Martins, John S. Tsang"
+output: 
+  html_notebook:
+    toc: yes
+---
+
+## Introduction
+
+The following workflow was used to analyze the CITE-seq data and generate the CITE-seq related figures for our paper "Broad immune activation underlies shared set point signatures for vaccine responsiveness in healthy individuals and disease activity in lupus patients" published in Nature Medicine in 2020.
+<br/>
+
+## Prepare the working directory
+
+Some steps of the workflow require data generated for the first part of the analysis of flow cytometry and microarrays data (see Workflow.Rmd).
+
+Before running the workflow make sure you have the following subfloders in the working directory:
+
+```
+data
+citeseq
+--data
+--figures
+--R
+--results
+generated_data
+
+```
+
+* Download the archived CITE-seq data folder from and unpack it into the ```citeseq/data folder```. 
+* Download the archived directory ```citeseq``` with R code and unpack it into the citeseq folder. 
+* Make sure you have the ```.Rprofile``` file in the working directory. Modify the ```PROJECT_DIR``` variable with the full path to the working directory.
+* Create empty folders generated_data and figure_generation.
+* If you are going to use the Singularity container download it from . It should be located outside of the working directory. 
+
+## R packages used
+
+Our pipeline requires the following R packages:
+
+```
+# CRAN:
+install.packages(c("plyr", "tidyverse", "data.table", "pROC", "MASS", "limma", "mclust", "corrplot", "ggraph", "circlize", "pals", "ggsignif", "ggridges", "viridis", "clustree", "cowplot"))
+
+# Bioconductor:
+install.packages("BiocManager")
+BiocManager::install()
+BiocManager::install("fgsea", "tmod", "ComplexHeatmap")
+
+# Seurat ver. 2.3.4
+source("https://z.umn.edu/archived-seurat")
+
+```
+<br/>
+
+
+### Notes
+If while running some scripts you get X11 forwarding related error, check if you have X11 forwarding turned on (in Putty it is in Connection-SSH-X11) and turn it off. 
+Sometime an error may appear due to a conflict between R packages. In this case restart R and rerun the script that previously returned the error.
+<br/>
+
+---
+<br/>
+
+
+# **0. Before running this workflow always change the working directory to ```citeseq```**.
+
+```{r}
+setwd("citeseq")
+```
+<br/>
+
+# 1. Read Seurat object with demultiplexed data and filtered for singlet cells from H1N1 day0 samples only
+
+Input data are stored in ```data``` folder:
+
+  * RDS file with Seurat object
+    * ```data/H1_day0_demultilexed_singlets.RDS```
+  * RDS file with negative control cells
+    * ```data/neg_control_object.rds```
+
+```{r}
+source("R/dsbnorm_prot_scrannorm_rna.R")
+```
+Intermediate RDS files containing lists of Seurat objects with normalized data for individual batches are stored in ```data/normalization_data```.
+
+Output RDS file is stored in ```data``` folder.
+<br/>
+
+
+# 2. Clustering all cells by ADT data at multiple resolution
+
+The clustering was performed using as an input the matrix of distances between cells using ADT data only. 
+
+## Input data
+
+Input data are stored in ```data``` folder:
+
+  * RDS file with Seurat object with RNA-seq data SCRAN-normalized and ADT data batch-normalized and batch-corrected      * ```data/H1_day0_scranNorm_adtbatchNorm.rds```
+
+The calculations require OVER 64gb of RAM and was run on a high-performance cluster.
+
+```{r}
+source("R/cluster_cells_ADT_distance_matrix.r")
+```
+
+Output: 
+
+  * Table of clusters assignment for each cell: 
+    * ```./data/H1N1_full_clustered_p3dist_multires_metadata.rds```.
+  * Seurat object with clustering assignment:
+    * ```./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered.rds```.
+  
+<br/>
+
+
+# 3. Clusters annotation
+
+Generate a heatmap of average expression of selected protein markers in each of the cell clusters derived from the three different clustering resolutions
+
+```{r}
+source("R/adt_clustering_clusteraverages_all.levels.r")
+```
+
+The generated table in ```results/cluster_nodes.txt``` is used add cluster labelse and manual annotation of cluster cell types.
+
+The generated figures are stored in ```figures/cluster_annotation``` and used for cluster labeling and annotation.
+
+<br/>
+
+
+# 4. Filter cells and generate final heatmap
+
+After annotating the clusters we found that at resolution=3 clusters 34, 36, 38, 39 contain mostly doublet cells. We remove cells in these clusters from the Seurat object.
+
+```{r}
+source("R/remove_doublet_clusters.r")
+```
+
+Output file:
+  ```./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_filtered.rds```
+
+<br/>
+
+The following script uses manual annottion table in ```data/clustree_node_labels_withCellTypeLabels.txt``` and clusters at first three resolutions to generate Figure 4c.
+
+```{r}
+source("R/adt_clustering_clusteraverages_3levels_figure.r")
+```
+
+The generated heatmap is stored in ```figures/cluster_annotation```.
+
+<br/>
+
+
+# 5. PCA and tSNE analysis of the ADT data 
+
+```{r}
+source("R/compute_pca.r")
+```
+
+Output file: ```./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_PCA.rds```
+
+PCA elbow plot is stored in ```figures/TSNE```. Using this plot We determined the number of principal components to use for tSNE as **7**.
+
+<br/>
+
+```{r}
+source("R/compute_tsne.r.r")
+```
+
+This script for tSNE computation at multiple perplexity was run on high-performance cluster.
+
+Output file: ```./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_TSNE.rds```
+
+<br/>
+
+# 6. Label and visualise the clusters
+
+Re-label the clusters and create the final object.
+
+```{r}
+source("R/clustree_labels.r")
+```
+
+Output file: ```./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_TSNE_labels.rds```
+
+*This Seurat object was used for all further analysis.*
+
+<br/>
+
+Generate tSNE plots to check for batch effect and show the first-level clusters for Figure 4a
+
+```{r}
+source("R/tsne_figures.r")
+```
+
+The generated figures are stored in ```figures/TSNE```.
+
+<br/>
+
+Generate the clustree for Figure 4b with nodes colored by level 1 cluters
+
+```{r}
+source("R/clustree_vertical_clr_level1.r")
+```
+
+The generated figure is stored in ```figures/cluster_annotation```.
+
+<br/>
+
+Generate the supplemental figure with the distribution of denoised and background rescaled counts for the surface proteins
+
+```{r}
+source("R/adt_clustering_protein_distribution.r")
+```
+
+The generated figures are stored in ```figures/cluster_annotation```.
+
+<br/>
+
+
+# 7. Test various gene signatures comparing low and high responders
+
+Generate the list of signatures:
+
+```{r}
+source("R/make_list_of_signatures.r")
+```
+Output file with the list of signatures is saved as ```sig/sig.list.RDS```.
+
+<br/>
+
+Check enrichemnt of BTM modules in CD40act gene signature:
+
+```{r}
+source("R/CD40act_genes_HG.test.r")
+```
+Output plot is saved in ```figures/CD40act```.
+
+<br/>
+
+Test gene signatures comparing low vs. high responders using cells in pseudo-bulk and all cell clusters: 
+
+```{r}
+source("R/test_sigs_clusters.r")
+```
+Output file with the list of signatures is saved as ```results/test_sig.genes_in_clusters_high_vs_low_responders.txt```.
+
+<br/>
+
+Compute scores for selected gene signatures in pseudo-bulk and all cell clusters: 
+
+```{r}
+source("R/sig_scores_calc_by_cluster.r")
+```
+Output files are saved in ```results/sig_scores```.
+
+<br/>
+
+
+# 8. Visualize the results of gene signatures tests
+
+Generate box-plot for pseudo-bulk for gene signatures with significant difference between low and high responders: 
+
+```{r}
+source("R/sig_scores_boxplot_pseudobulk.r")
+```
+
+Output plots (for Figure 4d,e) are saved in ```results/sig_test_boxplots```.
+
+<br/>
+
+
+Generate box-plot for level 1 clusters for gene signatures with significant difference between low and high responders: 
+
+```{r}
+source("R/sig_scores_boxplot_by_clusters.r")
+```
+
+Output plots (for Fig. 5a,b,e and Ext. Data Fig. 8f) are saved in ```results/sig_test_boxplots```.
+
+<br/>
+
+
+Generate clustree plots for selected gene signatures indicating significance of difference between low and high responders: 
+
+```{r}
+source("R/clustree_vertical_test_sigs.r")
+```
+
+Output plots (for Fig. 5a,b,e and Ext. Data Fig. 8f) are saved in ```results/sig_test_clustree```.
+
+<br/>
+
+
+Generate box-plots for cluster C9 (pDC) for selected gene signatures: 
+
+```{r}
+source("R/sig_scores_boxplot_C9.r")
+```
+
+Output plots (for Fig. 5c) are saved in ```results/sig_test_boxplots```.
+
+<br/>
+
+Drop-out test for selected gene signatures and selected cluster combinations: 
+
+```{r}
+source("R/test_sigs_clusters_OUT.r")
+```
+
+Result table is saved as ```results/test_sig.genes_in_clusters_high_vs_low_responders_OUT.txt```.
+
+Output plots (for Ext. Data Fig. 8g) are saved in ```figures/drop_out_test```.
+
+<br/>
+
+
+# 9. Manual gating of CD20+CD38++ B cells
+
+```{r}
+source("R/sig_scores_boxplot_C9.r")
+```
+
+Output table of cell frequencies is saved as ```results/CITEseq_CD38hi_cell_data.txt```.
+Output plots (for Ext. Data Fig. 8d,e) are saved in ```results/hand_gating```.
+
+<br/>
+
+
+# 10. Compile scores for multiple signatures and perform correlation analysis
+
+Compute scores of SLE-Sig signature for microarray day 0 data:
+
+```{r}
+source("R/SLE.sig_MA_sig_score.r")
+```
+
+Output file is saved as ```results/sig_scores/scores_SLE.sig_MA.txt```.
+
+<br/>
+
+Compile scores for selected gene signatures for CITE-seq and microarray data plus CD38++ cell frequency from flow cytometry data:
+
+
+```{r}
+source("R/scores_for_correlation.r")
+```
+
+Output table of cell frequencies is saved as ```results/CITEseq_CD38hi_cell_data.txt```.
+
+<br/>
+
+Generate scatter plot of CD40act score in C3.1.0 cell cluster vs. CD20=CD38++ B cells frequency from flow cytometry (Figure 5f):
+
+```{r}
+script("R/CD40act_vs_CD38hi.flow.r")
+```
+
+Output plot is saved in ```figures/sig_ranked_correlation```.
+
+<br/>
+
+Generate scatter plots of correlation between selected signature scores in selected clusters (for Figure 6a):
+
+```{r}
+script("R/sig_correlation_scatterplots.r")
+```
+
+Output plots are saved in ```figures/sig_ranked_correlation```.
+
+<br/>
+
+Generate a correlation plot (for FIgure 6a):
+
+```{r}
+script("R/scores_correlation_heatmap_custom_order.r")
+```
+
+Output plot is saved in ```figures/sig_ranked_correlation```.
+
+<br/>
+
+
+# 11. Differential Expression of selected surface proteins in pDC between low and high responders
+
+```{r}
+script("R/CD86_HLA-DR_vs_response.r")
+```
+
+Output plot is saved in ```figures/adt_vs_response```.
+
+<br/>
+
+
+# 12. Comparing the TGSig and SLE-Sig scores in females versus males
+
+```{r}
+script("R/TGSig_SLE.sig_vs_sex.r")
+```
+
+Output plot is saved in ```figures/male_vs_female```.
+
+<br/>
+<br/>
+<br/>
+
+
+
+
+Loaded libraries and session information:
+
+```
+> sessionInfo()
+R version 3.6.1 (2019-07-05)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 17763)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
+[4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
+
+attached base packages:
+[1] grid      stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] fgsea_1.10.1         Rcpp_1.0.2           clustree_0.4.1       viridis_0.5.1        viridisLite_0.3.0   
+ [6] ggridges_0.5.1       ggsignif_0.6.0       pals_1.5             maps_3.3.0           ComplexHeatmap_2.0.0
+[11] circlize_0.4.8       ggraph_2.0.0         mclust_5.4.5         limma_3.40.6         MASS_7.3-51.4       
+[16] pROC_1.15.3          corrplot_0.84        tmod_0.40            Seurat_2.3.4         Matrix_1.2-17       
+[21] cowplot_1.0.0        data.table_1.12.2    forcats_0.4.0        stringr_1.4.0        dplyr_0.8.3         
+[26] purrr_0.3.2          readr_1.3.1          tidyr_0.8.3          tibble_2.1.3         ggplot2_3.2.0       
+[31] tidyverse_1.2.1      plyr_1.8.4          
+
+loaded via a namespace (and not attached):
+  [1] tagcloud_0.6            reticulate_1.13         R.utils_2.9.0           tidyselect_0.2.5       
+  [5] htmlwidgets_1.3         BiocParallel_1.17.18    Rtsne_0.15              munsell_0.5.0          
+  [9] codetools_0.2-16        ica_1.0-2               miniUI_0.1.1.1          withr_2.1.2            
+ [13] colorspace_1.4-1        knitr_1.24              rstudioapi_0.10         stats4_3.6.1           
+ [17] ROCR_1.0-7              robustbase_0.93-5       dtw_1.21-3              gbRd_0.4-11            
+ [21] Rdpack_0.11-0           labeling_0.3            lars_1.2                polyclip_1.10-0        
+ [25] bit64_0.9-7             farver_2.0.1            vctrs_0.2.0             generics_0.0.2         
+ [29] xfun_0.9                diptest_0.75-7          R6_2.4.0                clue_0.3-57            
+ [33] graphlayouts_0.5.0      hdf5r_1.3.0             manipulateWidget_0.10.0 flexmix_2.3-15         
+ [37] bitops_1.0-6            assertthat_0.2.1        promises_1.0.1          SDMTools_1.1-221.1     
+ [41] scales_1.0.0            nnet_7.3-12             beeswarm_0.2.3          gtable_0.3.0           
+ [45] npsurv_0.4-0            tidygraph_1.1.2         rlang_0.4.0             zeallot_0.1.0          
+ [49] GlobalOptions_0.1.0     splines_3.6.1           lazyeval_0.2.2          acepack_1.4.1          
+ [53] plotwidgets_0.4         dichromat_2.0-0         broom_0.5.2             checkmate_1.9.4        
+ [57] rgl_0.100.30            yaml_2.2.0              reshape2_1.4.3          modelr_0.1.5           
+ [61] crosstalk_1.0.0         backports_1.1.4         httpuv_1.5.1            Hmisc_4.2-0            
+ [65] tools_3.6.1             gplots_3.0.1.1          RColorBrewer_1.1-2      proxy_0.4-23           
+ [69] base64enc_0.1-3         rpart_4.1-15            pbapply_1.4-2           GetoptLong_0.1.7       
+ [73] zoo_1.8-6               haven_2.1.1             ggrepel_0.8.1           cluster_2.1.0          
+ [77] magrittr_1.5            lmtest_0.9-37           RANN_2.6.1              fitdistrplus_1.0-14    
+ [81] hms_0.5.1               lsei_1.2-0              mime_0.7                evaluate_0.14          
+ [85] xtable_1.8-4            XML_3.98-1.20           readxl_1.3.1            gridExtra_2.3          
+ [89] shape_1.4.4             compiler_3.6.1          KernSmooth_2.23-15      crayon_1.3.4           
+ [93] R.oo_1.22.0             htmltools_0.3.6         segmented_1.0-0         later_0.8.0            
+ [97] Formula_1.2-3           snow_0.4-3              lubridate_1.7.4         tweenr_1.0.1           
+[101] fpc_2.2-3               cli_1.1.0               R.methodsS3_1.7.1       gdata_2.18.0           
+[105] parallel_3.6.1          metap_1.1               igraph_1.2.4.1          pkgconfig_2.0.2        
+[109] foreign_0.8-72          xml2_1.2.1              foreach_1.4.7           webshot_0.5.1          
+[113] bibtex_0.4.2            rvest_0.3.4             digest_0.6.20           tsne_0.1-3             
+[117] fastmatch_1.1-0         rmarkdown_1.15          cellranger_1.1.0        htmlTable_1.13.1       
+[121] kernlab_0.9-29          shiny_1.3.2             gtools_3.8.1            modeltools_0.2-22      
+[125] rjson_0.2.20            nlme_3.1-141            jsonlite_1.6            mapproj_1.2.6          
+[129] pillar_1.4.2            lattice_0.20-38         httr_1.4.1              DEoptimR_1.0-8         
+[133] survival_2.44-1.1       glue_1.3.1              png_0.1-7               prabclus_2.3-1         
+[137] iterators_1.0.12        bit_1.1-14              ggforce_0.3.1           class_7.3-15           
+[141] stringi_1.4.3           mixtools_1.1.0          doSNOW_1.0.18           latticeExtra_0.6-28 
+```

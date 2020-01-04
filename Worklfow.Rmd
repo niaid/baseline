@@ -598,6 +598,7 @@ source("R/IFN_signature_analysis/sle_lowDA_IFN26_score.r")
 source("R/IFN_signature_analysis/logistic_regr_4flu.r")
 ```
 Output files are saved in ```./generated_data/IFN26```.
+
 Output figures (Ext. Data Fig. 6c,f) are saved in ```./figure_generation/IFN26```.
 <br/>
 <br/>

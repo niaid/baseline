@@ -10,10 +10,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Yuri Kotliarov, Yong Lu, John S. Tsang" />
+<meta name="author" content="Yuri Kotliarov, Matthew Mule, Andrew Martins, John S. Tsang" />
 
 
-<title>Reproducible workflow for the project</title>
+<title>Reproducible workflow for the analysis of CITE-seq data for the project</title>
 
 <script>/*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
 !function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error("jQuery requires a window with a document");return b(a)}:b(a)}("undefined"!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l="1.11.3",m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCase()};m.fn=m.prototype={jquery:l,constructor:m,selector:"",length:0,toArray:function(){return d.call(this)},get:function(a){return null!=a?0>a?this[a+this.length]:this[a]:d.call(this)},pushStack:function(a){var b=m.merge(this.constructor(),a);return b.prevObject=this,b.context=this.context,b},each:function(a,b){return m.each(this,a,b)},map:function(a){return this.pushStack(m.map(this,function(b,c){return a.call(b,c,b)}))},slice:function(){return this.pushStack(d.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(a){var b=this.length,c=+a+(0>a?b:0);return this.pushStack(c>=0&&b>c?[this[c]]:[])},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:c.sort,splice:c.splice},m.extend=m.fn.extend=function(){var a,b,c,d,e,f,g=arguments[0]||{},h=1,i=arguments.length,j=!1;for("boolean"==typeof g&&(j=g,g=arguments[h]||{},h++),"object"==typeof g||m.isFunction(g)||(g={}),h===i&&(g=this,h--);i>h;h++)if(null!=(e=arguments[h]))for(d in e)a=g[d],c=e[d],g!==c&&(j&&c&&(m.isPlainObject(c)||(b=m.isArray(c)))?(b?(b=!1,f=a&&m.isArray(a)?a:[]):f=a&&m.isPlainObject(a)?a:{},g[d]=m.extend(j,f,c)):void 0!==c&&(g[d]=c));return g},m.extend({expando:"jQuery"+(l+Math.random()).replace(/\D/g,""),isReady:!0,error:function(a){throw new Error(a)},noop:function(){},isFunction:function(a){return"function"===m.type(a)},isArray:Array.isArray||function(a){return"array"===m.type(a)},isWindow:function(a){return null!=a&&a==a.window},isNumeric:function(a){return!m.isArray(a)&&a-parseFloat(a)+1>=0},isEmptyObject:function(a){var b;for(b in a)return!1;return!0},isPlainObject:function(a){var b;if(!a||"object"!==m.type(a)||a.nodeType||m.isWindow(a))return!1;try{if(a.constructor&&!j.call(a,"constructor")&&!j.call(a.constructor.prototype,"isPrototypeOf"))return!1}catch(c){return!1}if(k.ownLast)for(b in a)return j.call(a,b);for(b in a);return void 0===b||j.call(a,b)},type:function(a){return null==a?a+"":"object"==typeof a||"function"==typeof a?h[i.call(a)]||"object":typeof a},globalEval:function(b){b&&m.trim(b)&&(a.execScript||function(b){a.eval.call(a,b)})(b)},camelCase:function(a){return a.replace(o,"ms-").replace(p,q)},nodeName:function(a,b){return a.nodeName&&a.nodeName.toLowerCase()===b.toLowerCase()},each:function(a,b,c){var d,e=0,f=a.length,g=r(a);if(c){if(g){for(;f>e;e++)if(d=b.apply(a[e],c),d===!1)break}else for(e in a)if(d=b.apply(a[e],c),d===!1)break}else if(g){for(;f>e;e++)if(d=b.call(a[e],e,a[e]),d===!1)break}else for(e in a)if(d=b.call(a[e],e,a[e]),d===!1)break;return a},trim:function(a){return null==a?"":(a+"").replace(n,"")},makeArray:function(a,b){var c=b||[];return null!=a&&(r(Object(a))?m.merge(c,"string"==typeof a?[a]:a):f.call(c,a)),c},inArray:function(a,b,c){var d;if(b){if(g)return g.call(b,a,c);for(d=b.length,c=c?0>c?Math.max(0,d+c):c:0;d>c;c++)if(c in b&&b[c]===a)return c}return-1},merge:function(a,b){var c=+b.length,d=0,e=a.length;while(c>d)a[e++]=b[d++];if(c!==c)while(void 0!==b[d])a[e++]=b[d++];return a.length=e,a},grep:function(a,b,c){for(var d,e=[],f=0,g=a.length,h=!c;g>f;f++)d=!b(a[f],f),d!==h&&e.push(a[f]);return e},map:function(a,b,c){var d,f=0,g=a.length,h=r(a),i=[];if(h)for(;g>f;f++)d=b(a[f],f,c),null!=d&&i.push(d);else for(f in a)d=b(a[f],f,c),null!=d&&i.push(d);return e.apply([],i)},guid:1,proxy:function(a,b){var c,e,f;return"string"==typeof b&&(f=a[b],b=a,a=f),m.isFunction(a)?(c=d.call(arguments,2),e=function(){return a.apply(b||this,c.concat(d.call(arguments)))},e.guid=a.guid=a.guid||m.guid++,e):void 0},now:function(){return+new Date},support:k}),m.each("Boolean Number String Function Array Date RegExp Object Error".split(" "),function(a,b){h["[object "+b+"]"]=b.toLowerCase()});function r(a){var b="length"in a&&a.length,c=m.type(a);return"function"===c||m.isWindow(a)?!1:1===a.nodeType&&b?!0:"array"===c||0===b||"number"==typeof b&&b>0&&b-1 in a}var s=function(a){var b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u="sizzle"+1*new Date,v=a.document,w=0,x=0,y=ha(),z=ha(),A=ha(),B=function(a,b){return a===b&&(l=!0),0},C=1<<31,D={}.hasOwnProperty,E=[],F=E.pop,G=E.push,H=E.push,I=E.slice,J=function(a,b){for(var c=0,d=a.length;d>c;c++)if(a[c]===b)return c;return-1},K="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",L="[\\x20\\t\\r\\n\\f]",M="(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",N=M.replace("w","w#"),O="\\["+L+"*("+M+")(?:"+L+"*([*^$|!~]?=)"+L+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+N+"))|)"+L+"*\\]",P=":("+M+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+O+")*)|.*)\\)|)",Q=new RegExp(L+"+","g"),R=new RegExp("^"+L+"+|((?:^|[^\\\\])(?:\\\\.)*)"+L+"+$","g"),S=new RegExp("^"+L+"*,"+L+"*"),T=new RegExp("^"+L+"*([>+~]|"+L+")"+L+"*"),U=new RegExp("="+L+"*([^\\]'\"]*?)"+L+"*\\]","g"),V=new RegExp(P),W=new RegExp("^"+N+"$"),X={ID:new RegExp("^#("+M+")"),CLASS:new RegExp("^\\.("+M+")"),TAG:new RegExp("^("+M.replace("w","w*")+")"),ATTR:new RegExp("^"+O),PSEUDO:new RegExp("^"+P),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+L+"*(even|odd|(([+-]|)(\\d*)n|)"+L+"*(?:([+-]|)"+L+"*(\\d+)|))"+L+"*\\)|)","i"),bool:new RegExp("^(?:"+K+")$","i"),needsContext:new RegExp("^"+L+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+L+"*((?:-\\d)?\\d*)"+L+"*\\)|)(?=[^-]|$)","i")},Y=/^(?:input|select|textarea|button)$/i,Z=/^h\d$/i,$=/^[^{]+\{\s*\[native \w/,_=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,aa=/[+~]/,ba=/'|\\/g,ca=new RegExp("\\\\([\\da-f]{1,6}"+L+"?|("+L+")|.)","ig"),da=function(a,b,c){var d="0x"+b-65536;return d!==d||c?b:0>d?String.fromCharCode(d+65536):String.fromCharCode(d>>10|55296,1023&d|56320)},ea=function(){m()};try{H.apply(E=I.call(v.childNodes),v.childNodes),E[v.childNodes.length].nodeType}catch(fa){H={apply:E.length?function(a,b){G.apply(a,I.call(b))}:function(a,b){var c=a.length,d=0;while(a[c++]=b[d++]);a.length=c-1}}}function ga(a,b,d,e){var f,h,j,k,l,o,r,s,w,x;if((b?b.ownerDocument||b:v)!==n&&m(b),b=b||n,d=d||[],k=b.nodeType,"string"!=typeof a||!a||1!==k&&9!==k&&11!==k)return d;if(!e&&p){if(11!==k&&(f=_.exec(a)))if(j=f[1]){if(9===k){if(h=b.getElementById(j),!h||!h.parentNode)return d;if(h.id===j)return d.push(h),d}else if(b.ownerDocument&&(h=b.ownerDocument.getElementById(j))&&t(b,h)&&h.id===j)return d.push(h),d}else{if(f[2])return H.apply(d,b.getElementsByTagName(a)),d;if((j=f[3])&&c.getElementsByClassName)return H.apply(d,b.getElementsByClassName(j)),d}if(c.qsa&&(!q||!q.test(a))){if(s=r=u,w=b,x=1!==k&&a,1===k&&"object"!==b.nodeName.toLowerCase()){o=g(a),(r=b.getAttribute("id"))?s=r.replace(ba,"\\$&"):b.setAttribute("id",s),s="[id='"+s+"'] ",l=o.length;while(l--)o[l]=s+ra(o[l]);w=aa.test(a)&&pa(b.parentNode)||b,x=o.join(",")}if(x)try{return H.apply(d,w.querySelectorAll(x)),d}catch(y){}finally{r||b.removeAttribute("id")}}}return i(a.replace(R,"$1"),b,d,e)}function ha(){var a=[];function b(c,e){return a.push(c+" ")>d.cacheLength&&delete b[a.shift()],b[c+" "]=e}return b}function ia(a){return a[u]=!0,a}function ja(a){var b=n.createElement("div");try{return!!a(b)}catch(c){return!1}finally{b.parentNode&&b.parentNode.removeChild(b),b=null}}function ka(a,b){var c=a.split("|"),e=a.length;while(e--)d.attrHandle[c[e]]=b}function la(a,b){var c=b&&a,d=c&&1===a.nodeType&&1===b.nodeType&&(~b.sourceIndex||C)-(~a.sourceIndex||C);if(d)return d;if(c)while(c=c.nextSibling)if(c===b)return-1;return a?1:-1}function ma(a){return function(b){var c=b.nodeName.toLowerCase();return"input"===c&&b.type===a}}function na(a){return function(b){var c=b.nodeName.toLowerCase();return("input"===c||"button"===c)&&b.type===a}}function oa(a){return ia(function(b){return b=+b,ia(function(c,d){var e,f=a([],c.length,b),g=f.length;while(g--)c[e=f[g]]&&(c[e]=!(d[e]=c[e]))})})}function pa(a){return a&&"undefined"!=typeof a.getElementsByTagName&&a}c=ga.support={},f=ga.isXML=function(a){var b=a&&(a.ownerDocument||a).documentElement;return b?"HTML"!==b.nodeName:!1},m=ga.setDocument=function(a){var b,e,g=a?a.ownerDocument||a:v;return g!==n&&9===g.nodeType&&g.documentElement?(n=g,o=g.documentElement,e=g.defaultView,e&&e!==e.top&&(e.addEventListener?e.addEventListener("unload",ea,!1):e.attachEvent&&e.attachEvent("onunload",ea)),p=!f(g),c.attributes=ja(function(a){return a.className="i",!a.getAttribute("className")}),c.getElementsByTagName=ja(function(a){return a.appendChild(g.createComment("")),!a.getElementsByTagName("*").length}),c.getElementsByClassName=$.test(g.getElementsByClassName),c.getById=ja(function(a){return o.appendChild(a).id=u,!g.getElementsByName||!g.getElementsByName(u).length}),c.getById?(d.find.ID=function(a,b){if("undefined"!=typeof b.getElementById&&p){var c=b.getElementById(a);return c&&c.parentNode?[c]:[]}},d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){return a.getAttribute("id")===b}}):(delete d.find.ID,d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){var c="undefined"!=typeof a.getAttributeNode&&a.getAttributeNode("id");return c&&c.value===b}}),d.find.TAG=c.getElementsByTagName?function(a,b){return"undefined"!=typeof b.getElementsByTagName?b.getElementsByTagName(a):c.qsa?b.querySelectorAll(a):void 0}:function(a,b){var c,d=[],e=0,f=b.getElementsByTagName(a);if("*"===a){while(c=f[e++])1===c.nodeType&&d.push(c);return d}return f},d.find.CLASS=c.getElementsByClassName&&function(a,b){return p?b.getElementsByClassName(a):void 0},r=[],q=[],(c.qsa=$.test(g.querySelectorAll))&&(ja(function(a){o.appendChild(a).innerHTML="<a id='"+u+"'></a><select id='"+u+"-\f]' msallowcapture=''><option selected=''></option></select>",a.querySelectorAll("[msallowcapture^='']").length&&q.push("[*^$]="+L+"*(?:''|\"\")"),a.querySelectorAll("[selected]").length||q.push("\\["+L+"*(?:value|"+K+")"),a.querySelectorAll("[id~="+u+"-]").length||q.push("~="),a.querySelectorAll(":checked").length||q.push(":checked"),a.querySelectorAll("a#"+u+"+*").length||q.push(".#.+[+~]")}),ja(function(a){var b=g.createElement("input");b.setAttribute("type","hidden"),a.appendChild(b).setAttribute("name","D"),a.querySelectorAll("[name=d]").length&&q.push("name"+L+"*[*^$|!~]?="),a.querySelectorAll(":enabled").length||q.push(":enabled",":disabled"),a.querySelectorAll("*,:x"),q.push(",.*:")})),(c.matchesSelector=$.test(s=o.matches||o.webkitMatchesSelector||o.mozMatchesSelector||o.oMatchesSelector||o.msMatchesSelector))&&ja(function(a){c.disconnectedMatch=s.call(a,"div"),s.call(a,"[s!='']:x"),r.push("!=",P)}),q=q.length&&new RegExp(q.join("|")),r=r.length&&new RegExp(r.join("|")),b=$.test(o.compareDocumentPosition),t=b||$.test(o.contains)?function(a,b){var c=9===a.nodeType?a.documentElement:a,d=b&&b.parentNode;return a===d||!(!d||1!==d.nodeType||!(c.contains?c.contains(d):a.compareDocumentPosition&&16&a.compareDocumentPosition(d)))}:function(a,b){if(b)while(b=b.parentNode)if(b===a)return!0;return!1},B=b?function(a,b){if(a===b)return l=!0,0;var d=!a.compareDocumentPosition-!b.compareDocumentPosition;return d?d:(d=(a.ownerDocument||a)===(b.ownerDocument||b)?a.compareDocumentPosition(b):1,1&d||!c.sortDetached&&b.compareDocumentPosition(a)===d?a===g||a.ownerDocument===v&&t(v,a)?-1:b===g||b.ownerDocument===v&&t(v,b)?1:k?J(k,a)-J(k,b):0:4&d?-1:1)}:function(a,b){if(a===b)return l=!0,0;var c,d=0,e=a.parentNode,f=b.parentNode,h=[a],i=[b];if(!e||!f)return a===g?-1:b===g?1:e?-1:f?1:k?J(k,a)-J(k,b):0;if(e===f)return la(a,b);c=a;while(c=c.parentNode)h.unshift(c);c=b;while(c=c.parentNode)i.unshift(c);while(h[d]===i[d])d++;return d?la(h[d],i[d]):h[d]===v?-1:i[d]===v?1:0},g):n},ga.matches=function(a,b){return ga(a,null,null,b)},ga.matchesSelector=function(a,b){if((a.ownerDocument||a)!==n&&m(a),b=b.replace(U,"='$1']"),!(!c.matchesSelector||!p||r&&r.test(b)||q&&q.test(b)))try{var d=s.call(a,b);if(d||c.disconnectedMatch||a.document&&11!==a.document.nodeType)return d}catch(e){}return ga(b,n,null,[a]).length>0},ga.contains=function(a,b){return(a.ownerDocument||a)!==n&&m(a),t(a,b)},ga.attr=function(a,b){(a.ownerDocument||a)!==n&&m(a);var e=d.attrHandle[b.toLowerCase()],f=e&&D.call(d.attrHandle,b.toLowerCase())?e(a,b,!p):void 0;return void 0!==f?f:c.attributes||!p?a.getAttribute(b):(f=a.getAttributeNode(b))&&f.specified?f.value:null},ga.error=function(a){throw new Error("Syntax error, unrecognized expression: "+a)},ga.uniqueSort=function(a){var b,d=[],e=0,f=0;if(l=!c.detectDuplicates,k=!c.sortStable&&a.slice(0),a.sort(B),l){while(b=a[f++])b===a[f]&&(e=d.push(f));while(e--)a.splice(d[e],1)}return k=null,a},e=ga.getText=function(a){var b,c="",d=0,f=a.nodeType;if(f){if(1===f||9===f||11===f){if("string"==typeof a.textContent)return a.textContent;for(a=a.firstChild;a;a=a.nextSibling)c+=e(a)}else if(3===f||4===f)return a.nodeValue}else while(b=a[d++])c+=e(b);return c},d=ga.selectors={cacheLength:50,createPseudo:ia,match:X,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(a){return a[1]=a[1].replace(ca,da),a[3]=(a[3]||a[4]||a[5]||"").replace(ca,da),"~="===a[2]&&(a[3]=" "+a[3]+" "),a.slice(0,4)},CHILD:function(a){return a[1]=a[1].toLowerCase(),"nth"===a[1].slice(0,3)?(a[3]||ga.error(a[0]),a[4]=+(a[4]?a[5]+(a[6]||1):2*("even"===a[3]||"odd"===a[3])),a[5]=+(a[7]+a[8]||"odd"===a[3])):a[3]&&ga.error(a[0]),a},PSEUDO:function(a){var b,c=!a[6]&&a[2];return X.CHILD.test(a[0])?null:(a[3]?a[2]=a[4]||a[5]||"":c&&V.test(c)&&(b=g(c,!0))&&(b=c.indexOf(")",c.length-b)-c.length)&&(a[0]=a[0].slice(0,b),a[2]=c.slice(0,b)),a.slice(0,3))}},filter:{TAG:function(a){var b=a.replace(ca,da).toLowerCase();return"*"===a?function(){return!0}:function(a){return a.nodeName&&a.nodeName.toLowerCase()===b}},CLASS:function(a){var b=y[a+" "];return b||(b=new RegExp("(^|"+L+")"+a+"("+L+"|$)"))&&y(a,function(a){return b.test("string"==typeof a.className&&a.className||"undefined"!=typeof a.getAttribute&&a.getAttribute("class")||"")})},ATTR:function(a,b,c){return function(d){var e=ga.attr(d,a);return null==e?"!="===b:b?(e+="","="===b?e===c:"!="===b?e!==c:"^="===b?c&&0===e.indexOf(c):"*="===b?c&&e.indexOf(c)>-1:"$="===b?c&&e.slice(-c.length)===c:"~="===b?(" "+e.replace(Q," ")+" ").indexOf(c)>-1:"|="===b?e===c||e.slice(0,c.length+1)===c+"-":!1):!0}},CHILD:function(a,b,c,d,e){var f="nth"!==a.slice(0,3),g="last"!==a.slice(-4),h="of-type"===b;return 1===d&&0===e?function(a){return!!a.parentNode}:function(b,c,i){var j,k,l,m,n,o,p=f!==g?"nextSibling":"previousSibling",q=b.parentNode,r=h&&b.nodeName.toLowerCase(),s=!i&&!h;if(q){if(f){while(p){l=b;while(l=l[p])if(h?l.nodeName.toLowerCase()===r:1===l.nodeType)return!1;o=p="only"===a&&!o&&"nextSibling"}return!0}if(o=[g?q.firstChild:q.lastChild],g&&s){k=q[u]||(q[u]={}),j=k[a]||[],n=j[0]===w&&j[1],m=j[0]===w&&j[2],l=n&&q.childNodes[n];while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if(1===l.nodeType&&++m&&l===b){k[a]=[w,n,m];break}}else if(s&&(j=(b[u]||(b[u]={}))[a])&&j[0]===w)m=j[1];else while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if((h?l.nodeName.toLowerCase()===r:1===l.nodeType)&&++m&&(s&&((l[u]||(l[u]={}))[a]=[w,m]),l===b))break;return m-=e,m===d||m%d===0&&m/d>=0}}},PSEUDO:function(a,b){var c,e=d.pseudos[a]||d.setFilters[a.toLowerCase()]||ga.error("unsupported pseudo: "+a);return e[u]?e(b):e.length>1?(c=[a,a,"",b],d.setFilters.hasOwnProperty(a.toLowerCase())?ia(function(a,c){var d,f=e(a,b),g=f.length;while(g--)d=J(a,f[g]),a[d]=!(c[d]=f[g])}):function(a){return e(a,0,c)}):e}},pseudos:{not:ia(function(a){var b=[],c=[],d=h(a.replace(R,"$1"));return d[u]?ia(function(a,b,c,e){var f,g=d(a,null,e,[]),h=a.length;while(h--)(f=g[h])&&(a[h]=!(b[h]=f))}):function(a,e,f){return b[0]=a,d(b,null,f,c),b[0]=null,!c.pop()}}),has:ia(function(a){return function(b){return ga(a,b).length>0}}),contains:ia(function(a){return a=a.replace(ca,da),function(b){return(b.textContent||b.innerText||e(b)).indexOf(a)>-1}}),lang:ia(function(a){return W.test(a||"")||ga.error("unsupported lang: "+a),a=a.replace(ca,da).toLowerCase(),function(b){var c;do if(c=p?b.lang:b.getAttribute("xml:lang")||b.getAttribute("lang"))return c=c.toLowerCase(),c===a||0===c.indexOf(a+"-");while((b=b.parentNode)&&1===b.nodeType);return!1}}),target:function(b){var c=a.location&&a.location.hash;return c&&c.slice(1)===b.id},root:function(a){return a===o},focus:function(a){return a===n.activeElement&&(!n.hasFocus||n.hasFocus())&&!!(a.type||a.href||~a.tabIndex)},enabled:function(a){return a.disabled===!1},disabled:function(a){return a.disabled===!0},checked:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&!!a.checked||"option"===b&&!!a.selected},selected:function(a){return a.parentNode&&a.parentNode.selectedIndex,a.selected===!0},empty:function(a){for(a=a.firstChild;a;a=a.nextSibling)if(a.nodeType<6)return!1;return!0},parent:function(a){return!d.pseudos.empty(a)},header:function(a){return Z.test(a.nodeName)},input:function(a){return Y.test(a.nodeName)},button:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&"button"===a.type||"button"===b},text:function(a){var b;return"input"===a.nodeName.toLowerCase()&&"text"===a.type&&(null==(b=a.getAttribute("type"))||"text"===b.toLowerCase())},first:oa(function(){return[0]}),last:oa(function(a,b){return[b-1]}),eq:oa(function(a,b,c){return[0>c?c+b:c]}),even:oa(function(a,b){for(var c=0;b>c;c+=2)a.push(c);return a}),odd:oa(function(a,b){for(var c=1;b>c;c+=2)a.push(c);return a}),lt:oa(function(a,b,c){for(var d=0>c?c+b:c;--d>=0;)a.push(d);return a}),gt:oa(function(a,b,c){for(var d=0>c?c+b:c;++d<b;)a.push(d);return a})}},d.pseudos.nth=d.pseudos.eq;for(b in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})d.pseudos[b]=ma(b);for(b in{submit:!0,reset:!0})d.pseudos[b]=na(b);function qa(){}qa.prototype=d.filters=d.pseudos,d.setFilters=new qa,g=ga.tokenize=function(a,b){var c,e,f,g,h,i,j,k=z[a+" "];if(k)return b?0:k.slice(0);h=a,i=[],j=d.preFilter;while(h){(!c||(e=S.exec(h)))&&(e&&(h=h.slice(e[0].length)||h),i.push(f=[])),c=!1,(e=T.exec(h))&&(c=e.shift(),f.push({value:c,type:e[0].replace(R," ")}),h=h.slice(c.length));for(g in d.filter)!(e=X[g].exec(h))||j[g]&&!(e=j[g](e))||(c=e.shift(),f.push({value:c,type:g,matches:e}),h=h.slice(c.length));if(!c)break}return b?h.length:h?ga.error(a):z(a,i).slice(0)};function ra(a){for(var b=0,c=a.length,d="";c>b;b++)d+=a[b].value;return d}function sa(a,b,c){var d=b.dir,e=c&&"parentNode"===d,f=x++;return b.first?function(b,c,f){while(b=b[d])if(1===b.nodeType||e)return a(b,c,f)}:function(b,c,g){var h,i,j=[w,f];if(g){while(b=b[d])if((1===b.nodeType||e)&&a(b,c,g))return!0}else while(b=b[d])if(1===b.nodeType||e){if(i=b[u]||(b[u]={}),(h=i[d])&&h[0]===w&&h[1]===f)return j[2]=h[2];if(i[d]=j,j[2]=a(b,c,g))return!0}}}function ta(a){return a.length>1?function(b,c,d){var e=a.length;while(e--)if(!a[e](b,c,d))return!1;return!0}:a[0]}function ua(a,b,c){for(var d=0,e=b.length;e>d;d++)ga(a,b[d],c);return c}function va(a,b,c,d,e){for(var f,g=[],h=0,i=a.length,j=null!=b;i>h;h++)(f=a[h])&&(!c||c(f,d,e))&&(g.push(f),j&&b.push(h));return g}function wa(a,b,c,d,e,f){return d&&!d[u]&&(d=wa(d)),e&&!e[u]&&(e=wa(e,f)),ia(function(f,g,h,i){var j,k,l,m=[],n=[],o=g.length,p=f||ua(b||"*",h.nodeType?[h]:h,[]),q=!a||!f&&b?p:va(p,m,a,h,i),r=c?e||(f?a:o||d)?[]:g:q;if(c&&c(q,r,h,i),d){j=va(r,n),d(j,[],h,i),k=j.length;while(k--)(l=j[k])&&(r[n[k]]=!(q[n[k]]=l))}if(f){if(e||a){if(e){j=[],k=r.length;while(k--)(l=r[k])&&j.push(q[k]=l);e(null,r=[],j,i)}k=r.length;while(k--)(l=r[k])&&(j=e?J(f,l):m[k])>-1&&(f[j]=!(g[j]=l))}}else r=va(r===g?r.splice(o,r.length):r),e?e(null,g,r,i):H.apply(g,r)})}function xa(a){for(var b,c,e,f=a.length,g=d.relative[a[0].type],h=g||d.relative[" "],i=g?1:0,k=sa(function(a){return a===b},h,!0),l=sa(function(a){return J(b,a)>-1},h,!0),m=[function(a,c,d){var e=!g&&(d||c!==j)||((b=c).nodeType?k(a,c,d):l(a,c,d));return b=null,e}];f>i;i++)if(c=d.relative[a[i].type])m=[sa(ta(m),c)];else{if(c=d.filter[a[i].type].apply(null,a[i].matches),c[u]){for(e=++i;f>e;e++)if(d.relative[a[e].type])break;return wa(i>1&&ta(m),i>1&&ra(a.slice(0,i-1).concat({value:" "===a[i-2].type?"*":""})).replace(R,"$1"),c,e>i&&xa(a.slice(i,e)),f>e&&xa(a=a.slice(e)),f>e&&ra(a))}m.push(c)}return ta(m)}function ya(a,b){var c=b.length>0,e=a.length>0,f=function(f,g,h,i,k){var l,m,o,p=0,q="0",r=f&&[],s=[],t=j,u=f||e&&d.find.TAG("*",k),v=w+=null==t?1:Math.random()||.1,x=u.length;for(k&&(j=g!==n&&g);q!==x&&null!=(l=u[q]);q++){if(e&&l){m=0;while(o=a[m++])if(o(l,g,h)){i.push(l);break}k&&(w=v)}c&&((l=!o&&l)&&p--,f&&r.push(l))}if(p+=q,c&&q!==p){m=0;while(o=b[m++])o(r,s,g,h);if(f){if(p>0)while(q--)r[q]||s[q]||(s[q]=F.call(i));s=va(s)}H.apply(i,s),k&&!f&&s.length>0&&p+b.length>1&&ga.uniqueSort(i)}return k&&(w=v,j=t),r};return c?ia(f):f}return h=ga.compile=function(a,b){var c,d=[],e=[],f=A[a+" "];if(!f){b||(b=g(a)),c=b.length;while(c--)f=xa(b[c]),f[u]?d.push(f):e.push(f);f=A(a,ya(e,d)),f.selector=a}return f},i=ga.select=function(a,b,e,f){var i,j,k,l,m,n="function"==typeof a&&a,o=!f&&g(a=n.selector||a);if(e=e||[],1===o.length){if(j=o[0]=o[0].slice(0),j.length>2&&"ID"===(k=j[0]).type&&c.getById&&9===b.nodeType&&p&&d.relative[j[1].type]){if(b=(d.find.ID(k.matches[0].replace(ca,da),b)||[])[0],!b)return e;n&&(b=b.parentNode),a=a.slice(j.shift().value.length)}i=X.needsContext.test(a)?0:j.length;while(i--){if(k=j[i],d.relative[l=k.type])break;if((m=d.find[l])&&(f=m(k.matches[0].replace(ca,da),aa.test(j[0].type)&&pa(b.parentNode)||b))){if(j.splice(i,1),a=f.length&&ra(j),!a)return H.apply(e,f),e;break}}}return(n||h(a,o))(f,b,!p,e,aa.test(a)&&pa(b.parentNode)||b),e},c.sortStable=u.split("").sort(B).join("")===u,c.detectDuplicates=!!l,m(),c.sortDetached=ja(function(a){return 1&a.compareDocumentPosition(n.createElement("div"))}),ja(function(a){return a.innerHTML="<a href='#'></a>","#"===a.firstChild.getAttribute("href")})||ka("type|href|height|width",function(a,b,c){return c?void 0:a.getAttribute(b,"type"===b.toLowerCase()?1:2)}),c.attributes&&ja(function(a){return a.innerHTML="<input/>",a.firstChild.setAttribute("value",""),""===a.firstChild.getAttribute("value")})||ka("value",function(a,b,c){return c||"input"!==a.nodeName.toLowerCase()?void 0:a.defaultValue}),ja(function(a){return null==a.getAttribute("disabled")})||ka(K,function(a,b,c){var d;return c?void 0:a[b]===!0?b.toLowerCase():(d=a.getAttributeNode(b))&&d.specified?d.value:null}),ga}(a);m.find=s,m.expr=s.selectors,m.expr[":"]=m.expr.pseudos,m.unique=s.uniqueSort,m.text=s.getText,m.isXMLDoc=s.isXML,m.contains=s.contains;var t=m.expr.match.needsContext,u=/^<(\w+)\s*\/?>(?:<\/\1>|)$/,v=/^.[^:#\[\.,]*$/;function w(a,b,c){if(m.isFunction(b))return m.grep(a,function(a,d){return!!b.call(a,d,a)!==c});if(b.nodeType)return m.grep(a,function(a){return a===b!==c});if("string"==typeof b){if(v.test(b))return m.filter(b,a,c);b=m.filter(b,a)}return m.grep(a,function(a){return m.inArray(a,b)>=0!==c})}m.filter=function(a,b,c){var d=b[0];return c&&(a=":not("+a+")"),1===b.length&&1===d.nodeType?m.find.matchesSelector(d,a)?[d]:[]:m.find.matches(a,m.grep(b,function(a){return 1===a.nodeType}))},m.fn.extend({find:function(a){var b,c=[],d=this,e=d.length;if("string"!=typeof a)return this.pushStack(m(a).filter(function(){for(b=0;e>b;b++)if(m.contains(d[b],this))return!0}));for(b=0;e>b;b++)m.find(a,d[b],c);return c=this.pushStack(e>1?m.unique(c):c),c.selector=this.selector?this.selector+" "+a:a,c},filter:function(a){return this.pushStack(w(this,a||[],!1))},not:function(a){return this.pushStack(w(this,a||[],!0))},is:function(a){return!!w(this,"string"==typeof a&&t.test(a)?m(a):a||[],!1).length}});var x,y=a.document,z=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,A=m.fn.init=function(a,b){var c,d;if(!a)return this;if("string"==typeof a){if(c="<"===a.charAt(0)&&">"===a.charAt(a.length-1)&&a.length>=3?[null,a,null]:z.exec(a),!c||!c[1]&&b)return!b||b.jquery?(b||x).find(a):this.constructor(b).find(a);if(c[1]){if(b=b instanceof m?b[0]:b,m.merge(this,m.parseHTML(c[1],b&&b.nodeType?b.ownerDocument||b:y,!0)),u.test(c[1])&&m.isPlainObject(b))for(c in b)m.isFunction(this[c])?this[c](b[c]):this.attr(c,b[c]);return this}if(d=y.getElementById(c[2]),d&&d.parentNode){if(d.id!==c[2])return x.find(a);this.length=1,this[0]=d}return this.context=y,this.selector=a,this}return a.nodeType?(this.context=this[0]=a,this.length=1,this):m.isFunction(a)?"undefined"!=typeof x.ready?x.ready(a):a(m):(void 0!==a.selector&&(this.selector=a.selector,this.context=a.context),m.makeArray(a,this))};A.prototype=m.fn,x=m(y);var B=/^(?:parents|prev(?:Until|All))/,C={children:!0,contents:!0,next:!0,prev:!0};m.extend({dir:function(a,b,c){var d=[],e=a[b];while(e&&9!==e.nodeType&&(void 0===c||1!==e.nodeType||!m(e).is(c)))1===e.nodeType&&d.push(e),e=e[b];return d},sibling:function(a,b){for(var c=[];a;a=a.nextSibling)1===a.nodeType&&a!==b&&c.push(a);return c}}),m.fn.extend({has:function(a){var b,c=m(a,this),d=c.length;return this.filter(function(){for(b=0;d>b;b++)if(m.contains(this,c[b]))return!0})},closest:function(a,b){for(var c,d=0,e=this.length,f=[],g=t.test(a)||"string"!=typeof a?m(a,b||this.context):0;e>d;d++)for(c=this[d];c&&c!==b;c=c.parentNode)if(c.nodeType<11&&(g?g.index(c)>-1:1===c.nodeType&&m.find.matchesSelector(c,a))){f.push(c);break}return this.pushStack(f.length>1?m.unique(f):f)},index:function(a){return a?"string"==typeof a?m.inArray(this[0],m(a)):m.inArray(a.jquery?a[0]:a,this):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(a,b){return this.pushStack(m.unique(m.merge(this.get(),m(a,b))))},addBack:function(a){return this.add(null==a?this.prevObject:this.prevObject.filter(a))}});function D(a,b){do a=a[b];while(a&&1!==a.nodeType);return a}m.each({parent:function(a){var b=a.parentNode;return b&&11!==b.nodeType?b:null},parents:function(a){return m.dir(a,"parentNode")},parentsUntil:function(a,b,c){return m.dir(a,"parentNode",c)},next:function(a){return D(a,"nextSibling")},prev:function(a){return D(a,"previousSibling")},nextAll:function(a){return m.dir(a,"nextSibling")},prevAll:function(a){return m.dir(a,"previousSibling")},nextUntil:function(a,b,c){return m.dir(a,"nextSibling",c)},prevUntil:function(a,b,c){return m.dir(a,"previousSibling",c)},siblings:function(a){return m.sibling((a.parentNode||{}).firstChild,a)},children:function(a){return m.sibling(a.firstChild)},contents:function(a){return m.nodeName(a,"iframe")?a.contentDocument||a.contentWindow.document:m.merge([],a.childNodes)}},function(a,b){m.fn[a]=function(c,d){var e=m.map(this,b,c);return"Until"!==a.slice(-5)&&(d=c),d&&"string"==typeof d&&(e=m.filter(d,e)),this.length>1&&(C[a]||(e=m.unique(e)),B.test(a)&&(e=e.reverse())),this.pushStack(e)}});var E=/\S+/g,F={};function G(a){var b=F[a]={};return m.each(a.match(E)||[],function(a,c){b[c]=!0}),b}m.Callbacks=function(a){a="string"==typeof a?F[a]||G(a):m.extend({},a);var b,c,d,e,f,g,h=[],i=!a.once&&[],j=function(l){for(c=a.memory&&l,d=!0,f=g||0,g=0,e=h.length,b=!0;h&&e>f;f++)if(h[f].apply(l[0],l[1])===!1&&a.stopOnFalse){c=!1;break}b=!1,h&&(i?i.length&&j(i.shift()):c?h=[]:k.disable())},k={add:function(){if(h){var d=h.length;!function f(b){m.each(b,function(b,c){var d=m.type(c);"function"===d?a.unique&&k.has(c)||h.push(c):c&&c.length&&"string"!==d&&f(c)})}(arguments),b?e=h.length:c&&(g=d,j(c))}return this},remove:function(){return h&&m.each(arguments,function(a,c){var d;while((d=m.inArray(c,h,d))>-1)h.splice(d,1),b&&(e>=d&&e--,f>=d&&f--)}),this},has:function(a){return a?m.inArray(a,h)>-1:!(!h||!h.length)},empty:function(){return h=[],e=0,this},disable:function(){return h=i=c=void 0,this},disabled:function(){return!h},lock:function(){return i=void 0,c||k.disable(),this},locked:function(){return!i},fireWith:function(a,c){return!h||d&&!i||(c=c||[],c=[a,c.slice?c.slice():c],b?i.push(c):j(c)),this},fire:function(){return k.fireWith(this,arguments),this},fired:function(){return!!d}};return k},m.extend({Deferred:function(a){var b=[["resolve","done",m.Callbacks("once memory"),"resolved"],["reject","fail",m.Callbacks("once memory"),"rejected"],["notify","progress",m.Callbacks("memory")]],c="pending",d={state:function(){return c},always:function(){return e.done(arguments).fail(arguments),this},then:function(){var a=arguments;return m.Deferred(function(c){m.each(b,function(b,f){var g=m.isFunction(a[b])&&a[b];e[f[1]](function(){var a=g&&g.apply(this,arguments);a&&m.isFunction(a.promise)?a.promise().done(c.resolve).fail(c.reject).progress(c.notify):c[f[0]+"With"](this===d?c.promise():this,g?[a]:arguments)})}),a=null}).promise()},promise:function(a){return null!=a?m.extend(a,d):d}},e={};return d.pipe=d.then,m.each(b,function(a,f){var g=f[2],h=f[3];d[f[1]]=g.add,h&&g.add(function(){c=h},b[1^a][2].disable,b[2][2].lock),e[f[0]]=function(){return e[f[0]+"With"](this===e?d:this,arguments),this},e[f[0]+"With"]=g.fireWith}),d.promise(e),a&&a.call(e,e),e},when:function(a){var b=0,c=d.call(arguments),e=c.length,f=1!==e||a&&m.isFunction(a.promise)?e:0,g=1===f?a:m.Deferred(),h=function(a,b,c){return function(e){b[a]=this,c[a]=arguments.length>1?d.call(arguments):e,c===i?g.notifyWith(b,c):--f||g.resolveWith(b,c)}},i,j,k;if(e>1)for(i=new Array(e),j=new Array(e),k=new Array(e);e>b;b++)c[b]&&m.isFunction(c[b].promise)?c[b].promise().done(h(b,k,c)).fail(g.reject).progress(h(b,j,i)):--f;return f||g.resolveWith(k,c),g.promise()}});var H;m.fn.ready=function(a){return m.ready.promise().done(a),this},m.extend({isReady:!1,readyWait:1,holdReady:function(a){a?m.readyWait++:m.ready(!0)},ready:function(a){if(a===!0?!--m.readyWait:!m.isReady){if(!y.body)return setTimeout(m.ready);m.isReady=!0,a!==!0&&--m.readyWait>0||(H.resolveWith(y,[m]),m.fn.triggerHandler&&(m(y).triggerHandler("ready"),m(y).off("ready")))}}});function I(){y.addEventListener?(y.removeEventListener("DOMContentLoaded",J,!1),a.removeEventListener("load",J,!1)):(y.detachEvent("onreadystatechange",J),a.detachEvent("onload",J))}function J(){(y.addEventListener||"load"===event.type||"complete"===y.readyState)&&(I(),m.ready())}m.ready.promise=function(b){if(!H)if(H=m.Deferred(),"complete"===y.readyState)setTimeout(m.ready);else if(y.addEventListener)y.addEventListener("DOMContentLoaded",J,!1),a.addEventListener("load",J,!1);else{y.attachEvent("onreadystatechange",J),a.attachEvent("onload",J);var c=!1;try{c=null==a.frameElement&&y.documentElement}catch(d){}c&&c.doScroll&&!function e(){if(!m.isReady){try{c.doScroll("left")}catch(a){return setTimeout(e,50)}I(),m.ready()}}()}return H.promise(b)};var K="undefined",L;for(L in m(k))break;k.ownLast="0"!==L,k.inlineBlockNeedsLayout=!1,m(function(){var a,b,c,d;c=y.getElementsByTagName("body")[0],c&&c.style&&(b=y.createElement("div"),d=y.createElement("div"),d.style.cssText="position:absolute;border:0;width:0;height:0;top:0;left:-9999px",c.appendChild(d).appendChild(b),typeof b.style.zoom!==K&&(b.style.cssText="display:inline;margin:0;border:0;padding:1px;width:1px;zoom:1",k.inlineBlockNeedsLayout=a=3===b.offsetWidth,a&&(c.style.zoom=1)),c.removeChild(d))}),function(){var a=y.createElement("div");if(null==k.deleteExpando){k.deleteExpando=!0;try{delete a.test}catch(b){k.deleteExpando=!1}}a=null}(),m.acceptData=function(a){var b=m.noData[(a.nodeName+" ").toLowerCase()],c=+a.nodeType||1;return 1!==c&&9!==c?!1:!b||b!==!0&&a.getAttribute("classid")===b};var M=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,N=/([A-Z])/g;function O(a,b,c){if(void 0===c&&1===a.nodeType){var d="data-"+b.replace(N,"-$1").toLowerCase();if(c=a.getAttribute(d),"string"==typeof c){try{c="true"===c?!0:"false"===c?!1:"null"===c?null:+c+""===c?+c:M.test(c)?m.parseJSON(c):c}catch(e){}m.data(a,b,c)}else c=void 0}return c}function P(a){var b;for(b in a)if(("data"!==b||!m.isEmptyObject(a[b]))&&"toJSON"!==b)return!1;
@@ -1744,9 +1744,9 @@ summary {
 
 
 
-<h1 class="title toc-ignore">Reproducible workflow for the project</h1>
+<h1 class="title toc-ignore">Reproducible workflow for the analysis of <strong>CITE-seq data</strong> for the project</h1>
 <h3 class="subtitle">“Broad immune activation underlies shared set point signatures for vaccine responsiveness in healthy individuals and disease activity in lupus patients”</h3>
-<h4 class="author">Yuri Kotliarov, Yong Lu, John S. Tsang</h4>
+<h4 class="author">Yuri Kotliarov, Matthew Mule, Andrew Martins, John S. Tsang</h4>
 
 </div>
 
@@ -1754,864 +1754,493 @@ summary {
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#prepare-the-working-directory">Prepare the working directory</a></li>
-<li><a href="#using-singularity-container">Using Singularity container</a></li>
-<li><a href="#using-r-without-singularity-container">Using R without Singularity container</a><ul>
+<li><a href="#r-packages-used">R packages used</a><ul>
 <li><a href="#notes">Notes</a></li>
 </ul></li>
-<li><a href="#chi-data-analysis">CHI data analysis</a><ul>
+<li><a href="#before-running-this-workflow-always-change-the-working-directory-to-citeseq."><strong>0. Before running this workflow always change the working directory to <code>citeseq</code></strong>.</a></li>
+<li><a href="#read-seurat-object-with-demultiplexed-data-and-filtered-for-singlet-cells-from-h1n1-day0-samples-only">1. Read Seurat object with demultiplexed data and filtered for singlet cells from H1N1 day0 samples only</a></li>
+<li><a href="#clustering-all-cells-by-adt-data-at-multiple-resolution">2. Clustering all cells by ADT data at multiple resolution</a><ul>
 <li><a href="#input-data">Input data</a></li>
-<li><a href="#step-1.-data-formatting-and-preparation">Step 1. Data formatting and preparation</a></li>
-<li><a href="#step-2.-calculate-and-plot-correlation-between-titer-response-and-percent-of-cd38-high-cells-for-3-baseline-time-points">Step 2. Calculate and plot correlation between titer response and percent of CD38 high cells for 3 baseline time points</a></li>
-<li><a href="#step-3.-compare-newly-gated-cell-populations-with-previous-gates-by-predictive-power-auc-and-temporal-stability">Step 3. Compare newly gated cell populations with previous gates by predictive power (AUC) and temporal stability:</a></li>
-<li><a href="#step-4.-calculate-inter-subject-variation-isv-of-expression-of-individual-genes-to-quantify-their-stability-across-baseline-time-points-days--7-0-and-70">Step 4. Calculate inter-subject variation (ISV) of expression of individual genes to quantify their stability across baseline time points (days -7, 0, and 70):</a></li>
-<li><a href="#step-5.-analysis-of-correlation-between-gene-expression-and-percentage-of-cd38-high-cells">Step 5. Analysis of correlation between gene expression and percentage of CD38 high cells:</a></li>
-<li><a href="#step-6.-determine-the-optimal-number-of-genes-as-expression-surrogate-signature-for-cd20cd38-b-cells.">Step 6. Determine the optimal number of genes as expression surrogate signature for CD20+CD38++ B cells.</a></li>
-<li><a href="#step-7.-analyze-blood-transcription-module-genes-enrichment-in-genes-correlated-with-percentage-of-cd38-high-cells-varying-selection-threshold-for-gene-inter-subject-variation.">Step 7. Analyze blood transcription module genes enrichment in genes correlated with percentage of CD38-high cells varying selection threshold for gene inter-subject variation.</a></li>
 </ul></li>
-<li><a href="#hipc-data-analysis">HIPC data analysis</a><ul>
-<li><a href="#input-data-1">Input data</a></li>
-<li><a href="#step-1.-data-formatting-and-preparation-1">Step 1. Data formatting and preparation</a></li>
-<li><a href="#step-2.-validation-of-prediction-power-of-cd38-signature-in-hipc-datasets-young-subjects-only">Step 2. Validation of prediction power of CD38 signature in HIPC datasets (young subjects only)</a></li>
-</ul></li>
-<li><a href="#yellow-fever-data-analysis">Yellow Fever data analysis</a><ul>
-<li><a href="#input-data-2">Input data</a></li>
-<li><a href="#step-1.-data-formatting-and-preparation-2">Step 1. Data formatting and preparation</a></li>
-</ul></li>
-<li><a href="#step-2.-validation-of-prediction-power-of-cd38-signature-in-yellow-fever-datasets">Step 2. Validation of prediction power of CD38 signature in yellow fever datasets</a></li>
-<li><a href="#sle-data-analysis">SLE data analysis</a><ul>
-<li><a href="#input-data-3">Input data</a></li>
-<li><a href="#step-1.-data-formatting-and-preparation-3">Step 1. Data formatting and preparation</a></li>
-<li><a href="#step-2.-calculate-inter-subject-variation-isv-of-expression-of-individual-genes-to-quantify-their-stability-across-visits-with-low-disease-activity">Step 2. Calculate inter-subject variation (ISV) of expression of individual genes to quantify their stability across visits with low disease activity</a></li>
-<li><a href="#step-3.-calculate-tgsig-and-plasmablast-signature-scores">Step 3. Calculate TGSig and Plasmablast signature scores</a></li>
-<li><a href="#analysis-of-the-blood-gene-expression-signatures-associated-with-disease-activityflares">Analysis of the blood gene expression signatures associated with disease activity/flares</a></li>
-</ul></li>
-<li><a href="#discovery-of-co-expression-module-in-sle-datasets">Discovery of co-expression module in SLE datasets</a><ul>
-<li><a href="#input-data-4">Input data:</a></li>
-<li><a href="#step-1.-apply-wgcna-analysis-to-split-genes-to-discover-expression-modules.">Step 1. Apply WGCNA analysis to split genes to discover expression modules.</a></li>
-<li><a href="#step-2.-assess-correlation-between-gene-modules-and-dacp.">Step 2. Assess correlation between gene modules and DaCP.</a></li>
-<li><a href="#step-3.-perform-gsea-analysis-with-wgcna-modules-and-extract-the-brown-module-leading-edge-genes-sle-sig.">Step 3. Perform GSEA analysis with WGCNA modules and extract the brown module leading edge genes (SLE-Sig).</a></li>
-<li><a href="#step-4.-analysis-of-enrichment-of-blood-transcription-modules-genes-in-wgcna-modules.-generate-the-heatmap-of-enrichment-p-values--log10---supplemental-figure-1c.">Step 4. Analysis of enrichment of Blood Transcription Modules genes in WGCNA modules. Generate the heatmap of enrichment p-values (-log10) - Supplemental Figure 1c.</a></li>
-</ul></li>
-<li><a href="#meta-analysis-of-gene-expression-in-vaccination-datasets-and-the-analysis-of-brown-module">Meta analysis of gene expression in vaccination datasets and the analysis of brown module</a><ul>
-<li><a href="#input-data-5">Input data:</a></li>
-<li><a href="#step-1.-perform-meta-analysis-of-4-flu-datasets.-generates-table-of-genes-with-effect-size-with-regard-to-titer-response.">Step 1. Perform meta-analysis of 4 flu datasets. Generates table of genes with effect size (with regard to titer response).</a></li>
-<li><a href="#step-2.-generate-forest-plot-for-meta-analysis-of-4-flu-datasets-ext.-data-fig-4b.">Step 2. Generate forest plot for meta-analysis of 4 flu datasets (Ext. Data Fig 4b).</a></li>
-<li><a href="#step-3.-calculate-effect-sizes-and-generate-effect-size-plot-for-trial-1-cohort-of-yellow-fever-dataset-ext.-data-fig-4c.">Step 3. Calculate effect sizes and generate effect size plot for trial 1 cohort of Yellow Fever dataset (Ext. Data Fig 4c).</a></li>
-<li><a href="#step-4.-gsea-analyses-of-vaccine-response-genes-from-meta-analysis.-wgcna-modules-against-flu-response-genes">Step 4. GSEA analyses of vaccine response genes from meta analysis. WGCNA modules against flu response genes</a></li>
-<li><a href="#step-5.-predictive-profiles-of-select-signatures-for-influenza-vaccine-response">Step 5. Predictive profiles of select signatures for influenza vaccine response</a></li>
-</ul></li>
-<li><a href="#analysis-of-ifn-i-dc-signature">Analysis of IFN-I-DC signature</a></li>
+<li><a href="#clusters-annotation">3. Clusters annotation</a></li>
+<li><a href="#filter-cells-and-generate-final-heatmap">4. Filter cells and generate final heatmap</a></li>
+<li><a href="#pca-and-tsne-analysis-of-the-adt-data">5. PCA and tSNE analysis of the ADT data</a></li>
+<li><a href="#label-and-visualise-the-clusters">6. Label and visualise the clusters</a></li>
+<li><a href="#test-various-gene-signatures-comparing-low-and-high-responders">7. Test various gene signatures comparing low and high responders</a></li>
+<li><a href="#visualize-the-results-of-gene-signatures-tests">8. Visualize the results of gene signatures tests</a></li>
+<li><a href="#manual-gating-of-cd20cd38-b-cells">9. Manual gating of CD20+CD38++ B cells</a></li>
+<li><a href="#compile-scores-for-multiple-signatures-and-perform-correlation-analysis">10. Compile scores for multiple signatures and perform correlation analysis</a></li>
+<li><a href="#differential-expression-of-selected-surface-proteins-in-pdc-between-low-and-high-responders">11. Differential Expression of selected surface proteins in pDC between low and high responders</a></li>
+<li><a href="#comparing-the-tgsig-and-sle-sig-scores-in-females-versus-males">12. Comparing the TGSig and SLE-Sig scores in females versus males</a></li>
 </ul>
 </div>
 
 <!-- rnb-text-begin -->
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>The following workflow was used to analyze the data and generate the figures for our paper “Broad immune activation underlies shared set point signatures for vaccine responsiveness in healthy individuals and disease activity in lupus patients” published in Nature Medicine in 2020.</p>
-<p>To avoid inavailability or version change in R packages we recommend to run the workflow using our Singularity container. <br /></p>
+<p>The following workflow was used to analyze the CITE-seq data and generate the CITE-seq related figures for our paper “Broad immune activation underlies shared set point signatures for vaccine responsiveness in healthy individuals and disease activity in lupus patients” published in Nature Medicine in 2020. <br /></p>
 </div>
 <div id="prepare-the-working-directory" class="section level2">
 <h2>Prepare the working directory</h2>
-<p>Before running the workflow prepare the working directory with the following subfloders:</p>
+<p>Some steps of the workflow require data generated for the first part of the analysis of flow cytometry and microarrays data (see Workflow.Rmd).</p>
+<p>Before running the workflow make sure you have the following subfloders in the working directory:</p>
 <pre><code>data
-figure_generation
+citeseq
+--data
+--figures
+--R
+--results
 generated_data
-R</code></pre>
+</code></pre>
 <ul>
-<li>Download the archived data folder from <a href>here</a> and unpack it into the <code>data</code> folder</li>
-<li>Download the archived directory with R code and unpack it into the <code>R</code> folder.</li>
-<li>Make sure to put the <code>.Rprofile</code> file into the working directory itself. Modify the <code>PROJECT_DIR</code> variable with the full path to the working directory.</li>
+<li>Download the archived CITE-seq data folder from and unpack it into the <code>citeseq/data folder</code>.</li>
+<li>Download the archived directory <code>citeseq</code> with R code and unpack it into the citeseq folder.</li>
+<li>Make sure you have the <code>.Rprofile</code> file in the working directory. Modify the <code>PROJECT_DIR</code> variable with the full path to the working directory.</li>
 <li>Create empty folders generated_data and figure_generation.</li>
-<li>If you are going to use the Singularity container download it from <a href>here</a>. It should be located outside of the working directory.</li>
+<li>If you are going to use the Singularity container download it from . It should be located outside of the working directory.</li>
 </ul>
 </div>
-<div id="using-singularity-container" class="section level2">
-<h2>Using Singularity container</h2>
-<p>If you are using Singularity on NIAID HPC, follow these steps to start the container and run R</p>
-<pre><code>    $ cd /hpcdata/sg/sg_data/singularity/baseline
-    $ singularity shell -B \
-             /full_path_to_the_working_dir/:/var/workflow1 \
-              baseline_rstudio_r_3.4.1.img
-    $ cd /var/workflow1
-    $ R</code></pre>
-<p><br />For outside usage check that Singularity is installed and works properly. Singularity installation and usage guide can be found at <a href="https://sylabs.io/docs/" class="uri">https://sylabs.io/docs/</a>. <br /></p>
-</div>
-<div id="using-r-without-singularity-container" class="section level2">
-<h2>Using R without Singularity container</h2>
-<p>If Singularity is not available, it is possible to use standalone R but we cannot guarantee the error-free flow and the exact results.</p>
-<p><br />Our pipeline requires the following R packages:</p>
+<div id="r-packages-used" class="section level2">
+<h2>R packages used</h2>
+<p>Our pipeline requires the following R packages:</p>
 <pre><code># CRAN:
-install.packages(c(&quot;plyr&quot;, &quot;tidyverse&quot;, &quot;data.table&quot;, &quot;pROC&quot;, &quot;lme4&quot;, &quot;limma&quot;, &quot;tmod&quot;, &quot;MASS&quot;, &quot;latex2exp&quot;, &quot;gplots&quot;, &quot;GGally&quot;, &quot;effects&quot;, &quot;car&quot;, &quot;effsize&quot;, &quot;cowplot&quot;, &quot;circlize&quot;))
+install.packages(c(&quot;plyr&quot;, &quot;tidyverse&quot;, &quot;data.table&quot;, &quot;pROC&quot;, &quot;MASS&quot;, &quot;limma&quot;, &quot;mclust&quot;, &quot;corrplot&quot;, &quot;ggraph&quot;, &quot;circlize&quot;, &quot;pals&quot;, &quot;ggsignif&quot;, &quot;ggridges&quot;, &quot;viridis&quot;, &quot;clustree&quot;, &quot;cowplot&quot;))
 
-# Bioconductor 3.4:
-source(&quot;http://bioconductor.org/biocLite.R&quot;)
-biocLite()
-biocLite(c(&quot;WGCNA&quot;, &quot;tmod&quot;, &quot;fgsea&quot;, &quot;ComplexHeatmap&quot;, &quot;hgu133plus2.db&quot;))
+# Bioconductor:
+install.packages(&quot;BiocManager&quot;)
+BiocManager::install()
+BiocManager::install(&quot;fgsea&quot;, &quot;tmod&quot;, &quot;ComplexHeatmap&quot;)
 
-# older versioni of MetaDE
-install.packages(&quot;https://cran.r-project.org/src/contrib/Archive/MetaDE/MetaDE_1.0.5.tar.gz&quot;, repos = NULL, type = &quot;source&quot;)
-
-
-# GitHub (ImmuneSpaceR and ImmSig2 packages have to be installed before ImmuneSignatures. Currently the latest development versions of these packages are required to download HIPC data). We do not include this packages in the Singularity container, since this version once outdated most probably will not not work with ImmuneSpace server.
-install.packages(&quot;devtools&quot;)
-devtools::install_github(&quot;rglab/ImmuneSpaceR&quot;)
-devtools::install_github(&quot;ehfhcrc/ImmSig2&quot;)
-devtools::install_github(&quot;rglab/ImmuneSignatures&quot;, build_vignettes = FALSE)</code></pre>
+# Seurat ver. 2.3.4
+source(&quot;https://z.umn.edu/archived-seurat&quot;)
+</code></pre>
 <p><br /></p>
 <div id="notes" class="section level3">
 <h3>Notes</h3>
 <p>If while running some scripts you get X11 forwarding related error, check if you have X11 forwarding turned on (in Putty it is in Connection-SSH-X11) and turn it off. Sometime an error may appear due to a conflict between R packages. In this case restart R and rerun the script that previously returned the error. <br /></p>
 <hr />
+<p><br /></p>
 </div>
 </div>
-<div id="chi-data-analysis" class="section level1">
-<h1>CHI data analysis</h1>
+<div id="before-running-this-workflow-always-change-the-working-directory-to-citeseq." class="section level1">
+<h1><strong>0. Before running this workflow always change the working directory to <code>citeseq</code></strong>.</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0d2QoXCJjaXRlc2VxXCIpXG5gYGAifQ== -->
+<pre class="r"><code>setwd(&quot;citeseq&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><br /></p>
+</div>
+<div id="read-seurat-object-with-demultiplexed-data-and-filtered-for-singlet-cells-from-h1n1-day0-samples-only" class="section level1">
+<h1>1. Read Seurat object with demultiplexed data and filtered for singlet cells from H1N1 day0 samples only</h1>
+<p>Input data are stored in <code>data</code> folder:</p>
+<ul>
+<li>RDS file with Seurat object
+<ul>
+<li><code>data/H1_day0_demultilexed_singlets.RDS</code></li>
+</ul></li>
+<li>RDS file with negative control cells
+<ul>
+<li><code>data/neg_control_object.rds</code></li>
+</ul></li>
+</ul>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9kc2Jub3JtX3Byb3Rfc2NyYW5ub3JtX3JuYS5SXCIpXG5gYGAifQ== -->
+<pre class="r"><code>source(&quot;R/dsbnorm_prot_scrannorm_rna.R&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Intermediate RDS files containing lists of Seurat objects with normalized data for individual batches are stored in <code>data/normalization_data</code>.</p>
+<p>Output RDS file is stored in <code>data</code> folder. <br /></p>
+</div>
+<div id="clustering-all-cells-by-adt-data-at-multiple-resolution" class="section level1">
+<h1>2. Clustering all cells by ADT data at multiple resolution</h1>
+<p>The clustering was performed using as an input the matrix of distances between cells using ADT data only.</p>
 <div id="input-data" class="section level2">
 <h2>Input data</h2>
-<p>Input data are stored in data folder:</p>
+<p>Input data are stored in <code>data</code> folder:</p>
 <ul>
-<li>Demographics (gender, age, ethnicity)
+<li>RDS file with Seurat object with RNA-seq data SCRAN-normalized and ADT data batch-normalized and batch-corrected * <code>data/H1_day0_scranNorm_adtbatchNorm.rds</code></li>
+</ul>
+<p>The calculations require OVER 64gb of RAM and was run on a high-performance cluster.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jbHVzdGVyX2NlbGxzX0FEVF9kaXN0YW5jZV9tYXRyaXguclwiKVxuYGBgIn0= -->
+<pre class="r"><code>source(&quot;R/cluster_cells_ADT_distance_matrix.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Output:</p>
 <ul>
-<li>data/CHI/phenotypes/CHI_demographics.txt</li>
+<li>Table of clusters assignment for each cell:
+<ul>
+<li><code>./data/H1N1_full_clustered_p3dist_multires_metadata.rds</code>.</li>
 </ul></li>
-<li>Microneutralization titer, processed
+<li>Seurat object with clustering assignment:
 <ul>
-<li>data/CHI/phenotypes/titer_processed.txt</li>
-</ul></li>
-<li>Expression data after correction of batch effect (hybridization date) downloaded from <a href="https://chi.niaid.nih.gov/" class="uri">https://chi.niaid.nih.gov/</a>
-<ul>
-<li>data/CHI/expression/corrected.batch.txt</li>
-<li>data/CHI/expression/affy_hugene_1.0_ID_unique_PC1.txt (probeset-gene mapping)</li>
-</ul></li>
-<li>Flow cytometry (cell counts of selected cell populations exported from FlowJo v9.9.3)
-<ul>
-<li>data/CHI/flow/bp_flow_data.txt</li>
-</ul></li>
-<li>Visual quality assessment of cell viability and the detection of CD38 marker (pass or fail)
-<ul>
-<li>data/CHI/flow/bp_flow_sample_flagged.txt</li>
+<li><code>./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered.rds</code>.</li>
 </ul></li>
 </ul>
-<p>All data except flow are available on the CHI data portal (<a href="https://chi.niaid.nih.gov/web/new/data.html" class="uri">https://chi.niaid.nih.gov/web/new/data.html</a>) <br /></p>
-</div>
-<div id="step-1.-data-formatting-and-preparation" class="section level2">
-<h2>Step 1. Data formatting and preparation</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfZGF0YXByZXAvY2hpX2RhdGFfZnJvbV9wdWJsaWMuclwiKVxuc291cmNlKFwiUi9jaGlfZGF0YXByZXAvY2hpX3Byb2JlczJnZW5lcy5yXCIpXG5zb3VyY2UoXCJSL2NoaV9kYXRhcHJlcC9jaGlfYWRkX2RlbW9fYW5kX3RpdGVyLnJcIilcbnNvdXJjZShcIlIvY2hpX2RhdGFwcmVwL2NoaV9mbG93X3Byb2NlbnRzLnJcIilcbnNvdXJjZShcIlIvY2hpX2RhdGFwcmVwL2NoaV9mbG93X2ZpbHRlcmluZy5yXCIpXG5cbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/chi_dataprep/chi_data_from_public.r&quot;)
-source(&quot;R/chi_dataprep/chi_probes2genes.r&quot;)
-source(&quot;R/chi_dataprep/chi_add_demo_and_titer.r&quot;)
-source(&quot;R/chi_dataprep/chi_flow_procents.r&quot;)
-source(&quot;R/chi_dataprep/chi_flow_filtering.r&quot;)
-</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Output will be saved to ./generated_data/CHI/. <br /></p>
-</div>
-<div id="step-2.-calculate-and-plot-correlation-between-titer-response-and-percent-of-cd38-high-cells-for-3-baseline-time-points" class="section level2">
-<h2>Step 2. Calculate and plot correlation between titer response and percent of CD38 high cells for 3 baseline time points</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfZmxvdy10aXRlcl9jb3JyZWxhcmlvbi9jaGlfZmxvd190aXRlcl9jb3JyX3dpdGhfcm9jX3AuclwiKVxuXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/chi_flow-titer_correlarion/chi_flow_titer_corr_with_roc_p.r&quot;)
-</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />It will generate the following figure (Ext. Data Fig. 1b)</p>
-<pre><code>./figure_generation/CHI_flow_vs_respones_3time_p.pdf</code></pre>
-<p><br /></p>
-</div>
-<div id="step-3.-compare-newly-gated-cell-populations-with-previous-gates-by-predictive-power-auc-and-temporal-stability" class="section level2">
-<h2>Step 3. Compare newly gated cell populations with previous gates by predictive power (AUC) and temporal stability:</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfZmxvd19hbmFseXNpcy9zZWxlY3RlZF9nYXRlc19hdWMuclwiKVxuc291cmNlKFwiUi9jaGlfZmxvd19hbmFseXNpcy9zZWxlY3RlZF9nYXRlc19zdGFiaWxpdHkuclwiKVxuXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/chi_flow_analysis/selected_gates_auc.r&quot;)
-source(&quot;R/chi_flow_analysis/selected_gates_stability.r&quot;)
-</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />The script generates two plots for Figure 1b.</p>
-<pre><code>./figure_generation/CHI_flow_selected_gates_AUC.pdf
-./figure_generation/CHI_flow_selected_gates_ISV.pdf</code></pre>
-<p><br /></p>
-</div>
-<div id="step-4.-calculate-inter-subject-variation-isv-of-expression-of-individual-genes-to-quantify-their-stability-across-baseline-time-points-days--7-0-and-70" class="section level2">
-<h2>Step 4. Calculate inter-subject variation (ISV) of expression of individual genes to quantify their stability across baseline time points (days -7, 0, and 70):</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc3RhYmlsaXR5L2NoaV9nZW5lX3N0YWJpbGl0eS5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/chi_stability/chi_gene_stability.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />The script generates a table of gene stability metrics:</p>
-<pre><code>./generated_data/CHI/CHI_genes_stability.txt</code></pre>
-<p><br /></p>
-</div>
-<div id="step-5.-analysis-of-correlation-between-gene-expression-and-percentage-of-cd38-high-cells" class="section level2">
-<h2>Step 5. Analysis of correlation between gene expression and percentage of CD38 high cells:</h2>
-<p>Correlation using stable genes only</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfZmxvdy1nZV9jb3JyZWxhcmlvbi9jaGlfZ2VfZmxvd19jb3JyZWxhdGlvbi5yXCIpIFxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/chi_flow-ge_correlarion/chi_ge_flow_correlation.r&quot;) </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Correlation using all genes to generate correlations with CD20+CD38++ B cells for futher test of random signatures</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfZmxvdy1nZV9jb3JyZWxhcmlvbi9jaGlfZ2VfZmxvd19jb3JyZWxhdGlvbl9hbGwuZ2VuZXMuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/chi_flow-ge_correlarion/chi_ge_flow_correlation_all.genes.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />The scripts adds percent of CD38++ cells to sample information table</p>
-<pre><code>./generated_data/CHI/CHI_sample_info_2_CD38hi.txt</code></pre>
-<p>and generates the following files with robust correlation results:</p>
-<pre><code>./generated_data/CHI/robust_corr_genes.txt
-./generated_data/CHI/robust_corr_all.genes.txt</code></pre>
-<p><br />Testing correlations using 500 random signatures computed by permuting subject labels for flow data. At each iteration the correlation computed exactly the same way as for the real data. <strong>Long computation!</strong></p>
-<pre><code>source(&quot;R/chi_signature_analysis/rand.sig_generate.r&quot;)</code></pre>
-<p>The output file with correlation data for each iteration is store as <code>./generated_data/CHI/gene_sig_random_500_from_all.txt</code>. Instead you can download pre-computed random signatures generated previously and put it into the data folder.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMTBnZW5lX3JhbmRvbV9zaWdfRklHVVJFLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38_10gene_random_sig_FIGURE.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>The scripts generate a table and AUC table, as well as a plot for Ext. Data Fig. 2e:</p>
-<pre><code>./generated_data/CHI/chi_random.sig.500_3times.rds
-./generated_data/figure_generation</code></pre>
-<p><br /></p>
-</div>
-<div id="step-6.-determine-the-optimal-number-of-genes-as-expression-surrogate-signature-for-cd20cd38-b-cells." class="section level2">
-<h2>Step 6. Determine the optimal number of genes as expression surrogate signature for CD20+CD38++ B cells.</h2>
-<p>Evaluate prediction power of titer response for top 20 individual genes (Fig. 1d):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMjBnZW5lc19zaW5nbGUuZ2VuZS5hdWNfYmFycGxvdF9GSUdVUkUuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38_20genes_single.gene.auc_barplot_FIGURE.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Evaluate prediction power of titer response for different number of genes in the signature (Ext. Data Fig. 2c):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfTmdlbmVfc2lnX2FuYWx5c2lzX0ZJR1VSRS5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38_Ngene_sig_analysis_FIGURE.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate ROC for titer response prediction based on 10-gene signature, and box plot comparing low- and high- responders based on TGSig for day 0, day -7 and day 70 (Fig. 1e-f). Output the TGSig scores for low and high responders for these time points.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMTBnZW5lX3NpZ19hbmFseXNpc19GSUdVUkVTX3dpdGhfcm9jX3AuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38_10gene_sig_analysis_FIGURES_with_roc_p.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Effect on AUC after removal of individual genes in TGSig (Ext. Data Fig. 2g):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMTBnZW5lX3NpZ19ybV9nZW5lc19GSUdVUkVTLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38_10gene_sig_rm_genes_FIGURES.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Check stability of relative rank of CD38++ signature genes applying different ISV threshold (Ext. Data Fig. 2f):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzguY29yX3JlbC5yYW5rX3ZzX0lTVi50aF9GSUdVUkVTLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38.cor_rel.rank_vs_ISV.th_FIGURES.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Save the final gene lists for both TGSig and plasmablast signature:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2dlX3NpZ19wcmVwLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/ge_sig_prep.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate box plots comparing low-, middle- and high- responders based on TGSig score for day 0 (Ext. Data Fig. 3b):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMTBnZW5lX3NpZ19hbmFseXNpc19GSUdVUkVTX3dpdGhfbWlkLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38_10gene_sig_analysis_FIGURES_with_mid.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate box plots comparing male and female subject based on TGSig score for day 0 (Ext. Data Fig. 10b-e):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMTBnZW5lX3NpZ19hbmFseXNpc19GSUdVUkVTX2dlbmRlci5yXCIpXG5zb3VyY2UoXCJSL2NoaV9zaWduYXR1cmVfYW5hbHlzaXMvVEdTaWdfdnNfZ2VuZGVyX0hMLnJcIilcbnNvdXJjZShcIlIvY2hpX3NpZ25hdHVyZV9hbmFseXNpcy9UR1NpZ192c19nZW5kZXJfSE1MLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38_10gene_sig_analysis_FIGURES_gender.r&quot;)
-source(&quot;R/chi_signature_analysis/TGSig_vs_gender_HL.r&quot;)
-source(&quot;R/chi_signature_analysis/TGSig_vs_gender_HML.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generated data files and figures are saved in <code>./generated_data/CHI</code> and <code>./figure_generation</code>, respectively. The signature files are saved in <code>./generated_data/signatures</code>. <br /></p>
-</div>
-<div id="step-7.-analyze-blood-transcription-module-genes-enrichment-in-genes-correlated-with-percentage-of-cd38-high-cells-varying-selection-threshold-for-gene-inter-subject-variation." class="section level2">
-<h2>Step 7. Analyze blood transcription module genes enrichment in genes correlated with percentage of CD38-high cells varying selection threshold for gene inter-subject variation.</h2>
-<p>Run GSEA on “LI” and “DC” modules separately and save the results in RDS file.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9mZ3NlYV93aXRoX2J0bV9tb2R1bGVzL2NoaV9DRDM4X2Nvcl9ieV9JU1ZfZmdzZWFfQlRNLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/fgsea_with_btm_modules/chi_CD38_cor_by_ISV_fgsea_BTM.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Generated RDS files are saved in <code>./generated_data/fgsea_with_btm_modules</code>. <br /></p>
-<hr />
-</div>
-</div>
-<div id="hipc-data-analysis" class="section level1">
-<h1>HIPC data analysis</h1>
-<div id="input-data-1" class="section level2">
-<h2>Input data</h2>
-<p>HAI expression and titer data were downloaded from <a href="http://immunespace.org">ImmuneSpace</a> and pre-processed using part of the R script to reproduce figures for HIPC meta-analysis paper <a href="https://immunology.sciencemag.org/content/2/14/eaal4656">Multicohort analysis reveals baseline transcriptional predictors of influenza vaccination responses. Sci Immunol. 2017 Aug 25;2(14)</a>. The script downloads the data, corrects the labels for swapped samples, and calculates adjMFC titers. For SDY404 we use locally computed adjMFC in <code>./data/SDY404_young_hai_titer_table_2016.txt</code>.</p>
-<p><strong>Required file from previous analysis</strong></p>
-<pre><code>./generated_data/signatures/CD38_ge_sig.txt</code></pre>
-</div>
-<div id="step-1.-data-formatting-and-preparation-1" class="section level2">
-<h2>Step 1. Data formatting and preparation</h2>
-<p>Load the data preloaded from ImmuneSpace</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9oaXBjX2RhdGFwcmVwL2hpcGNfZGF0YV9mcm9tX0lTX3ByZWxvYWRlZC5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/hipc_dataprep/hipc_data_from_IS_preloaded.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>To load the data directly from ImmuneSpace we run this script. The script requires creating account and configuration file to access Immunespace. We cannot guarantee that the script will continue working in the future.</p>
-<pre><code>source(&quot;R/hipc_dataprep/hipc_data_from_IS.r&quot;)</code></pre>
-<p><br />Prepare data files for young subjects with titer response</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9oaXBjX2RhdGFwcmVwL2hpcGNfZGF0YXByZXAuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/hipc_dataprep/hipc_dataprep.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Mapping probes to genes</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9oaXBjX2RhdGFwcmVwL2hpcGNfZ2VuZXJhdGVfcHJvYmUyZ2VuZV9tYXAuclwiKVxuc291cmNlKFwiUi9oaXBjX2RhdGFwcmVwL2hpcGNfcHJvYmVzMmdlbmVzLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/hipc_dataprep/hipc_generate_probe2gene_map.r&quot;)
-source(&quot;R/hipc_dataprep/hipc_probes2genes.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Filter baseline (day 0) samples and subjects with low and high response</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9oaXBjX2RhdGFwcmVwL2hpcGNfc2FtcGxlX2ZpbHRlcmluZy5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/hipc_dataprep/hipc_sample_filtering.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generated data files are saved in <code>./generated_data/HIPC</code>. <br /></p>
-</div>
-<div id="step-2.-validation-of-prediction-power-of-cd38-signature-in-hipc-datasets-young-subjects-only" class="section level2">
-<h2>Step 2. Validation of prediction power of CD38 signature in HIPC datasets (young subjects only)</h2>
-<p><br />Calculate TGSig scores using data from day 0</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9oaXBjX3NpZ25hdHVyZV9hbmFseXNpcy9oaXBjX2QwX2NkMzhfc2NvcmUuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/hipc_signature_analysis/hipc_d0_cd38_score.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate ROC for titer response prediction based on 10-gene signature, and box plot comparing low- and high- responders based on TGSig:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9oaXBjX3NpZ25hdHVyZV9hbmFseXNpcy9oaXBjX2NkMzhfMTBnZW5lX3NpZ19hbmFseXNpc19GSUdVUkUuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/hipc_signature_analysis/hipc_cd38_10gene_sig_analysis_FIGURE.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate box plots comparing low-, middle- and high- responders based on TGSig:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9oaXBjX3NpZ25hdHVyZV9hbmFseXNpcy9oaXBjX2NkMzhfMTBnZW5lX3NpZ19hbmFseXNpc19GSUdVUkVfd2l0aF9taWQuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/hipc_signature_analysis/hipc_cd38_10gene_sig_analysis_FIGURE_with_mid.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generated data files and figures (Fig. 2a and Ext. Data Fig. 3b) are saved in <code>./generated_data/HIPC</code> and <code>./figure_generation</code>, respectively. <br /></p>
-<hr />
-</div>
-</div>
-<div id="yellow-fever-data-analysis" class="section level1">
-<h1>Yellow Fever data analysis</h1>
-<div id="input-data-2" class="section level2">
-<h2>Input data</h2>
-<ul>
-<li>Sample information from GEO including Neutralization antibody titer data
-<ul>
-<li>data/YF/expression/sample_info.txt</li>
-</ul></li>
-<li>Expression data from GEO processed by RMA-sketch (Affymetrix Power Tools)
-<ul>
-<li>data/YF/expression/rma-sketch.summary.txt</li>
-</ul></li>
-<li>Probeset-gene mapping (for reproducibility, originally obtained using hgu133plus2.db R package)
-<ul>
-<li>data/YF/expression/YF_probe_map.txt <br /></li>
-</ul></li>
-</ul>
-</div>
-<div id="step-1.-data-formatting-and-preparation-2" class="section level2">
-<h2>Step 1. Data formatting and preparation</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi95Zl9kYXRhcHJlcC95Zl9kYXRhX2Zyb21fYXB0LnJcIilcbnNvdXJjZShcIlIveWZfZGF0YXByZXAveWZfcHJvYmVzMmdlbmVzLnJcIilcbnNvdXJjZShcIlIveWZfZGF0YXByZXAveWZfc2FtcGxlX2ZpbHRlcmluZy5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/yf_dataprep/yf_data_from_apt.r&quot;)
-source(&quot;R/yf_dataprep/yf_probes2genes.r&quot;)
-source(&quot;R/yf_dataprep/yf_sample_filtering.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
 <p><br /></p>
 </div>
 </div>
-<div id="step-2.-validation-of-prediction-power-of-cd38-signature-in-yellow-fever-datasets" class="section level1">
-<h1>Step 2. Validation of prediction power of CD38 signature in yellow fever datasets</h1>
-<p>Calculate TGSig scores using data from day 0</p>
+<div id="clusters-annotation" class="section level1">
+<h1>3. Clusters annotation</h1>
+<p>Generate a heatmap of average expression of selected protein markers in each of the cell clusters derived from the three different clustering resolutions</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi95Zl9zaWduYXR1cmVfYW5hbHlzaXMveWZfZDBfY2QzOF9zY29yZS5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/yf_signature_analysis/yf_d0_cd38_score.r&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9hZHRfY2x1c3RlcmluZ19jbHVzdGVyYXZlcmFnZXNfYWxsLmxldmVscy5yXCIpXG5gYGAifQ== -->
+<pre class="r"><code>source(&quot;R/adt_clustering_clusteraverages_all.levels.r&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p><br />Generate ROC for titer response prediction based on 10-gene signature, and box plot comparing low- and high- responders based on TGSig (trials 1 for Figure 2b, and trial 2 for Ext. Data Fig. 4a):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi95Zl9zaWduYXR1cmVfYW5hbHlzaXMveWZfY2QzOF8xMGdlbmVfc2lnX2FuYWx5c2lzX0ZJR1VSRVNfd2l0aF9yb2NfcC5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/yf_signature_analysis/yf_cd38_10gene_sig_analysis_FIGURES_with_roc_p.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate box plot comparing low-, middle- and high- responders based on TGSig in trial 1 (Ext. Data Fig. 3d):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi95Zl9zaWduYXR1cmVfYW5hbHlzaXMveWZfY2QzOF8xMGdlbmVfc2lnX2FuYWx5c2lzX0ZJR1VSRVNfd2l0aF9taWQuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/yf_signature_analysis/yf_cd38_10gene_sig_analysis_FIGURES_with_mid.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generated data files and figures are saved in <code>./generated_data/YF</code> and <code>./figure_generation</code>, respectively. <br /></p>
-<hr />
-</div>
-<div id="sle-data-analysis" class="section level1">
-<h1>SLE data analysis</h1>
-<div id="input-data-3" class="section level2">
-<h2>Input data</h2>
-<ul>
-<li>Expression data downloaded from <a href="http://websle.com" class="uri">http://websle.com</a> (Data tab) – Batch-corrected, probe filtered, latest probe-gene annotation.
-<ul>
-<li>data/SLE/expression/SLE_Longitudinal_972_eset.RData</li>
-</ul></li>
-<li>Subjects assignment to patient groups (from the SLE paper, figure 6A)
-<ul>
-<li>data/SLE/SLE_SUBJECT_PG.txt <br /></li>
-</ul></li>
-</ul>
-</div>
-<div id="step-1.-data-formatting-and-preparation-3" class="section level2">
-<h2>Step 1. Data formatting and preparation</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfZGF0YXByZXAvc2xlX2RhdGFwcmVwLnJcIilcbnNvdXJjZShcIlIvc2xlX2RhdGFwcmVwL3NsZV9wcm9iZXMyZ2VuZXMuclwiKVxuc291cmNlKFwiUi9zbGVfZGF0YXByZXAvc2xlX2FkZF9EQV9hbmRfUEcuclwiKVxuc291cmNlKFwiUi9zbGVfZGF0YXByZXAvc2xlX3NhbXBsZV9maWx0ZXJpbmcuclwiKVxuc291cmNlKFwiUi9zbGVfZGF0YXByZXAvc2xlX2dlLm1lYW5fYnlfc3ViamVjdC5yXCIpXG5zb3VyY2UoXCJSL3NsZV9kYXRhcHJlcC9zbGVfc2xlZGFpLmxvd0RBLm1lYW5fYnlfc3ViamVjdC5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/sle_dataprep/sle_dataprep.r&quot;)
-source(&quot;R/sle_dataprep/sle_probes2genes.r&quot;)
-source(&quot;R/sle_dataprep/sle_add_DA_and_PG.r&quot;)
-source(&quot;R/sle_dataprep/sle_sample_filtering.r&quot;)
-source(&quot;R/sle_dataprep/sle_ge.mean_by_subject.r&quot;)
-source(&quot;R/sle_dataprep/sle_sledai.lowDA.mean_by_subject.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate figure of SLEDAI change at different visit for a single patient (Fig. 2d):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfZXhhbXBsZV9wcm9maWxlL1NMRV9TTEVEQUlfVElNRV9wcm9maWxlcy5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/sle_example_profile/SLE_SLEDAI_TIME_profiles.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
+<p>The generated table in <code>results/cluster_nodes.txt</code> is used add cluster labelse and manual annotation of cluster cell types.</p>
+<p>The generated figures are stored in <code>figures/cluster_annotation</code> and used for cluster labeling and annotation.</p>
 <p><br /></p>
 </div>
-<div id="step-2.-calculate-inter-subject-variation-isv-of-expression-of-individual-genes-to-quantify-their-stability-across-visits-with-low-disease-activity" class="section level2">
-<h2>Step 2. Calculate inter-subject variation (ISV) of expression of individual genes to quantify their stability across visits with low disease activity</h2>
+<div id="filter-cells-and-generate-final-heatmap" class="section level1">
+<h1>4. Filter cells and generate final heatmap</h1>
+<p>After annotating the clusters we found that at resolution=3 clusters 34, 36, 38, 39 contain mostly doublet cells. We remove cells in these clusters from the Seurat object.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfZGF0YXByZXAvc2xlX2dlbmVfc3RhYmlsaXR5LnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/sle_dataprep/sle_gene_stability.r&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9yZW1vdmVfZG91YmxldF9jbHVzdGVycy5yXCIpXG5gYGAifQ== -->
+<pre class="r"><code>source(&quot;R/remove_doublet_clusters.r&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p><br />Generated data files and figures are saved in <code>./generated_data/SLE</code> and <code>./figure_generation</code>, respectively. <br /></p>
+<p>Output file: <code>./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_filtered.rds</code></p>
+<p><br /></p>
+<p>The following script uses manual annottion table in <code>data/clustree_node_labels_withCellTypeLabels.txt</code> and clusters at first three resolutions to generate Figure 4c.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9hZHRfY2x1c3RlcmluZ19jbHVzdGVyYXZlcmFnZXNfM2xldmVsc19maWd1cmUuclwiKVxuYGBgIn0= -->
+<pre class="r"><code>source(&quot;R/adt_clustering_clusteraverages_3levels_figure.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>The generated heatmap is stored in <code>figures/cluster_annotation</code>.</p>
+<p><br /></p>
 </div>
-<div id="step-3.-calculate-tgsig-and-plasmablast-signature-scores" class="section level2">
-<h2>Step 3. Calculate TGSig and Plasmablast signature scores</h2>
-<p><br />Calculate TGSig scores using data from low-disease-activity samples</p>
+<div id="pca-and-tsne-analysis-of-the-adt-data" class="section level1">
+<h1>5. PCA and tSNE analysis of the ADT data</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9sb3dEQV9jZDM4X3Njb3JlLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/sle_signature_analysis/sle_lowDA_cd38_score.r&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jb21wdXRlX3BjYS5yXCIpXG5gYGAifQ== -->
+<pre class="r"><code>source(&quot;R/compute_pca.r&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p><br />Calculate Plasmablast signature scores using data from low-disease-activity samples</p>
+<p>Output file: <code>./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_PCA.rds</code></p>
+<p>PCA elbow plot is stored in <code>figures/TSNE</code>. Using this plot We determined the number of principal components to use for tSNE as <strong>7</strong>.</p>
+<p><br /></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9sb3dEQV9QQl9zY29yZS5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/sle_signature_analysis/sle_lowDA_PB_score.r&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jb21wdXRlX3RzbmUuci5yXCIpXG5gYGAifQ== -->
+<pre class="r"><code>source(&quot;R/compute_tsne.r.r&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p><br />Calculate DaCP using mixed-effect model</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9QQl9zY29yZV9mcm9tX21peGVkX21vZGVsLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/sle_signature_analysis/sle_PB_score_from_mixed_model.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate scatter plot between DaCP and average TGSig scores for low-disease-activity samples (Fig. 2e) and the table of correlation data</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9QQi5TTEVEQUkuY29ycl92c19DRDM4Lm1lYW4uc2NvcmVfRklHVVJFLnJcIilcbnNvdXJjZShcIlIvc2xlX3NpZ25hdHVyZV9hbmFseXNpcy9zbGVfUEIuU0xFREFJLmNvcnJfdnNfQ0QzOC5tZWFuLnNjb3JlX3RhYmxlLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/sle_signature_analysis/sle_PB.SLEDAI.corr_vs_CD38.mean.score_FIGURE.r&quot;)
-source(&quot;R/sle_signature_analysis/sle_PB.SLEDAI.corr_vs_CD38.mean.score_table.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate scatter plot between DaCP and average Plasmablast signature scores for low-disease-activity samples (Fig. 2f)</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9QQi5TTEVEQUkuY29ycl92c19QQi5sb3dEQS5tZWFuLnNjb3JlX0ZJR1VSRS5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/sle_signature_analysis/sle_PB.SLEDAI.corr_vs_PB.lowDA.mean.score_FIGURE.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate scatter plot between DaCP and average Plasmablast signature scores for low-disease-activity samples analyzing correlation at different DaCP thresholds (Ext. Data Fig. 5c-d)</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9QQi5TTEVEQUkuY29ycl92c19DRDM4Lm1lYW4uc2NvcmVfdGhyZXNob2xkcy5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/sle_signature_analysis/sle_PB.SLEDAI.corr_vs_CD38.mean.score_thresholds.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generated data files and figures are saved in <code>./generated_data/SLE</code> and <code>./figure_generation</code>, respectively. <br /></p>
+<p>This script for tSNE computation at multiple perplexity was run on high-performance cluster.</p>
+<p>Output file: <code>./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_TSNE.rds</code></p>
+<p><br /></p>
 </div>
-<div id="analysis-of-the-blood-gene-expression-signatures-associated-with-disease-activityflares" class="section level2">
-<h2>Analysis of the blood gene expression signatures associated with disease activity/flares</h2>
-<p><br />Correlation between DaCP and delta in Plasmablast score (Ext. Data Fig. 5b):</p>
+<div id="label-and-visualise-the-clusters" class="section level1">
+<h1>6. Label and visualise the clusters</h1>
+<p>Re-label the clusters and create the final object.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9EYUNQX3ZzX2RQQi5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/sle_signature_analysis/sle_DaCP_vs_dPB.r&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jbHVzdHJlZV9sYWJlbHMuclwiKVxuYGBgIn0= -->
+<pre class="r"><code>source(&quot;R/clustree_labels.r&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p><br />Heatmaps of blood gene expression signatures association with disease activity/flares (Fig. 2c and Ext. Data Fig. 5a):</p>
+<p>Output file: <code>./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_TSNE_labels.rds</code></p>
+<p><em>This Seurat object was used for all further analysis.</em></p>
+<p><br /></p>
+<p>Generate tSNE plots to check for batch effect and show the first-level clusters for Figure 4a</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9CVE1fc2NvcmVfZnJvbV9EQS5kZWx0YS5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/sle_signature_analysis/sle_BTM_score_from_DA.delta.r&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi90c25lX2ZpZ3VyZXMuclwiKVxuYGBgIn0= -->
+<pre class="r"><code>source(&quot;R/tsne_figures.r&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p><br />Generated plots are stored in <code>./figure_generation</code>. <br /></p>
-<hr />
+<p>The generated figures are stored in <code>figures/TSNE</code>.</p>
+<p><br /></p>
+<p>Generate the clustree for Figure 4b with nodes colored by level 1 cluters</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jbHVzdHJlZV92ZXJ0aWNhbF9jbHJfbGV2ZWwxLnJcIilcbmBgYCJ9 -->
+<pre class="r"><code>source(&quot;R/clustree_vertical_clr_level1.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>The generated figure is stored in <code>figures/cluster_annotation</code>.</p>
+<p><br /></p>
+<p>Generate the supplemental figure with the distribution of denoised and background rescaled counts for the surface proteins</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9hZHRfY2x1c3RlcmluZ19wcm90ZWluX2Rpc3RyaWJ1dGlvbi5yXCIpXG5gYGAifQ== -->
+<pre class="r"><code>source(&quot;R/adt_clustering_protein_distribution.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>The generated figures are stored in <code>figures/cluster_annotation</code>.</p>
+<p><br /></p>
 </div>
+<div id="test-various-gene-signatures-comparing-low-and-high-responders" class="section level1">
+<h1>7. Test various gene signatures comparing low and high responders</h1>
+<p>Generate the list of signatures:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9tYWtlX2xpc3Rfb2Zfc2lnbmF0dXJlcy5yXCIpXG5gYGAifQ== -->
+<pre class="r"><code>source(&quot;R/make_list_of_signatures.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Output file with the list of signatures is saved as <code>sig/sig.list.RDS</code>.</p>
+<p><br /></p>
+<p>Check enrichemnt of BTM modules in CD40act gene signature:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9DRDQwYWN0X2dlbmVzX0hHLnRlc3QuclwiKVxuYGBgIn0= -->
+<pre class="r"><code>source(&quot;R/CD40act_genes_HG.test.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Output plot is saved in <code>figures/CD40act</code>.</p>
+<p><br /></p>
+<p>Test gene signatures comparing low vs. high responders using cells in pseudo-bulk and all cell clusters:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi90ZXN0X3NpZ3NfY2x1c3RlcnMuclwiKVxuYGBgIn0= -->
+<pre class="r"><code>source(&quot;R/test_sigs_clusters.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Output file with the list of signatures is saved as <code>results/test_sig.genes_in_clusters_high_vs_low_responders.txt</code>.</p>
+<p><br /></p>
+<p>Compute scores for selected gene signatures in pseudo-bulk and all cell clusters:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zaWdfc2NvcmVzX2NhbGNfYnlfY2x1c3Rlci5yXCIpXG5gYGAifQ== -->
+<pre class="r"><code>source(&quot;R/sig_scores_calc_by_cluster.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Output files are saved in <code>results/sig_scores</code>.</p>
+<p><br /></p>
 </div>
-<div id="discovery-of-co-expression-module-in-sle-datasets" class="section level1">
-<h1>Discovery of co-expression module in SLE datasets</h1>
-<div id="input-data-4" class="section level2">
-<h2>Input data:</h2>
-<ul>
-<li>Gene stability table
-<ul>
-<li>./generated_data/SLE_lowDA_genes_stability.txt</li>
-</ul></li>
-<li>Gene expression table by subjects (average across low-disease-activity visits)
-<ul>
-<li>./generated_data/SLE_lowDA_PG234_ge.mean_matrix.txt <br /></li>
-</ul></li>
-</ul>
+<div id="visualize-the-results-of-gene-signatures-tests" class="section level1">
+<h1>8. Visualize the results of gene signatures tests</h1>
+<p>Generate box-plot for pseudo-bulk for gene signatures with significant difference between low and high responders:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zaWdfc2NvcmVzX2JveHBsb3RfcHNldWRvYnVsay5yXCIpXG5gYGAifQ== -->
+<pre class="r"><code>source(&quot;R/sig_scores_boxplot_pseudobulk.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Output plots (for Figure 4d,e) are saved in <code>results/sig_test_boxplots</code>.</p>
+<p><br /></p>
+<p>Generate box-plot for level 1 clusters for gene signatures with significant difference between low and high responders:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zaWdfc2NvcmVzX2JveHBsb3RfYnlfY2x1c3RlcnMuclwiKVxuYGBgIn0= -->
+<pre class="r"><code>source(&quot;R/sig_scores_boxplot_by_clusters.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Output plots (for Fig. 5a,b,e and Ext. Data Fig. 8f) are saved in <code>results/sig_test_boxplots</code>.</p>
+<p><br /></p>
+<p>Generate clustree plots for selected gene signatures indicating significance of difference between low and high responders:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jbHVzdHJlZV92ZXJ0aWNhbF90ZXN0X3NpZ3MuclwiKVxuYGBgIn0= -->
+<pre class="r"><code>source(&quot;R/clustree_vertical_test_sigs.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Output plots (for Fig. 5a,b,e and Ext. Data Fig. 8f) are saved in <code>results/sig_test_clustree</code>.</p>
+<p><br /></p>
+<p>Generate box-plots for cluster C9 (pDC) for selected gene signatures:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zaWdfc2NvcmVzX2JveHBsb3RfQzkuclwiKVxuYGBgIn0= -->
+<pre class="r"><code>source(&quot;R/sig_scores_boxplot_C9.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Output plots (for Fig. 5c) are saved in <code>results/sig_test_boxplots</code>.</p>
+<p><br /></p>
+<p>Drop-out test for selected gene signatures and selected cluster combinations:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi90ZXN0X3NpZ3NfY2x1c3RlcnNfT1VULnJcIilcbmBgYCJ9 -->
+<pre class="r"><code>source(&quot;R/test_sigs_clusters_OUT.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Result table is saved as <code>results/test_sig.genes_in_clusters_high_vs_low_responders_OUT.txt</code>.</p>
+<p>Output plots (for Ext. Data Fig. 8g) are saved in <code>figures/drop_out_test</code>.</p>
+<p><br /></p>
 </div>
-<div id="step-1.-apply-wgcna-analysis-to-split-genes-to-discover-expression-modules." class="section level2">
-<h2>Step 1. Apply WGCNA analysis to split genes to discover expression modules.</h2>
-<p><br />Gene modules discovery by WGCNA</p>
+<div id="manual-gating-of-cd20cd38-b-cells" class="section level1">
+<h1>9. Manual gating of CD20+CD38++ B cells</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9XR0NOQS1tb2R1bGVzLWZyb20tU0xFLWxvdy1EQS9zY3JpcHQuUlwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/WGCNA-modules-from-SLE-low-DA/script.R&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zaWdfc2NvcmVzX2JveHBsb3RfQzkuclwiKVxuYGBgIn0= -->
+<pre class="r"><code>source(&quot;R/sig_scores_boxplot_C9.r&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p><br />Generate Eigengene heatmap</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9XR0NOQS1laWdlbmdlbmUtaGVhdG1hcC9zY3JpcHQuUlwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/WGCNA-eigengene-heatmap/script.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />The generated figures (Fig. 3a) are saved in <code>./figure_generation/SLE_Sig</code>. <br /></p>
+<p>Output table of cell frequencies is saved as <code>results/CITEseq_CD38hi_cell_data.txt</code>. Output plots (for Ext. Data Fig. 8d,e) are saved in <code>results/hand_gating</code>.</p>
+<p><br /></p>
 </div>
-<div id="step-2.-assess-correlation-between-gene-modules-and-dacp." class="section level2">
-<h2>Step 2. Assess correlation between gene modules and DaCP.</h2>
+<div id="compile-scores-for-multiple-signatures-and-perform-correlation-analysis" class="section level1">
+<h1>10. Compile scores for multiple signatures and perform correlation analysis</h1>
+<p>Compute scores of SLE-Sig signature for microarray day 0 data:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9QQi1zY29yZS12cy1XR0NOQS1tb2R1bGVzL3NjcmlwdC5SXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/PB-score-vs-WGCNA-modules/script.R&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9TTEUuc2lnX01BX3NpZ19zY29yZS5yXCIpXG5gYGAifQ== -->
+<pre class="r"><code>source(&quot;R/SLE.sig_MA_sig_score.r&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p><br />The generated figures (Fig. 3b-c) are saved in <code>./figure_generation/SLE-Sig</code>. Table with correlation data for all modules is saved in <code>./generated_data/PB-score-vs-WGCNA-modules</code>. <br /></p>
+<p>Output file is saved as <code>results/sig_scores/scores_SLE.sig_MA.txt</code>.</p>
+<p><br /></p>
+<p>Compile scores for selected gene signatures for CITE-seq and microarray data plus CD38++ cell frequency from flow cytometry data:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zY29yZXNfZm9yX2NvcnJlbGF0aW9uLnJcIilcbmBgYCJ9 -->
+<pre class="r"><code>source(&quot;R/scores_for_correlation.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Output table of cell frequencies is saved as <code>results/CITEseq_CD38hi_cell_data.txt</code>.</p>
+<p><br /></p>
+<p>Generate scatter plot of CD40act score in C3.1.0 cell cluster vs. CD20=CD38++ B cells frequency from flow cytometry (Figure 5f):</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2NyaXB0KFwiUi9DRDQwYWN0X3ZzX0NEMzhoaS5mbG93LnJcIilcbmBgYCJ9 -->
+<pre class="r"><code>script(&quot;R/CD40act_vs_CD38hi.flow.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Output plot is saved in <code>figures/sig_ranked_correlation</code>.</p>
+<p><br /></p>
+<p>Generate scatter plots of correlation between selected signature scores in selected clusters (for Figure 6a):</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2NyaXB0KFwiUi9zaWdfY29ycmVsYXRpb25fc2NhdHRlcnBsb3RzLnJcIilcbmBgYCJ9 -->
+<pre class="r"><code>script(&quot;R/sig_correlation_scatterplots.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Output plots are saved in <code>figures/sig_ranked_correlation</code>.</p>
+<p><br /></p>
+<p>Generate a correlation plot (for FIgure 6a):</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2NyaXB0KFwiUi9zY29yZXNfY29ycmVsYXRpb25faGVhdG1hcF9jdXN0b21fb3JkZXIuclwiKVxuYGBgIn0= -->
+<pre class="r"><code>script(&quot;R/scores_correlation_heatmap_custom_order.r&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Output plot is saved in <code>figures/sig_ranked_correlation</code>.</p>
+<p><br /></p>
 </div>
-<div id="step-3.-perform-gsea-analysis-with-wgcna-modules-and-extract-the-brown-module-leading-edge-genes-sle-sig." class="section level2">
-<h2>Step 3. Perform GSEA analysis with WGCNA modules and extract the brown module leading edge genes (SLE-Sig).</h2>
+<div id="differential-expression-of-selected-surface-proteins-in-pdc-between-low-and-high-responders" class="section level1">
+<h1>11. Differential Expression of selected surface proteins in pDC between low and high responders</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9mZ3NlYV93aXRoX3dnY25hX21vZHVsZXMvY2hpX0NEMzhfY29yX2J5X0lTVl9mZ3NlYV9sZWFkaW5nRWRnZS5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/fgsea_with_wgcna_modules/chi_CD38_cor_by_ISV_fgsea_leadingEdge.r&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2NyaXB0KFwiUi9DRDg2X0hMQS1EUl92c19yZXNwb25zZS5yXCIpXG5gYGAifQ== -->
+<pre class="r"><code>script(&quot;R/CD86_HLA-DR_vs_response.r&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p><br />Generate a barplot (Fig. 3e) to show enrichment of brown module (with the enrichment plot) and blood transcriptome modules in genes ranked by correlation of their intensity with CD38++ cell frequency. The genes were filtered with ISV &gt;= 0.5. The previously generated data (step 7 in CHI data analysis) were used for GSEA results of BTM enrichment.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9mZ3NlYV93aXRoX3dnY25hX21vZHVsZXMvY2hpX0NEMzhfY29yX2J5X0lTVl9mZ3NlYV9GSUdVUkUuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/fgsea_with_wgcna_modules/chi_CD38_cor_by_ISV_fgsea_FIGURE.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate table of three BTM module genes in SLE-Sig (Fig. 3f)</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9mZ3NlYV93aXRoX3dnY25hX21vZHVsZXMvYnJvd24tbGVhZGluZy1lZGdlLUJUTS10YWJsZS5SXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/fgsea_with_wgcna_modules/brown-leading-edge-BTM-table.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Output files: <code>./generated_data/fgsea_with_wgcna_modules/</code> The generated figure is saved as <code>./figure_generation/SLE-Sig</code> <br /></p>
+<p>Output plot is saved in <code>figures/adt_vs_response</code>.</p>
+<p><br /></p>
 </div>
-<div id="step-4.-analysis-of-enrichment-of-blood-transcription-modules-genes-in-wgcna-modules.-generate-the-heatmap-of-enrichment-p-values--log10---supplemental-figure-1c." class="section level2">
-<h2>Step 4. Analysis of enrichment of Blood Transcription Modules genes in WGCNA modules. Generate the heatmap of enrichment p-values (-log10) - Supplemental Figure 1c.</h2>
+<div id="comparing-the-tgsig-and-sle-sig-scores-in-females-versus-males" class="section level1">
+<h1>12. Comparing the TGSig and SLE-Sig scores in females versus males</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9XR0NOQS1tb2R1bGVzLWZyb20tU0xFLWxvdy1EQS10bW9kL3NjcmlwdC5SXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/WGCNA-modules-from-SLE-low-DA-tmod/script.R&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2NyaXB0KFwiUi9UR1NpZ19TTEUuc2lnX3ZzX3NleC5yXCIpXG5gYGAifQ== -->
+<pre class="r"><code>script(&quot;R/TGSig_SLE.sig_vs_sex.r&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>The generated figure is saved as <code>./figure_generation/SLE-Sig/WGCNA-BTM-enrichment-p.adjust.pdf</code>. Output files are saved in <code>./ganareted_data/WGCNA-modules-from-SLE-low-DA-tmod</code> <br /></p>
-<p>Output table to Fig. 3f is saved as <code>./ganareted_data/***/brown-mod-m75-m150-m165-genes-short.csv</code> <br /></p>
-<hr />
-</div>
-</div>
-<div id="meta-analysis-of-gene-expression-in-vaccination-datasets-and-the-analysis-of-brown-module" class="section level1">
-<h1>Meta analysis of gene expression in vaccination datasets and the analysis of brown module</h1>
-<div id="input-data-5" class="section level2">
-<h2>Input data:</h2>
-<ul>
-<li>Gene expression tables for all datasets (gene vs. subjects at day0)</li>
-<li>Sample information with titer response</li>
-</ul>
-</div>
-<div id="step-1.-perform-meta-analysis-of-4-flu-datasets.-generates-table-of-genes-with-effect-size-with-regard-to-titer-response." class="section level2">
-<h2>Step 1. Perform meta-analysis of 4 flu datasets. Generates table of genes with effect size (with regard to titer response).</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9NZXRhREUtZmx1LXRpdGVyLXJlc3BvbnNlLWZyb20tZXhwcmVzc2lvbi1pbi1mb3VyLWNvaG9ydHMvc2NyaXB0LlJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/MetaDE-flu-titer-response-from-expression-in-four-cohorts/script.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Output files are saved in <code>./generated_data/MetaDE</code>. <br /></p>
-</div>
-<div id="step-2.-generate-forest-plot-for-meta-analysis-of-4-flu-datasets-ext.-data-fig-4b." class="section level2">
-<h2>Step 2. Generate forest plot for meta-analysis of 4 flu datasets (Ext. Data Fig 4b).</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9NZXRhREVfZm9yZXN0X3Bsb3QvRmx1X21ldGFfZm9yZXN0X3Bsb3QuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/MetaDE_forest_plot/Flu_meta_forest_plot.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>The generated figure is saved in <code>./figure_generation/MetaDE</code>. <br /></p>
-</div>
-<div id="step-3.-calculate-effect-sizes-and-generate-effect-size-plot-for-trial-1-cohort-of-yellow-fever-dataset-ext.-data-fig-4c." class="section level2">
-<h2>Step 3. Calculate effect sizes and generate effect size plot for trial 1 cohort of Yellow Fever dataset (Ext. Data Fig 4c).</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9ZRjEtZWZmZWN0LXNpemVzL3NjcmlwdC5SXCIpXG5zb3VyY2UoXCJSL01ldGFERV9mb3Jlc3RfcGxvdC9ZRjFfZWZmZWN0X3NpemVfcGxvdC5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/YF1-effect-sizes/script.R&quot;)
-source(&quot;R/MetaDE_forest_plot/YF1_effect_size_plot.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>The output files are saved in <code>./generated_data/MetaDE</code>. The generated figure is saved in <code>./figure_generation/MetaDE</code>. <br /></p>
-</div>
-<div id="step-4.-gsea-analyses-of-vaccine-response-genes-from-meta-analysis.-wgcna-modules-against-flu-response-genes" class="section level2">
-<h2>Step 4. GSEA analyses of vaccine response genes from meta analysis. WGCNA modules against flu response genes</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9HU0VBLXVzaW5nLWdlbmVzLWNvbW1vbi10by1zdGFibGUtU0xFLWxvdy1EQS1hbmQtNGZsdS9zY3JpcHQuUlwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/GSEA-using-genes-common-to-stable-SLE-low-DA-and-4flu/script.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>The output files are saved in <code>./generated_data/MetaDE</code>. The generated figure (Fig. 3d) is saved in <code>./figure_generation/MetaDE</code>. <br /></p>
-</div>
-<div id="step-5.-predictive-profiles-of-select-signatures-for-influenza-vaccine-response" class="section level2">
-<h2>Step 5. Predictive profiles of select signatures for influenza vaccine response</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9icm93bi1tb2R1bGUtbGVhZGluZy1nZW5lcy1sb3ctbWlkLWhpZ2gtZWlnZW5nZW5lL3NjcmlwdC5SXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/brown-module-leading-genes-low-mid-high-eigengene/script.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Output files are saved in <code>./generated_data/brown-module-leading-genes-low-mid-high-eigengene</code>. <br /></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9yZWNhbGMtYW5kLWNoZWNrLTEwZ2VuZS1DRDM4cGx1c1NpZy9zY3JpcHQuUlwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/recalc-and-check-10gene-CD38plusSig/script.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Output figures (Ext. Data Fig. 6 a-b, e) are saved in <code>./figure_generation/SLE-Sig</code>. <br /></p>
-<p>Test removing SLE-Sig genes from brown module</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9icm93bi1tb2QtbWludXMtbGVhZGluZy1lZGdlL3NjcmlwdC5SXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/brown-mod-minus-leading-edge/script.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Output files are saved in <code>./generated_data/brown-mod-minus-leading-edge/</code>. <br /></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9icm93bi1tb2QtbWludXMtbGVhZGluZy1lZGdlLWNvbWJpbmVkL3NjcmlwdC5SXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/brown-mod-minus-leading-edge-combined/script.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Output figure (Ext. Data Fig. 6d) is saved in <code>./figure_generation/SLE-Sig</code>.</p>
-<hr />
-</div>
-</div>
-<div id="analysis-of-ifn-i-dc-signature" class="section level1">
-<h1>Analysis of IFN-I-DC signature</h1>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9JRk5fc2lnbmF0dXJlX2FuYWx5c2lzL3NldHVwLnJcIilcbnNvdXJjZShcIlIvSUZOX3NpZ25hdHVyZV9hbmFseXNpcy9jaGlfSUZOMjZfc2lnX2FuYWx5c2lzX0ZJR1VSRVMyLnJcIilcbnNvdXJjZShcIlIvSUZOX3NpZ25hdHVyZV9hbmFseXNpcy9oaXBjX2QwX0lGTjI2X3Njb3JlLnJcIilcbnNvdXJjZShcIlIvSUZOX3NpZ25hdHVyZV9hbmFseXNpcy9zbGVfbG93REFfSUZOMjZfc2NvcmUuclwiKVxuc291cmNlKFwiUi9JRk5fc2lnbmF0dXJlX2FuYWx5c2lzL2xvZ2lzdGljX3JlZ3JfNGZsdS5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/IFN_signature_analysis/setup.r&quot;)
-source(&quot;R/IFN_signature_analysis/chi_IFN26_sig_analysis_FIGURES2.r&quot;)
-source(&quot;R/IFN_signature_analysis/hipc_d0_IFN26_score.r&quot;)
-source(&quot;R/IFN_signature_analysis/sle_lowDA_IFN26_score.r&quot;)
-source(&quot;R/IFN_signature_analysis/logistic_regr_4flu.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Output files are saved in <code>./generated_data/IFN26</code>.</p>
-<p>Output figures (Ext. Data Fig. 6c,f) are saved in <code>./figure_generation/IFN26</code>. <br /> <br /></p>
-<hr />
+<p>Output plot is saved in <code>figures/male_vs_female</code>.</p>
+<p><br /> <br /> <br /></p>
 <p>Loaded libraries and session information:</p>
 <pre><code>&gt; sessionInfo()
-R version 3.3.1 (2016-06-21)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Red Hat Enterprise Linux Server 7.2 (Maipo)
+R version 3.6.1 (2019-07-05)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 17763)
+
+Matrix products: default
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C
- [9] LC_ADDRESS=C               LC_TELEPHONE=C
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C
+[1] LC_COLLATE=English_United States.1252  LC_CTYPE=English_United States.1252    LC_MONETARY=English_United States.1252
+[4] LC_NUMERIC=C                           LC_TIME=English_United States.1252    
 
 attached base packages:
- [1] stats4    tools     parallel  stats     graphics  grDevices utils
- [8] datasets  methods   base
+[1] grid      stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] fgsea_1.0.2               Rcpp_0.12.12
- [3] WGCNA_1.61                fastcluster_1.1.24
- [5] dynamicTreeCut_1.63-1     illuminaHumanv4.db_1.26.0
- [7] hgu133plus2.db_3.2.3      org.Hs.eg.db_3.4.0
- [9] AnnotationDbi_1.36.2      IRanges_2.6.1
-[11] S4Vectors_0.10.3          BiocInstaller_1.24.0
-[13] effsize_0.7.1             MetaDE_1.0.5
-[15] combinat_0.0-8            Biobase_2.32.0
-[17] BiocGenerics_0.18.0       impute_1.46.0
-[19] survival_2.41-3           gdata_2.18.0
-[21] car_2.1-5                 stargazer_5.2
-[23] effects_4.0-0             carData_3.0-0
-[25] GGally_1.3.2              gplots_3.0.1
-[27] xtable_1.8-2              latex2exp_0.4.0
-[29] MASS_7.3-47               tmod_0.31
-[31] lme4_1.1-13               Matrix_1.2-11
-[33] pROC_1.10.0               data.table_1.10.4
-[35] dplyr_0.7.3               purrr_0.2.3
-[37] readr_1.1.1               tidyr_0.7.1
-[39] tibble_1.3.4              ggplot2_2.2.1
-[41] tidyverse_1.1.1           plyr_1.8.4
+ [1] fgsea_1.10.1         Rcpp_1.0.2           clustree_0.4.1       viridis_0.5.1        viridisLite_0.3.0   
+ [6] ggridges_0.5.1       ggsignif_0.6.0       pals_1.5             maps_3.3.0           ComplexHeatmap_2.0.0
+[11] circlize_0.4.8       ggraph_2.0.0         mclust_5.4.5         limma_3.40.6         MASS_7.3-51.4       
+[16] pROC_1.15.3          corrplot_0.84        tmod_0.40            Seurat_2.3.4         Matrix_1.2-17       
+[21] cowplot_1.0.0        data.table_1.12.2    forcats_0.4.0        stringr_1.4.0        dplyr_0.8.3         
+[26] purrr_0.3.2          readr_1.3.1          tidyr_0.8.3          tibble_2.1.3         ggplot2_3.2.0       
+[31] tidyverse_1.2.1      plyr_1.8.4          
 
 loaded via a namespace (and not attached):
- [1] readxl_1.0.0          backports_1.1.0       fastmatch_1.1-0
- [4] Hmisc_4.0-3           lazyeval_0.2.0        splines_3.3.1
- [7] BiocParallel_1.6.6    robust_0.4-18         digest_0.6.12
-[10] plotwidgets_0.4       foreach_1.4.3         htmltools_0.3.6
-[13] GO.db_3.4.0           magrittr_1.5          checkmate_1.8.3
-[16] memoise_1.1.0         fit.models_0.5-14     cluster_2.0.6
-[19] doParallel_1.0.10     modelr_0.1.1          matrixStats_0.52.2
-[22] colorspace_1.3-2      rrcov_1.4-3           blob_1.1.0
-[25] rvest_0.3.2           haven_1.1.0           jsonlite_1.5
-[28] tagcloud_0.6          bindr_0.1             iterators_1.0.8
-[31] glue_1.1.1            gtable_0.2.0          MatrixModels_0.4-1
-[34] DEoptimR_1.0-8        SparseM_1.77          scales_0.5.0
-[37] mvtnorm_1.0-6         DBI_0.7               htmlTable_1.9
-[40] foreign_0.8-69        bit_1.1-12            preprocessCore_1.36.0
-[43] Formula_1.2-2         survey_3.32-1         htmlwidgets_0.9
-[46] httr_1.3.1            RColorBrewer_1.1-2    acepack_1.4.1
-[49] pkgconfig_2.0.1       reshape_0.8.7         XML_3.98-1.9
-[52] nnet_7.3-12           rlang_0.1.2           reshape2_1.4.2
-[55] munsell_0.4.3         cellranger_1.1.0      pca3d_0.10
-[58] RSQLite_2.0           broom_0.4.2           stringr_1.2.0
-[61] knitr_1.17            bit64_0.9-7           robustbase_0.92-7
-[64] caTools_1.17.1        bindrcpp_0.2          nlme_3.1-131
-[67] mime_0.5              quantreg_5.33         xml2_1.1.1
-[70] pbkrtest_0.4-7        beeswarm_0.2.3        pcaPP_1.9-72
-[73] stringi_1.1.5         forcats_0.2.0         lattice_0.20-35
-[76] psych_1.7.8           nloptr_1.0.4          bitops_1.0-6
-[79] httpuv_1.3.5          R6_2.2.2              latticeExtra_0.6-28
-[82] KernSmooth_2.23-15    gridExtra_2.3         codetools_0.2-15
-[85] gtools_3.5.0          assertthat_0.2.0      mnormt_1.5-5
-[88] mgcv_1.8-22           hms_0.3               grid_3.3.1
-[91] rpart_4.1-11          minqa_1.2.4           shiny_1.0.5
-[94] lubridate_1.6.0       base64enc_0.1-3       ellipse_0.3-8</code></pre>
+  [1] tagcloud_0.6            reticulate_1.13         R.utils_2.9.0           tidyselect_0.2.5       
+  [5] htmlwidgets_1.3         BiocParallel_1.17.18    Rtsne_0.15              munsell_0.5.0          
+  [9] codetools_0.2-16        ica_1.0-2               miniUI_0.1.1.1          withr_2.1.2            
+ [13] colorspace_1.4-1        knitr_1.24              rstudioapi_0.10         stats4_3.6.1           
+ [17] ROCR_1.0-7              robustbase_0.93-5       dtw_1.21-3              gbRd_0.4-11            
+ [21] Rdpack_0.11-0           labeling_0.3            lars_1.2                polyclip_1.10-0        
+ [25] bit64_0.9-7             farver_2.0.1            vctrs_0.2.0             generics_0.0.2         
+ [29] xfun_0.9                diptest_0.75-7          R6_2.4.0                clue_0.3-57            
+ [33] graphlayouts_0.5.0      hdf5r_1.3.0             manipulateWidget_0.10.0 flexmix_2.3-15         
+ [37] bitops_1.0-6            assertthat_0.2.1        promises_1.0.1          SDMTools_1.1-221.1     
+ [41] scales_1.0.0            nnet_7.3-12             beeswarm_0.2.3          gtable_0.3.0           
+ [45] npsurv_0.4-0            tidygraph_1.1.2         rlang_0.4.0             zeallot_0.1.0          
+ [49] GlobalOptions_0.1.0     splines_3.6.1           lazyeval_0.2.2          acepack_1.4.1          
+ [53] plotwidgets_0.4         dichromat_2.0-0         broom_0.5.2             checkmate_1.9.4        
+ [57] rgl_0.100.30            yaml_2.2.0              reshape2_1.4.3          modelr_0.1.5           
+ [61] crosstalk_1.0.0         backports_1.1.4         httpuv_1.5.1            Hmisc_4.2-0            
+ [65] tools_3.6.1             gplots_3.0.1.1          RColorBrewer_1.1-2      proxy_0.4-23           
+ [69] base64enc_0.1-3         rpart_4.1-15            pbapply_1.4-2           GetoptLong_0.1.7       
+ [73] zoo_1.8-6               haven_2.1.1             ggrepel_0.8.1           cluster_2.1.0          
+ [77] magrittr_1.5            lmtest_0.9-37           RANN_2.6.1              fitdistrplus_1.0-14    
+ [81] hms_0.5.1               lsei_1.2-0              mime_0.7                evaluate_0.14          
+ [85] xtable_1.8-4            XML_3.98-1.20           readxl_1.3.1            gridExtra_2.3          
+ [89] shape_1.4.4             compiler_3.6.1          KernSmooth_2.23-15      crayon_1.3.4           
+ [93] R.oo_1.22.0             htmltools_0.3.6         segmented_1.0-0         later_0.8.0            
+ [97] Formula_1.2-3           snow_0.4-3              lubridate_1.7.4         tweenr_1.0.1           
+[101] fpc_2.2-3               cli_1.1.0               R.methodsS3_1.7.1       gdata_2.18.0           
+[105] parallel_3.6.1          metap_1.1               igraph_1.2.4.1          pkgconfig_2.0.2        
+[109] foreign_0.8-72          xml2_1.2.1              foreach_1.4.7           webshot_0.5.1          
+[113] bibtex_0.4.2            rvest_0.3.4             digest_0.6.20           tsne_0.1-3             
+[117] fastmatch_1.1-0         rmarkdown_1.15          cellranger_1.1.0        htmlTable_1.13.1       
+[121] kernlab_0.9-29          shiny_1.3.2             gtools_3.8.1            modeltools_0.2-22      
+[125] rjson_0.2.20            nlme_3.1-141            jsonlite_1.6            mapproj_1.2.6          
+[129] pillar_1.4.2            lattice_0.20-38         httr_1.4.1              DEoptimR_1.0-8         
+[133] survival_2.44-1.1       glue_1.3.1              png_0.1-7               prabclus_2.3-1         
+[137] iterators_1.0.12        bit_1.1-14              ggforce_0.3.1           class_7.3-15           
+[141] stringi_1.4.3           mixtools_1.1.0          doSNOW_1.0.18           latticeExtra_0.6-28 </code></pre>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlJlcHJvZHVjaWJsZSB3b3JrZmxvdyBmb3IgdGhlIHByb2plY3QiDQpzdWJ0aXRsZTogIlwiQnJvYWQgaW1tdW5lIGFjdGl2YXRpb24gdW5kZXJsaWVzIHNoYXJlZCBzZXQgcG9pbnQgc2lnbmF0dXJlcyBmb3IgdmFjY2luZSByZXNwb25zaXZlbmVzcyBpbiBoZWFsdGh5IGluZGl2aWR1YWxzIGFuZCBkaXNlYXNlIGFjdGl2aXR5IGluIGx1cHVzIHBhdGllbnRzXCIiDQphdXRob3I6ICJZdXJpIEtvdGxpYXJvdiwgWW9uZyBMdSwgSm9obiBTLiBUc2FuZyINCm91dHB1dDogDQogIGh0bWxfbm90ZWJvb2s6IA0KICAgIHRvYzogeWVzDQotLS0NCg0KIyMgSW50cm9kdWN0aW9uDQoNClRoZSBmb2xsb3dpbmcgd29ya2Zsb3cgd2FzIHVzZWQgdG8gYW5hbHl6ZSB0aGUgZGF0YSBhbmQgZ2VuZXJhdGUgdGhlIGZpZ3VyZXMgZm9yIG91ciBwYXBlciAiQnJvYWQgaW1tdW5lIGFjdGl2YXRpb24gdW5kZXJsaWVzIHNoYXJlZCBzZXQgcG9pbnQgc2lnbmF0dXJlcyBmb3IgdmFjY2luZSByZXNwb25zaXZlbmVzcyBpbiBoZWFsdGh5IGluZGl2aWR1YWxzIGFuZCBkaXNlYXNlIGFjdGl2aXR5IGluIGx1cHVzIHBhdGllbnRzIiBwdWJsaXNoZWQgaW4gTmF0dXJlIE1lZGljaW5lIGluIDIwMjAuDQoNClRvIGF2b2lkIGluYXZhaWxhYmlsaXR5IG9yIHZlcnNpb24gY2hhbmdlIGluIFIgcGFja2FnZXMgd2UgcmVjb21tZW5kIHRvIHJ1biB0aGUgd29ya2Zsb3cgdXNpbmcgb3VyIFNpbmd1bGFyaXR5IGNvbnRhaW5lci4gDQo8YnIvPg0KDQojIyBQcmVwYXJlIHRoZSB3b3JraW5nIGRpcmVjdG9yeQ0KDQpCZWZvcmUgcnVubmluZyB0aGUgd29ya2Zsb3cgcHJlcGFyZSB0aGUgd29ya2luZyBkaXJlY3Rvcnkgd2l0aCB0aGUgZm9sbG93aW5nIHN1YmZsb2RlcnM6DQoNCmBgYA0KZGF0YQ0KZmlndXJlX2dlbmVyYXRpb24NCmdlbmVyYXRlZF9kYXRhDQpSDQpgYGANCg0KKiBEb3dubG9hZCB0aGUgYXJjaGl2ZWQgZGF0YSBmb2xkZXIgZnJvbSBbaGVyZV0oKSBhbmQgdW5wYWNrIGl0IGludG8gdGhlIGBgYGRhdGFgYGAgZm9sZGVyIA0KKiBEb3dubG9hZCB0aGUgYXJjaGl2ZWQgZGlyZWN0b3J5IHdpdGggUiBjb2RlIGFuZCB1bnBhY2sgaXQgaW50byB0aGUgYGBgUmBgYCBmb2xkZXIuIA0KKiBNYWtlIHN1cmUgdG8gcHV0IHRoZSBgYGAuUnByb2ZpbGVgYGAgZmlsZSBpbnRvIHRoZSB3b3JraW5nIGRpcmVjdG9yeSBpdHNlbGYuIE1vZGlmeSB0aGUgYGBgUFJPSkVDVF9ESVJgYGAgdmFyaWFibGUgd2l0aCB0aGUgZnVsbCBwYXRoIHRvIHRoZSB3b3JraW5nIGRpcmVjdG9yeS4NCiogQ3JlYXRlIGVtcHR5IGZvbGRlcnMgZ2VuZXJhdGVkX2RhdGEgYW5kIGZpZ3VyZV9nZW5lcmF0aW9uLg0KKiBJZiB5b3UgYXJlIGdvaW5nIHRvIHVzZSB0aGUgU2luZ3VsYXJpdHkgY29udGFpbmVyIGRvd25sb2FkIGl0IGZyb20gW2hlcmVdKCkuIEl0IHNob3VsZCBiZSBsb2NhdGVkIG91dHNpZGUgb2YgdGhlIHdvcmtpbmcgZGlyZWN0b3J5LiANCg0KIyMgVXNpbmcgU2luZ3VsYXJpdHkgY29udGFpbmVyDQoNCklmIHlvdSBhcmUgdXNpbmcgU2luZ3VsYXJpdHkgb24gTklBSUQgSFBDLCBmb2xsb3cgdGhlc2Ugc3RlcHMgdG8gc3RhcnQgdGhlIGNvbnRhaW5lciBhbmQgcnVuIFINCmBgYA0KICAgICQgY2QgL2hwY2RhdGEvc2cvc2dfZGF0YS9zaW5ndWxhcml0eS9iYXNlbGluZQ0KICAgICQgc2luZ3VsYXJpdHkgc2hlbGwgLUIgXA0KICAgICAgICAgICAgIC9mdWxsX3BhdGhfdG9fdGhlX3dvcmtpbmdfZGlyLzovdmFyL3dvcmtmbG93MSBcDQogICAgICAgICAgICAgIGJhc2VsaW5lX3JzdHVkaW9fcl8zLjQuMS5pbWcNCiAgICAkIGNkIC92YXIvd29ya2Zsb3cxDQogICAgJCBSDQpgYGANCjxici8+Rm9yIG91dHNpZGUgdXNhZ2UgY2hlY2sgdGhhdCBTaW5ndWxhcml0eSBpcyBpbnN0YWxsZWQgYW5kIHdvcmtzIHByb3Blcmx5LiBTaW5ndWxhcml0eSBpbnN0YWxsYXRpb24gYW5kIHVzYWdlIGd1aWRlIGNhbiBiZSBmb3VuZCBhdCBodHRwczovL3N5bGFicy5pby9kb2NzLy4NCjxici8+DQoNCiMjIFVzaW5nIFIgd2l0aG91dCBTaW5ndWxhcml0eSBjb250YWluZXINCg0KSWYgU2luZ3VsYXJpdHkgaXMgbm90IGF2YWlsYWJsZSwgaXQgaXMgcG9zc2libGUgdG8gdXNlIHN0YW5kYWxvbmUgUiBidXQgd2UgY2Fubm90IGd1YXJhbnRlZSB0aGUgZXJyb3ItZnJlZSBmbG93IGFuZCB0aGUgZXhhY3QgcmVzdWx0cy4gDQoNCjxici8+T3VyIHBpcGVsaW5lIHJlcXVpcmVzIHRoZSBmb2xsb3dpbmcgUiBwYWNrYWdlczoNCg0KYGBgDQojIENSQU46DQppbnN0YWxsLnBhY2thZ2VzKGMoInBseXIiLCAidGlkeXZlcnNlIiwgImRhdGEudGFibGUiLCAicFJPQyIsICJsbWU0IiwgImxpbW1hIiwgInRtb2QiLCAiTUFTUyIsICJsYXRleDJleHAiLCAiZ3Bsb3RzIiwgIkdHYWxseSIsICJlZmZlY3RzIiwgImNhciIsICJlZmZzaXplIiwgImNvd3Bsb3QiLCAiY2lyY2xpemUiKSkNCg0KIyBCaW9jb25kdWN0b3IgMy40Og0Kc291cmNlKCJodHRwOi8vYmlvY29uZHVjdG9yLm9yZy9iaW9jTGl0ZS5SIikNCmJpb2NMaXRlKCkNCmJpb2NMaXRlKGMoIldHQ05BIiwgInRtb2QiLCAiZmdzZWEiLCAiQ29tcGxleEhlYXRtYXAiLCAiaGd1MTMzcGx1czIuZGIiKSkNCg0KIyBvbGRlciB2ZXJzaW9uaSBvZiBNZXRhREUNCmluc3RhbGwucGFja2FnZXMoImh0dHBzOi8vY3Jhbi5yLXByb2plY3Qub3JnL3NyYy9jb250cmliL0FyY2hpdmUvTWV0YURFL01ldGFERV8xLjAuNS50YXIuZ3oiLCByZXBvcyA9IE5VTEwsIHR5cGUgPSAic291cmNlIikNCg0KDQojIEdpdEh1YiAoSW1tdW5lU3BhY2VSIGFuZCBJbW1TaWcyIHBhY2thZ2VzIGhhdmUgdG8gYmUgaW5zdGFsbGVkIGJlZm9yZSBJbW11bmVTaWduYXR1cmVzLiBDdXJyZW50bHkgdGhlIGxhdGVzdCBkZXZlbG9wbWVudCB2ZXJzaW9ucyBvZiB0aGVzZSBwYWNrYWdlcyBhcmUgcmVxdWlyZWQgdG8gZG93bmxvYWQgSElQQyBkYXRhKS4gV2UgZG8gbm90IGluY2x1ZGUgdGhpcyBwYWNrYWdlcyBpbiB0aGUgU2luZ3VsYXJpdHkgY29udGFpbmVyLCBzaW5jZSB0aGlzIHZlcnNpb24gb25jZSBvdXRkYXRlZCBtb3N0IHByb2JhYmx5IHdpbGwgbm90IG5vdCB3b3JrIHdpdGggSW1tdW5lU3BhY2Ugc2VydmVyLg0KaW5zdGFsbC5wYWNrYWdlcygiZGV2dG9vbHMiKQ0KZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKCJyZ2xhYi9JbW11bmVTcGFjZVIiKQ0KZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKCJlaGZoY3JjL0ltbVNpZzIiKQ0KZGV2dG9vbHM6Omluc3RhbGxfZ2l0aHViKCJyZ2xhYi9JbW11bmVTaWduYXR1cmVzIiwgYnVpbGRfdmlnbmV0dGVzID0gRkFMU0UpDQpgYGANCjxici8+DQoNCiMjIyBOb3Rlcw0KSWYgd2hpbGUgcnVubmluZyBzb21lIHNjcmlwdHMgeW91IGdldCBYMTEgZm9yd2FyZGluZyByZWxhdGVkIGVycm9yLCBjaGVjayBpZiB5b3UgaGF2ZSBYMTEgZm9yd2FyZGluZyB0dXJuZWQgb24gKGluIFB1dHR5IGl0IGlzIGluIENvbm5lY3Rpb24tU1NILVgxMSkgYW5kIHR1cm4gaXQgb2ZmLiANClNvbWV0aW1lIGFuIGVycm9yIG1heSBhcHBlYXIgZHVlIHRvIGEgY29uZmxpY3QgYmV0d2VlbiBSIHBhY2thZ2VzLiBJbiB0aGlzIGNhc2UgcmVzdGFydCBSIGFuZCByZXJ1biB0aGUgc2NyaXB0IHRoYXQgcHJldmlvdXNseSByZXR1cm5lZCB0aGUgZXJyb3IuDQo8YnIvPg0KDQotLS0NCg0KIyBDSEkgZGF0YSBhbmFseXNpcw0KDQojIyBJbnB1dCBkYXRhDQoNCklucHV0IGRhdGEgYXJlIHN0b3JlZCBpbiBkYXRhIGZvbGRlcjoNCg0KICAqIERlbW9ncmFwaGljcyAoZ2VuZGVyLCBhZ2UsIGV0aG5pY2l0eSkNCiAgICAqIGRhdGEvQ0hJL3BoZW5vdHlwZXMvQ0hJX2RlbW9ncmFwaGljcy50eHQNCiAgKiBNaWNyb25ldXRyYWxpemF0aW9uIHRpdGVyLCBwcm9jZXNzZWQNCiAgICAqIGRhdGEvQ0hJL3BoZW5vdHlwZXMvdGl0ZXJfcHJvY2Vzc2VkLnR4dA0KICAqIEV4cHJlc3Npb24gZGF0YSBhZnRlciBjb3JyZWN0aW9uIG9mIGJhdGNoIGVmZmVjdCAoaHlicmlkaXphdGlvbiBkYXRlKSBkb3dubG9hZGVkIGZyb20gaHR0cHM6Ly9jaGkubmlhaWQubmloLmdvdi8NCiAgICAqIGRhdGEvQ0hJL2V4cHJlc3Npb24vY29ycmVjdGVkLmJhdGNoLnR4dA0KICAgICogZGF0YS9DSEkvZXhwcmVzc2lvbi9hZmZ5X2h1Z2VuZV8xLjBfSURfdW5pcXVlX1BDMS50eHQgKHByb2Jlc2V0LWdlbmUgbWFwcGluZykNCiAgKiBGbG93IGN5dG9tZXRyeSAoY2VsbCBjb3VudHMgb2Ygc2VsZWN0ZWQgY2VsbCBwb3B1bGF0aW9ucyBleHBvcnRlZCBmcm9tIEZsb3dKbyB2OS45LjMpDQogICAgKiBkYXRhL0NISS9mbG93L2JwX2Zsb3dfZGF0YS50eHQNCiAgKiBWaXN1YWwgcXVhbGl0eSBhc3Nlc3NtZW50IG9mIGNlbGwgdmlhYmlsaXR5IGFuZCB0aGUgZGV0ZWN0aW9uIG9mIENEMzggbWFya2VyIChwYXNzIG9yIGZhaWwpDQogICAgKiBkYXRhL0NISS9mbG93L2JwX2Zsb3dfc2FtcGxlX2ZsYWdnZWQudHh0DQogICAgDQpBbGwgZGF0YSBleGNlcHQgZmxvdyBhcmUgYXZhaWxhYmxlIG9uIHRoZSBDSEkgZGF0YSBwb3J0YWwgKGh0dHBzOi8vY2hpLm5pYWlkLm5paC5nb3Yvd2ViL25ldy9kYXRhLmh0bWwpDQo8YnIvPg0KDQojIyBTdGVwIDEuIERhdGEgZm9ybWF0dGluZyBhbmQgcHJlcGFyYXRpb24NCg0KYGBge3J9DQpzb3VyY2UoIlIvY2hpX2RhdGFwcmVwL2NoaV9kYXRhX2Zyb21fcHVibGljLnIiKQ0Kc291cmNlKCJSL2NoaV9kYXRhcHJlcC9jaGlfcHJvYmVzMmdlbmVzLnIiKQ0Kc291cmNlKCJSL2NoaV9kYXRhcHJlcC9jaGlfYWRkX2RlbW9fYW5kX3RpdGVyLnIiKQ0Kc291cmNlKCJSL2NoaV9kYXRhcHJlcC9jaGlfZmxvd19wcm9jZW50cy5yIikNCnNvdXJjZSgiUi9jaGlfZGF0YXByZXAvY2hpX2Zsb3dfZmlsdGVyaW5nLnIiKQ0KDQpgYGANCg0KT3V0cHV0IHdpbGwgYmUgc2F2ZWQgdG8gLi9nZW5lcmF0ZWRfZGF0YS9DSEkvLg0KPGJyLz4NCg0KIyMgU3RlcCAyLiBDYWxjdWxhdGUgYW5kIHBsb3QgY29ycmVsYXRpb24gYmV0d2VlbiB0aXRlciByZXNwb25zZSBhbmQgcGVyY2VudCBvZiBDRDM4IGhpZ2ggY2VsbHMgZm9yIDMgYmFzZWxpbmUgdGltZSBwb2ludHMNCg0KYGBge3J9DQpzb3VyY2UoIlIvY2hpX2Zsb3ctdGl0ZXJfY29ycmVsYXJpb24vY2hpX2Zsb3dfdGl0ZXJfY29ycl93aXRoX3JvY19wLnIiKQ0KDQpgYGANCg0KPGJyLz5JdCB3aWxsIGdlbmVyYXRlIHRoZSBmb2xsb3dpbmcgZmlndXJlIChFeHQuIERhdGEgRmlnLiAxYikNCmBgYA0KLi9maWd1cmVfZ2VuZXJhdGlvbi9DSElfZmxvd192c19yZXNwb25lc18zdGltZV9wLnBkZg0KYGBgDQo8YnIvPg0KDQojIyBTdGVwIDMuIENvbXBhcmUgbmV3bHkgZ2F0ZWQgY2VsbCBwb3B1bGF0aW9ucyB3aXRoIHByZXZpb3VzIGdhdGVzIGJ5IHByZWRpY3RpdmUgcG93ZXIgKEFVQykgYW5kIHRlbXBvcmFsIHN0YWJpbGl0eToNCg0KYGBge3J9DQpzb3VyY2UoIlIvY2hpX2Zsb3dfYW5hbHlzaXMvc2VsZWN0ZWRfZ2F0ZXNfYXVjLnIiKQ0Kc291cmNlKCJSL2NoaV9mbG93X2FuYWx5c2lzL3NlbGVjdGVkX2dhdGVzX3N0YWJpbGl0eS5yIikNCg0KYGBgDQoNCjxici8+VGhlIHNjcmlwdCBnZW5lcmF0ZXMgdHdvIHBsb3RzIGZvciBGaWd1cmUgMWIuDQoNCmBgYA0KLi9maWd1cmVfZ2VuZXJhdGlvbi9DSElfZmxvd19zZWxlY3RlZF9nYXRlc19BVUMucGRmDQouL2ZpZ3VyZV9nZW5lcmF0aW9uL0NISV9mbG93X3NlbGVjdGVkX2dhdGVzX0lTVi5wZGYNCmBgYA0KPGJyLz4NCg0KIyMgU3RlcCA0LiBDYWxjdWxhdGUgaW50ZXItc3ViamVjdCB2YXJpYXRpb24gKElTVikgb2YgZXhwcmVzc2lvbiBvZiBpbmRpdmlkdWFsIGdlbmVzIHRvIHF1YW50aWZ5IHRoZWlyIHN0YWJpbGl0eSBhY3Jvc3MgYmFzZWxpbmUgdGltZSBwb2ludHMgKGRheXMgLTcsIDAsIGFuZCA3MCk6DQoNCmBgYHtyfQ0Kc291cmNlKCJSL2NoaV9zdGFiaWxpdHkvY2hpX2dlbmVfc3RhYmlsaXR5LnIiKQ0KYGBgDQoNCjxici8+VGhlIHNjcmlwdCBnZW5lcmF0ZXMgYSB0YWJsZSBvZiBnZW5lIHN0YWJpbGl0eSBtZXRyaWNzOg0KYGBgDQouL2dlbmVyYXRlZF9kYXRhL0NISS9DSElfZ2VuZXNfc3RhYmlsaXR5LnR4dA0KYGBgDQo8YnIvPg0KDQojIyBTdGVwIDUuIEFuYWx5c2lzIG9mIGNvcnJlbGF0aW9uIGJldHdlZW4gZ2VuZSBleHByZXNzaW9uIGFuZCBwZXJjZW50YWdlIG9mIENEMzggaGlnaCBjZWxsczoNCg0KQ29ycmVsYXRpb24gdXNpbmcgc3RhYmxlIGdlbmVzIG9ubHkNCmBgYHtyfQ0Kc291cmNlKCJSL2NoaV9mbG93LWdlX2NvcnJlbGFyaW9uL2NoaV9nZV9mbG93X2NvcnJlbGF0aW9uLnIiKSANCmBgYA0KDQo8YnIvPkNvcnJlbGF0aW9uIHVzaW5nIGFsbCBnZW5lcyB0byBnZW5lcmF0ZSBjb3JyZWxhdGlvbnMgd2l0aCBDRDIwK0NEMzgrKyBCIGNlbGxzIGZvciBmdXRoZXIgdGVzdCBvZiByYW5kb20gc2lnbmF0dXJlcw0KYGBge3J9DQpzb3VyY2UoIlIvY2hpX2Zsb3ctZ2VfY29ycmVsYXJpb24vY2hpX2dlX2Zsb3dfY29ycmVsYXRpb25fYWxsLmdlbmVzLnIiKQ0KYGBgDQoNCjxici8+VGhlIHNjcmlwdHMgYWRkcyBwZXJjZW50IG9mIENEMzgrKyBjZWxscyB0byBzYW1wbGUgaW5mb3JtYXRpb24gdGFibGUgDQpgYGANCi4vZ2VuZXJhdGVkX2RhdGEvQ0hJL0NISV9zYW1wbGVfaW5mb18yX0NEMzhoaS50eHQNCmBgYA0KYW5kIGdlbmVyYXRlcyB0aGUgZm9sbG93aW5nIGZpbGVzIHdpdGggcm9idXN0IGNvcnJlbGF0aW9uIHJlc3VsdHM6DQpgYGANCi4vZ2VuZXJhdGVkX2RhdGEvQ0hJL3JvYnVzdF9jb3JyX2dlbmVzLnR4dA0KLi9nZW5lcmF0ZWRfZGF0YS9DSEkvcm9idXN0X2NvcnJfYWxsLmdlbmVzLnR4dA0KYGBgDQoNCjxici8+VGVzdGluZyBjb3JyZWxhdGlvbnMgdXNpbmcgNTAwIHJhbmRvbSBzaWduYXR1cmVzIGNvbXB1dGVkIGJ5IHBlcm11dGluZyBzdWJqZWN0IGxhYmVscyBmb3IgZmxvdyBkYXRhLiBBdCBlYWNoIGl0ZXJhdGlvbiB0aGUgY29ycmVsYXRpb24gY29tcHV0ZWQgZXhhY3RseSB0aGUgc2FtZSB3YXkgYXMgZm9yIHRoZSByZWFsIGRhdGEuICoqTG9uZyBjb21wdXRhdGlvbiEqKg0KDQpgYGANCnNvdXJjZSgiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL3JhbmQuc2lnX2dlbmVyYXRlLnIiKQ0KYGBgDQpUaGUgb3V0cHV0IGZpbGUgd2l0aCBjb3JyZWxhdGlvbiBkYXRhIGZvciBlYWNoIGl0ZXJhdGlvbiBpcyBzdG9yZSBhcyBgYGAuL2dlbmVyYXRlZF9kYXRhL0NISS9nZW5lX3NpZ19yYW5kb21fNTAwX2Zyb21fYWxsLnR4dGBgYC4gDQpJbnN0ZWFkIHlvdSBjYW4gZG93bmxvYWQgcHJlLWNvbXB1dGVkIHJhbmRvbSBzaWduYXR1cmVzIGdlbmVyYXRlZCBwcmV2aW91c2x5IGFuZCBwdXQgaXQgaW50byB0aGUgZGF0YSBmb2xkZXIuIA0KYGBge3J9DQpzb3VyY2UoIlIvY2hpX3NpZ25hdHVyZV9hbmFseXNpcy9jZDM4XzEwZ2VuZV9yYW5kb21fc2lnX0ZJR1VSRS5yIikNCmBgYA0KDQpUaGUgc2NyaXB0cyBnZW5lcmF0ZSBhIHRhYmxlIGFuZCBBVUMgdGFibGUsIGFzIHdlbGwgYXMgYSBwbG90IGZvciBFeHQuIERhdGEgRmlnLiAyZToNCmBgYA0KLi9nZW5lcmF0ZWRfZGF0YS9DSEkvY2hpX3JhbmRvbS5zaWcuNTAwXzN0aW1lcy5yZHMNCi4vZ2VuZXJhdGVkX2RhdGEvZmlndXJlX2dlbmVyYXRpb24NCmBgYA0KPGJyLz4NCg0KIyMgU3RlcCA2LiBEZXRlcm1pbmUgdGhlIG9wdGltYWwgbnVtYmVyIG9mIGdlbmVzIGFzIGV4cHJlc3Npb24gc3Vycm9nYXRlIHNpZ25hdHVyZSBmb3IgQ0QyMCtDRDM4KysgQiBjZWxscy4gDQoNCkV2YWx1YXRlIHByZWRpY3Rpb24gcG93ZXIgb2YgdGl0ZXIgcmVzcG9uc2UgZm9yIHRvcCAyMCBpbmRpdmlkdWFsIGdlbmVzIChGaWcuIDFkKTogDQpgYGB7cn0NCnNvdXJjZSgiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMjBnZW5lc19zaW5nbGUuZ2VuZS5hdWNfYmFycGxvdF9GSUdVUkUuciIpDQpgYGANCg0KPGJyLz5FdmFsdWF0ZSBwcmVkaWN0aW9uIHBvd2VyIG9mIHRpdGVyIHJlc3BvbnNlIGZvciBkaWZmZXJlbnQgbnVtYmVyIG9mIGdlbmVzIGluIHRoZSBzaWduYXR1cmUgKEV4dC4gRGF0YSBGaWcuIDJjKToNCmBgYHtyfQ0Kc291cmNlKCJSL2NoaV9zaWduYXR1cmVfYW5hbHlzaXMvY2QzOF9OZ2VuZV9zaWdfYW5hbHlzaXNfRklHVVJFLnIiKQ0KYGBgDQoNCjxici8+R2VuZXJhdGUgUk9DIGZvciB0aXRlciByZXNwb25zZSBwcmVkaWN0aW9uIGJhc2VkIG9uIDEwLWdlbmUgc2lnbmF0dXJlLCBhbmQgYm94IHBsb3QgY29tcGFyaW5nIGxvdy0gYW5kIGhpZ2gtIHJlc3BvbmRlcnMgYmFzZWQgb24gVEdTaWcgZm9yIGRheSAwLCBkYXkgLTcgYW5kIGRheSA3MCAoRmlnLiAxZS1mKS4gT3V0cHV0IHRoZSBUR1NpZyBzY29yZXMgZm9yIGxvdyBhbmQgaGlnaCByZXNwb25kZXJzIGZvciB0aGVzZSB0aW1lIHBvaW50cy4NCmBgYHtyfQ0Kc291cmNlKCJSL2NoaV9zaWduYXR1cmVfYW5hbHlzaXMvY2QzOF8xMGdlbmVfc2lnX2FuYWx5c2lzX0ZJR1VSRVNfd2l0aF9yb2NfcC5yIikNCmBgYA0KDQo8YnIvPkVmZmVjdCBvbiBBVUMgYWZ0ZXIgcmVtb3ZhbCBvZiBpbmRpdmlkdWFsIGdlbmVzIGluIFRHU2lnIChFeHQuIERhdGEgRmlnLiAyZyk6IA0KYGBge3J9DQpzb3VyY2UoIlIvY2hpX3NpZ25hdHVyZV9hbmFseXNpcy9jZDM4XzEwZ2VuZV9zaWdfcm1fZ2VuZXNfRklHVVJFUy5yIikNCmBgYA0KDQo8YnIvPkNoZWNrIHN0YWJpbGl0eSBvZiByZWxhdGl2ZSByYW5rIG9mIENEMzgrKyBzaWduYXR1cmUgZ2VuZXMgYXBwbHlpbmcgZGlmZmVyZW50IElTViB0aHJlc2hvbGQgKEV4dC4gRGF0YSBGaWcuIDJmKToNCmBgYHtyfQ0Kc291cmNlKCJSL2NoaV9zaWduYXR1cmVfYW5hbHlzaXMvY2QzOC5jb3JfcmVsLnJhbmtfdnNfSVNWLnRoX0ZJR1VSRVMuciIpDQpgYGANCg0KPGJyLz5TYXZlIHRoZSBmaW5hbCBnZW5lIGxpc3RzIGZvciBib3RoIFRHU2lnIGFuZCBwbGFzbWFibGFzdCBzaWduYXR1cmU6IA0KYGBge3J9DQpzb3VyY2UoIlIvY2hpX3NpZ25hdHVyZV9hbmFseXNpcy9nZV9zaWdfcHJlcC5yIikNCmBgYA0KDQo8YnIvPkdlbmVyYXRlIGJveCBwbG90cyBjb21wYXJpbmcgIGxvdy0sIG1pZGRsZS0gYW5kIGhpZ2gtIHJlc3BvbmRlcnMgYmFzZWQgb24gVEdTaWcgc2NvcmUgZm9yIGRheSAwIChFeHQuIERhdGEgRmlnLiAzYik6DQpgYGB7cn0NCnNvdXJjZSgiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMTBnZW5lX3NpZ19hbmFseXNpc19GSUdVUkVTX3dpdGhfbWlkLnIiKQ0KYGBgDQoNCjxici8+R2VuZXJhdGUgYm94IHBsb3RzIGNvbXBhcmluZyAgbWFsZSBhbmQgZmVtYWxlIHN1YmplY3QgYmFzZWQgb24gVEdTaWcgc2NvcmUgZm9yIGRheSAwIChFeHQuIERhdGEgRmlnLiAxMGItZSk6IA0KYGBge3J9DQpzb3VyY2UoIlIvY2hpX3NpZ25hdHVyZV9hbmFseXNpcy9jZDM4XzEwZ2VuZV9zaWdfYW5hbHlzaXNfRklHVVJFU19nZW5kZXIuciIpDQpzb3VyY2UoIlIvY2hpX3NpZ25hdHVyZV9hbmFseXNpcy9UR1NpZ192c19nZW5kZXJfSEwuciIpDQpzb3VyY2UoIlIvY2hpX3NpZ25hdHVyZV9hbmFseXNpcy9UR1NpZ192c19nZW5kZXJfSE1MLnIiKQ0KYGBgDQoNCjxici8+R2VuZXJhdGVkIGRhdGEgZmlsZXMgYW5kIGZpZ3VyZXMgYXJlIHNhdmVkIGluIGBgYC4vZ2VuZXJhdGVkX2RhdGEvQ0hJYGBgIGFuZCBgYGAuL2ZpZ3VyZV9nZW5lcmF0aW9uYGBgLCByZXNwZWN0aXZlbHkuIFRoZSBzaWduYXR1cmUgZmlsZXMgYXJlIHNhdmVkIGluIGBgYC4vZ2VuZXJhdGVkX2RhdGEvc2lnbmF0dXJlc2BgYC4NCjxici8+DQoNCiMjIFN0ZXAgNy4gQW5hbHl6ZSBibG9vZCB0cmFuc2NyaXB0aW9uIG1vZHVsZSBnZW5lcyBlbnJpY2htZW50IGluIGdlbmVzIGNvcnJlbGF0ZWQgd2l0aCBwZXJjZW50YWdlIG9mIENEMzgtaGlnaCBjZWxscyB2YXJ5aW5nIHNlbGVjdGlvbiB0aHJlc2hvbGQgZm9yIGdlbmUgaW50ZXItc3ViamVjdCB2YXJpYXRpb24uDQoNClJ1biBHU0VBIG9uIOKAnExJ4oCdIGFuZCDigJxEQ+KAnSBtb2R1bGVzIHNlcGFyYXRlbHkgYW5kIHNhdmUgdGhlIHJlc3VsdHMgaW4gUkRTIGZpbGUuDQpgYGB7cn0NCnNvdXJjZSgiUi9mZ3NlYV93aXRoX2J0bV9tb2R1bGVzL2NoaV9DRDM4X2Nvcl9ieV9JU1ZfZmdzZWFfQlRNLnIiKQ0KYGBgDQoNCkdlbmVyYXRlZCBSRFMgZmlsZXMgYXJlIHNhdmVkIGluIGBgYC4vZ2VuZXJhdGVkX2RhdGEvZmdzZWFfd2l0aF9idG1fbW9kdWxlc2BgYC4NCjxici8+DQoNCi0tLQ0KDQojIEhJUEMgZGF0YSBhbmFseXNpcw0KDQojIyBJbnB1dCBkYXRhDQoNCkhBSSBleHByZXNzaW9uIGFuZCB0aXRlciBkYXRhIHdlcmUgZG93bmxvYWRlZCBmcm9tIFtJbW11bmVTcGFjZV0oaHR0cDovL2ltbXVuZXNwYWNlLm9yZykgYW5kIHByZS1wcm9jZXNzZWQgdXNpbmcgcGFydCBvZiB0aGUgUiBzY3JpcHQgdG8gcmVwcm9kdWNlIGZpZ3VyZXMgZm9yIEhJUEMgbWV0YS1hbmFseXNpcyBwYXBlciBbTXVsdGljb2hvcnQgYW5hbHlzaXMgcmV2ZWFscyBiYXNlbGluZSB0cmFuc2NyaXB0aW9uYWwgcHJlZGljdG9ycyBvZiBpbmZsdWVuemEgdmFjY2luYXRpb24gcmVzcG9uc2VzLiBTY2kgSW1tdW5vbC4gMjAxNyBBdWcgMjU7MigxNCldKGh0dHBzOi8vaW1tdW5vbG9neS5zY2llbmNlbWFnLm9yZy9jb250ZW50LzIvMTQvZWFhbDQ2NTYpLiBUaGUgc2NyaXB0IGRvd25sb2FkcyB0aGUgZGF0YSwgY29ycmVjdHMgdGhlIGxhYmVscyBmb3Igc3dhcHBlZCBzYW1wbGVzLCBhbmQgY2FsY3VsYXRlcyBhZGpNRkMgdGl0ZXJzLg0KRm9yIFNEWTQwNCB3ZSB1c2UgbG9jYWxseSBjb21wdXRlZCBhZGpNRkMgaW4gYGBgLi9kYXRhL1NEWTQwNF95b3VuZ19oYWlfdGl0ZXJfdGFibGVfMjAxNi50eHRgYGAuIA0KDQoqKlJlcXVpcmVkIGZpbGUgZnJvbSBwcmV2aW91cyBhbmFseXNpcyoqDQpgYGANCi4vZ2VuZXJhdGVkX2RhdGEvc2lnbmF0dXJlcy9DRDM4X2dlX3NpZy50eHQNCmBgYA0KDQoNCg0KIyMgU3RlcCAxLiBEYXRhIGZvcm1hdHRpbmcgYW5kIHByZXBhcmF0aW9uDQoNCkxvYWQgdGhlIGRhdGEgcHJlbG9hZGVkIGZyb20gSW1tdW5lU3BhY2UNCmBgYHtyfQ0Kc291cmNlKCJSL2hpcGNfZGF0YXByZXAvaGlwY19kYXRhX2Zyb21fSVNfcHJlbG9hZGVkLnIiKQ0KYGBgDQoNClRvIGxvYWQgdGhlIGRhdGEgZGlyZWN0bHkgZnJvbSBJbW11bmVTcGFjZSB3ZSBydW4gdGhpcyBzY3JpcHQuIFRoZSBzY3JpcHQgcmVxdWlyZXMgY3JlYXRpbmcgYWNjb3VudCBhbmQgY29uZmlndXJhdGlvbiBmaWxlIHRvIGFjY2VzcyBJbW11bmVzcGFjZS4gV2UgY2Fubm90IGd1YXJhbnRlZSB0aGF0IHRoZSBzY3JpcHQgd2lsbCBjb250aW51ZSB3b3JraW5nIGluIHRoZSBmdXR1cmUuDQpgYGANCnNvdXJjZSgiUi9oaXBjX2RhdGFwcmVwL2hpcGNfZGF0YV9mcm9tX0lTLnIiKQ0KYGBgDQoNCjxici8+UHJlcGFyZSBkYXRhIGZpbGVzIGZvciB5b3VuZyBzdWJqZWN0cyB3aXRoIHRpdGVyIHJlc3BvbnNlDQpgYGB7cn0NCnNvdXJjZSgiUi9oaXBjX2RhdGFwcmVwL2hpcGNfZGF0YXByZXAuciIpDQpgYGANCg0KPGJyLz5NYXBwaW5nIHByb2JlcyB0byBnZW5lcw0KYGBge3J9DQpzb3VyY2UoIlIvaGlwY19kYXRhcHJlcC9oaXBjX2dlbmVyYXRlX3Byb2JlMmdlbmVfbWFwLnIiKQ0Kc291cmNlKCJSL2hpcGNfZGF0YXByZXAvaGlwY19wcm9iZXMyZ2VuZXMuciIpDQpgYGANCg0KPGJyLz5GaWx0ZXIgYmFzZWxpbmUgKGRheSAwKSBzYW1wbGVzIGFuZCBzdWJqZWN0cyB3aXRoIGxvdyBhbmQgaGlnaCByZXNwb25zZSANCmBgYHtyfQ0Kc291cmNlKCJSL2hpcGNfZGF0YXByZXAvaGlwY19zYW1wbGVfZmlsdGVyaW5nLnIiKQ0KYGBgDQoNCjxici8+R2VuZXJhdGVkIGRhdGEgZmlsZXMgYXJlIHNhdmVkIGluIGBgYC4vZ2VuZXJhdGVkX2RhdGEvSElQQ2BgYC4NCjxici8+DQoNCiMjIFN0ZXAgMi4gVmFsaWRhdGlvbiBvZiBwcmVkaWN0aW9uIHBvd2VyIG9mIENEMzggc2lnbmF0dXJlIGluIEhJUEMgZGF0YXNldHMgKHlvdW5nIHN1YmplY3RzIG9ubHkpDQoNCjxici8+Q2FsY3VsYXRlIFRHU2lnIHNjb3JlcyB1c2luZyBkYXRhIGZyb20gZGF5IDANCmBgYHtyfQ0Kc291cmNlKCJSL2hpcGNfc2lnbmF0dXJlX2FuYWx5c2lzL2hpcGNfZDBfY2QzOF9zY29yZS5yIikNCmBgYA0KDQo8YnIvPkdlbmVyYXRlIFJPQyBmb3IgdGl0ZXIgcmVzcG9uc2UgcHJlZGljdGlvbiBiYXNlZCBvbiAxMC1nZW5lIHNpZ25hdHVyZSwgYW5kIGJveCBwbG90IGNvbXBhcmluZyBsb3ctIGFuZCBoaWdoLSByZXNwb25kZXJzIGJhc2VkIG9uIFRHU2lnOg0KYGBge3J9DQpzb3VyY2UoIlIvaGlwY19zaWduYXR1cmVfYW5hbHlzaXMvaGlwY19jZDM4XzEwZ2VuZV9zaWdfYW5hbHlzaXNfRklHVVJFLnIiKQ0KYGBgDQoNCjxici8+R2VuZXJhdGUgYm94IHBsb3RzIGNvbXBhcmluZyBsb3ctLCBtaWRkbGUtIGFuZCBoaWdoLSByZXNwb25kZXJzIGJhc2VkIG9uIFRHU2lnOg0KYGBge3J9DQpzb3VyY2UoIlIvaGlwY19zaWduYXR1cmVfYW5hbHlzaXMvaGlwY19jZDM4XzEwZ2VuZV9zaWdfYW5hbHlzaXNfRklHVVJFX3dpdGhfbWlkLnIiKQ0KYGBgDQoNCjxici8+R2VuZXJhdGVkIGRhdGEgZmlsZXMgYW5kIGZpZ3VyZXMgKEZpZy4gMmEgYW5kIEV4dC4gRGF0YSBGaWcuIDNiKSBhcmUgc2F2ZWQgaW4gYGBgLi9nZW5lcmF0ZWRfZGF0YS9ISVBDYGBgIGFuZCBgYGAuL2ZpZ3VyZV9nZW5lcmF0aW9uYGBgLCByZXNwZWN0aXZlbHkuDQo8YnIvPg0KDQotLS0NCg0KIyBZZWxsb3cgRmV2ZXIgZGF0YSBhbmFseXNpcw0KDQojIyBJbnB1dCBkYXRhDQoNCiogU2FtcGxlIGluZm9ybWF0aW9uIGZyb20gR0VPIGluY2x1ZGluZyBOZXV0cmFsaXphdGlvbiBhbnRpYm9keSB0aXRlciBkYXRhDQogICogZGF0YS9ZRi9leHByZXNzaW9uL3NhbXBsZV9pbmZvLnR4dA0KKiBFeHByZXNzaW9uIGRhdGEgZnJvbSBHRU8gcHJvY2Vzc2VkIGJ5IFJNQS1za2V0Y2ggKEFmZnltZXRyaXggUG93ZXIgVG9vbHMpDQogICogZGF0YS9ZRi9leHByZXNzaW9uL3JtYS1za2V0Y2guc3VtbWFyeS50eHQNCiogUHJvYmVzZXQtZ2VuZSBtYXBwaW5nIChmb3IgcmVwcm9kdWNpYmlsaXR5LCBvcmlnaW5hbGx5IG9idGFpbmVkIHVzaW5nIGhndTEzM3BsdXMyLmRiIFIgcGFja2FnZSkNCiAgKiBkYXRhL1lGL2V4cHJlc3Npb24vWUZfcHJvYmVfbWFwLnR4dA0KPGJyLz4NCg0KIyMgU3RlcCAxLiBEYXRhIGZvcm1hdHRpbmcgYW5kIHByZXBhcmF0aW9uDQoNCmBgYHtyfQ0Kc291cmNlKCJSL3lmX2RhdGFwcmVwL3lmX2RhdGFfZnJvbV9hcHQuciIpDQpzb3VyY2UoIlIveWZfZGF0YXByZXAveWZfcHJvYmVzMmdlbmVzLnIiKQ0Kc291cmNlKCJSL3lmX2RhdGFwcmVwL3lmX3NhbXBsZV9maWx0ZXJpbmcuciIpDQpgYGANCjxici8+DQoNCiMgU3RlcCAyLiBWYWxpZGF0aW9uIG9mIHByZWRpY3Rpb24gcG93ZXIgb2YgQ0QzOCBzaWduYXR1cmUgaW4geWVsbG93IGZldmVyIGRhdGFzZXRzDQoNCkNhbGN1bGF0ZSBUR1NpZyBzY29yZXMgdXNpbmcgZGF0YSBmcm9tIGRheSAwDQpgYGB7cn0NCnNvdXJjZSgiUi95Zl9zaWduYXR1cmVfYW5hbHlzaXMveWZfZDBfY2QzOF9zY29yZS5yIikNCmBgYA0KDQo8YnIvPkdlbmVyYXRlIFJPQyBmb3IgdGl0ZXIgcmVzcG9uc2UgcHJlZGljdGlvbiBiYXNlZCBvbiAxMC1nZW5lIHNpZ25hdHVyZSwgYW5kIGJveCBwbG90IGNvbXBhcmluZyBsb3ctIGFuZCBoaWdoLSByZXNwb25kZXJzIGJhc2VkIG9uIFRHU2lnICh0cmlhbHMgMSBmb3IgRmlndXJlIDJiLCBhbmQgdHJpYWwgMiBmb3IgRXh0LiBEYXRhIEZpZy4gNGEpOg0KYGBge3J9DQpzb3VyY2UoIlIveWZfc2lnbmF0dXJlX2FuYWx5c2lzL3lmX2NkMzhfMTBnZW5lX3NpZ19hbmFseXNpc19GSUdVUkVTX3dpdGhfcm9jX3AuciIpDQpgYGANCg0KPGJyLz5HZW5lcmF0ZSBib3ggcGxvdCBjb21wYXJpbmcgbG93LSwgbWlkZGxlLSBhbmQgaGlnaC0gcmVzcG9uZGVycyBiYXNlZCBvbiBUR1NpZyBpbiB0cmlhbCAxIChFeHQuIERhdGEgRmlnLiAzZCk6DQpgYGB7cn0NCnNvdXJjZSgiUi95Zl9zaWduYXR1cmVfYW5hbHlzaXMveWZfY2QzOF8xMGdlbmVfc2lnX2FuYWx5c2lzX0ZJR1VSRVNfd2l0aF9taWQuciIpDQpgYGANCg0KPGJyLz5HZW5lcmF0ZWQgZGF0YSBmaWxlcyBhbmQgZmlndXJlcyBhcmUgc2F2ZWQgaW4gYGBgLi9nZW5lcmF0ZWRfZGF0YS9ZRmBgYCBhbmQgYGBgLi9maWd1cmVfZ2VuZXJhdGlvbmBgYCwgcmVzcGVjdGl2ZWx5Lg0KPGJyLz4NCg0KLS0tDQoNCiMgU0xFIGRhdGEgYW5hbHlzaXMNCg0KIyMgSW5wdXQgZGF0YQ0KDQoqIEV4cHJlc3Npb24gZGF0YSBkb3dubG9hZGVkIGZyb20gaHR0cDovL3dlYnNsZS5jb20gKERhdGEgdGFiKSAtLSBCYXRjaC1jb3JyZWN0ZWQsIHByb2JlIGZpbHRlcmVkLCBsYXRlc3QgcHJvYmUtZ2VuZSBhbm5vdGF0aW9uLg0KICAqIGRhdGEvU0xFL2V4cHJlc3Npb24vU0xFX0xvbmdpdHVkaW5hbF85NzJfZXNldC5SRGF0YQ0KKiBTdWJqZWN0cyBhc3NpZ25tZW50IHRvIHBhdGllbnQgZ3JvdXBzIChmcm9tIHRoZSBTTEUgcGFwZXIsIGZpZ3VyZSA2QSkNCiAgKiBkYXRhL1NMRS9TTEVfU1VCSkVDVF9QRy50eHQNCjxici8+DQoNCiMjIFN0ZXAgMS4gRGF0YSBmb3JtYXR0aW5nIGFuZCBwcmVwYXJhdGlvbg0KDQpgYGB7cn0NCnNvdXJjZSgiUi9zbGVfZGF0YXByZXAvc2xlX2RhdGFwcmVwLnIiKQ0Kc291cmNlKCJSL3NsZV9kYXRhcHJlcC9zbGVfcHJvYmVzMmdlbmVzLnIiKQ0Kc291cmNlKCJSL3NsZV9kYXRhcHJlcC9zbGVfYWRkX0RBX2FuZF9QRy5yIikNCnNvdXJjZSgiUi9zbGVfZGF0YXByZXAvc2xlX3NhbXBsZV9maWx0ZXJpbmcuciIpDQpzb3VyY2UoIlIvc2xlX2RhdGFwcmVwL3NsZV9nZS5tZWFuX2J5X3N1YmplY3QuciIpDQpzb3VyY2UoIlIvc2xlX2RhdGFwcmVwL3NsZV9zbGVkYWkubG93REEubWVhbl9ieV9zdWJqZWN0LnIiKQ0KYGBgDQoNCjxici8+R2VuZXJhdGUgZmlndXJlIG9mIFNMRURBSSBjaGFuZ2UgYXQgZGlmZmVyZW50IHZpc2l0IGZvciBhIHNpbmdsZSBwYXRpZW50IChGaWcuIDJkKToNCmBgYHtyfQ0Kc291cmNlKCJSL3NsZV9leGFtcGxlX3Byb2ZpbGUvU0xFX1NMRURBSV9USU1FX3Byb2ZpbGVzLnIiKQ0KYGBgDQo8YnIvPg0KDQojIyBTdGVwIDIuIENhbGN1bGF0ZSBpbnRlci1zdWJqZWN0IHZhcmlhdGlvbiAoSVNWKSBvZiBleHByZXNzaW9uIG9mIGluZGl2aWR1YWwgZ2VuZXMgdG8gcXVhbnRpZnkgdGhlaXIgc3RhYmlsaXR5IGFjcm9zcyB2aXNpdHMgd2l0aCBsb3cgZGlzZWFzZSBhY3Rpdml0eQ0KDQpgYGB7cn0NCnNvdXJjZSgiUi9zbGVfZGF0YXByZXAvc2xlX2dlbmVfc3RhYmlsaXR5LnIiKQ0KYGBgDQo8YnIvPkdlbmVyYXRlZCBkYXRhIGZpbGVzIGFuZCBmaWd1cmVzIGFyZSBzYXZlZCBpbiBgYGAuL2dlbmVyYXRlZF9kYXRhL1NMRWBgYCBhbmQgYGBgLi9maWd1cmVfZ2VuZXJhdGlvbmBgYCwgcmVzcGVjdGl2ZWx5Lg0KPGJyLz4NCg0KIyMgU3RlcCAzLiBDYWxjdWxhdGUgVEdTaWcgYW5kIFBsYXNtYWJsYXN0IHNpZ25hdHVyZSBzY29yZXMNCg0KPGJyLz5DYWxjdWxhdGUgVEdTaWcgc2NvcmVzIHVzaW5nIGRhdGEgZnJvbSBsb3ctZGlzZWFzZS1hY3Rpdml0eSBzYW1wbGVzDQpgYGB7cn0NCnNvdXJjZSgiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9sb3dEQV9jZDM4X3Njb3JlLnIiKQ0KYGBgDQoNCjxici8+Q2FsY3VsYXRlIFBsYXNtYWJsYXN0IHNpZ25hdHVyZSBzY29yZXMgdXNpbmcgZGF0YSBmcm9tIGxvdy1kaXNlYXNlLWFjdGl2aXR5IHNhbXBsZXMNCmBgYHtyfQ0Kc291cmNlKCJSL3NsZV9zaWduYXR1cmVfYW5hbHlzaXMvc2xlX2xvd0RBX1BCX3Njb3JlLnIiKQ0KYGBgDQoNCjxici8+Q2FsY3VsYXRlIERhQ1AgdXNpbmcgbWl4ZWQtZWZmZWN0IG1vZGVsDQpgYGB7cn0NCnNvdXJjZSgiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9QQl9zY29yZV9mcm9tX21peGVkX21vZGVsLnIiKQ0KYGBgDQoNCjxici8+R2VuZXJhdGUgc2NhdHRlciBwbG90IGJldHdlZW4gRGFDUCBhbmQgYXZlcmFnZSBUR1NpZyBzY29yZXMgZm9yIGxvdy1kaXNlYXNlLWFjdGl2aXR5IHNhbXBsZXMgKEZpZy4gMmUpIGFuZCB0aGUgdGFibGUgb2YgY29ycmVsYXRpb24gZGF0YQ0KYGBge3J9DQpzb3VyY2UoIlIvc2xlX3NpZ25hdHVyZV9hbmFseXNpcy9zbGVfUEIuU0xFREFJLmNvcnJfdnNfQ0QzOC5tZWFuLnNjb3JlX0ZJR1VSRS5yIikNCnNvdXJjZSgiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9QQi5TTEVEQUkuY29ycl92c19DRDM4Lm1lYW4uc2NvcmVfdGFibGUuciIpDQpgYGANCg0KPGJyLz5HZW5lcmF0ZSBzY2F0dGVyIHBsb3QgYmV0d2VlbiBEYUNQIGFuZCBhdmVyYWdlIFBsYXNtYWJsYXN0IHNpZ25hdHVyZSBzY29yZXMgZm9yIGxvdy1kaXNlYXNlLWFjdGl2aXR5IHNhbXBsZXMgKEZpZy4gMmYpDQpgYGB7cn0NCnNvdXJjZSgiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9QQi5TTEVEQUkuY29ycl92c19QQi5sb3dEQS5tZWFuLnNjb3JlX0ZJR1VSRS5yIikNCmBgYA0KDQo8YnIvPkdlbmVyYXRlIHNjYXR0ZXIgcGxvdCBiZXR3ZWVuIERhQ1AgYW5kIGF2ZXJhZ2UgUGxhc21hYmxhc3Qgc2lnbmF0dXJlIHNjb3JlcyBmb3IgbG93LWRpc2Vhc2UtYWN0aXZpdHkgc2FtcGxlcyBhbmFseXppbmcgY29ycmVsYXRpb24gYXQgZGlmZmVyZW50IERhQ1AgdGhyZXNob2xkcyAoRXh0LiBEYXRhIEZpZy4gNWMtZCkNCmBgYHtyfQ0Kc291cmNlKCJSL3NsZV9zaWduYXR1cmVfYW5hbHlzaXMvc2xlX1BCLlNMRURBSS5jb3JyX3ZzX0NEMzgubWVhbi5zY29yZV90aHJlc2hvbGRzLnIiKQ0KYGBgDQoNCjxici8+R2VuZXJhdGVkIGRhdGEgZmlsZXMgYW5kIGZpZ3VyZXMgYXJlIHNhdmVkIGluIGBgYC4vZ2VuZXJhdGVkX2RhdGEvU0xFYGBgIGFuZCBgYGAuL2ZpZ3VyZV9nZW5lcmF0aW9uYGBgLCByZXNwZWN0aXZlbHkuDQo8YnIvPg0KDQoNCiMjIEFuYWx5c2lzIG9mIHRoZSBibG9vZCBnZW5lIGV4cHJlc3Npb24gc2lnbmF0dXJlcyBhc3NvY2lhdGVkIHdpdGggZGlzZWFzZSBhY3Rpdml0eS9mbGFyZXMNCg0KPGJyLz5Db3JyZWxhdGlvbiBiZXR3ZWVuIERhQ1AgYW5kIGRlbHRhIGluIFBsYXNtYWJsYXN0IHNjb3JlIChFeHQuIERhdGEgRmlnLiA1Yik6DQpgYGB7cn0NCnNvdXJjZSgiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9EYUNQX3ZzX2RQQi5yIikNCmBgYA0KDQo8YnIvPkhlYXRtYXBzIG9mIGJsb29kIGdlbmUgZXhwcmVzc2lvbiBzaWduYXR1cmVzIGFzc29jaWF0aW9uIHdpdGggZGlzZWFzZSBhY3Rpdml0eS9mbGFyZXMgKEZpZy4gMmMgYW5kIEV4dC4gRGF0YSBGaWcuIDVhKToNCmBgYHtyfQ0Kc291cmNlKCJSL3NsZV9zaWduYXR1cmVfYW5hbHlzaXMvc2xlX0JUTV9zY29yZV9mcm9tX0RBLmRlbHRhLnIiKQ0KYGBgDQoNCjxici8+R2VuZXJhdGVkIHBsb3RzIGFyZSBzdG9yZWQgaW4gYGBgLi9maWd1cmVfZ2VuZXJhdGlvbmBgYC4NCjxici8+DQoNCi0tLQ0KDQojIERpc2NvdmVyeSBvZiBjby1leHByZXNzaW9uIG1vZHVsZSBpbiBTTEUgZGF0YXNldHMNCg0KIyMgSW5wdXQgZGF0YToNCg0KKiBHZW5lIHN0YWJpbGl0eSB0YWJsZSANCiAgKiAuL2dlbmVyYXRlZF9kYXRhL1NMRV9sb3dEQV9nZW5lc19zdGFiaWxpdHkudHh0DQoqIEdlbmUgZXhwcmVzc2lvbiB0YWJsZSBieSBzdWJqZWN0cyAoYXZlcmFnZSBhY3Jvc3MgbG93LWRpc2Vhc2UtYWN0aXZpdHkgdmlzaXRzKQ0KICAqIC4vZ2VuZXJhdGVkX2RhdGEvU0xFX2xvd0RBX1BHMjM0X2dlLm1lYW5fbWF0cml4LnR4dA0KPGJyLz4NCg0KIyMgU3RlcCAxLiBBcHBseSBXR0NOQSBhbmFseXNpcyB0byBzcGxpdCBnZW5lcyB0byBkaXNjb3ZlciBleHByZXNzaW9uIG1vZHVsZXMuDQoNCjxici8+R2VuZSBtb2R1bGVzIGRpc2NvdmVyeSBieSBXR0NOQQ0KYGBge3J9DQpzb3VyY2UoIlIvV0dDTkEtbW9kdWxlcy1mcm9tLVNMRS1sb3ctREEvc2NyaXB0LlIiKQ0KYGBgDQoNCjxici8+R2VuZXJhdGUgRWlnZW5nZW5lIGhlYXRtYXANCmBgYHtyfQ0Kc291cmNlKCJSL1dHQ05BLWVpZ2VuZ2VuZS1oZWF0bWFwL3NjcmlwdC5SIikNCmBgYA0KDQo8YnIvPlRoZSBnZW5lcmF0ZWQgZmlndXJlcyAoRmlnLiAzYSkgYXJlIHNhdmVkIGluIGBgYC4vZmlndXJlX2dlbmVyYXRpb24vU0xFX1NpZ2BgYC4NCjxici8+DQoNCiMjIFN0ZXAgMi4gQXNzZXNzIGNvcnJlbGF0aW9uIGJldHdlZW4gZ2VuZSBtb2R1bGVzIGFuZCBEYUNQLg0KDQpgYGB7cn0NCnNvdXJjZSgiUi9QQi1zY29yZS12cy1XR0NOQS1tb2R1bGVzL3NjcmlwdC5SIikNCmBgYA0KDQo8YnIvPlRoZSBnZW5lcmF0ZWQgZmlndXJlcyAoRmlnLiAzYi1jKSBhcmUgc2F2ZWQgaW4gYGBgLi9maWd1cmVfZ2VuZXJhdGlvbi9TTEUtU2lnYGBgLg0KVGFibGUgd2l0aCBjb3JyZWxhdGlvbiBkYXRhIGZvciBhbGwgbW9kdWxlcyBpcyBzYXZlZCBpbiBgYGAuL2dlbmVyYXRlZF9kYXRhL1BCLXNjb3JlLXZzLVdHQ05BLW1vZHVsZXNgYGAuDQo8YnIvPg0KDQojIyBTdGVwIDMuIFBlcmZvcm0gR1NFQSBhbmFseXNpcyB3aXRoIFdHQ05BIG1vZHVsZXMgYW5kIGV4dHJhY3QgdGhlIGJyb3duIG1vZHVsZSBsZWFkaW5nIGVkZ2UgZ2VuZXMgKFNMRS1TaWcpLg0KDQpgYGB7cn0NCnNvdXJjZSgiUi9mZ3NlYV93aXRoX3dnY25hX21vZHVsZXMvY2hpX0NEMzhfY29yX2J5X0lTVl9mZ3NlYV9sZWFkaW5nRWRnZS5yIikNCmBgYA0KDQo8YnIvPkdlbmVyYXRlIGEgYmFycGxvdCAoRmlnLiAzZSkgdG8gc2hvdyBlbnJpY2htZW50IG9mIGJyb3duIG1vZHVsZSAod2l0aCB0aGUgZW5yaWNobWVudCBwbG90KSBhbmQgYmxvb2QgdHJhbnNjcmlwdG9tZSBtb2R1bGVzIGluIGdlbmVzIHJhbmtlZCBieSBjb3JyZWxhdGlvbiBvZiB0aGVpciBpbnRlbnNpdHkgd2l0aCBDRDM4KysgY2VsbCBmcmVxdWVuY3kuIFRoZSBnZW5lcyB3ZXJlIGZpbHRlcmVkIHdpdGggSVNWID49IDAuNS4gVGhlIHByZXZpb3VzbHkgZ2VuZXJhdGVkIGRhdGEgKHN0ZXAgNyBpbiBDSEkgZGF0YSBhbmFseXNpcykgd2VyZSB1c2VkIGZvciBHU0VBIHJlc3VsdHMgb2YgQlRNIGVucmljaG1lbnQuIA0KDQpgYGB7cn0NCnNvdXJjZSgiUi9mZ3NlYV93aXRoX3dnY25hX21vZHVsZXMvY2hpX0NEMzhfY29yX2J5X0lTVl9mZ3NlYV9GSUdVUkUuciIpDQpgYGANCg0KPGJyLz5HZW5lcmF0ZSB0YWJsZSBvZiB0aHJlZSBCVE0gbW9kdWxlIGdlbmVzIGluIFNMRS1TaWcgKEZpZy4gM2YpIA0KYGBge3J9DQpzb3VyY2UoIlIvZmdzZWFfd2l0aF93Z2NuYV9tb2R1bGVzL2Jyb3duLWxlYWRpbmctZWRnZS1CVE0tdGFibGUuUiIpDQpgYGANCk91dHB1dCBmaWxlczogYGBgLi9nZW5lcmF0ZWRfZGF0YS9mZ3NlYV93aXRoX3dnY25hX21vZHVsZXMvYGBgDQpUaGUgZ2VuZXJhdGVkIGZpZ3VyZSBpcyBzYXZlZCBhcyBgYGAuL2ZpZ3VyZV9nZW5lcmF0aW9uL1NMRS1TaWdgYGANCjxici8+DQoNCiMjIFN0ZXAgNC4gQW5hbHlzaXMgb2YgZW5yaWNobWVudCBvZiBCbG9vZCBUcmFuc2NyaXB0aW9uIE1vZHVsZXMgZ2VuZXMgaW4gV0dDTkEgbW9kdWxlcy4gR2VuZXJhdGUgdGhlIGhlYXRtYXAgb2YgZW5yaWNobWVudCBwLXZhbHVlcyAoLWxvZzEwKSAtIFN1cHBsZW1lbnRhbCBGaWd1cmUgMWMuDQpgYGB7cn0NCnNvdXJjZSgiUi9XR0NOQS1tb2R1bGVzLWZyb20tU0xFLWxvdy1EQS10bW9kL3NjcmlwdC5SIikNCmBgYA0KVGhlIGdlbmVyYXRlZCBmaWd1cmUgaXMgc2F2ZWQgYXMgYGBgLi9maWd1cmVfZ2VuZXJhdGlvbi9TTEUtU2lnL1dHQ05BLUJUTS1lbnJpY2htZW50LXAuYWRqdXN0LnBkZmBgYC4NCk91dHB1dCBmaWxlcyBhcmUgc2F2ZWQgaW4gYGBgLi9nYW5hcmV0ZWRfZGF0YS9XR0NOQS1tb2R1bGVzLWZyb20tU0xFLWxvdy1EQS10bW9kYGBgDQo8YnIvPg0KDQpPdXRwdXQgdGFibGUgdG8gRmlnLiAzZiBpcyBzYXZlZCBhcyBgYGAuL2dhbmFyZXRlZF9kYXRhLyoqKi9icm93bi1tb2QtbTc1LW0xNTAtbTE2NS1nZW5lcy1zaG9ydC5jc3ZgYGANCjxici8+DQoNCi0tLQ0KDQojIE1ldGEgYW5hbHlzaXMgb2YgZ2VuZSBleHByZXNzaW9uIGluIHZhY2NpbmF0aW9uIGRhdGFzZXRzIGFuZCB0aGUgYW5hbHlzaXMgb2YgYnJvd24gbW9kdWxlDQoNCiMjIElucHV0IGRhdGE6DQoNCiogR2VuZSBleHByZXNzaW9uIHRhYmxlcyBmb3IgYWxsIGRhdGFzZXRzIChnZW5lIHZzLiBzdWJqZWN0cyBhdCBkYXkwKQ0KKiBTYW1wbGUgaW5mb3JtYXRpb24gd2l0aCB0aXRlciByZXNwb25zZQ0KDQojIyBTdGVwIDEuIFBlcmZvcm0gbWV0YS1hbmFseXNpcyBvZiA0IGZsdSBkYXRhc2V0cy4gR2VuZXJhdGVzIHRhYmxlIG9mIGdlbmVzIHdpdGggZWZmZWN0IHNpemUgKHdpdGggcmVnYXJkIHRvIHRpdGVyIHJlc3BvbnNlKS4NCg0KYGBge3J9DQpzb3VyY2UoIlIvTWV0YURFLWZsdS10aXRlci1yZXNwb25zZS1mcm9tLWV4cHJlc3Npb24taW4tZm91ci1jb2hvcnRzL3NjcmlwdC5SIikNCmBgYA0KT3V0cHV0IGZpbGVzIGFyZSBzYXZlZCBpbiBgYGAuL2dlbmVyYXRlZF9kYXRhL01ldGFERWBgYC4NCjxici8+DQoNCiMjIFN0ZXAgMi4gR2VuZXJhdGUgZm9yZXN0IHBsb3QgZm9yIG1ldGEtYW5hbHlzaXMgb2YgNCBmbHUgZGF0YXNldHMgKEV4dC4gRGF0YSBGaWcgNGIpLiANCg0KYGBge3J9DQpzb3VyY2UoIlIvTWV0YURFX2ZvcmVzdF9wbG90L0ZsdV9tZXRhX2ZvcmVzdF9wbG90LnIiKQ0KYGBgDQpUaGUgZ2VuZXJhdGVkIGZpZ3VyZSBpcyBzYXZlZCBpbiBgYGAuL2ZpZ3VyZV9nZW5lcmF0aW9uL01ldGFERWBgYC4NCjxici8+DQoNCiMjIFN0ZXAgMy4gQ2FsY3VsYXRlIGVmZmVjdCBzaXplcyBhbmQgZ2VuZXJhdGUgZWZmZWN0IHNpemUgcGxvdCBmb3IgdHJpYWwgMSBjb2hvcnQgb2YgWWVsbG93IEZldmVyIGRhdGFzZXQgKEV4dC4gRGF0YSBGaWcgNGMpLiANCmBgYHtyfQ0Kc291cmNlKCJSL1lGMS1lZmZlY3Qtc2l6ZXMvc2NyaXB0LlIiKQ0Kc291cmNlKCJSL01ldGFERV9mb3Jlc3RfcGxvdC9ZRjFfZWZmZWN0X3NpemVfcGxvdC5yIikNCmBgYA0KVGhlIG91dHB1dCBmaWxlcyBhcmUgc2F2ZWQgaW4gYGBgLi9nZW5lcmF0ZWRfZGF0YS9NZXRhREVgYGAuDQpUaGUgZ2VuZXJhdGVkIGZpZ3VyZSBpcyBzYXZlZCBpbiBgYGAuL2ZpZ3VyZV9nZW5lcmF0aW9uL01ldGFERWBgYC4NCjxici8+DQoNCiMjIFN0ZXAgNC4gR1NFQSBhbmFseXNlcyBvZiB2YWNjaW5lIHJlc3BvbnNlIGdlbmVzIGZyb20gbWV0YSBhbmFseXNpcy4gV0dDTkEgbW9kdWxlcyBhZ2FpbnN0IGZsdSByZXNwb25zZSBnZW5lcw0KYGBge3J9DQpzb3VyY2UoIlIvR1NFQS11c2luZy1nZW5lcy1jb21tb24tdG8tc3RhYmxlLVNMRS1sb3ctREEtYW5kLTRmbHUvc2NyaXB0LlIiKQ0KYGBgICAgIA0KVGhlIG91dHB1dCBmaWxlcyBhcmUgc2F2ZWQgaW4gYGBgLi9nZW5lcmF0ZWRfZGF0YS9NZXRhREVgYGAuDQpUaGUgZ2VuZXJhdGVkIGZpZ3VyZSAoRmlnLiAzZCkgaXMgc2F2ZWQgaW4gYGBgLi9maWd1cmVfZ2VuZXJhdGlvbi9NZXRhREVgYGAuDQo8YnIvPg0KDQoNCiMjIFN0ZXAgNS4gUHJlZGljdGl2ZSBwcm9maWxlcyBvZiBzZWxlY3Qgc2lnbmF0dXJlcyBmb3IgaW5mbHVlbnphIHZhY2NpbmUgcmVzcG9uc2UNCmBgYHtyfQ0Kc291cmNlKCJSL2Jyb3duLW1vZHVsZS1sZWFkaW5nLWdlbmVzLWxvdy1taWQtaGlnaC1laWdlbmdlbmUvc2NyaXB0LlIiKQ0KYGBgDQpPdXRwdXQgZmlsZXMgYXJlIHNhdmVkIGluIGBgYC4vZ2VuZXJhdGVkX2RhdGEvYnJvd24tbW9kdWxlLWxlYWRpbmctZ2VuZXMtbG93LW1pZC1oaWdoLWVpZ2VuZ2VuZWBgYC4gDQo8YnIvPg0KDQpgYGB7cn0NCnNvdXJjZSgiUi9yZWNhbGMtYW5kLWNoZWNrLTEwZ2VuZS1DRDM4cGx1c1NpZy9zY3JpcHQuUiIpDQpgYGANCk91dHB1dCBmaWd1cmVzIChFeHQuIERhdGEgRmlnLiA2IGEtYiwgZSkgYXJlIHNhdmVkIGluIGBgYC4vZmlndXJlX2dlbmVyYXRpb24vU0xFLVNpZ2BgYC4NCjxici8+DQoNClRlc3QgcmVtb3ZpbmcgU0xFLVNpZyBnZW5lcyBmcm9tIGJyb3duIG1vZHVsZQ0KYGBge3J9DQpzb3VyY2UoIlIvYnJvd24tbW9kLW1pbnVzLWxlYWRpbmctZWRnZS9zY3JpcHQuUiIpDQpgYGANCk91dHB1dCBmaWxlcyBhcmUgc2F2ZWQgaW4gYGBgLi9nZW5lcmF0ZWRfZGF0YS9icm93bi1tb2QtbWludXMtbGVhZGluZy1lZGdlL2BgYC4NCjxici8+DQoNCmBgYHtyfQ0Kc291cmNlKCJSL2Jyb3duLW1vZC1taW51cy1sZWFkaW5nLWVkZ2UtY29tYmluZWQvc2NyaXB0LlIiKQ0KYGBgDQpPdXRwdXQgZmlndXJlIChFeHQuIERhdGEgRmlnLiA2ZCkgaXMgc2F2ZWQgaW4gYGBgLi9maWd1cmVfZ2VuZXJhdGlvbi9TTEUtU2lnYGBgLg0KDQotLS0NCg0KIyBBbmFseXNpcyBvZiBJRk4tSS1EQyBzaWduYXR1cmUNCmBgYHtyfQ0Kc291cmNlKCJSL0lGTl9zaWduYXR1cmVfYW5hbHlzaXMvc2V0dXAuciIpDQpzb3VyY2UoIlIvSUZOX3NpZ25hdHVyZV9hbmFseXNpcy9jaGlfSUZOMjZfc2lnX2FuYWx5c2lzX0ZJR1VSRVMyLnIiKQ0Kc291cmNlKCJSL0lGTl9zaWduYXR1cmVfYW5hbHlzaXMvaGlwY19kMF9JRk4yNl9zY29yZS5yIikNCnNvdXJjZSgiUi9JRk5fc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9sb3dEQV9JRk4yNl9zY29yZS5yIikNCnNvdXJjZSgiUi9JRk5fc2lnbmF0dXJlX2FuYWx5c2lzL2xvZ2lzdGljX3JlZ3JfNGZsdS5yIikNCmBgYA0KT3V0cHV0IGZpbGVzIGFyZSBzYXZlZCBpbiBgYGAuL2dlbmVyYXRlZF9kYXRhL0lGTjI2YGBgLg0KDQpPdXRwdXQgZmlndXJlcyAoRXh0LiBEYXRhIEZpZy4gNmMsZikgYXJlIHNhdmVkIGluIGBgYC4vZmlndXJlX2dlbmVyYXRpb24vSUZOMjZgYGAuDQo8YnIvPg0KPGJyLz4NCg0KLS0tDQoNCg0KTG9hZGVkIGxpYnJhcmllcyBhbmQgc2Vzc2lvbiBpbmZvcm1hdGlvbjoNCmBgYA0KPiBzZXNzaW9uSW5mbygpDQpSIHZlcnNpb24gMy4zLjEgKDIwMTYtMDYtMjEpDQpQbGF0Zm9ybTogeDg2XzY0LXBjLWxpbnV4LWdudSAoNjQtYml0KQ0KUnVubmluZyB1bmRlcjogUmVkIEhhdCBFbnRlcnByaXNlIExpbnV4IFNlcnZlciA3LjIgKE1haXBvKQ0KDQpsb2NhbGU6DQogWzFdIExDX0NUWVBFPWVuX1VTLlVURi04ICAgICAgIExDX05VTUVSSUM9Qw0KIFszXSBMQ19USU1FPWVuX1VTLlVURi04ICAgICAgICBMQ19DT0xMQVRFPWVuX1VTLlVURi04DQogWzVdIExDX01PTkVUQVJZPWVuX1VTLlVURi04ICAgIExDX01FU1NBR0VTPWVuX1VTLlVURi04DQogWzddIExDX1BBUEVSPWVuX1VTLlVURi04ICAgICAgIExDX05BTUU9Qw0KIFs5XSBMQ19BRERSRVNTPUMgICAgICAgICAgICAgICBMQ19URUxFUEhPTkU9Qw0KWzExXSBMQ19NRUFTVVJFTUVOVD1lbl9VUy5VVEYtOCBMQ19JREVOVElGSUNBVElPTj1DDQoNCmF0dGFjaGVkIGJhc2UgcGFja2FnZXM6DQogWzFdIHN0YXRzNCAgICB0b29scyAgICAgcGFyYWxsZWwgIHN0YXRzICAgICBncmFwaGljcyAgZ3JEZXZpY2VzIHV0aWxzDQogWzhdIGRhdGFzZXRzICBtZXRob2RzICAgYmFzZQ0KDQpvdGhlciBhdHRhY2hlZCBwYWNrYWdlczoNCiBbMV0gZmdzZWFfMS4wLjIgICAgICAgICAgICAgICBSY3BwXzAuMTIuMTINCiBbM10gV0dDTkFfMS42MSAgICAgICAgICAgICAgICBmYXN0Y2x1c3Rlcl8xLjEuMjQNCiBbNV0gZHluYW1pY1RyZWVDdXRfMS42My0xICAgICBpbGx1bWluYUh1bWFudjQuZGJfMS4yNi4wDQogWzddIGhndTEzM3BsdXMyLmRiXzMuMi4zICAgICAgb3JnLkhzLmVnLmRiXzMuNC4wDQogWzldIEFubm90YXRpb25EYmlfMS4zNi4yICAgICAgSVJhbmdlc18yLjYuMQ0KWzExXSBTNFZlY3RvcnNfMC4xMC4zICAgICAgICAgIEJpb2NJbnN0YWxsZXJfMS4yNC4wDQpbMTNdIGVmZnNpemVfMC43LjEgICAgICAgICAgICAgTWV0YURFXzEuMC41DQpbMTVdIGNvbWJpbmF0XzAuMC04ICAgICAgICAgICAgQmlvYmFzZV8yLjMyLjANClsxN10gQmlvY0dlbmVyaWNzXzAuMTguMCAgICAgICBpbXB1dGVfMS40Ni4wDQpbMTldIHN1cnZpdmFsXzIuNDEtMyAgICAgICAgICAgZ2RhdGFfMi4xOC4wDQpbMjFdIGNhcl8yLjEtNSAgICAgICAgICAgICAgICAgc3RhcmdhemVyXzUuMg0KWzIzXSBlZmZlY3RzXzQuMC0wICAgICAgICAgICAgIGNhckRhdGFfMy4wLTANClsyNV0gR0dhbGx5XzEuMy4yICAgICAgICAgICAgICBncGxvdHNfMy4wLjENClsyN10geHRhYmxlXzEuOC0yICAgICAgICAgICAgICBsYXRleDJleHBfMC40LjANClsyOV0gTUFTU183LjMtNDcgICAgICAgICAgICAgICB0bW9kXzAuMzENClszMV0gbG1lNF8xLjEtMTMgICAgICAgICAgICAgICBNYXRyaXhfMS4yLTExDQpbMzNdIHBST0NfMS4xMC4wICAgICAgICAgICAgICAgZGF0YS50YWJsZV8xLjEwLjQNClszNV0gZHBseXJfMC43LjMgICAgICAgICAgICAgICBwdXJycl8wLjIuMw0KWzM3XSByZWFkcl8xLjEuMSAgICAgICAgICAgICAgIHRpZHlyXzAuNy4xDQpbMzldIHRpYmJsZV8xLjMuNCAgICAgICAgICAgICAgZ2dwbG90Ml8yLjIuMQ0KWzQxXSB0aWR5dmVyc2VfMS4xLjEgICAgICAgICAgIHBseXJfMS44LjQNCg0KbG9hZGVkIHZpYSBhIG5hbWVzcGFjZSAoYW5kIG5vdCBhdHRhY2hlZCk6DQogWzFdIHJlYWR4bF8xLjAuMCAgICAgICAgICBiYWNrcG9ydHNfMS4xLjAgICAgICAgZmFzdG1hdGNoXzEuMS0wDQogWzRdIEhtaXNjXzQuMC0zICAgICAgICAgICBsYXp5ZXZhbF8wLjIuMCAgICAgICAgc3BsaW5lc18zLjMuMQ0KIFs3XSBCaW9jUGFyYWxsZWxfMS42LjYgICAgcm9idXN0XzAuNC0xOCAgICAgICAgIGRpZ2VzdF8wLjYuMTINClsxMF0gcGxvdHdpZGdldHNfMC40ICAgICAgIGZvcmVhY2hfMS40LjMgICAgICAgICBodG1sdG9vbHNfMC4zLjYNClsxM10gR08uZGJfMy40LjAgICAgICAgICAgIG1hZ3JpdHRyXzEuNSAgICAgICAgICBjaGVja21hdGVfMS44LjMNClsxNl0gbWVtb2lzZV8xLjEuMCAgICAgICAgIGZpdC5tb2RlbHNfMC41LTE0ICAgICBjbHVzdGVyXzIuMC42DQpbMTldIGRvUGFyYWxsZWxfMS4wLjEwICAgICBtb2RlbHJfMC4xLjEgICAgICAgICAgbWF0cml4U3RhdHNfMC41Mi4yDQpbMjJdIGNvbG9yc3BhY2VfMS4zLTIgICAgICBycmNvdl8xLjQtMyAgICAgICAgICAgYmxvYl8xLjEuMA0KWzI1XSBydmVzdF8wLjMuMiAgICAgICAgICAgaGF2ZW5fMS4xLjAgICAgICAgICAgIGpzb25saXRlXzEuNQ0KWzI4XSB0YWdjbG91ZF8wLjYgICAgICAgICAgYmluZHJfMC4xICAgICAgICAgICAgIGl0ZXJhdG9yc18xLjAuOA0KWzMxXSBnbHVlXzEuMS4xICAgICAgICAgICAgZ3RhYmxlXzAuMi4wICAgICAgICAgIE1hdHJpeE1vZGVsc18wLjQtMQ0KWzM0XSBERW9wdGltUl8xLjAtOCAgICAgICAgU3BhcnNlTV8xLjc3ICAgICAgICAgIHNjYWxlc18wLjUuMA0KWzM3XSBtdnRub3JtXzEuMC02ICAgICAgICAgREJJXzAuNyAgICAgICAgICAgICAgIGh0bWxUYWJsZV8xLjkNCls0MF0gZm9yZWlnbl8wLjgtNjkgICAgICAgIGJpdF8xLjEtMTIgICAgICAgICAgICBwcmVwcm9jZXNzQ29yZV8xLjM2LjANCls0M10gRm9ybXVsYV8xLjItMiAgICAgICAgIHN1cnZleV8zLjMyLTEgICAgICAgICBodG1sd2lkZ2V0c18wLjkNCls0Nl0gaHR0cl8xLjMuMSAgICAgICAgICAgIFJDb2xvckJyZXdlcl8xLjEtMiAgICBhY2VwYWNrXzEuNC4xDQpbNDldIHBrZ2NvbmZpZ18yLjAuMSAgICAgICByZXNoYXBlXzAuOC43ICAgICAgICAgWE1MXzMuOTgtMS45DQpbNTJdIG5uZXRfNy4zLTEyICAgICAgICAgICBybGFuZ18wLjEuMiAgICAgICAgICAgcmVzaGFwZTJfMS40LjINCls1NV0gbXVuc2VsbF8wLjQuMyAgICAgICAgIGNlbGxyYW5nZXJfMS4xLjAgICAgICBwY2EzZF8wLjEwDQpbNThdIFJTUUxpdGVfMi4wICAgICAgICAgICBicm9vbV8wLjQuMiAgICAgICAgICAgc3RyaW5ncl8xLjIuMA0KWzYxXSBrbml0cl8xLjE3ICAgICAgICAgICAgYml0NjRfMC45LTcgICAgICAgICAgIHJvYnVzdGJhc2VfMC45Mi03DQpbNjRdIGNhVG9vbHNfMS4xNy4xICAgICAgICBiaW5kcmNwcF8wLjIgICAgICAgICAgbmxtZV8zLjEtMTMxDQpbNjddIG1pbWVfMC41ICAgICAgICAgICAgICBxdWFudHJlZ181LjMzICAgICAgICAgeG1sMl8xLjEuMQ0KWzcwXSBwYmtydGVzdF8wLjQtNyAgICAgICAgYmVlc3dhcm1fMC4yLjMgICAgICAgIHBjYVBQXzEuOS03Mg0KWzczXSBzdHJpbmdpXzEuMS41ICAgICAgICAgZm9yY2F0c18wLjIuMCAgICAgICAgIGxhdHRpY2VfMC4yMC0zNQ0KWzc2XSBwc3ljaF8xLjcuOCAgICAgICAgICAgbmxvcHRyXzEuMC40ICAgICAgICAgIGJpdG9wc18xLjAtNg0KWzc5XSBodHRwdXZfMS4zLjUgICAgICAgICAgUjZfMi4yLjIgICAgICAgICAgICAgIGxhdHRpY2VFeHRyYV8wLjYtMjgNCls4Ml0gS2VyblNtb290aF8yLjIzLTE1ICAgIGdyaWRFeHRyYV8yLjMgICAgICAgICBjb2RldG9vbHNfMC4yLTE1DQpbODVdIGd0b29sc18zLjUuMCAgICAgICAgICBhc3NlcnR0aGF0XzAuMi4wICAgICAgbW5vcm10XzEuNS01DQpbODhdIG1nY3ZfMS44LTIyICAgICAgICAgICBobXNfMC4zICAgICAgICAgICAgICAgZ3JpZF8zLjMuMQ0KWzkxXSBycGFydF80LjEtMTEgICAgICAgICAgbWlucWFfMS4yLjQgICAgICAgICAgIHNoaW55XzEuMC41DQpbOTRdIGx1YnJpZGF0ZV8xLjYuMCAgICAgICBiYXNlNjRlbmNfMC4xLTMgICAgICAgZWxsaXBzZV8wLjMtOA0KYGBgDQoNCg0KDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlJlcHJvZHVjaWJsZSB3b3JrZmxvdyBmb3IgdGhlIGFuYWx5c2lzIG9mICoqQ0lURS1zZXEgZGF0YSoqIGZvciB0aGUgcHJvamVjdCINCnN1YnRpdGxlOiAiXCJCcm9hZCBpbW11bmUgYWN0aXZhdGlvbiB1bmRlcmxpZXMgc2hhcmVkIHNldCBwb2ludCBzaWduYXR1cmVzIGZvciB2YWNjaW5lIHJlc3BvbnNpdmVuZXNzIGluIGhlYWx0aHkgaW5kaXZpZHVhbHMgYW5kIGRpc2Vhc2UgYWN0aXZpdHkgaW4gbHVwdXMgcGF0aWVudHNcIiINCmF1dGhvcjogIll1cmkgS290bGlhcm92LCBNYXR0aGV3IE11bGUsIEFuZHJldyBNYXJ0aW5zLCBKb2huIFMuIFRzYW5nIg0Kb3V0cHV0OiANCiAgaHRtbF9ub3RlYm9vazoNCiAgICB0b2M6IHllcw0KLS0tDQoNCiMjIEludHJvZHVjdGlvbg0KDQpUaGUgZm9sbG93aW5nIHdvcmtmbG93IHdhcyB1c2VkIHRvIGFuYWx5emUgdGhlIENJVEUtc2VxIGRhdGEgYW5kIGdlbmVyYXRlIHRoZSBDSVRFLXNlcSByZWxhdGVkIGZpZ3VyZXMgZm9yIG91ciBwYXBlciAiQnJvYWQgaW1tdW5lIGFjdGl2YXRpb24gdW5kZXJsaWVzIHNoYXJlZCBzZXQgcG9pbnQgc2lnbmF0dXJlcyBmb3IgdmFjY2luZSByZXNwb25zaXZlbmVzcyBpbiBoZWFsdGh5IGluZGl2aWR1YWxzIGFuZCBkaXNlYXNlIGFjdGl2aXR5IGluIGx1cHVzIHBhdGllbnRzIiBwdWJsaXNoZWQgaW4gTmF0dXJlIE1lZGljaW5lIGluIDIwMjAuDQo8YnIvPg0KDQojIyBQcmVwYXJlIHRoZSB3b3JraW5nIGRpcmVjdG9yeQ0KDQpTb21lIHN0ZXBzIG9mIHRoZSB3b3JrZmxvdyByZXF1aXJlIGRhdGEgZ2VuZXJhdGVkIGZvciB0aGUgZmlyc3QgcGFydCBvZiB0aGUgYW5hbHlzaXMgb2YgZmxvdyBjeXRvbWV0cnkgYW5kIG1pY3JvYXJyYXlzIGRhdGEgKHNlZSBXb3JrZmxvdy5SbWQpLg0KDQpCZWZvcmUgcnVubmluZyB0aGUgd29ya2Zsb3cgbWFrZSBzdXJlIHlvdSBoYXZlIHRoZSBmb2xsb3dpbmcgc3ViZmxvZGVycyBpbiB0aGUgd29ya2luZyBkaXJlY3Rvcnk6DQoNCmBgYA0KZGF0YQ0KY2l0ZXNlcQ0KLS1kYXRhDQotLWZpZ3VyZXMNCi0tUg0KLS1yZXN1bHRzDQpnZW5lcmF0ZWRfZGF0YQ0KDQpgYGANCg0KKiBEb3dubG9hZCB0aGUgYXJjaGl2ZWQgQ0lURS1zZXEgZGF0YSBmb2xkZXIgZnJvbSBhbmQgdW5wYWNrIGl0IGludG8gdGhlIGBgYGNpdGVzZXEvZGF0YSBmb2xkZXJgYGAuIA0KKiBEb3dubG9hZCB0aGUgYXJjaGl2ZWQgZGlyZWN0b3J5IGBgYGNpdGVzZXFgYGAgd2l0aCBSIGNvZGUgYW5kIHVucGFjayBpdCBpbnRvIHRoZSBjaXRlc2VxIGZvbGRlci4gDQoqIE1ha2Ugc3VyZSB5b3UgaGF2ZSB0aGUgYGBgLlJwcm9maWxlYGBgIGZpbGUgaW4gdGhlIHdvcmtpbmcgZGlyZWN0b3J5LiBNb2RpZnkgdGhlIGBgYFBST0pFQ1RfRElSYGBgIHZhcmlhYmxlIHdpdGggdGhlIGZ1bGwgcGF0aCB0byB0aGUgd29ya2luZyBkaXJlY3RvcnkuDQoqIENyZWF0ZSBlbXB0eSBmb2xkZXJzIGdlbmVyYXRlZF9kYXRhIGFuZCBmaWd1cmVfZ2VuZXJhdGlvbi4NCiogSWYgeW91IGFyZSBnb2luZyB0byB1c2UgdGhlIFNpbmd1bGFyaXR5IGNvbnRhaW5lciBkb3dubG9hZCBpdCBmcm9tIC4gSXQgc2hvdWxkIGJlIGxvY2F0ZWQgb3V0c2lkZSBvZiB0aGUgd29ya2luZyBkaXJlY3RvcnkuIA0KDQojIyBSIHBhY2thZ2VzIHVzZWQNCg0KT3VyIHBpcGVsaW5lIHJlcXVpcmVzIHRoZSBmb2xsb3dpbmcgUiBwYWNrYWdlczoNCg0KYGBgDQojIENSQU46DQppbnN0YWxsLnBhY2thZ2VzKGMoInBseXIiLCAidGlkeXZlcnNlIiwgImRhdGEudGFibGUiLCAicFJPQyIsICJNQVNTIiwgImxpbW1hIiwgIm1jbHVzdCIsICJjb3JycGxvdCIsICJnZ3JhcGgiLCAiY2lyY2xpemUiLCAicGFscyIsICJnZ3NpZ25pZiIsICJnZ3JpZGdlcyIsICJ2aXJpZGlzIiwgImNsdXN0cmVlIiwgImNvd3Bsb3QiKSkNCg0KIyBCaW9jb25kdWN0b3I6DQppbnN0YWxsLnBhY2thZ2VzKCJCaW9jTWFuYWdlciIpDQpCaW9jTWFuYWdlcjo6aW5zdGFsbCgpDQpCaW9jTWFuYWdlcjo6aW5zdGFsbCgiZmdzZWEiLCAidG1vZCIsICJDb21wbGV4SGVhdG1hcCIpDQoNCiMgU2V1cmF0IHZlci4gMi4zLjQNCnNvdXJjZSgiaHR0cHM6Ly96LnVtbi5lZHUvYXJjaGl2ZWQtc2V1cmF0IikNCg0KYGBgDQo8YnIvPg0KDQoNCiMjIyBOb3Rlcw0KSWYgd2hpbGUgcnVubmluZyBzb21lIHNjcmlwdHMgeW91IGdldCBYMTEgZm9yd2FyZGluZyByZWxhdGVkIGVycm9yLCBjaGVjayBpZiB5b3UgaGF2ZSBYMTEgZm9yd2FyZGluZyB0dXJuZWQgb24gKGluIFB1dHR5IGl0IGlzIGluIENvbm5lY3Rpb24tU1NILVgxMSkgYW5kIHR1cm4gaXQgb2ZmLiANClNvbWV0aW1lIGFuIGVycm9yIG1heSBhcHBlYXIgZHVlIHRvIGEgY29uZmxpY3QgYmV0d2VlbiBSIHBhY2thZ2VzLiBJbiB0aGlzIGNhc2UgcmVzdGFydCBSIGFuZCByZXJ1biB0aGUgc2NyaXB0IHRoYXQgcHJldmlvdXNseSByZXR1cm5lZCB0aGUgZXJyb3IuDQo8YnIvPg0KDQotLS0NCjxici8+DQoNCg0KIyAqKjAuIEJlZm9yZSBydW5uaW5nIHRoaXMgd29ya2Zsb3cgYWx3YXlzIGNoYW5nZSB0aGUgd29ya2luZyBkaXJlY3RvcnkgdG8gYGBgY2l0ZXNlcWBgYCoqLg0KDQpgYGB7cn0NCnNldHdkKCJjaXRlc2VxIikNCmBgYA0KPGJyLz4NCg0KIyAxLiBSZWFkIFNldXJhdCBvYmplY3Qgd2l0aCBkZW11bHRpcGxleGVkIGRhdGEgYW5kIGZpbHRlcmVkIGZvciBzaW5nbGV0IGNlbGxzIGZyb20gSDFOMSBkYXkwIHNhbXBsZXMgb25seQ0KDQpJbnB1dCBkYXRhIGFyZSBzdG9yZWQgaW4gYGBgZGF0YWBgYCBmb2xkZXI6DQoNCiAgKiBSRFMgZmlsZSB3aXRoIFNldXJhdCBvYmplY3QNCiAgICAqIGBgYGRhdGEvSDFfZGF5MF9kZW11bHRpbGV4ZWRfc2luZ2xldHMuUkRTYGBgDQogICogUkRTIGZpbGUgd2l0aCBuZWdhdGl2ZSBjb250cm9sIGNlbGxzDQogICAgKiBgYGBkYXRhL25lZ19jb250cm9sX29iamVjdC5yZHNgYGANCg0KYGBge3J9DQpzb3VyY2UoIlIvZHNibm9ybV9wcm90X3NjcmFubm9ybV9ybmEuUiIpDQpgYGANCkludGVybWVkaWF0ZSBSRFMgZmlsZXMgY29udGFpbmluZyBsaXN0cyBvZiBTZXVyYXQgb2JqZWN0cyB3aXRoIG5vcm1hbGl6ZWQgZGF0YSBmb3IgaW5kaXZpZHVhbCBiYXRjaGVzIGFyZSBzdG9yZWQgaW4gYGBgZGF0YS9ub3JtYWxpemF0aW9uX2RhdGFgYGAuDQoNCk91dHB1dCBSRFMgZmlsZSBpcyBzdG9yZWQgaW4gYGBgZGF0YWBgYCBmb2xkZXIuDQo8YnIvPg0KDQoNCiMgMi4gQ2x1c3RlcmluZyBhbGwgY2VsbHMgYnkgQURUIGRhdGEgYXQgbXVsdGlwbGUgcmVzb2x1dGlvbg0KDQpUaGUgY2x1c3RlcmluZyB3YXMgcGVyZm9ybWVkIHVzaW5nIGFzIGFuIGlucHV0IHRoZSBtYXRyaXggb2YgZGlzdGFuY2VzIGJldHdlZW4gY2VsbHMgdXNpbmcgQURUIGRhdGEgb25seS4gDQoNCiMjIElucHV0IGRhdGENCg0KSW5wdXQgZGF0YSBhcmUgc3RvcmVkIGluIGBgYGRhdGFgYGAgZm9sZGVyOg0KDQogICogUkRTIGZpbGUgd2l0aCBTZXVyYXQgb2JqZWN0IHdpdGggUk5BLXNlcSBkYXRhIFNDUkFOLW5vcm1hbGl6ZWQgYW5kIEFEVCBkYXRhIGJhdGNoLW5vcm1hbGl6ZWQgYW5kIGJhdGNoLWNvcnJlY3RlZCAgICAgICogYGBgZGF0YS9IMV9kYXkwX3NjcmFuTm9ybV9hZHRiYXRjaE5vcm0ucmRzYGBgDQoNClRoZSBjYWxjdWxhdGlvbnMgcmVxdWlyZSBPVkVSIDY0Z2Igb2YgUkFNIGFuZCB3YXMgcnVuIG9uIGEgaGlnaC1wZXJmb3JtYW5jZSBjbHVzdGVyLg0KDQpgYGB7cn0NCnNvdXJjZSgiUi9jbHVzdGVyX2NlbGxzX0FEVF9kaXN0YW5jZV9tYXRyaXguciIpDQpgYGANCg0KT3V0cHV0OiANCg0KICAqIFRhYmxlIG9mIGNsdXN0ZXJzIGFzc2lnbm1lbnQgZm9yIGVhY2ggY2VsbDogDQogICAgKiBgYGAuL2RhdGEvSDFOMV9mdWxsX2NsdXN0ZXJlZF9wM2Rpc3RfbXVsdGlyZXNfbWV0YWRhdGEucmRzYGBgLg0KICAqIFNldXJhdCBvYmplY3Qgd2l0aCBjbHVzdGVyaW5nIGFzc2lnbm1lbnQ6DQogICAgKiBgYGAuL2RhdGEvSDFfZGF5MF9zY3Jhbk5vcm1fYWR0YmF0Y2hOb3JtX2Rpc3RfY2x1c3RlcmVkLnJkc2BgYC4NCiAgDQo8YnIvPg0KDQoNCiMgMy4gQ2x1c3RlcnMgYW5ub3RhdGlvbg0KDQpHZW5lcmF0ZSBhIGhlYXRtYXAgb2YgYXZlcmFnZSBleHByZXNzaW9uIG9mIHNlbGVjdGVkIHByb3RlaW4gbWFya2VycyBpbiBlYWNoIG9mIHRoZSBjZWxsIGNsdXN0ZXJzIGRlcml2ZWQgZnJvbSB0aGUgdGhyZWUgZGlmZmVyZW50IGNsdXN0ZXJpbmcgcmVzb2x1dGlvbnMNCg0KYGBge3J9DQpzb3VyY2UoIlIvYWR0X2NsdXN0ZXJpbmdfY2x1c3RlcmF2ZXJhZ2VzX2FsbC5sZXZlbHMuciIpDQpgYGANCg0KVGhlIGdlbmVyYXRlZCB0YWJsZSBpbiBgYGByZXN1bHRzL2NsdXN0ZXJfbm9kZXMudHh0YGBgIGlzIHVzZWQgYWRkIGNsdXN0ZXIgbGFiZWxzZSBhbmQgbWFudWFsIGFubm90YXRpb24gb2YgY2x1c3RlciBjZWxsIHR5cGVzLg0KDQpUaGUgZ2VuZXJhdGVkIGZpZ3VyZXMgYXJlIHN0b3JlZCBpbiBgYGBmaWd1cmVzL2NsdXN0ZXJfYW5ub3RhdGlvbmBgYCBhbmQgdXNlZCBmb3IgY2x1c3RlciBsYWJlbGluZyBhbmQgYW5ub3RhdGlvbi4NCg0KPGJyLz4NCg0KDQojIDQuIEZpbHRlciBjZWxscyBhbmQgZ2VuZXJhdGUgZmluYWwgaGVhdG1hcA0KDQpBZnRlciBhbm5vdGF0aW5nIHRoZSBjbHVzdGVycyB3ZSBmb3VuZCB0aGF0IGF0IHJlc29sdXRpb249MyBjbHVzdGVycyAzNCwgMzYsIDM4LCAzOSBjb250YWluIG1vc3RseSBkb3VibGV0IGNlbGxzLiBXZSByZW1vdmUgY2VsbHMgaW4gdGhlc2UgY2x1c3RlcnMgZnJvbSB0aGUgU2V1cmF0IG9iamVjdC4NCg0KYGBge3J9DQpzb3VyY2UoIlIvcmVtb3ZlX2RvdWJsZXRfY2x1c3RlcnMuciIpDQpgYGANCg0KT3V0cHV0IGZpbGU6DQogIGBgYC4vZGF0YS9IMV9kYXkwX3NjcmFuTm9ybV9hZHRiYXRjaE5vcm1fZGlzdF9jbHVzdGVyZWRfZmlsdGVyZWQucmRzYGBgDQoNCjxici8+DQoNClRoZSBmb2xsb3dpbmcgc2NyaXB0IHVzZXMgbWFudWFsIGFubm90dGlvbiB0YWJsZSBpbiBgYGBkYXRhL2NsdXN0cmVlX25vZGVfbGFiZWxzX3dpdGhDZWxsVHlwZUxhYmVscy50eHRgYGAgYW5kIGNsdXN0ZXJzIGF0IGZpcnN0IHRocmVlIHJlc29sdXRpb25zIHRvIGdlbmVyYXRlIEZpZ3VyZSA0Yy4NCg0KYGBge3J9DQpzb3VyY2UoIlIvYWR0X2NsdXN0ZXJpbmdfY2x1c3RlcmF2ZXJhZ2VzXzNsZXZlbHNfZmlndXJlLnIiKQ0KYGBgDQoNClRoZSBnZW5lcmF0ZWQgaGVhdG1hcCBpcyBzdG9yZWQgaW4gYGBgZmlndXJlcy9jbHVzdGVyX2Fubm90YXRpb25gYGAuDQoNCjxici8+DQoNCg0KIyA1LiBQQ0EgYW5kIHRTTkUgYW5hbHlzaXMgb2YgdGhlIEFEVCBkYXRhIA0KDQpgYGB7cn0NCnNvdXJjZSgiUi9jb21wdXRlX3BjYS5yIikNCmBgYA0KDQpPdXRwdXQgZmlsZTogYGBgLi9kYXRhL0gxX2RheTBfc2NyYW5Ob3JtX2FkdGJhdGNoTm9ybV9kaXN0X2NsdXN0ZXJlZF9QQ0EucmRzYGBgDQoNClBDQSBlbGJvdyBwbG90IGlzIHN0b3JlZCBpbiBgYGBmaWd1cmVzL1RTTkVgYGAuIFVzaW5nIHRoaXMgcGxvdCBXZSBkZXRlcm1pbmVkIHRoZSBudW1iZXIgb2YgcHJpbmNpcGFsIGNvbXBvbmVudHMgdG8gdXNlIGZvciB0U05FIGFzICoqNyoqLg0KDQo8YnIvPg0KDQpgYGB7cn0NCnNvdXJjZSgiUi9jb21wdXRlX3RzbmUuci5yIikNCmBgYA0KDQpUaGlzIHNjcmlwdCBmb3IgdFNORSBjb21wdXRhdGlvbiBhdCBtdWx0aXBsZSBwZXJwbGV4aXR5IHdhcyBydW4gb24gaGlnaC1wZXJmb3JtYW5jZSBjbHVzdGVyLg0KDQpPdXRwdXQgZmlsZTogYGBgLi9kYXRhL0gxX2RheTBfc2NyYW5Ob3JtX2FkdGJhdGNoTm9ybV9kaXN0X2NsdXN0ZXJlZF9UU05FLnJkc2BgYA0KDQo8YnIvPg0KDQojIDYuIExhYmVsIGFuZCB2aXN1YWxpc2UgdGhlIGNsdXN0ZXJzDQoNClJlLWxhYmVsIHRoZSBjbHVzdGVycyBhbmQgY3JlYXRlIHRoZSBmaW5hbCBvYmplY3QuDQoNCmBgYHtyfQ0Kc291cmNlKCJSL2NsdXN0cmVlX2xhYmVscy5yIikNCmBgYA0KDQpPdXRwdXQgZmlsZTogYGBgLi9kYXRhL0gxX2RheTBfc2NyYW5Ob3JtX2FkdGJhdGNoTm9ybV9kaXN0X2NsdXN0ZXJlZF9UU05FX2xhYmVscy5yZHNgYGANCg0KKlRoaXMgU2V1cmF0IG9iamVjdCB3YXMgdXNlZCBmb3IgYWxsIGZ1cnRoZXIgYW5hbHlzaXMuKg0KDQo8YnIvPg0KDQpHZW5lcmF0ZSB0U05FIHBsb3RzIHRvIGNoZWNrIGZvciBiYXRjaCBlZmZlY3QgYW5kIHNob3cgdGhlIGZpcnN0LWxldmVsIGNsdXN0ZXJzIGZvciBGaWd1cmUgNGENCg0KYGBge3J9DQpzb3VyY2UoIlIvdHNuZV9maWd1cmVzLnIiKQ0KYGBgDQoNClRoZSBnZW5lcmF0ZWQgZmlndXJlcyBhcmUgc3RvcmVkIGluIGBgYGZpZ3VyZXMvVFNORWBgYC4NCg0KPGJyLz4NCg0KR2VuZXJhdGUgdGhlIGNsdXN0cmVlIGZvciBGaWd1cmUgNGIgd2l0aCBub2RlcyBjb2xvcmVkIGJ5IGxldmVsIDEgY2x1dGVycw0KDQpgYGB7cn0NCnNvdXJjZSgiUi9jbHVzdHJlZV92ZXJ0aWNhbF9jbHJfbGV2ZWwxLnIiKQ0KYGBgDQoNClRoZSBnZW5lcmF0ZWQgZmlndXJlIGlzIHN0b3JlZCBpbiBgYGBmaWd1cmVzL2NsdXN0ZXJfYW5ub3RhdGlvbmBgYC4NCg0KPGJyLz4NCg0KR2VuZXJhdGUgdGhlIHN1cHBsZW1lbnRhbCBmaWd1cmUgd2l0aCB0aGUgZGlzdHJpYnV0aW9uIG9mIGRlbm9pc2VkIGFuZCBiYWNrZ3JvdW5kIHJlc2NhbGVkIGNvdW50cyBmb3IgdGhlIHN1cmZhY2UgcHJvdGVpbnMNCg0KYGBge3J9DQpzb3VyY2UoIlIvYWR0X2NsdXN0ZXJpbmdfcHJvdGVpbl9kaXN0cmlidXRpb24uciIpDQpgYGANCg0KVGhlIGdlbmVyYXRlZCBmaWd1cmVzIGFyZSBzdG9yZWQgaW4gYGBgZmlndXJlcy9jbHVzdGVyX2Fubm90YXRpb25gYGAuDQoNCjxici8+DQoNCg0KIyA3LiBUZXN0IHZhcmlvdXMgZ2VuZSBzaWduYXR1cmVzIGNvbXBhcmluZyBsb3cgYW5kIGhpZ2ggcmVzcG9uZGVycw0KDQpHZW5lcmF0ZSB0aGUgbGlzdCBvZiBzaWduYXR1cmVzOg0KDQpgYGB7cn0NCnNvdXJjZSgiUi9tYWtlX2xpc3Rfb2Zfc2lnbmF0dXJlcy5yIikNCmBgYA0KT3V0cHV0IGZpbGUgd2l0aCB0aGUgbGlzdCBvZiBzaWduYXR1cmVzIGlzIHNhdmVkIGFzIGBgYHNpZy9zaWcubGlzdC5SRFNgYGAuDQoNCjxici8+DQoNCkNoZWNrIGVucmljaGVtbnQgb2YgQlRNIG1vZHVsZXMgaW4gQ0Q0MGFjdCBnZW5lIHNpZ25hdHVyZToNCg0KYGBge3J9DQpzb3VyY2UoIlIvQ0Q0MGFjdF9nZW5lc19IRy50ZXN0LnIiKQ0KYGBgDQpPdXRwdXQgcGxvdCBpcyBzYXZlZCBpbiBgYGBmaWd1cmVzL0NENDBhY3RgYGAuDQoNCjxici8+DQoNClRlc3QgZ2VuZSBzaWduYXR1cmVzIGNvbXBhcmluZyBsb3cgdnMuIGhpZ2ggcmVzcG9uZGVycyB1c2luZyBjZWxscyBpbiBwc2V1ZG8tYnVsayBhbmQgYWxsIGNlbGwgY2x1c3RlcnM6IA0KDQpgYGB7cn0NCnNvdXJjZSgiUi90ZXN0X3NpZ3NfY2x1c3RlcnMuciIpDQpgYGANCk91dHB1dCBmaWxlIHdpdGggdGhlIGxpc3Qgb2Ygc2lnbmF0dXJlcyBpcyBzYXZlZCBhcyBgYGByZXN1bHRzL3Rlc3Rfc2lnLmdlbmVzX2luX2NsdXN0ZXJzX2hpZ2hfdnNfbG93X3Jlc3BvbmRlcnMudHh0YGBgLg0KDQo8YnIvPg0KDQpDb21wdXRlIHNjb3JlcyBmb3Igc2VsZWN0ZWQgZ2VuZSBzaWduYXR1cmVzIGluIHBzZXVkby1idWxrIGFuZCBhbGwgY2VsbCBjbHVzdGVyczogDQoNCmBgYHtyfQ0Kc291cmNlKCJSL3NpZ19zY29yZXNfY2FsY19ieV9jbHVzdGVyLnIiKQ0KYGBgDQpPdXRwdXQgZmlsZXMgYXJlIHNhdmVkIGluIGBgYHJlc3VsdHMvc2lnX3Njb3Jlc2BgYC4NCg0KPGJyLz4NCg0KDQojIDguIFZpc3VhbGl6ZSB0aGUgcmVzdWx0cyBvZiBnZW5lIHNpZ25hdHVyZXMgdGVzdHMNCg0KR2VuZXJhdGUgYm94LXBsb3QgZm9yIHBzZXVkby1idWxrIGZvciBnZW5lIHNpZ25hdHVyZXMgd2l0aCBzaWduaWZpY2FudCBkaWZmZXJlbmNlIGJldHdlZW4gbG93IGFuZCBoaWdoIHJlc3BvbmRlcnM6IA0KDQpgYGB7cn0NCnNvdXJjZSgiUi9zaWdfc2NvcmVzX2JveHBsb3RfcHNldWRvYnVsay5yIikNCmBgYA0KDQpPdXRwdXQgcGxvdHMgKGZvciBGaWd1cmUgNGQsZSkgYXJlIHNhdmVkIGluIGBgYHJlc3VsdHMvc2lnX3Rlc3RfYm94cGxvdHNgYGAuDQoNCjxici8+DQoNCg0KR2VuZXJhdGUgYm94LXBsb3QgZm9yIGxldmVsIDEgY2x1c3RlcnMgZm9yIGdlbmUgc2lnbmF0dXJlcyB3aXRoIHNpZ25pZmljYW50IGRpZmZlcmVuY2UgYmV0d2VlbiBsb3cgYW5kIGhpZ2ggcmVzcG9uZGVyczogDQoNCmBgYHtyfQ0Kc291cmNlKCJSL3NpZ19zY29yZXNfYm94cGxvdF9ieV9jbHVzdGVycy5yIikNCmBgYA0KDQpPdXRwdXQgcGxvdHMgKGZvciBGaWcuIDVhLGIsZSBhbmQgRXh0LiBEYXRhIEZpZy4gOGYpIGFyZSBzYXZlZCBpbiBgYGByZXN1bHRzL3NpZ190ZXN0X2JveHBsb3RzYGBgLg0KDQo8YnIvPg0KDQoNCkdlbmVyYXRlIGNsdXN0cmVlIHBsb3RzIGZvciBzZWxlY3RlZCBnZW5lIHNpZ25hdHVyZXMgaW5kaWNhdGluZyBzaWduaWZpY2FuY2Ugb2YgZGlmZmVyZW5jZSBiZXR3ZWVuIGxvdyBhbmQgaGlnaCByZXNwb25kZXJzOiANCg0KYGBge3J9DQpzb3VyY2UoIlIvY2x1c3RyZWVfdmVydGljYWxfdGVzdF9zaWdzLnIiKQ0KYGBgDQoNCk91dHB1dCBwbG90cyAoZm9yIEZpZy4gNWEsYixlIGFuZCBFeHQuIERhdGEgRmlnLiA4ZikgYXJlIHNhdmVkIGluIGBgYHJlc3VsdHMvc2lnX3Rlc3RfY2x1c3RyZWVgYGAuDQoNCjxici8+DQoNCg0KR2VuZXJhdGUgYm94LXBsb3RzIGZvciBjbHVzdGVyIEM5IChwREMpIGZvciBzZWxlY3RlZCBnZW5lIHNpZ25hdHVyZXM6IA0KDQpgYGB7cn0NCnNvdXJjZSgiUi9zaWdfc2NvcmVzX2JveHBsb3RfQzkuciIpDQpgYGANCg0KT3V0cHV0IHBsb3RzIChmb3IgRmlnLiA1YykgYXJlIHNhdmVkIGluIGBgYHJlc3VsdHMvc2lnX3Rlc3RfYm94cGxvdHNgYGAuDQoNCjxici8+DQoNCkRyb3Atb3V0IHRlc3QgZm9yIHNlbGVjdGVkIGdlbmUgc2lnbmF0dXJlcyBhbmQgc2VsZWN0ZWQgY2x1c3RlciBjb21iaW5hdGlvbnM6IA0KDQpgYGB7cn0NCnNvdXJjZSgiUi90ZXN0X3NpZ3NfY2x1c3RlcnNfT1VULnIiKQ0KYGBgDQoNClJlc3VsdCB0YWJsZSBpcyBzYXZlZCBhcyBgYGByZXN1bHRzL3Rlc3Rfc2lnLmdlbmVzX2luX2NsdXN0ZXJzX2hpZ2hfdnNfbG93X3Jlc3BvbmRlcnNfT1VULnR4dGBgYC4NCg0KT3V0cHV0IHBsb3RzIChmb3IgRXh0LiBEYXRhIEZpZy4gOGcpIGFyZSBzYXZlZCBpbiBgYGBmaWd1cmVzL2Ryb3Bfb3V0X3Rlc3RgYGAuDQoNCjxici8+DQoNCg0KIyA5LiBNYW51YWwgZ2F0aW5nIG9mIENEMjArQ0QzOCsrIEIgY2VsbHMNCg0KYGBge3J9DQpzb3VyY2UoIlIvc2lnX3Njb3Jlc19ib3hwbG90X0M5LnIiKQ0KYGBgDQoNCk91dHB1dCB0YWJsZSBvZiBjZWxsIGZyZXF1ZW5jaWVzIGlzIHNhdmVkIGFzIGBgYHJlc3VsdHMvQ0lURXNlcV9DRDM4aGlfY2VsbF9kYXRhLnR4dGBgYC4NCk91dHB1dCBwbG90cyAoZm9yIEV4dC4gRGF0YSBGaWcuIDhkLGUpIGFyZSBzYXZlZCBpbiBgYGByZXN1bHRzL2hhbmRfZ2F0aW5nYGBgLg0KDQo8YnIvPg0KDQoNCiMgMTAuIENvbXBpbGUgc2NvcmVzIGZvciBtdWx0aXBsZSBzaWduYXR1cmVzIGFuZCBwZXJmb3JtIGNvcnJlbGF0aW9uIGFuYWx5c2lzDQoNCkNvbXB1dGUgc2NvcmVzIG9mIFNMRS1TaWcgc2lnbmF0dXJlIGZvciBtaWNyb2FycmF5IGRheSAwIGRhdGE6DQoNCmBgYHtyfQ0Kc291cmNlKCJSL1NMRS5zaWdfTUFfc2lnX3Njb3JlLnIiKQ0KYGBgDQoNCk91dHB1dCBmaWxlIGlzIHNhdmVkIGFzIGBgYHJlc3VsdHMvc2lnX3Njb3Jlcy9zY29yZXNfU0xFLnNpZ19NQS50eHRgYGAuDQoNCjxici8+DQoNCkNvbXBpbGUgc2NvcmVzIGZvciBzZWxlY3RlZCBnZW5lIHNpZ25hdHVyZXMgZm9yIENJVEUtc2VxIGFuZCBtaWNyb2FycmF5IGRhdGEgcGx1cyBDRDM4KysgY2VsbCBmcmVxdWVuY3kgZnJvbSBmbG93IGN5dG9tZXRyeSBkYXRhOg0KDQoNCmBgYHtyfQ0Kc291cmNlKCJSL3Njb3Jlc19mb3JfY29ycmVsYXRpb24uciIpDQpgYGANCg0KT3V0cHV0IHRhYmxlIG9mIGNlbGwgZnJlcXVlbmNpZXMgaXMgc2F2ZWQgYXMgYGBgcmVzdWx0cy9DSVRFc2VxX0NEMzhoaV9jZWxsX2RhdGEudHh0YGBgLg0KDQo8YnIvPg0KDQpHZW5lcmF0ZSBzY2F0dGVyIHBsb3Qgb2YgQ0Q0MGFjdCBzY29yZSBpbiBDMy4xLjAgY2VsbCBjbHVzdGVyIHZzLiBDRDIwPUNEMzgrKyBCIGNlbGxzIGZyZXF1ZW5jeSBmcm9tIGZsb3cgY3l0b21ldHJ5IChGaWd1cmUgNWYpOg0KDQpgYGB7cn0NCnNjcmlwdCgiUi9DRDQwYWN0X3ZzX0NEMzhoaS5mbG93LnIiKQ0KYGBgDQoNCk91dHB1dCBwbG90IGlzIHNhdmVkIGluIGBgYGZpZ3VyZXMvc2lnX3JhbmtlZF9jb3JyZWxhdGlvbmBgYC4NCg0KPGJyLz4NCg0KR2VuZXJhdGUgc2NhdHRlciBwbG90cyBvZiBjb3JyZWxhdGlvbiBiZXR3ZWVuIHNlbGVjdGVkIHNpZ25hdHVyZSBzY29yZXMgaW4gc2VsZWN0ZWQgY2x1c3RlcnMgKGZvciBGaWd1cmUgNmEpOg0KDQpgYGB7cn0NCnNjcmlwdCgiUi9zaWdfY29ycmVsYXRpb25fc2NhdHRlcnBsb3RzLnIiKQ0KYGBgDQoNCk91dHB1dCBwbG90cyBhcmUgc2F2ZWQgaW4gYGBgZmlndXJlcy9zaWdfcmFua2VkX2NvcnJlbGF0aW9uYGBgLg0KDQo8YnIvPg0KDQpHZW5lcmF0ZSBhIGNvcnJlbGF0aW9uIHBsb3QgKGZvciBGSWd1cmUgNmEpOg0KDQpgYGB7cn0NCnNjcmlwdCgiUi9zY29yZXNfY29ycmVsYXRpb25faGVhdG1hcF9jdXN0b21fb3JkZXIuciIpDQpgYGANCg0KT3V0cHV0IHBsb3QgaXMgc2F2ZWQgaW4gYGBgZmlndXJlcy9zaWdfcmFua2VkX2NvcnJlbGF0aW9uYGBgLg0KDQo8YnIvPg0KDQoNCiMgMTEuIERpZmZlcmVudGlhbCBFeHByZXNzaW9uIG9mIHNlbGVjdGVkIHN1cmZhY2UgcHJvdGVpbnMgaW4gcERDIGJldHdlZW4gbG93IGFuZCBoaWdoIHJlc3BvbmRlcnMNCg0KYGBge3J9DQpzY3JpcHQoIlIvQ0Q4Nl9ITEEtRFJfdnNfcmVzcG9uc2UuciIpDQpgYGANCg0KT3V0cHV0IHBsb3QgaXMgc2F2ZWQgaW4gYGBgZmlndXJlcy9hZHRfdnNfcmVzcG9uc2VgYGAuDQoNCjxici8+DQoNCg0KIyAxMi4gQ29tcGFyaW5nIHRoZSBUR1NpZyBhbmQgU0xFLVNpZyBzY29yZXMgaW4gZmVtYWxlcyB2ZXJzdXMgbWFsZXMNCg0KYGBge3J9DQpzY3JpcHQoIlIvVEdTaWdfU0xFLnNpZ192c19zZXguciIpDQpgYGANCg0KT3V0cHV0IHBsb3QgaXMgc2F2ZWQgaW4gYGBgZmlndXJlcy9tYWxlX3ZzX2ZlbWFsZWBgYC4NCg0KPGJyLz4NCjxici8+DQo8YnIvPg0KDQoNCg0KDQpMb2FkZWQgbGlicmFyaWVzIGFuZCBzZXNzaW9uIGluZm9ybWF0aW9uOg0KDQpgYGANCj4gc2Vzc2lvbkluZm8oKQ0KUiB2ZXJzaW9uIDMuNi4xICgyMDE5LTA3LTA1KQ0KUGxhdGZvcm06IHg4Nl82NC13NjQtbWluZ3czMi94NjQgKDY0LWJpdCkNClJ1bm5pbmcgdW5kZXI6IFdpbmRvd3MgMTAgeDY0IChidWlsZCAxNzc2MykNCg0KTWF0cml4IHByb2R1Y3RzOiBkZWZhdWx0DQoNCmxvY2FsZToNClsxXSBMQ19DT0xMQVRFPUVuZ2xpc2hfVW5pdGVkIFN0YXRlcy4xMjUyICBMQ19DVFlQRT1FbmdsaXNoX1VuaXRlZCBTdGF0ZXMuMTI1MiAgICBMQ19NT05FVEFSWT1FbmdsaXNoX1VuaXRlZCBTdGF0ZXMuMTI1Mg0KWzRdIExDX05VTUVSSUM9QyAgICAgICAgICAgICAgICAgICAgICAgICAgIExDX1RJTUU9RW5nbGlzaF9Vbml0ZWQgU3RhdGVzLjEyNTIgICAgDQoNCmF0dGFjaGVkIGJhc2UgcGFja2FnZXM6DQpbMV0gZ3JpZCAgICAgIHN0YXRzICAgICBncmFwaGljcyAgZ3JEZXZpY2VzIHV0aWxzICAgICBkYXRhc2V0cyAgbWV0aG9kcyAgIGJhc2UgICAgIA0KDQpvdGhlciBhdHRhY2hlZCBwYWNrYWdlczoNCiBbMV0gZmdzZWFfMS4xMC4xICAgICAgICAgUmNwcF8xLjAuMiAgICAgICAgICAgY2x1c3RyZWVfMC40LjEgICAgICAgdmlyaWRpc18wLjUuMSAgICAgICAgdmlyaWRpc0xpdGVfMC4zLjAgICANCiBbNl0gZ2dyaWRnZXNfMC41LjEgICAgICAgZ2dzaWduaWZfMC42LjAgICAgICAgcGFsc18xLjUgICAgICAgICAgICAgbWFwc18zLjMuMCAgICAgICAgICAgQ29tcGxleEhlYXRtYXBfMi4wLjANClsxMV0gY2lyY2xpemVfMC40LjggICAgICAgZ2dyYXBoXzIuMC4wICAgICAgICAgbWNsdXN0XzUuNC41ICAgICAgICAgbGltbWFfMy40MC42ICAgICAgICAgTUFTU183LjMtNTEuNCAgICAgICANClsxNl0gcFJPQ18xLjE1LjMgICAgICAgICAgY29ycnBsb3RfMC44NCAgICAgICAgdG1vZF8wLjQwICAgICAgICAgICAgU2V1cmF0XzIuMy40ICAgICAgICAgTWF0cml4XzEuMi0xNyAgICAgICANClsyMV0gY293cGxvdF8xLjAuMCAgICAgICAgZGF0YS50YWJsZV8xLjEyLjIgICAgZm9yY2F0c18wLjQuMCAgICAgICAgc3RyaW5ncl8xLjQuMCAgICAgICAgZHBseXJfMC44LjMgICAgICAgICANClsyNl0gcHVycnJfMC4zLjIgICAgICAgICAgcmVhZHJfMS4zLjEgICAgICAgICAgdGlkeXJfMC44LjMgICAgICAgICAgdGliYmxlXzIuMS4zICAgICAgICAgZ2dwbG90Ml8zLjIuMCAgICAgICANClszMV0gdGlkeXZlcnNlXzEuMi4xICAgICAgcGx5cl8xLjguNCAgICAgICAgICANCg0KbG9hZGVkIHZpYSBhIG5hbWVzcGFjZSAoYW5kIG5vdCBhdHRhY2hlZCk6DQogIFsxXSB0YWdjbG91ZF8wLjYgICAgICAgICAgICByZXRpY3VsYXRlXzEuMTMgICAgICAgICBSLnV0aWxzXzIuOS4wICAgICAgICAgICB0aWR5c2VsZWN0XzAuMi41ICAgICAgIA0KICBbNV0gaHRtbHdpZGdldHNfMS4zICAgICAgICAgQmlvY1BhcmFsbGVsXzEuMTcuMTggICAgUnRzbmVfMC4xNSAgICAgICAgICAgICAgbXVuc2VsbF8wLjUuMCAgICAgICAgICANCiAgWzldIGNvZGV0b29sc18wLjItMTYgICAgICAgIGljYV8xLjAtMiAgICAgICAgICAgICAgIG1pbmlVSV8wLjEuMS4xICAgICAgICAgIHdpdGhyXzIuMS4yICAgICAgICAgICAgDQogWzEzXSBjb2xvcnNwYWNlXzEuNC0xICAgICAgICBrbml0cl8xLjI0ICAgICAgICAgICAgICByc3R1ZGlvYXBpXzAuMTAgICAgICAgICBzdGF0czRfMy42LjEgICAgICAgICAgIA0KIFsxN10gUk9DUl8xLjAtNyAgICAgICAgICAgICAgcm9idXN0YmFzZV8wLjkzLTUgICAgICAgZHR3XzEuMjEtMyAgICAgICAgICAgICAgZ2JSZF8wLjQtMTEgICAgICAgICAgICANCiBbMjFdIFJkcGFja18wLjExLTAgICAgICAgICAgIGxhYmVsaW5nXzAuMyAgICAgICAgICAgIGxhcnNfMS4yICAgICAgICAgICAgICAgIHBvbHljbGlwXzEuMTAtMCAgICAgICAgDQogWzI1XSBiaXQ2NF8wLjktNyAgICAgICAgICAgICBmYXJ2ZXJfMi4wLjEgICAgICAgICAgICB2Y3Ryc18wLjIuMCAgICAgICAgICAgICBnZW5lcmljc18wLjAuMiAgICAgICAgIA0KIFsyOV0geGZ1bl8wLjkgICAgICAgICAgICAgICAgZGlwdGVzdF8wLjc1LTcgICAgICAgICAgUjZfMi40LjAgICAgICAgICAgICAgICAgY2x1ZV8wLjMtNTcgICAgICAgICAgICANCiBbMzNdIGdyYXBobGF5b3V0c18wLjUuMCAgICAgIGhkZjVyXzEuMy4wICAgICAgICAgICAgIG1hbmlwdWxhdGVXaWRnZXRfMC4xMC4wIGZsZXhtaXhfMi4zLTE1ICAgICAgICAgDQogWzM3XSBiaXRvcHNfMS4wLTYgICAgICAgICAgICBhc3NlcnR0aGF0XzAuMi4xICAgICAgICBwcm9taXNlc18xLjAuMSAgICAgICAgICBTRE1Ub29sc18xLjEtMjIxLjEgICAgIA0KIFs0MV0gc2NhbGVzXzEuMC4wICAgICAgICAgICAgbm5ldF83LjMtMTIgICAgICAgICAgICAgYmVlc3dhcm1fMC4yLjMgICAgICAgICAgZ3RhYmxlXzAuMy4wICAgICAgICAgICANCiBbNDVdIG5wc3Vydl8wLjQtMCAgICAgICAgICAgIHRpZHlncmFwaF8xLjEuMiAgICAgICAgIHJsYW5nXzAuNC4wICAgICAgICAgICAgIHplYWxsb3RfMC4xLjAgICAgICAgICAgDQogWzQ5XSBHbG9iYWxPcHRpb25zXzAuMS4wICAgICBzcGxpbmVzXzMuNi4xICAgICAgICAgICBsYXp5ZXZhbF8wLjIuMiAgICAgICAgICBhY2VwYWNrXzEuNC4xICAgICAgICAgIA0KIFs1M10gcGxvdHdpZGdldHNfMC40ICAgICAgICAgZGljaHJvbWF0XzIuMC0wICAgICAgICAgYnJvb21fMC41LjIgICAgICAgICAgICAgY2hlY2ttYXRlXzEuOS40ICAgICAgICANCiBbNTddIHJnbF8wLjEwMC4zMCAgICAgICAgICAgIHlhbWxfMi4yLjAgICAgICAgICAgICAgIHJlc2hhcGUyXzEuNC4zICAgICAgICAgIG1vZGVscl8wLjEuNSAgICAgICAgICAgDQogWzYxXSBjcm9zc3RhbGtfMS4wLjAgICAgICAgICBiYWNrcG9ydHNfMS4xLjQgICAgICAgICBodHRwdXZfMS41LjEgICAgICAgICAgICBIbWlzY180LjItMCAgICAgICAgICAgIA0KIFs2NV0gdG9vbHNfMy42LjEgICAgICAgICAgICAgZ3Bsb3RzXzMuMC4xLjEgICAgICAgICAgUkNvbG9yQnJld2VyXzEuMS0yICAgICAgcHJveHlfMC40LTIzICAgICAgICAgICANCiBbNjldIGJhc2U2NGVuY18wLjEtMyAgICAgICAgIHJwYXJ0XzQuMS0xNSAgICAgICAgICAgIHBiYXBwbHlfMS40LTIgICAgICAgICAgIEdldG9wdExvbmdfMC4xLjcgICAgICAgDQogWzczXSB6b29fMS44LTYgICAgICAgICAgICAgICBoYXZlbl8yLjEuMSAgICAgICAgICAgICBnZ3JlcGVsXzAuOC4xICAgICAgICAgICBjbHVzdGVyXzIuMS4wICAgICAgICAgIA0KIFs3N10gbWFncml0dHJfMS41ICAgICAgICAgICAgbG10ZXN0XzAuOS0zNyAgICAgICAgICAgUkFOTl8yLjYuMSAgICAgICAgICAgICAgZml0ZGlzdHJwbHVzXzEuMC0xNCAgICANCiBbODFdIGhtc18wLjUuMSAgICAgICAgICAgICAgIGxzZWlfMS4yLTAgICAgICAgICAgICAgIG1pbWVfMC43ICAgICAgICAgICAgICAgIGV2YWx1YXRlXzAuMTQgICAgICAgICAgDQogWzg1XSB4dGFibGVfMS44LTQgICAgICAgICAgICBYTUxfMy45OC0xLjIwICAgICAgICAgICByZWFkeGxfMS4zLjEgICAgICAgICAgICBncmlkRXh0cmFfMi4zICAgICAgICAgIA0KIFs4OV0gc2hhcGVfMS40LjQgICAgICAgICAgICAgY29tcGlsZXJfMy42LjEgICAgICAgICAgS2VyblNtb290aF8yLjIzLTE1ICAgICAgY3JheW9uXzEuMy40ICAgICAgICAgICANCiBbOTNdIFIub29fMS4yMi4wICAgICAgICAgICAgIGh0bWx0b29sc18wLjMuNiAgICAgICAgIHNlZ21lbnRlZF8xLjAtMCAgICAgICAgIGxhdGVyXzAuOC4wICAgICAgICAgICAgDQogWzk3XSBGb3JtdWxhXzEuMi0zICAgICAgICAgICBzbm93XzAuNC0zICAgICAgICAgICAgICBsdWJyaWRhdGVfMS43LjQgICAgICAgICB0d2VlbnJfMS4wLjEgICAgICAgICAgIA0KWzEwMV0gZnBjXzIuMi0zICAgICAgICAgICAgICAgY2xpXzEuMS4wICAgICAgICAgICAgICAgUi5tZXRob2RzUzNfMS43LjEgICAgICAgZ2RhdGFfMi4xOC4wICAgICAgICAgICANClsxMDVdIHBhcmFsbGVsXzMuNi4xICAgICAgICAgIG1ldGFwXzEuMSAgICAgICAgICAgICAgIGlncmFwaF8xLjIuNC4xICAgICAgICAgIHBrZ2NvbmZpZ18yLjAuMiAgICAgICAgDQpbMTA5XSBmb3JlaWduXzAuOC03MiAgICAgICAgICB4bWwyXzEuMi4xICAgICAgICAgICAgICBmb3JlYWNoXzEuNC43ICAgICAgICAgICB3ZWJzaG90XzAuNS4xICAgICAgICAgIA0KWzExM10gYmlidGV4XzAuNC4yICAgICAgICAgICAgcnZlc3RfMC4zLjQgICAgICAgICAgICAgZGlnZXN0XzAuNi4yMCAgICAgICAgICAgdHNuZV8wLjEtMyAgICAgICAgICAgICANClsxMTddIGZhc3RtYXRjaF8xLjEtMCAgICAgICAgIHJtYXJrZG93bl8xLjE1ICAgICAgICAgIGNlbGxyYW5nZXJfMS4xLjAgICAgICAgIGh0bWxUYWJsZV8xLjEzLjEgICAgICAgDQpbMTIxXSBrZXJubGFiXzAuOS0yOSAgICAgICAgICBzaGlueV8xLjMuMiAgICAgICAgICAgICBndG9vbHNfMy44LjEgICAgICAgICAgICBtb2RlbHRvb2xzXzAuMi0yMiAgICAgIA0KWzEyNV0gcmpzb25fMC4yLjIwICAgICAgICAgICAgbmxtZV8zLjEtMTQxICAgICAgICAgICAganNvbmxpdGVfMS42ICAgICAgICAgICAgbWFwcHJval8xLjIuNiAgICAgICAgICANClsxMjldIHBpbGxhcl8xLjQuMiAgICAgICAgICAgIGxhdHRpY2VfMC4yMC0zOCAgICAgICAgIGh0dHJfMS40LjEgICAgICAgICAgICAgIERFb3B0aW1SXzEuMC04ICAgICAgICAgDQpbMTMzXSBzdXJ2aXZhbF8yLjQ0LTEuMSAgICAgICBnbHVlXzEuMy4xICAgICAgICAgICAgICBwbmdfMC4xLTcgICAgICAgICAgICAgICBwcmFiY2x1c18yLjMtMSAgICAgICAgIA0KWzEzN10gaXRlcmF0b3JzXzEuMC4xMiAgICAgICAgYml0XzEuMS0xNCAgICAgICAgICAgICAgZ2dmb3JjZV8wLjMuMSAgICAgICAgICAgY2xhc3NfNy4zLTE1ICAgICAgICAgICANClsxNDFdIHN0cmluZ2lfMS40LjMgICAgICAgICAgIG1peHRvb2xzXzEuMS4wICAgICAgICAgIGRvU05PV18xLjAuMTggICAgICAgICAgIGxhdHRpY2VFeHRyYV8wLjYtMjggDQpgYGANCg==</div>
 
 
 
@@ -2658,7 +2287,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("Worklfow.Rmd");
+  window.initializeSourceEmbed("CITE-seq_Worklfow.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
