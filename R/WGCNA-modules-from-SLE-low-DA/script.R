@@ -12,14 +12,10 @@ dir.create(dn.out, showWarnings = F)
 source(file.path(dn, "input.R"))
 
 datExpr0.dt = dat[T]
-# dim(datExpr0.dt)
-# datExpr0.dt[1:2,1:5]
 datExpr0 = as.data.frame(t(datExpr0.dt[,-1,wi=F]))
 names(datExpr0) <- datExpr0.dt$ProbeID
 rownames(datExpr0) <- colnames(dat)[-1]
 colnames(datExpr0) <- dat[[1]]
-# dim(datExpr0)
-# datExpr0[1:2,1:5]
 
 
 gsg = goodSamplesGenes(datExpr0, verbose = 3);
@@ -50,9 +46,7 @@ nGenes = ncol(datExpr)
 nSamples = nrow(datExpr)
 dim(datExpr)
 
-# datExpr[1:2,1:5]
 fn.prefix= sprintf("%s/SLE-low-%dsbj-%dprobes", dn.out, nrow(datExpr), ncol(datExpr))
-# fn.prefix
 
 
   # similar to above, except using "signed hybrid" instead of "signed"
@@ -64,7 +58,6 @@ fn.prefix= sprintf("%s/SLE-low-%dsbj-%dprobes", dn.out, nrow(datExpr), ncol(datE
   # Call the network topology analysis function
   sft = pickSoftThreshold(datExpr, powerVector = powers, corFnc="bicor", networkType="signed hybrid", verbose = 5, blockSize=6000)
   fn = sprintf("%s-pickSoftThreshold-signed-hybrid.rda", fn.prefix)
-  # fn
   save(file=fn, sft)
 
   # Plot the results:
@@ -78,7 +71,6 @@ fn.prefix= sprintf("%s/SLE-low-%dsbj-%dprobes", dn.out, nrow(datExpr), ncol(datE
            xlab="Soft Threshold (power)",ylab="Scale Free Topology Model Fit,signed-hybrid R^2",type="n",
            ylim=c(-1,1),
            main = paste("Scale independence"));
-      #abline(h=c(0,0.25,0.5,0.75), col='gray', lty='dashed')
       abline(h=seq(0,1,0.2), col='gray', lty='dashed')
       text(sft$fitIndices[,1], -sign(sft$fitIndices[,3])*sft$fitIndices[,2],
       labels=powers,cex=cex1,col="red");
@@ -144,7 +136,6 @@ fn.prefix= sprintf("%s/SLE-low-%dsbj-%dprobes", dn.out, nrow(datExpr), ncol(datE
         plotDendroAndColors(geneTree, mColorh, groupLabels = mLabelh,addGuide=TRUE,dendroLabels=FALSE,main="Dendrogram With Defined Modules")
     dev.off()
     rev(sort(table(mColorh)))
-    #system("printf press RET to continue; read a")
  
     ## see if we can merge some of the modules if their expression profiles are similar
     # Calculate eigengenes
@@ -156,15 +147,10 @@ fn.prefix= sprintf("%s/SLE-low-%dsbj-%dprobes", dn.out, nrow(datExpr), ncol(datE
     # Cluster module eigengenes
     METree = hclust(as.dist(MEDiss), method = "average");
     # Plot the result
-    #sizeGrWindow(7, 6)
     fn = sprintf("%s-METree-signed-hybrid-minModSize%d.pdf", fn.prefix, minModSize)
     pdf(fn)
         plot(METree, main = "Clustering of module eigengenes", xlab = "", sub = "")
     dev.off()
-    ## merging threshold
-    #MEDissThres = 0.25  ## corresponds to correlation 0.75
-    ## Plot the cut line into the dendrogram
-    #abline(h=dthresh, col = "red")
     fn = sprintf("%s-signed-hybrid-network-TOMcut-minModSize%d-eigen-genes.rda", fn.prefix, minModSize)
     save(file=fn, MEs, MEList, tree, merged, mColorh)
   }
@@ -176,7 +162,6 @@ fn.prefix= sprintf("%s/SLE-low-%dsbj-%dprobes", dn.out, nrow(datExpr), ncol(datE
   attach(fn)
   ls(2)
   tt = rev(sort(table(get("mColorh",2))))
-  #length(tt)
   fn = sprintf("%s-minModSize%d-%dmodules.pdf", fn.prefix, minModSize, length(tt)-1)
   pdf(fn)
        tt = rev(sort(table(get("mColorh",2))))[-1] # grey removed
@@ -184,7 +169,6 @@ fn.prefix= sprintf("%s/SLE-low-%dsbj-%dprobes", dn.out, nrow(datExpr), ncol(datE
        main = sprintf("Number of Genes in the %d Modules", length(tt))
        barplot(tt, horiz=T, las=2, log="x", xlim=c(20,1200),
                xlab="#Genes in Module", main=main, col=names(tt))
-       #text(tt[1]/1.1, 0.6, tt[1], pos=2, col="black") # for grey
        for(i in 1:length(tt)) {
          text(tt[i], i*1.2-0.6, tt[i], pos=4, col="black")
        }
@@ -192,8 +176,6 @@ fn.prefix= sprintf("%s/SLE-low-%dsbj-%dprobes", dn.out, nrow(datExpr), ncol(datE
 
   gene.in.module = as.data.table(cbind(names(datExpr),get("mColorh",2)))
   setnames(gene.in.module,1:2,c("Symbol","Module"))
-  #gene.in.module = merge(gene.in.module, annot, by="ProbeID")
-  # dim(gene.in.module)
   setkey(gene.in.module, Module, Symbol)
   fn = sprintf("%s-gene.in.module.minModSize%d.signed-hybrid.txt", fn.prefix, minModSize)
   write.table(file=fn, gene.in.module, na="", quote=F, row.names=F, sep="\t")
@@ -201,11 +183,6 @@ fn.prefix= sprintf("%s/SLE-low-%dsbj-%dprobes", dn.out, nrow(datExpr), ncol(datE
   ## correlation between eigengene and genes in the module
   if(1) {
     attach(file.path(dn.out, "SLE-low-34sbj-9601probes-signed-hybrid-network-TOMcut-minModSize20-eigen-genes.rda"))
-    # dim(get("MEs",2))
-    # head(get("MEs",2))
-    # dim(dat)  # gene x sample
-    # head(dat,1)
-    # head(gene.in.module)
     for(mod in unique(colnames(get("MEs",2)))) {
       g = gene.in.module[which(Module %in% gsub("^ME","",mod))]$Symbol
       d = dat[which(gene %in% g)]
@@ -223,6 +200,3 @@ fn.prefix= sprintf("%s/SLE-low-%dsbj-%dprobes", dn.out, nrow(datExpr), ncol(datE
     }
   }
 
-# source("export.R")
-# system("sh ./export.sh")
-# setwd(cwd)
