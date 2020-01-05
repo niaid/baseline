@@ -96,6 +96,6 @@ pdf(fn, width=10, height=15)
               dendrogram = "none",
               keysize = 0.75,
               lhei=c(1,6), lwid=c(2,6),
-              key.xlab = "-log2(FDR)", key.title = "",
+              key.xlab = "-log10(FDR)", key.title = "",
               density.info = "none")
 dev.off()
