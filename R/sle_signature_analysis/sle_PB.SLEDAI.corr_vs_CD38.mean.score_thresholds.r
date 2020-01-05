@@ -38,7 +38,7 @@ pv = cc
 nn = cc
 meth = "pearson"
 for(i in seq_along(ths)){
-  ith = !is.na(df$PB_SLEDAI_corr_score) & df$PB_SLEDAI_corr_score > ths[i] & (df$PG %in% 2:3)
+  ith = !is.na(df$PB_SLEDAI_corr_score) & !is.na(df$CD38_score_mean) & df$PB_SLEDAI_corr_score >= ths[i] & (df$PG %in% 2:3)
 
   nn[i] = sum(ith)
   if(sum(!is.na(df$PB_SLEDAI_corr_score[ith]))<3 | sum(!is.na(df$CD38_score_mean[ith]))<3) next()
