@@ -5,11 +5,11 @@ library(tmod)
 fn = "data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_TSNE_labels.rds"
 h1 = readRDS(fn)
 
-fg = h1@data %>% rownames()
+bg = h1@data %>% rownames()
 
 genes = readRDS("sig/sig.list.RDS")$CD40.act
 
-res = tmodHGtest(genes, fg, mset="LI")
+res = tmodHGtest(genes, bg, mset="LI")
 df = res %>% 
   mutate(label = glue::glue("{ID} - {Title}") %>% fct_inorder() %>% fct_rev())
 
