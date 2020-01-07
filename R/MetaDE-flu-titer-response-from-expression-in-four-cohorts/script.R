@@ -1,6 +1,6 @@
-library(data.table)
 library(MetaDE)
-library(ggplot2)
+library(fgsea)
+
 
 #library(help="MetaDE")
 #?MetaDE.ES
@@ -24,18 +24,17 @@ fn = file.path(dn.out, "MetaDE-Effect-Size-from-four-datasets.csv")
 fwrite(file=fn, res.dt, quote=T)
 
 
-library(fgsea)
+# GSEA analysis of the brown module agains genes ranked by meta-analysis effect size
 
 ranks = res.dt$zval
 names(ranks) = res.dt$gene
 
-mod.names = unique(WGCNA$Module)
-mod.names = setdiff(mod.names, "grey")
-mods = lapply(mod.names, function(x){WGCNA[which(Module %in% x)]$Symbol})
-names(mods) <- mod.names
+mod.name = "brown"
+mod = lapply(mod.name, function(x){WGCNA[which(Module %in% x)]$Symbol})
+names(mod) <- mod.name
 
-res.fgsea = fgsea(mods, ranks, nperm=100)
+res.fgsea = fgsea(mod, ranks, nperm=100)
 
-fn = sprintf("%s/enrichment-of-%dWGCNA-modules-in-4flu-datasets.csv", dn.out, length(mod.names))
+fn = sprintf("%s/enrichment-of-%s-module-in-4flu-datasets.csv", dn.out, mod.name)
 fwrite(file=fn, res.fgsea, quote=T)
 
