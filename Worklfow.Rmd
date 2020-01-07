@@ -513,10 +513,11 @@ The generated figure is saved as ```./figure_generation/SLE-Sig```
 source("R/WGCNA-modules-from-SLE-low-DA-tmod/script.R")
 ```
 The generated figure is saved as ```./figure_generation/SLE-Sig/WGCNA-BTM-enrichment-p.adjust.pdf```.
-Output files are saved in ```./ganareted_data/WGCNA-modules-from-SLE-low-DA-tmod```
+
+Output files are saved in ```./generated_data/WGCNA-modules-from-SLE-low-DA-tmod```
 <br/>
 
-Output table to Fig. 3f is saved as ```./ganareted_data/***/brown-mod-m75-m150-m165-genes-short.csv```
+Output table to Fig. 3f is saved as ```./generated_data/fgsea_with_wgcna_modules/brown-mod-m75-m150-m165-genes-short.csv```
 <br/>
 
 ---
