@@ -1,4 +1,5 @@
 library(pROC)
+library(cowplot)
 
 # load gene signature  ---------------------------------------------------------
 gene.sig = toupper(fread(file.path(PROJECT_DIR, "generated_data/signatures/CD38_ge_sig.txt"), header=F)[[1]])
