@@ -58,7 +58,7 @@ install.packages(c("plyr", "tidyverse", "data.table", "pROC", "lme4", "limma", "
 # Bioconductor 3.4:
 source("http://bioconductor.org/biocLite.R")
 biocLite()
-biocLite(c("WGCNA", "tmod", "fgsea", "ComplexHeatmap", "hgu133plus2.db"))
+biocLite(c("WGCNA", "tmod", "fgsea", "ComplexHeatmap", "DEseq2", "hgu133plus2.db"))
 
 # older versioni of MetaDE
 install.packages("https://cran.r-project.org/src/contrib/Archive/MetaDE/MetaDE_1.0.5.tar.gz", repos = NULL, type = "source")
@@ -587,6 +587,7 @@ Output files are saved in ```./generated_data/brown-mod-minus-leading-edge/```.
 source("R/brown-mod-minus-leading-edge-combined/script.R")
 ```
 Output figure (Ext. Data Fig. 6d) is saved in ```./figure_generation/SLE-Sig```.
+<br/>
 
 ---
 
@@ -601,6 +602,32 @@ source("R/IFN_signature_analysis/logistic_regr_4flu.r")
 Output files are saved in ```./generated_data/IFN26```.
 
 Output figures (Ext. Data Fig. 6c,f) are saved in ```./figure_generation/IFN26```.
+<br/>
+
+---
+
+# Analysis of RNAseq data from sorted B cell subsets
+
+Compare CD20+CD38++ B cells with CD20+ B cells with DEseq2:
+
+```{r}
+source("R/RNAseq/Bcell_comparision_DEseq.r")
+```
+
+Output files are saved in ```./generated_data/RNAseq```.
+Output figures (incl. Ext. Data Fig. 7b) are saved in ```./figure_generation/RNAseq```.
+
+<br/>
+
+Enrichment analysis of SLE-Sig genes and genes correlated with CD20+CD38++ B cells (at different TSM) against genes ranked by differential expression from RNAseq:
+
+```{r}
+source("R/RNAseq/brown-mod-leading-edge-enrichment.r")
+```
+
+Output files are saved in ```./generated_data/RNAseq```.
+Output figures (Ext. Data Fig. 7c-e) are saved in ```./figure_generation/RNAseq```.
+
 <br/>
 <br/>
 
