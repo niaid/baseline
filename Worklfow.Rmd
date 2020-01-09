@@ -321,6 +321,26 @@ source("R/hipc_signature_analysis/hipc_cd38_10gene_sig_analysis_FIGURE_with_mid.
 
 ---
 
+# Emory data analysis
+
+## Input data
+
+* Microarray (downloaded from GEO) and antibody titer data wre proprocessed outside of the workflow
+  * data/Emory/GSE29619.RData
+  * data/Emory/GSE74817_healthy.RData
+<br/>
+
+## Testing prediction power of CD38 signature
+
+```{r}
+source("R/emory/emory_cd38_10gene_sig_analysis_FIGURE.r")
+```
+
+Output figure is saved in ```figure_generation```.
+<br/>
+
+---
+
 # Yellow Fever data analysis
 
 ## Input data
