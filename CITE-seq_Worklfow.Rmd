@@ -46,7 +46,7 @@ install.packages(c("plyr", "tidyverse", "data.table", "pROC", "MASS", "limma", "
 # Bioconductor:
 install.packages("BiocManager")
 BiocManager::install()
-BiocManager::install(c("fgsea", "tmod", "ComplexHeatmap"))
+BiocManager::install(c("SingleCellExperiment", "scater", "scran", "fgsea", "tmod", "ComplexHeatmap"))
 
 # Seurat ver. 2.3.4
 source("https://z.umn.edu/archived-seurat")
@@ -85,7 +85,7 @@ source("R/dsbnorm_prot_scrannorm_rna.R")
 ```
 Intermediate RDS files containing lists of Seurat objects with normalized data for individual batches are stored in ```data/normalization_data```.
 
-Output RDS file is stored in ```data``` folder.
+Output RDS file is stored as ```data/H1_day0_scranNorm_adtbatchNorm.rds``` folder.
 <br/>
 
 
