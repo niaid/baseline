@@ -85,7 +85,7 @@ source("R/dsbnorm_prot_scrannorm_rna.R")
 ```
 Intermediate RDS files containing lists of Seurat objects with normalized data for individual batches are stored in ```data/normalization_data```.
 
-Output RDS file is stored as ```data/H1_day0_scranNorm_adtbatchNorm.rds``` folder.
+Output RDS file is stored as ```data/H1_day0_scranNorm_adtbatchNorm.rds```.
 <br/>
 
 
