@@ -7,6 +7,7 @@ sig.list[["IFN26"]] = fread(file.path("../generated_data/signatures/IFN26_ge_sig
 
 # BTMs
 library(tmod)
+data(tmod)
 mod.id.ifn = c("DC.M1.2","DC.M3.4","DC.M5.12")
 sig.list[["IFN"]] = tmod$MODULES2GENES[mod.id.ifn] %>% unlist() %>% unique() %>% sort()
 
