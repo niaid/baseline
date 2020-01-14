@@ -46,7 +46,7 @@ install.packages(c("plyr", "tidyverse", "data.table", "pROC", "MASS", "limma", "
 # Bioconductor:
 install.packages("BiocManager")
 BiocManager::install()
-BiocManager::install("fgsea", "tmod", "ComplexHeatmap")
+BiocManager::install(c("fgsea", "tmod", "ComplexHeatmap"))
 
 # Seurat ver. 2.3.4
 source("https://z.umn.edu/archived-seurat")

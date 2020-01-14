@@ -1,6 +1,6 @@
 suppressMessages(library(Seurat)) 
 
-fn = file.path(CITESEQ_DIR, "data/H1_day0_scranNorm_adtbatchNorm.rds")
+fn = "data/H1_day0_scranNorm_adtbatchNorm.rds"
 h1 = readRDS(fn)
 
 
@@ -43,6 +43,6 @@ for (i in 1:length(res)) {
 
 h1 = readRDS(fn)
 h1 = AddMetaData(h1, metadata = h1@meta.data)
-fn.new = file.path(CITESEQ_DIR, "data/H1_day0_scranNorm_adtbatchNorm_dist_clustered.rds")
+fn.new = "data/H1_day0_scranNorm_adtbatchNorm_dist_clustered.rds"
 saveRDS(h1, fn.new)
 
