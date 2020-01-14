@@ -2,7 +2,7 @@ suppressMessages(library(Seurat))
 suppressMessages(library(tidyverse))
 suppressMessages(library(magrittr))
 
-source("functions/dsb_normalization_functions.R")
+source("R/functions/dsb_normalization_functions.R")
 dir.create("data/normalization_data")
 
 
