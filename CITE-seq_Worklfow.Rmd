@@ -356,7 +356,7 @@ Output table of cell frequencies is saved as ```results/CITEseq_CD38hi_cell_data
 Generate scatter plot of CD40act score in C3.1.0 cell cluster vs. CD20=CD38++ B cells frequency from flow cytometry (Figure 5f):
 
 ```{r}
-script("R/CD40act_vs_CD38hi.flow.r")
+source("R/CD40act_vs_CD38hi.flow.r")
 ```
 
 Output plot is saved in ```figures/sig_ranked_correlation```.
@@ -366,7 +366,7 @@ Output plot is saved in ```figures/sig_ranked_correlation```.
 Generate scatter plots of correlation between selected signature scores in selected clusters (for Figure 6a):
 
 ```{r}
-script("R/sig_correlation_scatterplots.r")
+source("R/sig_correlation_scatterplots.r")
 ```
 
 Output plots are saved in ```figures/sig_ranked_correlation```.
@@ -376,7 +376,7 @@ Output plots are saved in ```figures/sig_ranked_correlation```.
 Generate a correlation plot (for FIgure 6a):
 
 ```{r}
-script("R/scores_correlation_heatmap_custom_order.r")
+source("R/scores_correlation_heatmap_custom_order.r")
 ```
 
 Output plot is saved in ```figures/sig_ranked_correlation```.
@@ -387,7 +387,7 @@ Output plot is saved in ```figures/sig_ranked_correlation```.
 # 11. Differential Expression of selected surface proteins in pDC between low and high responders
 
 ```{r}
-script("R/CD86_HLA-DR_vs_response.r")
+source("R/CD86_HLA-DR_vs_response.r")
 ```
 
 Output plot is saved in ```figures/adt_vs_response```.
@@ -398,7 +398,7 @@ Output plot is saved in ```figures/adt_vs_response```.
 # 12. Comparing the TGSig and SLE-Sig scores in females versus males
 
 ```{r}
-script("R/TGSig_SLE.sig_vs_sex.r")
+source("R/TGSig_SLE.sig_vs_sex.r")
 ```
 
 Output plot is saved in ```figures/male_vs_female```.
