@@ -16,7 +16,7 @@ md = h1@meta.data %>% dplyr::select(starts_with("p3_dist")) %>% mutate_all(.funs
 df.clust = md[,1:3] %>% 
   gather("clustering","cluster") %>% 
   distinct() %>% 
-  arrange(clustering, cluster)
+  dplyr::arrange(clustering, cluster)
 # use this table to manually add cluster label and cell type annotation
 fwrite(df.clust, file.path("results/cluster_nodes.txt"), sep="\t")
 
