@@ -28,6 +28,5 @@ hm = Heatmap(m, name = "Module score", col = cm)
 fn = sprintf("%s-eigengene-heatmap.pdf", fn.prefix)
 pdf(fn, w=6, h=4)
 draw(hm)
-# dev.copy(pdf, fn, )
 dev.off()
 

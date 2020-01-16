@@ -101,9 +101,9 @@ df.n = df.btm %>%
   group_by(Group) %>% 
   tally()
 
-Heatmap(mat.btm, name = "-log10(p.adj)", cluster_columns = F, cluster_rows = F, split=pg,
+hm = Heatmap(mat.btm, name = "-log10(p.adj)", cluster_columns = F, cluster_rows = F, split=pg,
         col = colorRamp2(c(0, 3), c("black", "#F3EC18"))) + 
-  Heatmap(pg, name="PG", col = cm, show_row_names = F, show_heatmap_legend = F)
+  Heatmap(pg, name="PG", col = cm, show_row_names = T, show_heatmap_legend = F)
 # for(i in 1:7){
 #   decorate_heatmap_body("-log10(p.adj)", slice = i, {
 #     for(j in 1:(nrow(df.n)-1)){
@@ -111,11 +111,12 @@ Heatmap(mat.btm, name = "-log10(p.adj)", cluster_columns = F, cluster_rows = F, 
 #     }
 #     })
 # }
-fn.hm1 = file.path(dn.out, "SLE_BTM_PG.png")
-dev.copy(png, fn.hm1, w=800, h=800)
+fn.hm1 = file.path(dn.out, "SLE_BTM_PG")
+png(paste0(fn.hm1, ".png"), w=800, h=800)
+draw(hm)
 dev.off()
-fn.hm1 = file.path(dn.out, "SLE_BTM_PG.pdf")
-dev.copy(pdf, fn.hm1, w=9, h=10)
+pdf(paste0(fn.hm1, ".pdf"), w=9, h=10)
+draw(hm)
 dev.off()
 
 
