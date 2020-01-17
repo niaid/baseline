@@ -73,7 +73,7 @@ setwd("citeseq")
 
 # 1. Read Seurat object with demultiplexed data and filtered for singlet cells from H1N1 day0 samples only
 
-Input data are stored in ```data``` folder:
+Input data are stored in ```data``` folder. These files or other RDS files generated on further steps can be downloaded from the [Figshare repository](https://doi.org/10.35092/yhjc.c.4753772). 
 
   * RDS file with Seurat object
     * ```data/H1_day0_demultilexed_singlets.RDS```
@@ -99,7 +99,7 @@ Input data are stored in ```data``` folder:
 
   * RDS file with Seurat object with RNA-seq data SCRAN-normalized and ADT data batch-normalized and batch-corrected      * ```data/H1_day0_scranNorm_adtbatchNorm.rds```
 
-The calculations require OVER 64gb of RAM and was run on a high-performance cluster.
+The calculations require OVER 64gb of RAM and was run on a high-performance cluster. The output file can be downloaded from the [Figshare repository](https://doi.org/10.35092/yhjc.c.4753772).
 
 ```{r}
 source("R/cluster_cells_ADT_distance_matrix.r")
@@ -170,7 +170,7 @@ PCA elbow plot is stored in ```figures/TSNE```. Using this plot We determined th
 source("R/compute_tsne.r.r")
 ```
 
-This script for tSNE computation at multiple perplexity was run on high-performance cluster.
+This script for tSNE computation at multiple perplexity was run on high-performance cluster. The output file can be downloaded from the [Figshare repository](https://doi.org/10.35092/yhjc.c.4753772).
 
 Output file: ```./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_TSNE.rds```
 
@@ -184,7 +184,8 @@ Re-label the clusters and create the final object.
 source("R/clustree_labels.r")
 ```
 
-Output file: ```./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_TSNE_labels.rds```
+Output file: ```./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_TSNE_labels.rds```.
+The output file can be downloaded from the [Figshare repository](https://doi.org/10.35092/yhjc.c.4753772).
 
 *This Seurat object was used for all further analysis.*
 
