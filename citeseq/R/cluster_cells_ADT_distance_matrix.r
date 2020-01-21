@@ -41,8 +41,9 @@ for (i in 1:length(res)) {
 
 # Add clusters to the original object. (The new object stores the distance matrix and is very large to be saved.)
 
-h1 = readRDS(fn)
-h1 = AddMetaData(h1, metadata = h1@meta.data)
+h1_md = h1@meta.data
+h1 = readRDS(fn) # reread the original object
+h1 = AddMetaData(h1, metadata = h1_md)
 fn.new = "data/H1_day0_scranNorm_adtbatchNorm_dist_clustered.rds"
 saveRDS(h1, fn.new)
 
