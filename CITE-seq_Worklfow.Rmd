@@ -167,7 +167,7 @@ PCA elbow plot is stored in ```figures/TSNE```. Using this plot We determined th
 <br/>
 
 ```{r}
-source("R/compute_tsne.r.r")
+source("R/compute_tsne.r")
 ```
 
 This script for tSNE computation at multiple perplexity was run on high-performance cluster. The output file can be downloaded from the [Figshare repository](https://doi.org/10.35092/yhjc.c.4753772).
