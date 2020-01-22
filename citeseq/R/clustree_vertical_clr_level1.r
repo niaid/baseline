@@ -12,9 +12,9 @@ dir.create("clustree_sig", showWarnings = F)
                      return = "layout")
   df.nodes = h1@meta.data %>% dplyr::select(K1:K3) %>% 
     gather("K","cluster") %>% 
-    mutate(node=paste0(K,"C",cluster)) %>% 
+    dplyr::mutate(node=paste0(K,"C",cluster)) %>% 
     distinct() %>% 
-    mutate(clr = str_extract(cluster, "C\\d"))
+    dplyr::mutate(clr = str_extract(cluster, "C\\d"))
   inode = match(layout$node, df.nodes$node)
 
   # Add the statistic column (or whatever you want to show)
