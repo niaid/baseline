@@ -322,7 +322,7 @@ Output plots (for Ext. Data Fig. 8g) are saved in ```figures/drop_out_test```.
 # 9. Manual gating of CD20+CD38++ B cells
 
 ```{r}
-source("R/sig_scores_boxplot_C9.r")
+source("R/hand_gating.r")
 ```
 
 Output table of cell frequencies is saved as ```results/CITEseq_CD38hi_cell_data.txt```.
