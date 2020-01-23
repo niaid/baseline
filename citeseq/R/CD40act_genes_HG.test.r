@@ -11,7 +11,7 @@ genes = readRDS("sig/sig.list.RDS")$CD40.act
 
 res = tmodHGtest(genes, bg, mset="LI")
 df = res %>% 
-  mutate(label = glue::glue("{ID} - {Title}") %>% fct_inorder() %>% fct_rev())
+  dplyr::mutate(label = glue::glue("{ID} - {Title}") %>% fct_inorder() %>% fct_rev())
 
 ggplot(df, aes(label, -log10(adj.P.Val))) +
   geom_col() + 
