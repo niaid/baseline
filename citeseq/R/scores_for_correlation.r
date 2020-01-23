@@ -5,11 +5,11 @@ h1 = readRDS(fn)
 
 sig.list = readRDS("sig/sig.list.RDS")
 
-df.subj = h1@meta.data %>% mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
+df.subj = h1@meta.data %>% dplyr::mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
   dplyr::select(subject=sampleid, response) %>% 
-  mutate(subject = as.numeric(subject)) %>% 
+  dplyr::mutate(subject = as.numeric(subject)) %>% 
   distinct() %>% 
-  arrange(subject)
+  dplyr::arrange(subject)
 
 sigs = c(rep("CD40.act",3), rep("SLE.sig",4), rep("IFN26",2), "TGSig", "LI.M165")
 cl.name = c("C3.1.0", "C1", "C6", "C1", "C6", "C7", "C2", "C9", "C2.1.0", "C9", "C9")

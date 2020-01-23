@@ -7,11 +7,11 @@ dir.create(dn.fig, showWarnings = F, recursive = T)
 fn = "data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_TSNE_labels.rds"
 h1 = readRDS(fn)
 
-df.subj = h1@meta.data %>% mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
+df.subj = h1@meta.data %>% dplyr::mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
   dplyr::select(subject=sampleid, response) %>% 
-  mutate(subject = factor(subject)) %>% 
+  dplyr::mutate(subject = factor(subject)) %>% 
   distinct() %>% 
-  arrange(subject)
+  dplyr::arrange(subject)
 
 clustering = 1
 h1 = SetAllIdent(h1, id = glue::glue("K{clustering}"))
@@ -21,7 +21,7 @@ tobj = SubsetData(h1, ident.use = cl)
 dat = tobj@assay$CITE@data
 meta = tobj@meta.data %>% 
   dplyr::rename(subject = sampleid) %>% 
-  mutate(subject = factor(subject, levels=df.subj$subject))
+  dplyr::mutate(subject = factor(subject, levels=df.subj$subject))
 
 gi = rownames(dat) %in% c("CD86_PROT", "HLA-DR_PROT")
 sum(gi)
@@ -46,7 +46,7 @@ for(prot in colnames(mat)) {
   
   df.test = rbind(df.test, 
                   data.frame(protein = prot, auc=r$auc, w.pv, mean.diff, t.stat, N = length(tobj@cell.names)) %>% 
-                    mutate(cluster = cl, clustering)
+                    dplyr::mutate(cluster = cl, clustering)
   )
   
 }
@@ -55,11 +55,11 @@ fwrite(df.test, "results/CITEseq_CD80_CD86_HLA-DR_vs_Response.txt", sep="\t")
 
 df.fig = df %>% 
   gather("protein","value",-c(subject, response)) %>% 
-  mutate(protein = sub("_PROT", "", protein)) %>% 
-  mutate(response = factor(response, levels = test.col.levels))
+  dplyr::mutate(protein = sub("_PROT", "", protein)) %>% 
+  dplyr::mutate(response = factor(response, levels = test.col.levels))
 df.txt = df.test %>% 
-  mutate(label = glue::glue("p = {format(w.pv, digits=2)}")) %>% 
-  mutate(protein = sub("_PROT", "", protein))
+  dplyr::mutate(label = glue::glue("p = {format(w.pv, digits=2)}")) %>% 
+  dplyr::mutate(protein = sub("_PROT", "", protein))
 ggplot(df.fig, aes(response, value, fill=response)) +
   geom_boxplot(fill = NA) +
   geom_dotplot(binaxis = "y", stackdir = "center") +

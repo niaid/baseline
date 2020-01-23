@@ -15,7 +15,7 @@ for(s in sigs) {
   
   # add Responders
   df = df.mat %>% left_join(df.info %>% dplyr::select(subject, Response), by="subject") %>% 
-    mutate(Response = factor(Response, levels=c("low","high"))) %>% 
+    dplyr::mutate(Response = factor(Response, levels=c("low","high"))) %>% 
     dplyr::select(subject, Response, C9)
   
   X = df %>% pull(clust.name)

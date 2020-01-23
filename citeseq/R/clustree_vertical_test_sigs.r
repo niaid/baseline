@@ -11,7 +11,7 @@ res = fread("results/test_sig.genes_in_clusters_high_vs_low_responders.txt")
 
 res = res %>% dplyr::filter(clustering!="K0", test.dir=="IN")
 df.res = res %>% 
-  mutate(signif = case_when(
+  dplyr::mutate(signif = case_when(
     w.pv<=0.001 ~ "***",
     w.pv<=0.01 ~ "**",
     w.pv<=0.05 ~ "*",
@@ -26,8 +26,8 @@ for(s in names(sig.list)) {
   cat (s, "\n")
   df.nodes = df.res %>% 
     dplyr::filter(test==test.name, sig==s) %>% 
-    mutate(HL.score = -log10(w.pv), node = paste0(clustering,"C",cluster)) %>% 
-    mutate(label_signif = paste0(cluster, signif)) %>% 
+    dplyr::mutate(HL.score = -log10(w.pv), node = paste0(clustering,"C",cluster)) %>% 
+    dplyr::mutate(label_signif = paste0(cluster, signif)) %>% 
     dplyr::select(node, t.stat, w.pv, signif, cluster, label_signif)
     
   

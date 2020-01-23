@@ -7,11 +7,11 @@ h1 = readRDS(fn)
 dn.out = "results"
 dir.create(dn.out, showWarnings = F, recursive = T)
 
-df.subj = h1@meta.data %>% mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
+df.subj = h1@meta.data %>% dplyr::mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
   dplyr::select(subject=sampleid, response) %>% 
-  mutate(subject = factor(subject)) %>% 
+  dplyr::mutate(subject = factor(subject)) %>% 
   distinct() %>% 
-  arrange(subject)
+  dplyr::arrange(subject)
 
 # load signatures
 sig.list = readRDS("sig/sig.list.RDS")
@@ -45,7 +45,7 @@ for(clustering in paste0("K",0:3)) {
       df.test = rbind(df.test,
                       TestGeneSig(tobj, sig.list, "sampleid", df.subj, 
                                   "response", c("low","high"), test.to.print = NA) %>% 
-                        mutate(cluster = ccl.name, test.dir, clustering)
+                        dplyr::mutate(cluster = ccl.name, test.dir, clustering)
       )
       cat("\n")
     } # ccl.name

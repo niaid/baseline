@@ -1,5 +1,5 @@
 df.scores = fread("results/Score_table.txt") %>% 
-  mutate(subject = as.character(subject) %>% factor())
+  dplyr::mutate(subject = as.character(subject) %>% factor())
 df.scores.rank = df.scores %>% 
   mutate_at(vars(matches("\\(")), rank, na.last="keep")
 

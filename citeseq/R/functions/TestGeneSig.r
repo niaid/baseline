@@ -14,7 +14,7 @@ TestGeneSig <- function(tobj, sig.list, subj.col, df.subj,
   dat = tobj@data
   meta = tobj@meta.data %>% 
     dplyr::rename_(subject = subj.col) %>% 
-    mutate(subject = factor(subject, levels=df.subj$subject))
+    dplyr::mutate(subject = factor(subject, levels=df.subj$subject))
 
   df.test = data.frame()
   
@@ -53,7 +53,7 @@ TestGeneSig <- function(tobj, sig.list, subj.col, df.subj,
       
       if(test %in% test.to.print) {
         r.df = data.frame(Specificity = r$specificities, Sensitivity=r$sensitivities) %>%
-          arrange(Sensitivity)
+          dplyr::arrange(Sensitivity)
         
         df.fig = data.frame(subject=df$subject, score=X, Response=factor(Y))
         df.text = data.frame(label.auc=sprintf("AUC = %.2f", r$auc), 

@@ -7,33 +7,33 @@ dir.create(dn.fig, showWarnings = F, recursive = T)
 fn = "data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_TSNE_labels.rds"
 h1 = readRDS(fn)
 
-df.subj = h1@meta.data %>% mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
+df.subj = h1@meta.data %>% dplyr::mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
   dplyr::select(subject=sampleid, response) %>% 
   distinct() %>% 
-  arrange(subject)
+  dplyr::arrange(subject)
 
 fn.info = "../generated_data/CHI/CHI_sample_info_2_CD38hi.txt"
-info = fread(fn.info) %>% mutate(subject = as.character(subject)) %>% 
+info = fread(fn.info) %>% dplyr::mutate(subject = as.character(subject)) %>% 
   dplyr::filter(time==0)
 
 fn.tgsig = "results/sig_scores/scores_TGSig_0.txt"
 df.tgsig = fread(fn.tgsig) %>% 
   dplyr::rename(TGSig = `pseudo-bulk`) %>% 
-  mutate(subject = as.character(subject))
+  dplyr::mutate(subject = as.character(subject))
 
 fn.sle = "results/sig_scores/scores_SLE.sig_0.txt"
 df.sle = fread(fn.sle) %>% 
   dplyr::rename(SLE.sig = `pseudo-bulk`) %>% 
-  mutate(subject = as.character(subject))
+  dplyr::mutate(subject = as.character(subject))
 
 df = df.subj %>% 
   left_join(info, by="subject") %>% 
   left_join(df.tgsig, by="subject") %>% 
   left_join(df.sle, by="subject") %>% 
-  mutate(gender = factor(gender)) %>% 
-  mutate(Response = factor(Response, levels=c("low","high"))) %>% 
+  dplyr::mutate(gender = factor(gender)) %>% 
+  dplyr::mutate(Response = factor(Response, levels=c("low","high"))) %>% 
   gather("Sig","Score", c(TGSig, SLE.sig)) %>% 
-  mutate(Sig = fct_inorder(Sig))
+  dplyr::mutate(Sig = fct_inorder(Sig))
 
 
 df.w = df %>% 
@@ -41,7 +41,7 @@ df.w = df %>%
   do(broom::tidy(wilcox.test(Score ~ gender, data=., exact=F, 
                              paired=F, alternative = "two"))) %>% 
   ungroup() %>% 
-  mutate(label = glue::glue("p = {format(p.value, digits=2)}"))
+  dplyr::mutate(label = glue::glue("p = {format(p.value, digits=2)}"))
 
 clr = gg_color_hue(2)
 

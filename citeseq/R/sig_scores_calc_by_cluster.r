@@ -5,11 +5,11 @@ source("R/functions/get_score.r")
 fn = "data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_TSNE_labels.rds"
 h1 = readRDS(fn)
 
-df.subj = h1@meta.data %>% mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
+df.subj = h1@meta.data %>% dplyr::mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
   dplyr::select(subject=sampleid, response) %>% 
-  mutate(subject = factor(subject)) %>% 
+  dplyr::mutate(subject = factor(subject)) %>% 
   distinct() %>% 
-  arrange(subject)
+  dplyr::arrange(subject)
 
 dn.out = "results/sig_scores"
 dir.create(dn.out, showWarnings = F, recursive = T)
@@ -38,7 +38,7 @@ for(clustering in 0:3) {
       dat = tobj@data
       meta = tobj@meta.data %>% 
         dplyr::rename(subject = sampleid) %>% 
-        mutate(subject = factor(subject, levels=df.subj$subject))
+        dplyr::mutate(subject = factor(subject, levels=df.subj$subject))
       
       gi = rownames(dat) %in% sig
       

@@ -10,15 +10,15 @@ sig.list = readRDS("sig/sig.list.RDS")
 
 df.test = fread("results/test_sig.genes_in_clusters_high_vs_low_responders.txt") %>% 
   dplyr::filter(w.pv < 0.05, test.dir == "IN", test == "SigScore", cluster != "ALL") %>% 
-  mutate(sig_cluster = paste(sig, cluster, sep="_")) %>% 
-  mutate(sig = factor(sig, levels = names(sig.list))) %>% 
-  arrange(clustering, sig, cluster)
+  dplyr::mutate(sig_cluster = paste(sig, cluster, sep="_")) %>% 
+  dplyr::mutate(sig = factor(sig, levels = names(sig.list))) %>% 
+  dplyr::arrange(clustering, sig, cluster)
 
-df.subj = h1@meta.data %>% mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
+df.subj = h1@meta.data %>% dplyr::mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
   dplyr::select(subject=sampleid, response) %>% 
-  mutate(subject = factor(subject)) %>% 
+  dplyr::mutate(subject = factor(subject)) %>% 
   distinct() %>% 
-  arrange(subject)
+  dplyr::arrange(subject)
 
 
 df.out = data.frame()
@@ -36,7 +36,7 @@ for(cl.out in clusters.out) {
       df.out = rbind(df.out,
                       TestGeneSig(tobj, sig.list[s], "sampleid", df.subj, 
                                   "response", c("low","high"), test.to.print = NA) %>% 
-                        mutate(cluster = "Filtered", test.dir="OUT", label = cl.out.name)
+                        dplyr::mutate(cluster = "Filtered", test.dir="OUT", label = cl.out.name)
       )
   } # sig
   cat("\n")
@@ -49,19 +49,19 @@ sig.in = c("TGSig", "SLE.sig", "CD40.act")
 res = fread("results/test_sig.genes_in_clusters_high_vs_low_responders.txt") %>% 
   dplyr::filter(cluster=="pseudo-bulk", test=="SigScore") %>% 
   dplyr::select(-clustering) %>% 
-  mutate(label="")
+  dplyr::mutate(label="")
 res.out = fread("results/test_sig.genes_in_clusters_high_vs_low_responders_OUT.txt") 
   
 res = rbind(res, res.out) %>% 
   dplyr::filter(sig %in% sig.in, test=="SigScore")
 
 df.test.fig = res %>% 
-  mutate(sig = ifelse(sig=="SLE.sig", "SLE-Sig", ifelse(sig=="CD40.act", "CD40act", sig))) %>%
-  mutate(label = ifelse(label=="", "pseudo-bulk", label)) %>% 
-  mutate(cluster = fct_inorder(as.character(cluster))) %>% 
-  mutate(label = fct_inorder(label) %>% fct_rev()) %>% 
-  mutate(sig = fct_inorder(as.character(sig))) %>% 
-  mutate(signif = case_when(
+  dplyr::mutate(sig = ifelse(sig=="SLE.sig", "SLE-Sig", ifelse(sig=="CD40.act", "CD40act", sig))) %>%
+  dplyr::mutate(label = ifelse(label=="", "pseudo-bulk", label)) %>% 
+  dplyr::mutate(cluster = fct_inorder(as.character(cluster))) %>% 
+  dplyr::mutate(label = fct_inorder(label) %>% fct_rev()) %>% 
+  dplyr::mutate(sig = fct_inorder(as.character(sig))) %>% 
+  dplyr::mutate(signif = case_when(
     w.pv<=0.001 ~ "***",
     w.pv<=0.01 ~ "**",
     w.pv<=0.05 ~ "*",

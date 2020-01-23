@@ -73,17 +73,17 @@ GenePlot2(bc.hg, "CD20_PROT","CD38_PROT") +
 ggsave(file.path(dn.fig, "CD20_CD38_biplot_Bc_hg_gate.png"), w=4, h=3)
 ggsave(file.path(dn.fig, "CD20_CD38_biplot_Bc_hg_gate.pdf"), w=4, h=3)
 
-df.subj = h1@meta.data %>% mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
+df.subj = h1@meta.data %>% dplyr::mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
   dplyr::select(subject=sampleid, response) %>% 
-  mutate(subject = factor(subject)) %>% 
+  dplyr::mutate(subject = factor(subject)) %>% 
   distinct() %>% 
-  arrange(subject)
+  dplyr::arrange(subject)
 
 df.bc = bc@meta.data %>% 
-  mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
+  dplyr::mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
   dplyr::select(subject=sampleid, response)
 df.bc38 = bc38@meta.data %>% 
-  mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
+  dplyr::mutate(response = str_remove(adjmfc.time, "d0 ")) %>% 
   dplyr::select(subject=sampleid, response)
 
 bc.sum = df.bc %>% 
@@ -93,9 +93,9 @@ cd38.sum = df.bc38 %>%
   group_by(subject, response) %>% 
   summarise(nCD38 = n())
 DF = left_join(bc.sum, cd38.sum, by=c("subject","response")) %>% 
-  mutate(nCD38 = ifelse(is.na(nCD38), 0, nCD38)) %>% 
-  mutate(CD38.freq = nCD38/nBC) %>% 
-  mutate(response = factor(response, levels=c("low","high")))
+  dplyr::mutate(nCD38 = ifelse(is.na(nCD38), 0, nCD38)) %>% 
+  dplyr::mutate(CD38.freq = nCD38/nBC) %>% 
+  dplyr::mutate(response = factor(response, levels=c("low","high")))
 fwrite(DF, file="results/CITEseq_CD38hi_cell_data.txt", sep="\t")
 
 # Compare low and high responders ----------------------
