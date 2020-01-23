@@ -17,7 +17,7 @@ prot_use = c("CD2","CD3","CD5","CD7","CD4","CD8","CD62L","CD45RA","CD45RO","CD27
 
 adt.l = h1@assay$CITE@data %>% t %>% as.data.frame() %>% 
   setNames(str_remove(rownames(h1@assay$CITE@data), "_PROT")) 
-celltypes = h1@meta.data %>% select(K3)
+celltypes = h1@meta.data %>% dplyr::select(K3)
 adt.l$celltype = celltypes$K3
 adt.l = adt.l %>% 
   gather(key = prot, value = dsb_count, AnnexinV:CD20) %>% 

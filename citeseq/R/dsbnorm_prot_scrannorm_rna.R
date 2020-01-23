@@ -85,12 +85,12 @@ vars_add = c("total_features_by_counts", "log10_total_features_by_counts", "tota
 b1meta = 
   colData(batch.norm[[1]]) %>% 
   as.data.frame() %>% 
-  select(vars_add)
+  dplyr::select(vars_add)
 b1meta$sizefactors = sizeFactors(batch.norm[[1]])
 b2meta = 
   colData(batch.norm[[2]]) %>% 
   as.data.frame() %>% 
-  select(vars_add)
+  dplyr::select(vars_add)
 b2meta$sizefactors = sizeFactors(batch.norm[[2]])
 h1_meta_add = rbind(b1meta, b2meta)
 ## Add back to seurat object 
@@ -114,83 +114,3 @@ h1 = SetAssayData(h1, new.data = h1_CITE, assay.type = "CITE", slot = "data")
 # save the processed data with scran normalized mRNA and dsb normalized protein 
 saveRDS(h1, file = "data/H1_day0_scranNorm_adtbatchNorm.rds")
 
-
-sessionInfo()
-# MPM -- ran on http://ai-rstudioprd1.niaid.nih.gov:8787/
-# R version 3.5.2 (2018-12-20)
-# Platform: x86_64-redhat-linux-gnu (64-bit)
-# Running under: Red Hat Enterprise Linux Server 7.6 (Maipo)
-# 
-# Matrix products: default
-# BLAS/LAPACK: /usr/lib64/R/lib/libRblas.so
-# 
-# locale:
-#   [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
-# [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-# [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
-# [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-# 
-# attached base packages:
-#   [1] parallel  stats4    stats     graphics  grDevices utils     datasets  methods  
-# [9] base     
-# 
-# other attached packages:
-#   [1] scran_1.10.2                scater_1.9.20               SingleCellExperiment_1.3.10
-# [4] SummarizedExperiment_1.11.6 DelayedArray_0.7.37         BiocParallel_1.15.11       
-# [7] matrixStats_0.54.0          Biobase_2.41.2              GenomicRanges_1.33.13      
-# [10] GenomeInfoDb_1.17.1         IRanges_2.15.17             S4Vectors_0.19.19          
-# [13] BiocGenerics_0.27.1         mclust_5.4.3                magrittr_1.5               
-# [16] bindrcpp_0.2.2              here_0.1                    Seurat_2.3.4               
-# [19] Matrix_1.2-15               cowplot_0.9.4               forcats_0.3.0              
-# [22] stringr_1.4.0               dplyr_0.7.8                 purrr_0.3.2                
-# [25] readr_1.3.1                 tidyr_0.8.3                 tibble_2.1.1               
-# [28] ggplot2_3.1.1               tidyverse_1.2.1            
-# 
-# loaded via a namespace (and not attached):
-#   [1] reticulate_1.10          R.utils_2.7.0            tidyselect_0.2.5        
-# [4] htmlwidgets_1.3          grid_3.5.2               trimcluster_0.1-2.1     
-# [7] Rtsne_0.15               munsell_0.5.0            codetools_0.2-15        
-# [10] ica_1.0-2                statmod_1.4.30           withr_2.1.2             
-# [13] colorspace_1.4-1         knitr_1.22               rstudioapi_0.9.0        
-# [16] ROCR_1.0-7               robustbase_0.93-3        dtw_1.20-1              
-# [19] gbRd_0.4-11              Rdpack_0.9-0             labeling_0.3            
-# [22] lars_1.2                 GenomeInfoDbData_1.1.0   bit64_0.9-7             
-# [25] rhdf5_2.25.9             rprojroot_1.3-2          xfun_0.6                
-# [28] diptest_0.75-7           R6_2.4.0                 ggbeeswarm_0.6.0        
-# [31] locfit_1.5-9.1           hdf5r_1.0.0              flexmix_2.3-14          
-# [34] bitops_1.0-6             assertthat_0.2.1         SDMTools_1.1-221        
-# [37] scales_1.0.0             nnet_7.3-12              beeswarm_0.2.3          
-# [40] gtable_0.3.0             npsurv_0.4-0             rlang_0.3.1             
-# [43] splines_3.5.2            lazyeval_0.2.2           acepack_1.4.1           
-# [46] broom_0.5.0              checkmate_1.9.1          yaml_2.2.0              
-# [49] reshape2_1.4.3           modelr_0.1.2             backports_1.1.3         
-# [52] Hmisc_4.2-0              tools_3.5.2              gplots_3.0.1.1          
-# [55] RColorBrewer_1.1-2       proxy_0.4-22             dynamicTreeCut_1.63-1   
-# [58] ggridges_0.5.1           Rcpp_1.0.0               plyr_1.8.4              
-# [61] base64enc_0.1-3          zlibbioc_1.27.0          RCurl_1.95-4.11         
-# [64] rpart_4.1-13             pbapply_1.3-4            viridis_0.5.1           
-# [67] zoo_1.8-3                haven_1.1.2              cluster_2.0.7-1         
-# [70] data.table_1.12.0        lmtest_0.9-36            RANN_2.6.1              
-# [73] mvtnorm_1.0-8            fitdistrplus_1.0-14      hms_0.4.2               
-# [76] lsei_1.2-0               evaluate_0.13            readxl_1.1.0            
-# [79] gridExtra_2.3            compiler_3.5.2           KernSmooth_2.23-15      
-# [82] crayon_1.3.4             R.oo_1.22.0              htmltools_0.3.6         
-# [85] segmented_0.5-3.0        Formula_1.2-3            snow_0.4-2              
-# [88] lubridate_1.7.4          MASS_7.3-51.1            fpc_2.1-11.1            
-# [91] cli_1.1.0                R.methodsS3_1.7.1        gdata_2.18.0            
-# [94] metap_1.0                bindr_0.1.1              igraph_1.2.4            
-# [97] pkgconfig_2.0.2          foreign_0.8-71           xml2_1.2.0              
-# [100] foreach_1.4.4            vipor_0.4.5              XVector_0.21.3          
-# [103] bibtex_0.4.2             rvest_0.3.2              digest_0.6.18           
-# [106] tsne_0.1-3               rmarkdown_1.10           cellranger_1.1.0        
-# [109] htmlTable_1.13.1         edgeR_3.23.3             DelayedMatrixStats_1.3.8
-# [112] kernlab_0.9-27           gtools_3.8.1             modeltools_0.2-22       
-# [115] nlme_3.1-137             jsonlite_1.6             Rhdf5lib_1.3.3          
-# [118] BiocNeighbors_1.0.0      viridisLite_0.3.0        limma_3.37.4            
-# [121] pillar_1.3.1             lattice_0.20-38          httr_1.3.1              
-# [124] DEoptimR_1.0-8           survival_2.43-3          glue_1.3.1              
-# [127] png_0.1-7                prabclus_2.2-6           iterators_1.0.10        
-# [130] bit_1.1-14               class_7.3-14             stringi_1.4.3           
-# [133] HDF5Array_1.9.15         mixtools_1.1.0           doSNOW_1.0.16           
-# [136] latticeExtra_0.6-28      caTools_1.17.1.1         irlba_2.3.3             
-# [139] ape_5.2   
