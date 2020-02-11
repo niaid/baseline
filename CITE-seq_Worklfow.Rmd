@@ -1,6 +1,6 @@
 ---
 title: "Reproducible workflow for the analysis of **CITE-seq data** for the project"
-subtitle: "\"Broad immune activation underlies shared set point signatures for vaccine responsiveness in healthy individuals and disease activity in lupus patients\""
+subtitle: "\"Broad immune activation underlies shared set point signatures for vaccine responsiveness in healthy individuals and disease activity in patients with lupus\""
 author: "Yuri Kotliarov, Matthew Mule, Andrew Martins, John S. Tsang"
 output: 
   html_notebook:

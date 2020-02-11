@@ -40,7 +40,7 @@ p = ggplot(df, aes(CD38_score_mean, PB_SLEDAI_corr_score)) +
         panel.spacing = unit(10,"mm") )
 p
 
-fn.fig = file.path(PROJECT_DIR, "figure_generation", "SLE_PB.DC.corr_vs_CD38.mean.score_2groups_190628p")
+fn.fig = file.path(PROJECT_DIR, "figure_generation", "SLE_PB.DC.corr_vs_CD38.mean.score_2groups")
 ggsave(paste0(fn.fig,".png"), w=6,h=3)
 ggsave(paste0(fn.fig,'.pdf'), w=5,h=3)
 
