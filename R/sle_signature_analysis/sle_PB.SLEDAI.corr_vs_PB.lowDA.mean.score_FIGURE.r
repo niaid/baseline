@@ -35,7 +35,7 @@ p = ggplot(df, aes(PB_score_mean, PB_SLEDAI_corr_score)) +
   ggtitle("SLE patients with plasmablast\nsignature during flare") +
   theme_bw()
 p
-fn.fig = file.path(PROJECT_DIR, "figure_generation", "SLE_PB.DC.corr_vs_PB.mean.score_PG234_190628")
+fn.fig = file.path(PROJECT_DIR, "figure_generation", "SLE_PB.DC.corr_vs_PB.mean.score_PG234")
 ggsave(paste0(fn.fig,".png"), w=2.6,h=3)
 ggsave(paste0(fn.fig,'.pdf'), w=2.6,h=3)
 
