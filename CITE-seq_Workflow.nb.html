@@ -1758,12 +1758,6 @@ summary {
 <li><a href="#notes">Notes</a></li>
 </ul></li>
 <li><a href="#before-running-this-workflow-always-change-the-working-directory-to-citeseq."><strong>0. Before running this workflow always change the working directory to <code>citeseq</code></strong>.</a></li>
-<li><a href="#read-seurat-object-with-demultiplexed-data-and-filtered-for-singlet-cells-from-h1n1-day0-samples-only">1. Read Seurat object with demultiplexed data and filtered for singlet cells from H1N1 day0 samples only</a></li>
-<li><a href="#clustering-all-cells-by-adt-data-at-multiple-resolution">2. Clustering all cells by ADT data at multiple resolution</a><ul>
-<li><a href="#input-data">Input data</a></li>
-</ul></li>
-<li><a href="#clusters-annotation">3. Clusters annotation</a></li>
-<li><a href="#filter-cells-and-generate-final-heatmap">4. Filter cells and generate final heatmap</a></li>
 <li><a href="#pca-and-tsne-analysis-of-the-adt-data">5. PCA and tSNE analysis of the ADT data</a></li>
 <li><a href="#label-and-visualise-the-clusters">6. Label and visualise the clusters</a></li>
 <li><a href="#test-various-gene-signatures-comparing-low-and-high-responders">7. Test various gene signatures comparing low and high responders</a></li>
@@ -1826,98 +1820,172 @@ source(&quot;https://z.umn.edu/archived-seurat&quot;)
 <h1><strong>0. Before running this workflow always change the working directory to <code>citeseq</code></strong>.</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0d2QoXCJjaXRlc2VxXCIpXG5gYGAifQ== -->
-<pre class="r"><code>setwd(&quot;citeseq&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br /></p>
-</div>
-<div id="read-seurat-object-with-demultiplexed-data-and-filtered-for-singlet-cells-from-h1n1-day0-samples-only" class="section level1">
-<h1>1. Read Seurat object with demultiplexed data and filtered for singlet cells from H1N1 day0 samples only</h1>
-<p>Input data are stored in <code>data</code> folder. These files or other RDS files generated on further steps can be downloaded from the <a href="https://doi.org/10.35092/yhjc.c.4753772">Figshare repository</a>.</p>
-<ul>
-<li>RDS file with Seurat object
-<ul>
-<li><code>data/H1_day0_demultilexed_singlets.RDS</code></li>
-</ul></li>
-<li>RDS file with negative control cells
-<ul>
-<li><code>data/neg_control_object.rds</code></li>
-</ul></li>
-</ul>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9kc2Jub3JtX3Byb3Rfc2NyYW5ub3JtX3JuYS5SXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/dsbnorm_prot_scrannorm_rna.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Intermediate RDS files containing lists of Seurat objects with normalized data for individual batches are stored in <code>data/normalization_data</code>.</p>
-<p>Output RDS file is stored as <code>data/H1_day0_scranNorm_adtbatchNorm.rds</code>. <br /></p>
-</div>
-<div id="clustering-all-cells-by-adt-data-at-multiple-resolution" class="section level1">
-<h1>2. Clustering all cells by ADT data at multiple resolution</h1>
-<p>The clustering was performed using as an input the matrix of distances between cells using ADT data only.</p>
-<div id="input-data" class="section level2">
-<h2>Input data</h2>
-<p>Input data are stored in <code>data</code> folder:</p>
-<ul>
-<li>RDS file with Seurat object with RNA-seq data SCRAN-normalized and ADT data batch-normalized and batch-corrected * <code>data/H1_day0_scranNorm_adtbatchNorm.rds</code></li>
-</ul>
-<p>The calculations require OVER 64gb of RAM and was run on a high-performance cluster. The output file can be downloaded from the <a href="https://doi.org/10.35092/yhjc.c.4753772">Figshare repository</a>.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jbHVzdGVyX2NlbGxzX0FEVF9kaXN0YW5jZV9tYXRyaXguclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/cluster_cells_ADT_distance_matrix.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Output:</p>
-<ul>
-<li>Table of clusters assignment for each cell:
-<ul>
-<li><code>./data/H1N1_full_clustered_p3dist_multires_metadata.rds</code>.</li>
-</ul></li>
-<li>Seurat object with clustering assignment:
-<ul>
-<li><code>./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered.rds</code>.</li>
-</ul></li>
-</ul>
-<p><br /></p>
-</div>
-</div>
-<div id="clusters-annotation" class="section level1">
-<h1>3. Clusters annotation</h1>
-<p>Generate a heatmap of average expression of selected protein markers in each of the cell clusters derived from the three different clustering resolutions</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9hZHRfY2x1c3RlcmluZ19jbHVzdGVyYXZlcmFnZXNfYWxsLmxldmVscy5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/adt_clustering_clusteraverages_all.levels.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>The generated table in <code>results/cluster_nodes.txt</code> is used add cluster labelse and manual annotation of cluster cell types.</p>
-<p>The generated figures are stored in <code>figures/cluster_annotation</code> and used for cluster labeling and annotation.</p>
-<p><br /></p>
-</div>
-<div id="filter-cells-and-generate-final-heatmap" class="section level1">
-<h1>4. Filter cells and generate final heatmap</h1>
-<p>After annotating the clusters we found that at resolution=3 clusters 34, 36, 38, 39 contain mostly doublet cells. We remove cells in these clusters from the Seurat object.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9yZW1vdmVfZG91YmxldF9jbHVzdGVycy5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/remove_doublet_clusters.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Output file: <code>./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_filtered.rds</code></p>
-<p><br /></p>
-<p>The following script uses manual annottion table in <code>data/clustree_node_labels_withCellTypeLabels.txt</code> and clusters at first three resolutions to generate Figure 4c.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9hZHRfY2x1c3RlcmluZ19jbHVzdGVyYXZlcmFnZXNfM2xldmVsc19maWd1cmUuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/adt_clustering_clusteraverages_3levels_figure.r&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9yZW1vdmVfZG91YmxldF9jbHVzdGVycy5yXFwpXG5gYGBcbmBgYCJ9 -->
+<pre class="r"><code>```r
+source(\R/remove_doublet_clusters.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+&lt;br/&gt;
+
+# 1. Read Seurat object with demultiplexed data and filtered for singlet cells from H1N1 day0 samples only
+
+Input data are stored in ```data``` folder. These files or other RDS files generated on further steps can be downloaded from the [Figshare repository](https://doi.org/10.35092/yhjc.c.4753772). 
+
+  * RDS file with Seurat object
+    * ```data/H1_day0_demultilexed_singlets.RDS```
+  * RDS file with negative control cells
+    * ```data/neg_control_object.rds```
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9hZHRfY2x1c3RlcmluZ19jbHVzdGVyYXZlcmFnZXNfM2xldmVsc19maWd1cmUuclxcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+source(\R/adt_clustering_clusteraverages_3levels_figure.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+Intermediate RDS files containing lists of Seurat objects with normalized data for individual batches are stored in ```data/normalization_data```.
+
+Output RDS file is stored as ```data/H1_day0_scranNorm_adtbatchNorm.rds```.
+&lt;br/&gt;
+
+
+# 2. Clustering all cells by ADT data at multiple resolution
+
+The clustering was performed using as an input the matrix of distances between cells using ADT data only. 
+
+## Input data
+
+Input data are stored in ```data``` folder:
+
+  * RDS file with Seurat object with RNA-seq data SCRAN-normalized and ADT data batch-normalized and batch-corrected      * ```data/H1_day0_scranNorm_adtbatchNorm.rds```
+
+The calculations require OVER 64gb of RAM and was run on a high-performance cluster. The output file can be downloaded from the [Figshare repository](https://doi.org/10.35092/yhjc.c.4753772).
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9jb21wdXRlX3BjYS5yXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/compute_pca.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+Output: 
+
+  * Table of clusters assignment for each cell: 
+    * ```./data/H1N1_full_clustered_p3dist_multires_metadata.rds```.
+  * Seurat object with clustering assignment:
+    * ```./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered.rds```.
+  
+&lt;br/&gt;
+
+
+# 3. Clusters annotation
+
+Generate a heatmap of average expression of selected protein markers in each of the cell clusters derived from the three different clustering resolutions
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9jb21wdXRlX3RzbmUuclxcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+source(\R/compute_tsne.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+The generated table in ```results/cluster_nodes.txt``` is used add cluster labelse and manual annotation of cluster cell types.
+
+The generated figures are stored in ```figures/cluster_annotation``` and used for cluster labeling and annotation.
+
+&lt;br/&gt;
+
+
+# 4. Filter cells and generate final heatmap
+
+After annotating the clusters we found that at resolution=3 clusters 34, 36, 38, 39 contain mostly doublet cells. We remove cells in these clusters from the Seurat object.
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9jbHVzdHJlZV9sYWJlbHMuclxcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+source(\R/clustree_labels.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+Output file:
+  ```./data/H1_day0_scranNorm_adtbatchNorm_dist_clustered_filtered.rds```
+
+&lt;br/&gt;
+
+The following script uses manual annottion table in ```data/clustree_node_labels_withCellTypeLabels.txt``` and clusters at first three resolutions to generate Figure 4c.
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9hZHRfY2x1c3RlcmluZ19jbHVzdGVyYXZlcmFnZXNfM2xldmVsc19maWd1cmUuclwiKVxuYGBgIn0= --&gt;
+
+```r
+source(&quot;R/adt_clustering_clusteraverages_3levels_figure.r&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -2226,7 +2294,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("CITE-seq_Worklfow.Rmd");
+  window.initializeSourceEmbed("CITE-seq_Workflow.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
