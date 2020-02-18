@@ -1761,43 +1761,17 @@ summary {
 <li><a href="#chi-data-analysis">CHI data analysis</a><ul>
 <li><a href="#input-data">Input data</a></li>
 <li><a href="#step-1.-data-formatting-and-preparation">Step 1. Data formatting and preparation</a></li>
-<li><a href="#step-2.-calculate-and-plot-correlation-between-titer-response-and-percent-of-cd38-high-cells-for-3-baseline-time-points">Step 2. Calculate and plot correlation between titer response and percent of CD38 high cells for 3 baseline time points</a></li>
-<li><a href="#step-3.-compare-newly-gated-cell-populations-with-previous-gates-by-predictive-power-auc-and-temporal-stability">Step 3. Compare newly gated cell populations with previous gates by predictive power (AUC) and temporal stability:</a></li>
-<li><a href="#step-4.-calculate-inter-subject-variation-isv-of-expression-of-individual-genes-to-quantify-their-stability-across-baseline-time-points-days--7-0-and-70">Step 4. Calculate inter-subject variation (ISV) of expression of individual genes to quantify their stability across baseline time points (days -7, 0, and 70):</a></li>
-<li><a href="#step-5.-analysis-of-correlation-between-gene-expression-and-percentage-of-cd38-high-cells">Step 5. Analysis of correlation between gene expression and percentage of CD38 high cells:</a></li>
-<li><a href="#step-6.-determine-the-optimal-number-of-genes-as-expression-surrogate-signature-for-cd20cd38-b-cells.">Step 6. Determine the optimal number of genes as expression surrogate signature for CD20+CD38++ B cells.</a></li>
-<li><a href="#step-7.-analyze-blood-transcription-module-genes-enrichment-in-genes-correlated-with-percentage-of-cd38-high-cells-varying-selection-threshold-for-gene-inter-subject-variation.">Step 7. Analyze blood transcription module genes enrichment in genes correlated with percentage of CD38-high cells varying selection threshold for gene inter-subject variation.</a></li>
-</ul></li>
-<li><a href="#hipc-data-analysis">HIPC data analysis</a><ul>
-<li><a href="#input-data-1">Input data</a></li>
-<li><a href="#step-1.-data-formatting-and-preparation-1">Step 1. Data formatting and preparation</a></li>
-<li><a href="#step-2.-validation-of-prediction-power-of-cd38-signature-in-hipc-datasets-young-subjects-only">Step 2. Validation of prediction power of CD38 signature in HIPC datasets (young subjects only)</a></li>
-</ul></li>
-<li><a href="#emory-data-analysis">Emory data analysis</a><ul>
-<li><a href="#input-data-2">Input data</a></li>
-<li><a href="#testing-prediction-power-of-cd38-signature">Testing prediction power of CD38 signature</a></li>
-</ul></li>
-<li><a href="#yellow-fever-data-analysis">Yellow Fever data analysis</a><ul>
-<li><a href="#input-data-3">Input data</a></li>
-<li><a href="#step-1.-data-formatting-and-preparation-2">Step 1. Data formatting and preparation</a></li>
-</ul></li>
-<li><a href="#step-2.-validation-of-prediction-power-of-cd38-signature-in-yellow-fever-datasets">Step 2. Validation of prediction power of CD38 signature in yellow fever datasets</a></li>
-<li><a href="#sle-data-analysis">SLE data analysis</a><ul>
-<li><a href="#input-data-4">Input data</a></li>
-<li><a href="#step-1.-data-formatting-and-preparation-3">Step 1. Data formatting and preparation</a></li>
-<li><a href="#step-2.-calculate-inter-subject-variation-isv-of-expression-of-individual-genes-to-quantify-their-stability-across-visits-with-low-disease-activity">Step 2. Calculate inter-subject variation (ISV) of expression of individual genes to quantify their stability across visits with low disease activity</a></li>
-<li><a href="#step-3.-calculate-tgsig-and-plasmablast-signature-scores">Step 3. Calculate TGSig and Plasmablast signature scores</a></li>
 <li><a href="#analysis-of-the-blood-gene-expression-signatures-associated-with-disease-activityflares">Analysis of the blood gene expression signatures associated with disease activity/flares</a></li>
 </ul></li>
 <li><a href="#discovery-of-co-expression-module-in-sle-datasets">Discovery of co-expression module in SLE datasets</a><ul>
-<li><a href="#input-data-5">Input data:</a></li>
+<li><a href="#input-data-1">Input data:</a></li>
 <li><a href="#step-1.-apply-wgcna-analysis-to-split-genes-to-discover-expression-modules.">Step 1. Apply WGCNA analysis to split genes to discover expression modules.</a></li>
 <li><a href="#step-2.-assess-correlation-between-gene-modules-and-dacp.">Step 2. Assess correlation between gene modules and DaCP.</a></li>
 <li><a href="#step-3.-perform-gsea-analysis-with-wgcna-modules-and-extract-the-brown-module-leading-edge-genes-sle-sig.">Step 3. Perform GSEA analysis with WGCNA modules and extract the brown module leading edge genes (SLE-Sig).</a></li>
 <li><a href="#step-4.-analysis-of-enrichment-of-blood-transcription-modules-genes-in-wgcna-modules.-generate-the-heatmap-of-enrichment-p-values--log10---supplemental-figure-1c.">Step 4. Analysis of enrichment of Blood Transcription Modules genes in WGCNA modules. Generate the heatmap of enrichment p-values (-log10) - Supplemental Figure 1c.</a></li>
 </ul></li>
 <li><a href="#meta-analysis-of-gene-expression-in-vaccination-datasets-and-the-analysis-of-brown-module">Meta analysis of gene expression in vaccination datasets and the analysis of brown module</a><ul>
-<li><a href="#input-data-6">Input data:</a></li>
+<li><a href="#input-data-2">Input data:</a></li>
 <li><a href="#step-1.-perform-meta-analysis-of-4-flu-datasets.-generates-table-of-genes-with-effect-size-with-regard-to-titer-response.">Step 1. Perform meta-analysis of 4 flu datasets. Generates table of genes with effect size (with regard to titer response).</a></li>
 <li><a href="#step-2.-generate-forest-plot-for-meta-analysis-of-4-flu-datasets-ext.-data-fig-4b.">Step 2. Generate forest plot for meta-analysis of 4 flu datasets (Ext. Data Fig 4b).</a></li>
 <li><a href="#step-3.-calculate-effect-sizes-and-generate-effect-size-plot-for-trial-1-cohort-of-yellow-fever-dataset-ext.-data-fig-4c.">Step 3. Calculate effect sizes and generate effect size plot for trial 1 cohort of Yellow Fever dataset (Ext. Data Fig 4c).</a></li>
@@ -1903,420 +1877,873 @@ devtools::install_github(&quot;rglab/ImmuneSignatures&quot;, build_vignettes = F
 <h2>Step 1. Data formatting and preparation</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfZGF0YXByZXAvY2hpX2RhdGFfZnJvbV9wdWJsaWMuclwiKVxuc291cmNlKFwiUi9jaGlfZGF0YXByZXAvY2hpX3Byb2JlczJnZW5lcy5yXCIpXG5zb3VyY2UoXCJSL2NoaV9kYXRhcHJlcC9jaGlfYWRkX2RlbW9fYW5kX3RpdGVyLnJcIilcbnNvdXJjZShcIlIvY2hpX2RhdGFwcmVwL2NoaV9mbG93X3Byb2NlbnRzLnJcIilcbnNvdXJjZShcIlIvY2hpX2RhdGFwcmVwL2NoaV9mbG93X2ZpbHRlcmluZy5yXCIpXG5cbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/chi_dataprep/chi_data_from_public.r&quot;)
-source(&quot;R/chi_dataprep/chi_probes2genes.r&quot;)
-source(&quot;R/chi_dataprep/chi_add_demo_and_titer.r&quot;)
-source(&quot;R/chi_dataprep/chi_flow_procents.r&quot;)
-source(&quot;R/chi_dataprep/chi_flow_filtering.r&quot;)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMTBnZW5lX3JhbmRvbV9zaWdfRklHVVJFLnJcXClcbmBgYFxuYGBgIn0= -->
+<pre class="r"><code>```r
+source(\R/chi_signature_analysis/cd38_10gene_random_sig_FIGURE.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+Output will be saved to ./generated_data/CHI/.
+&lt;br/&gt;
+
+## Step 2. Calculate and plot correlation between titer response and percent of CD38 high cells for 3 baseline time points
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMjBnZW5lc19zaW5nbGUuZ2VuZS5hdWNfYmFycGxvdF9GSUdVUkUuclxcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+source(\R/chi_signature_analysis/cd38_20genes_single.gene.auc_barplot_FIGURE.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;It will generate the following figure (Ext. Data Fig. 1b)</code></pre>
+<p>./figure_generation/CHI_flow_vs_respones_3time_p.pdf</p>
+<pre><code>&lt;br/&gt;
+
+## Step 3. Compare newly gated cell populations with previous gates by predictive power (AUC) and temporal stability:
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMTBnZW5lX3NpZ19ybV9nZW5lc19GSUdVUkVTLnJcXClcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+source(\R/chi_signature_analysis/cd38_10gene_sig_rm_genes_FIGURES.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;The script generates two plots for Figure 1b.
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Output will be saved to ./generated_data/CHI/. <br /></p>
-</div>
-<div id="step-2.-calculate-and-plot-correlation-between-titer-response-and-percent-of-cd38-high-cells-for-3-baseline-time-points" class="section level2">
-<h2>Step 2. Calculate and plot correlation between titer response and percent of CD38 high cells for 3 baseline time points</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfZmxvdy10aXRlcl9jb3JyZWxhcmlvbi9jaGlfZmxvd190aXRlcl9jb3JyX3dpdGhfcm9jX3AuclwiKVxuXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/chi_flow-titer_correlarion/chi_flow_titer_corr_with_roc_p.r&quot;)
+<p>./figure_generation/CHI_flow_selected_gates_AUC.pdf ./figure_generation/CHI_flow_selected_gates_ISV.pdf</p>
+<pre><code>&lt;br/&gt;
+
+## Step 4. Calculate inter-subject variation (ISV) of expression of individual genes to quantify their stability across baseline time points (days -7, 0, and 70):
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMTBnZW5lX3NpZ19hbmFseXNpc19GSUdVUkVTX3dpdGhfbWlkLnJcXClcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+source(\R/chi_signature_analysis/cd38_10gene_sig_analysis_FIGURES_with_mid.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;The script generates a table of gene stability metrics:</code></pre>
+<p>./generated_data/CHI/CHI_genes_stability.txt</p>
+<pre><code>&lt;br/&gt;
+
+## Step 5. Analysis of correlation between gene expression and percentage of CD38 high cells:
+
+Correlation using stable genes only
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9oaXBjX2RhdGFwcmVwL2hpcGNfZGF0YV9mcm9tX0lTX3ByZWxvYWRlZC5yXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/hipc_dataprep/hipc_data_from_IS_preloaded.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Correlation using all genes to generate correlations with CD20+CD38++ B cells for futher test of random signatures
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9oaXBjX2RhdGFwcmVwL2hpcGNfZGF0YXByZXAuclxcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+source(\R/hipc_dataprep/hipc_dataprep.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;The scripts adds percent of CD38++ cells to sample information table </code></pre>
+<p>./generated_data/CHI/CHI_sample_info_2_CD38hi.txt</p>
+<pre><code>and generates the following files with robust correlation results:</code></pre>
+<p>./generated_data/CHI/robust_corr_genes.txt ./generated_data/CHI/robust_corr_all.genes.txt</p>
+<pre><code>
+&lt;br/&gt;Testing correlations using 500 random signatures computed by permuting subject labels for flow data. At each iteration the correlation computed exactly the same way as for the real data. **Long computation!**
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />It will generate the following figure (Ext. Data Fig. 1b)</p>
-<pre><code>./figure_generation/CHI_flow_vs_respones_3time_p.pdf</code></pre>
-<p><br /></p>
-</div>
-<div id="step-3.-compare-newly-gated-cell-populations-with-previous-gates-by-predictive-power-auc-and-temporal-stability" class="section level2">
-<h2>Step 3. Compare newly gated cell populations with previous gates by predictive power (AUC) and temporal stability:</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfZmxvd19hbmFseXNpcy9zZWxlY3RlZF9nYXRlc19hdWMuclwiKVxuc291cmNlKFwiUi9jaGlfZmxvd19hbmFseXNpcy9zZWxlY3RlZF9nYXRlc19zdGFiaWxpdHkuclwiKVxuXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/chi_flow_analysis/selected_gates_auc.r&quot;)
-source(&quot;R/chi_flow_analysis/selected_gates_stability.r&quot;)
-</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />The script generates two plots for Figure 1b.</p>
-<pre><code>./figure_generation/CHI_flow_selected_gates_AUC.pdf
-./figure_generation/CHI_flow_selected_gates_ISV.pdf</code></pre>
-<p><br /></p>
-</div>
-<div id="step-4.-calculate-inter-subject-variation-isv-of-expression-of-individual-genes-to-quantify-their-stability-across-baseline-time-points-days--7-0-and-70" class="section level2">
-<h2>Step 4. Calculate inter-subject variation (ISV) of expression of individual genes to quantify their stability across baseline time points (days -7, 0, and 70):</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc3RhYmlsaXR5L2NoaV9nZW5lX3N0YWJpbGl0eS5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/chi_stability/chi_gene_stability.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />The script generates a table of gene stability metrics:</p>
-<pre><code>./generated_data/CHI/CHI_genes_stability.txt</code></pre>
-<p><br /></p>
-</div>
-<div id="step-5.-analysis-of-correlation-between-gene-expression-and-percentage-of-cd38-high-cells" class="section level2">
-<h2>Step 5. Analysis of correlation between gene expression and percentage of CD38 high cells:</h2>
-<p>Correlation using stable genes only</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfZmxvdy1nZV9jb3JyZWxhcmlvbi9jaGlfZ2VfZmxvd19jb3JyZWxhdGlvbi5yXCIpIFxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/chi_flow-ge_correlarion/chi_ge_flow_correlation.r&quot;) </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Correlation using all genes to generate correlations with CD20+CD38++ B cells for futher test of random signatures</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfZmxvdy1nZV9jb3JyZWxhcmlvbi9jaGlfZ2VfZmxvd19jb3JyZWxhdGlvbl9hbGwuZ2VuZXMuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/chi_flow-ge_correlarion/chi_ge_flow_correlation_all.genes.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />The scripts adds percent of CD38++ cells to sample information table</p>
-<pre><code>./generated_data/CHI/CHI_sample_info_2_CD38hi.txt</code></pre>
-<p>and generates the following files with robust correlation results:</p>
-<pre><code>./generated_data/CHI/robust_corr_genes.txt
-./generated_data/CHI/robust_corr_all.genes.txt</code></pre>
-<p><br />Testing correlations using 500 random signatures computed by permuting subject labels for flow data. At each iteration the correlation computed exactly the same way as for the real data. <strong>Long computation!</strong></p>
-<pre><code>source(&quot;R/chi_signature_analysis/rand.sig_generate.r&quot;)</code></pre>
-<p>The output file with correlation data for each iteration is store as <code>./generated_data/CHI/gene_sig_random_500_from_all.txt</code>. Instead you can download pre-computed random signatures generated previously and put it into the data folder.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMTBnZW5lX3JhbmRvbV9zaWdfRklHVVJFLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38_10gene_random_sig_FIGURE.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>The scripts generate a table and AUC table, as well as a plot for Ext. Data Fig. 2e:</p>
-<pre><code>./generated_data/CHI/chi_random.sig.500_3times.rds
-./generated_data/figure_generation</code></pre>
-<p><br /></p>
-</div>
-<div id="step-6.-determine-the-optimal-number-of-genes-as-expression-surrogate-signature-for-cd20cd38-b-cells." class="section level2">
-<h2>Step 6. Determine the optimal number of genes as expression surrogate signature for CD20+CD38++ B cells.</h2>
-<p>Evaluate prediction power of titer response for top 20 individual genes (Fig. 1d):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMjBnZW5lc19zaW5nbGUuZ2VuZS5hdWNfYmFycGxvdF9GSUdVUkUuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38_20genes_single.gene.auc_barplot_FIGURE.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Evaluate prediction power of titer response for different number of genes in the signature (Ext. Data Fig. 2c):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfTmdlbmVfc2lnX2FuYWx5c2lzX0ZJR1VSRS5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38_Ngene_sig_analysis_FIGURE.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate ROC for titer response prediction based on 10-gene signature, and box plot comparing low- and high- responders based on TGSig for day 0, day -7 and day 70 (Fig. 1e-f). Output the TGSig scores for low and high responders for these time points.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMTBnZW5lX3NpZ19hbmFseXNpc19GSUdVUkVTX3dpdGhfcm9jX3AuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38_10gene_sig_analysis_FIGURES_with_roc_p.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Effect on AUC after removal of individual genes in TGSig (Ext. Data Fig. 2g):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMTBnZW5lX3NpZ19ybV9nZW5lc19GSUdVUkVTLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38_10gene_sig_rm_genes_FIGURES.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Check stability of relative rank of CD38++ signature genes applying different ISV threshold (Ext. Data Fig. 2f):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzguY29yX3JlbC5yYW5rX3ZzX0lTVi50aF9GSUdVUkVTLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38.cor_rel.rank_vs_ISV.th_FIGURES.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Save the final gene lists for both TGSig and plasmablast signature:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2dlX3NpZ19wcmVwLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/ge_sig_prep.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate box plots comparing low-, middle- and high- responders based on TGSig score for day 0 (Ext. Data Fig. 3b):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMTBnZW5lX3NpZ19hbmFseXNpc19GSUdVUkVTX3dpdGhfbWlkLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38_10gene_sig_analysis_FIGURES_with_mid.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate box plots comparing male and female subject based on TGSig score for day 0 (Ext. Data Fig. 10b-e):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9jaGlfc2lnbmF0dXJlX2FuYWx5c2lzL2NkMzhfMTBnZW5lX3NpZ19hbmFseXNpc19GSUdVUkVTX2dlbmRlci5yXCIpXG5zb3VyY2UoXCJSL2NoaV9zaWduYXR1cmVfYW5hbHlzaXMvVEdTaWdfdnNfZ2VuZGVyX0hMLnJcIilcbnNvdXJjZShcIlIvY2hpX3NpZ25hdHVyZV9hbmFseXNpcy9UR1NpZ192c19nZW5kZXJfSE1MLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/chi_signature_analysis/cd38_10gene_sig_analysis_FIGURES_gender.r&quot;)
-source(&quot;R/chi_signature_analysis/TGSig_vs_gender_HL.r&quot;)
-source(&quot;R/chi_signature_analysis/TGSig_vs_gender_HML.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generated data files and figures are saved in <code>./generated_data/CHI</code> and <code>./figure_generation</code>, respectively. The signature files are saved in <code>./generated_data/signatures</code>. <br /></p>
-</div>
-<div id="step-7.-analyze-blood-transcription-module-genes-enrichment-in-genes-correlated-with-percentage-of-cd38-high-cells-varying-selection-threshold-for-gene-inter-subject-variation." class="section level2">
-<h2>Step 7. Analyze blood transcription module genes enrichment in genes correlated with percentage of CD38-high cells varying selection threshold for gene inter-subject variation.</h2>
-<p>Run GSEA on “LI” and “DC” modules separately and save the results in RDS file.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9mZ3NlYV93aXRoX2J0bV9tb2R1bGVzL2NoaV9DRDM4X2Nvcl9ieV9JU1ZfZmdzZWFfQlRNLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/fgsea_with_btm_modules/chi_CD38_cor_by_ISV_fgsea_BTM.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Generated RDS files are saved in <code>./generated_data/fgsea_with_btm_modules</code>. <br /></p>
-<hr />
-</div>
-</div>
-<div id="hipc-data-analysis" class="section level1">
-<h1>HIPC data analysis</h1>
-<div id="input-data-1" class="section level2">
-<h2>Input data</h2>
-<p>HAI expression and titer data were downloaded from <a href="http://immunespace.org">ImmuneSpace</a> and pre-processed using part of the R script to reproduce figures for HIPC meta-analysis paper <a href="https://immunology.sciencemag.org/content/2/14/eaal4656">Multicohort analysis reveals baseline transcriptional predictors of influenza vaccination responses. Sci Immunol. 2017 Aug 25;2(14)</a>. The script downloads the data, corrects the labels for swapped samples, and calculates adjMFC titers. For SDY404 we use locally computed adjMFC in <code>./data/SDY404_young_hai_titer_table_2016.txt</code>.</p>
-<p><strong>Required file from previous analysis</strong></p>
-<pre><code>./generated_data/signatures/CD38_ge_sig.txt</code></pre>
-</div>
-<div id="step-1.-data-formatting-and-preparation-1" class="section level2">
-<h2>Step 1. Data formatting and preparation</h2>
-<p>Load the data preloaded from ImmuneSpace</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9oaXBjX2RhdGFwcmVwL2hpcGNfZGF0YV9mcm9tX0lTX3ByZWxvYWRlZC5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/hipc_dataprep/hipc_data_from_IS_preloaded.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>To load the data directly from ImmuneSpace we run this script. The script requires creating account and configuration file to access Immunespace. We cannot guarantee that the script will continue working in the future.</p>
-<pre><code>source(&quot;R/hipc_dataprep/hipc_data_from_IS.r&quot;)</code></pre>
-<p><br />Prepare data files for young subjects with titer response</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9oaXBjX2RhdGFwcmVwL2hpcGNfZGF0YXByZXAuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/hipc_dataprep/hipc_dataprep.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Mapping probes to genes</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9oaXBjX2RhdGFwcmVwL2hpcGNfZ2VuZXJhdGVfcHJvYmUyZ2VuZV9tYXAuclwiKVxuc291cmNlKFwiUi9oaXBjX2RhdGFwcmVwL2hpcGNfcHJvYmVzMmdlbmVzLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/hipc_dataprep/hipc_generate_probe2gene_map.r&quot;)
-source(&quot;R/hipc_dataprep/hipc_probes2genes.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Filter baseline (day 0) samples and subjects with low and high response</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9oaXBjX2RhdGFwcmVwL2hpcGNfc2FtcGxlX2ZpbHRlcmluZy5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/hipc_dataprep/hipc_sample_filtering.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generated data files are saved in <code>./generated_data/HIPC</code>. <br /></p>
-</div>
-<div id="step-2.-validation-of-prediction-power-of-cd38-signature-in-hipc-datasets-young-subjects-only" class="section level2">
-<h2>Step 2. Validation of prediction power of CD38 signature in HIPC datasets (young subjects only)</h2>
-<p><br />Calculate TGSig scores using data from day 0</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9oaXBjX3NpZ25hdHVyZV9hbmFseXNpcy9oaXBjX2QwX2NkMzhfc2NvcmUuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/hipc_signature_analysis/hipc_d0_cd38_score.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate ROC for titer response prediction based on 10-gene signature, and box plot comparing low- and high- responders based on TGSig:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9oaXBjX3NpZ25hdHVyZV9hbmFseXNpcy9oaXBjX2NkMzhfMTBnZW5lX3NpZ19hbmFseXNpc19GSUdVUkUuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/hipc_signature_analysis/hipc_cd38_10gene_sig_analysis_FIGURE.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate box plots comparing low-, middle- and high- responders based on TGSig:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9oaXBjX3NpZ25hdHVyZV9hbmFseXNpcy9oaXBjX2NkMzhfMTBnZW5lX3NpZ19hbmFseXNpc19GSUdVUkVfd2l0aF9taWQuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/hipc_signature_analysis/hipc_cd38_10gene_sig_analysis_FIGURE_with_mid.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generated data files and figures (Fig. 2a and Ext. Data Fig. 3b) are saved in <code>./generated_data/HIPC</code> and <code>./figure_generation</code>, respectively. <br /></p>
-<hr />
-</div>
-</div>
-<div id="emory-data-analysis" class="section level1">
-<h1>Emory data analysis</h1>
-<div id="input-data-2" class="section level2">
-<h2>Input data</h2>
-<ul>
-<li>Microarray (downloaded from GEO) and antibody titer data wre proprocessed outside of the workflow
-<ul>
-<li>data/Emory/GSE29619.RData</li>
-<li>data/Emory/GSE74817_healthy.RData <br /></li>
-</ul></li>
-</ul>
-</div>
-<div id="testing-prediction-power-of-cd38-signature" class="section level2">
-<h2>Testing prediction power of CD38 signature</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9lbW9yeS9lbW9yeV9jZDM4XzEwZ2VuZV9zaWdfYW5hbHlzaXNfRklHVVJFLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/emory/emory_cd38_10gene_sig_analysis_FIGURE.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Output figure is saved in <code>figure_generation</code>. <br /></p>
-<hr />
-</div>
-</div>
-<div id="yellow-fever-data-analysis" class="section level1">
-<h1>Yellow Fever data analysis</h1>
-<div id="input-data-3" class="section level2">
-<h2>Input data</h2>
-<ul>
-<li>Sample information from GEO including Neutralization antibody titer data
-<ul>
-<li>data/YF/expression/sample_info.txt</li>
-</ul></li>
-<li>Expression data from GEO processed by RMA-sketch (Affymetrix Power Tools)
-<ul>
-<li>data/YF/expression/rma-sketch.summary.txt</li>
-</ul></li>
-<li>Probeset-gene mapping (for reproducibility, originally obtained using hgu133plus2.db R package)
-<ul>
-<li>data/YF/expression/YF_probe_map.txt <br /></li>
-</ul></li>
-</ul>
-</div>
-<div id="step-1.-data-formatting-and-preparation-2" class="section level2">
-<h2>Step 1. Data formatting and preparation</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi95Zl9kYXRhcHJlcC95Zl9kYXRhX2Zyb21fYXB0LnJcIilcbnNvdXJjZShcIlIveWZfZGF0YXByZXAveWZfcHJvYmVzMmdlbmVzLnJcIilcbnNvdXJjZShcIlIveWZfZGF0YXByZXAveWZfc2FtcGxlX2ZpbHRlcmluZy5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/yf_dataprep/yf_data_from_apt.r&quot;)
-source(&quot;R/yf_dataprep/yf_probes2genes.r&quot;)
-source(&quot;R/yf_dataprep/yf_sample_filtering.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br /></p>
-</div>
-</div>
-<div id="step-2.-validation-of-prediction-power-of-cd38-signature-in-yellow-fever-datasets" class="section level1">
-<h1>Step 2. Validation of prediction power of CD38 signature in yellow fever datasets</h1>
-<p>Calculate TGSig scores using data from day 0</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi95Zl9zaWduYXR1cmVfYW5hbHlzaXMveWZfZDBfY2QzOF9zY29yZS5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/yf_signature_analysis/yf_d0_cd38_score.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate ROC for titer response prediction based on 10-gene signature, and box plot comparing low- and high- responders based on TGSig (trials 1 for Figure 2b, and trial 2 for Ext. Data Fig. 4a):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi95Zl9zaWduYXR1cmVfYW5hbHlzaXMveWZfY2QzOF8xMGdlbmVfc2lnX2FuYWx5c2lzX0ZJR1VSRVNfd2l0aF9yb2NfcC5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/yf_signature_analysis/yf_cd38_10gene_sig_analysis_FIGURES_with_roc_p.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate box plot comparing low-, middle- and high- responders based on TGSig in trial 1 (Ext. Data Fig. 3d):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi95Zl9zaWduYXR1cmVfYW5hbHlzaXMveWZfY2QzOF8xMGdlbmVfc2lnX2FuYWx5c2lzX0ZJR1VSRVNfd2l0aF9taWQuclwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;R/yf_signature_analysis/yf_cd38_10gene_sig_analysis_FIGURES_with_mid.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generated data files and figures are saved in <code>./generated_data/YF</code> and <code>./figure_generation</code>, respectively. <br /></p>
-<hr />
-</div>
-<div id="sle-data-analysis" class="section level1">
-<h1>SLE data analysis</h1>
-<div id="input-data-4" class="section level2">
-<h2>Input data</h2>
-<ul>
-<li>Expression data downloaded from <a href="http://websle.com" class="uri">http://websle.com</a> (Data tab) – Batch-corrected, probe filtered, latest probe-gene annotation.
-<ul>
-<li>data/SLE/expression/SLE_Longitudinal_972_eset.RData</li>
-</ul></li>
-<li>Subjects assignment to patient groups (from the SLE paper, figure 6A)
-<ul>
-<li>data/SLE/SLE_SUBJECT_PG.txt <br /></li>
-</ul></li>
-</ul>
-</div>
-<div id="step-1.-data-formatting-and-preparation-3" class="section level2">
-<h2>Step 1. Data formatting and preparation</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfZGF0YXByZXAvc2xlX2RhdGFwcmVwLnJcIilcbnNvdXJjZShcIlIvc2xlX2RhdGFwcmVwL3NsZV9wcm9iZXMyZ2VuZXMuclwiKVxuc291cmNlKFwiUi9zbGVfZGF0YXByZXAvc2xlX2FkZF9EQV9hbmRfUEcuclwiKVxuc291cmNlKFwiUi9zbGVfZGF0YXByZXAvc2xlX3NhbXBsZV9maWx0ZXJpbmcuclwiKVxuc291cmNlKFwiUi9zbGVfZGF0YXByZXAvc2xlX2dlLm1lYW5fYnlfc3ViamVjdC5yXCIpXG5zb3VyY2UoXCJSL3NsZV9kYXRhcHJlcC9zbGVfc2xlZGFpLmxvd0RBLm1lYW5fYnlfc3ViamVjdC5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/sle_dataprep/sle_dataprep.r&quot;)
-source(&quot;R/sle_dataprep/sle_probes2genes.r&quot;)
-source(&quot;R/sle_dataprep/sle_add_DA_and_PG.r&quot;)
-source(&quot;R/sle_dataprep/sle_sample_filtering.r&quot;)
-source(&quot;R/sle_dataprep/sle_ge.mean_by_subject.r&quot;)
-source(&quot;R/sle_dataprep/sle_sledai.lowDA.mean_by_subject.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generate figure of SLEDAI change at different visit for a single patient (Fig. 2d):</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfZXhhbXBsZV9wcm9maWxlL1NMRV9TTEVEQUlfVElNRV9wcm9maWxlcy5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/sle_example_profile/SLE_SLEDAI_TIME_profiles.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br /></p>
-</div>
-<div id="step-2.-calculate-inter-subject-variation-isv-of-expression-of-individual-genes-to-quantify-their-stability-across-visits-with-low-disease-activity" class="section level2">
-<h2>Step 2. Calculate inter-subject variation (ISV) of expression of individual genes to quantify their stability across visits with low disease activity</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfZGF0YXByZXAvc2xlX2dlbmVfc3RhYmlsaXR5LnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/sle_dataprep/sle_gene_stability.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Generated data files and figures are saved in <code>./generated_data/SLE</code> and <code>./figure_generation</code>, respectively. <br /></p>
-</div>
-<div id="step-3.-calculate-tgsig-and-plasmablast-signature-scores" class="section level2">
-<h2>Step 3. Calculate TGSig and Plasmablast signature scores</h2>
-<p><br />Calculate TGSig scores using data from low-disease-activity samples</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9sb3dEQV9jZDM4X3Njb3JlLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/sle_signature_analysis/sle_lowDA_cd38_score.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Calculate Plasmablast signature scores using data from low-disease-activity samples</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9sb3dEQV9QQl9zY29yZS5yXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;R/sle_signature_analysis/sle_lowDA_PB_score.r&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><br />Calculate DaCP using mixed-effect model</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9QQl9zY29yZV9mcm9tX21peGVkX21vZGVsLnJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;R/sle_signature_analysis/sle_PB_score_from_mixed_model.r&quot;)</code></pre>
+<p>source(“R/chi_signature_analysis/rand.sig_generate.r”)</p>
+<pre><code>The output file with correlation data for each iteration is store as ```./generated_data/CHI/gene_sig_random_500_from_all.txt```. 
+Instead you can download pre-computed random signatures generated previously and put it into the data folder. 
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi95Zl9kYXRhcHJlcC95Zl9kYXRhX2Zyb21fYXB0LnJcXClcbnNvdXJjZShcXFIveWZfZGF0YXByZXAveWZfcHJvYmVzMmdlbmVzLnJcXClcbnNvdXJjZShcXFIveWZfZGF0YXByZXAveWZfc2FtcGxlX2ZpbHRlcmluZy5yXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/yf_dataprep/yf_data_from_apt.r\)
+source(\R/yf_dataprep/yf_probes2genes.r\)
+source(\R/yf_dataprep/yf_sample_filtering.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+The scripts generate a table and AUC table, as well as a plot for Ext. Data Fig. 2e:</code></pre>
+<p>./generated_data/CHI/chi_random.sig.500_3times.rds ./generated_data/figure_generation</p>
+<pre><code>&lt;br/&gt;
+
+## Step 6. Determine the optimal number of genes as expression surrogate signature for CD20+CD38++ B cells. 
+
+Evaluate prediction power of titer response for top 20 individual genes (Fig. 1d): 
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi95Zl9zaWduYXR1cmVfYW5hbHlzaXMveWZfY2QzOF8xMGdlbmVfc2lnX2FuYWx5c2lzX0ZJR1VSRVNfd2l0aF9taWQuclxcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+source(\R/yf_signature_analysis/yf_cd38_10gene_sig_analysis_FIGURES_with_mid.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Evaluate prediction power of titer response for different number of genes in the signature (Ext. Data Fig. 2c):
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9zbGVfZGF0YXByZXAvc2xlX2RhdGFwcmVwLnJcXClcbnNvdXJjZShcXFIvc2xlX2RhdGFwcmVwL3NsZV9wcm9iZXMyZ2VuZXMuclxcKVxuc291cmNlKFxcUi9zbGVfZGF0YXByZXAvc2xlX2FkZF9EQV9hbmRfUEcuclxcKVxuc291cmNlKFxcUi9zbGVfZGF0YXByZXAvc2xlX3NhbXBsZV9maWx0ZXJpbmcuclxcKVxuc291cmNlKFxcUi9zbGVfZGF0YXByZXAvc2xlX2dlLm1lYW5fYnlfc3ViamVjdC5yXFwpXG5zb3VyY2UoXFxSL3NsZV9kYXRhcHJlcC9zbGVfc2xlZGFpLmxvd0RBLm1lYW5fYnlfc3ViamVjdC5yXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/sle_dataprep/sle_dataprep.r\)
+source(\R/sle_dataprep/sle_probes2genes.r\)
+source(\R/sle_dataprep/sle_add_DA_and_PG.r\)
+source(\R/sle_dataprep/sle_sample_filtering.r\)
+source(\R/sle_dataprep/sle_ge.mean_by_subject.r\)
+source(\R/sle_dataprep/sle_sledai.lowDA.mean_by_subject.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Generate ROC for titer response prediction based on 10-gene signature, and box plot comparing low- and high- responders based on TGSig for day 0, day -7 and day 70 (Fig. 1e-f). Output the TGSig scores for low and high responders for these time points.
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9zbGVfZXhhbXBsZV9wcm9maWxlL1NMRV9TTEVEQUlfVElNRV9wcm9maWxlcy5yXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/sle_example_profile/SLE_SLEDAI_TIME_profiles.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Effect on AUC after removal of individual genes in TGSig (Ext. Data Fig. 2g): 
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9zbGVfZGF0YXByZXAvc2xlX2dlbmVfc3RhYmlsaXR5LnJcXClcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+source(\R/sle_dataprep/sle_gene_stability.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Check stability of relative rank of CD38++ signature genes applying different ISV threshold (Ext. Data Fig. 2f):
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9sb3dEQV9jZDM4X3Njb3JlLnJcXClcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+source(\R/sle_signature_analysis/sle_lowDA_cd38_score.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Save the final gene lists for both TGSig and plasmablast signature: 
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9sb3dEQV9QQl9zY29yZS5yXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/sle_signature_analysis/sle_lowDA_PB_score.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Generate box plots comparing  low-, middle- and high- responders based on TGSig score for day 0 (Ext. Data Fig. 3b):
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9QQl9zY29yZV9mcm9tX21peGVkX21vZGVsLnJcXClcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+source(\R/sle_signature_analysis/sle_PB_score_from_mixed_model.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Generate box plots comparing  male and female subject based on TGSig score for day 0 (Ext. Data Fig. 10b-e): 
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9QQi5TTEVEQUkuY29ycl92c19DRDM4Lm1lYW4uc2NvcmVfRklHVVJFLnJcXClcbnNvdXJjZShcXFIvc2xlX3NpZ25hdHVyZV9hbmFseXNpcy9zbGVfUEIuU0xFREFJLmNvcnJfdnNfQ0QzOC5tZWFuLnNjb3JlX3RhYmxlLnJcXClcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+source(\R/sle_signature_analysis/sle_PB.SLEDAI.corr_vs_CD38.mean.score_FIGURE.r\)
+source(\R/sle_signature_analysis/sle_PB.SLEDAI.corr_vs_CD38.mean.score_table.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Generated data files and figures are saved in ```./generated_data/CHI``` and ```./figure_generation```, respectively. The signature files are saved in ```./generated_data/signatures```.
+&lt;br/&gt;
+
+## Step 7. Analyze blood transcription module genes enrichment in genes correlated with percentage of CD38-high cells varying selection threshold for gene inter-subject variation.
+
+Run GSEA on “LI” and “DC” modules separately and save the results in RDS file.
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9QQi5TTEVEQUkuY29ycl92c19QQi5sb3dEQS5tZWFuLnNjb3JlX0ZJR1VSRS5yXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/sle_signature_analysis/sle_PB.SLEDAI.corr_vs_PB.lowDA.mean.score_FIGURE.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+Generated RDS files are saved in ```./generated_data/fgsea_with_btm_modules```.
+&lt;br/&gt;
+
+---
+
+# HIPC data analysis
+
+## Input data
+
+HAI expression and titer data were downloaded from [ImmuneSpace](http://immunespace.org) and pre-processed using part of the R script to reproduce figures for HIPC meta-analysis paper [Multicohort analysis reveals baseline transcriptional predictors of influenza vaccination responses. Sci Immunol. 2017 Aug 25;2(14)](https://immunology.sciencemag.org/content/2/14/eaal4656). The script downloads the data, corrects the labels for swapped samples, and calculates adjMFC titers.
+For SDY404 we use locally computed adjMFC in ```./data/SDY404_young_hai_titer_table_2016.txt```. 
+
+**Required file from previous analysis**</code></pre>
+<p>./generated_data/signatures/CD38_ge_sig.txt</p>
+<pre><code>
+
+
+## Step 1. Data formatting and preparation
+
+Load the data preloaded from ImmuneSpace
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9CVE1fc2NvcmVfZnJvbV9EQS5kZWx0YS5yXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/sle_signature_analysis/sle_BTM_score_from_DA.delta.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+To load the data directly from ImmuneSpace we run this script. The script requires creating account and configuration file to access Immunespace. We cannot guarantee that the script will continue working in the future.</code></pre>
+<p>source(“R/hipc_dataprep/hipc_data_from_IS.r”)</p>
+<pre><code>
+&lt;br/&gt;Prepare data files for young subjects with titer response
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9QQi1zY29yZS12cy1XR0NOQS1tb2R1bGVzL3NjcmlwdC5SXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/PB-score-vs-WGCNA-modules/script.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Mapping probes to genes
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9mZ3NlYV93aXRoX3dnY25hX21vZHVsZXMvY2hpX0NEMzhfY29yX2J5X0lTVl9mZ3NlYV9sZWFkaW5nRWRnZS5yXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/fgsea_with_wgcna_modules/chi_CD38_cor_by_ISV_fgsea_leadingEdge.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Filter baseline (day 0) samples and subjects with low and high response 
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9mZ3NlYV93aXRoX3dnY25hX21vZHVsZXMvY2hpX0NEMzhfY29yX2J5X0lTVl9mZ3NlYV9GSUdVUkUuclxcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+source(\R/fgsea_with_wgcna_modules/chi_CD38_cor_by_ISV_fgsea_FIGURE.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Generated data files are saved in ```./generated_data/HIPC```.
+&lt;br/&gt;
+
+## Step 2. Validation of prediction power of CD38 signature in HIPC datasets (young subjects only)
+
+&lt;br/&gt;Calculate TGSig scores using data from day 0
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9mZ3NlYV93aXRoX3dnY25hX21vZHVsZXMvYnJvd24tbGVhZGluZy1lZGdlLUJUTS10YWJsZS5SXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/fgsea_with_wgcna_modules/brown-leading-edge-BTM-table.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Generate ROC for titer response prediction based on 10-gene signature, and box plot comparing low- and high- responders based on TGSig:
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9XR0NOQS1tb2R1bGVzLWZyb20tU0xFLWxvdy1EQS10bW9kL3NjcmlwdC5SXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/WGCNA-modules-from-SLE-low-DA-tmod/script.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Generate box plots comparing low-, middle- and high- responders based on TGSig:
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9NZXRhREUtZmx1LXRpdGVyLXJlc3BvbnNlLWZyb20tZXhwcmVzc2lvbi1pbi1mb3VyLWNvaG9ydHMvc2NyaXB0LlJcXClcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+source(\R/MetaDE-flu-titer-response-from-expression-in-four-cohorts/script.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Generated data files and figures (Fig. 2a and Ext. Data Fig. 3b) are saved in ```./generated_data/HIPC``` and ```./figure_generation```, respectively.
+&lt;br/&gt;
+
+---
+
+# Emory data analysis
+
+## Input data
+
+* Microarray (downloaded from GEO) and antibody titer data wre proprocessed outside of the workflow
+  * data/Emory/GSE29619.RData
+  * data/Emory/GSE74817_healthy.RData
+&lt;br/&gt;
+
+## Testing prediction power of CD38 signature
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9NZXRhREVfZm9yZXN0X3Bsb3QvRmx1X21ldGFfZm9yZXN0X3Bsb3QuclxcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+source(\R/MetaDE_forest_plot/Flu_meta_forest_plot.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+Output figure is saved in ```figure_generation```.
+&lt;br/&gt;
+
+---
+
+# Yellow Fever data analysis
+
+## Input data
+
+* Sample information from GEO including Neutralization antibody titer data
+  * data/YF/expression/sample_info.txt
+* Expression data from GEO processed by RMA-sketch (Affymetrix Power Tools)
+  * data/YF/expression/rma-sketch.summary.txt
+* Probeset-gene mapping (for reproducibility, originally obtained using hgu133plus2.db R package)
+  * data/YF/expression/YF_probe_map.txt
+&lt;br/&gt;
+
+## Step 1. Data formatting and preparation
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9ZRjEtZWZmZWN0LXNpemVzL3NjcmlwdC5SXFwpXG5zb3VyY2UoXFxSL01ldGFERV9mb3Jlc3RfcGxvdC9ZRjFfZWZmZWN0X3NpemVfcGxvdC5yXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/YF1-effect-sizes/script.R\)
+source(\R/MetaDE_forest_plot/YF1_effect_size_plot.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+&lt;br/&gt;
+
+# Step 2. Validation of prediction power of CD38 signature in yellow fever datasets
+
+Calculate TGSig scores using data from day 0
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9HU0VBLXVzaW5nLWdlbmVzLWNvbW1vbi10by1zdGFibGUtU0xFLWxvdy1EQS1hbmQtNGZsdS9zY3JpcHQuUlxcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+source(\R/GSEA-using-genes-common-to-stable-SLE-low-DA-and-4flu/script.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Generate ROC for titer response prediction based on 10-gene signature, and box plot comparing low- and high- responders based on TGSig (trials 1 for Figure 2b, and trial 2 for Ext. Data Fig. 4a):
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9icm93bi1tb2R1bGUtbGVhZGluZy1nZW5lcy1sb3ctbWlkLWhpZ2gtZWlnZW5nZW5lL3NjcmlwdC5SXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/brown-module-leading-genes-low-mid-high-eigengene/script.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Generate box plot comparing low-, middle- and high- responders based on TGSig in trial 1 (Ext. Data Fig. 3d):
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9yZWNhbGMtYW5kLWNoZWNrLTEwZ2VuZS1DRDM4cGx1c1NpZy9zY3JpcHQuUlxcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+source(\R/recalc-and-check-10gene-CD38plusSig/script.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Generated data files and figures are saved in ```./generated_data/YF``` and ```./figure_generation```, respectively.
+&lt;br/&gt;
+
+---
+
+# SLE data analysis
+
+## Input data
+
+* Expression data downloaded from http://websle.com (Data tab) -- Batch-corrected, probe filtered, latest probe-gene annotation.
+  * data/SLE/expression/SLE_Longitudinal_972_eset.RData
+* Subjects assignment to patient groups (from the SLE paper, figure 6A)
+  * data/SLE/SLE_SUBJECT_PG.txt
+&lt;br/&gt;
+
+## Step 1. Data formatting and preparation
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9icm93bi1tb2QtbWludXMtbGVhZGluZy1lZGdlL3NjcmlwdC5SXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/brown-mod-minus-leading-edge/script.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Generate figure of SLEDAI change at different visit for a single patient (Fig. 2d):
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9icm93bi1tb2QtbWludXMtbGVhZGluZy1lZGdlLWNvbWJpbmVkL3NjcmlwdC5SXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/brown-mod-minus-leading-edge-combined/script.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+&lt;br/&gt;
+
+## Step 2. Calculate inter-subject variation (ISV) of expression of individual genes to quantify their stability across visits with low disease activity
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9JRk5fc2lnbmF0dXJlX2FuYWx5c2lzL3NldHVwLnJcXClcbnNvdXJjZShcXFIvSUZOX3NpZ25hdHVyZV9hbmFseXNpcy9jaGlfSUZOMjZfc2lnX2FuYWx5c2lzX0ZJR1VSRVMyLnJcXClcbnNvdXJjZShcXFIvSUZOX3NpZ25hdHVyZV9hbmFseXNpcy9oaXBjX2QwX0lGTjI2X3Njb3JlLnJcXClcbnNvdXJjZShcXFIvSUZOX3NpZ25hdHVyZV9hbmFseXNpcy9zbGVfbG93REFfSUZOMjZfc2NvcmUuclxcKVxuc291cmNlKFxcUi9JRk5fc2lnbmF0dXJlX2FuYWx5c2lzL2xvZ2lzdGljX3JlZ3JfNGZsdS5yXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\R/IFN_signature_analysis/setup.r\)
+source(\R/IFN_signature_analysis/chi_IFN26_sig_analysis_FIGURES2.r\)
+source(\R/IFN_signature_analysis/hipc_d0_IFN26_score.r\)
+source(\R/IFN_signature_analysis/sle_lowDA_IFN26_score.r\)
+source(\R/IFN_signature_analysis/logistic_regr_4flu.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+&lt;br/&gt;Generated data files and figures are saved in ```./generated_data/SLE``` and ```./figure_generation```, respectively.
+&lt;br/&gt;
+
+## Step 3. Calculate TGSig and Plasmablast signature scores
+
+&lt;br/&gt;Calculate TGSig scores using data from low-disease-activity samples
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9STkFzZXEvQmNlbGxfY29tcGFyaXNpb25fREVzZXEuclxcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+source(\R/RNAseq/Bcell_comparision_DEseq.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Calculate Plasmablast signature scores using data from low-disease-activity samples
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcUi9STkFzZXEvYnJvd24tbW9kLWxlYWRpbmctZWRnZS1lbnJpY2htZW50LnJcXClcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+source(\R/RNAseq/brown-mod-leading-edge-enrichment.r\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+&lt;br/&gt;Calculate DaCP using mixed-effect model
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiUi9zbGVfc2lnbmF0dXJlX2FuYWx5c2lzL3NsZV9QQl9zY29yZV9mcm9tX21peGVkX21vZGVsLnJcIilcbmBgYCJ9 --&gt;
+
+```r
+source(&quot;R/sle_signature_analysis/sle_PB_score_from_mixed_model.r&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -2371,7 +2798,7 @@ source(&quot;R/sle_signature_analysis/sle_PB.SLEDAI.corr_vs_CD38.mean.score_tabl
 </div>
 <div id="discovery-of-co-expression-module-in-sle-datasets" class="section level1">
 <h1>Discovery of co-expression module in SLE datasets</h1>
-<div id="input-data-5" class="section level2">
+<div id="input-data-1" class="section level2">
 <h2>Input data:</h2>
 <ul>
 <li>Gene stability table
@@ -2459,7 +2886,7 @@ source(&quot;R/sle_signature_analysis/sle_PB.SLEDAI.corr_vs_CD38.mean.score_tabl
 </div>
 <div id="meta-analysis-of-gene-expression-in-vaccination-datasets-and-the-analysis-of-brown-module" class="section level1">
 <h1>Meta analysis of gene expression in vaccination datasets and the analysis of brown module</h1>
-<div id="input-data-6" class="section level2">
+<div id="input-data-2" class="section level2">
 <h2>Input data:</h2>
 <ul>
 <li>Gene expression tables for all datasets (gene vs. subjects at day0)</li>
@@ -2639,7 +3066,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("Worklfow.Rmd");
+  window.initializeSourceEmbed("Workflow.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
