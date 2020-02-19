@@ -4,10 +4,22 @@ Authors: Yuri Kotliarov, Rachel Sparks, Andrew J. Martins, Matthew P. Mulè, Yon
 
 </br>
 
+---
+
 See [**Workflow.Rmd**](Workflow.Rmd) and [**CITE-seq_Workflow.Rmd**](CITE-seq_Workflow.Rmd) for instructions.
+
+</br>
 
 ---
 
-**If you use these data and codes for your publication please cite this paper**:
+**If you use our data (including CITE-seq data) or code for your work please cite the following publication**:
 
 Kotliarov, Y., Sparks, R. et al. Broad immune activation underlies shared set point signatures for vaccine responsiveness in healthy individuals and disease activity in patients with lupus. Nat. Med. DOI: [https://doi.org/10.1038/s41591-020-0769-8](https://doi.org/10.1038/s41591-020-0769-8) (2020)
+
+</br>
+
+---
+
+**General contact**: John Tsang (john.tsang@nih.gov)
+
+**Questions about software/code**: Yuri Kotliarov (yuri.kotliarov@nih.gov)
