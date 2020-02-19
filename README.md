@@ -10,6 +10,10 @@ See [**Workflow.Rmd**](Workflow.Rmd) and [**CITE-seq_Workflow.Rmd**](CITE-seq_Wo
 
 </br>
 
+**Data/Software repository** on NIH Figshare.com: [https://doi.org/10.35092/yhjc.c.4753772](https://doi.org/10.35092/yhjc.c.4753772)
+
+</br>
+
 ---
 
 **If you use our data (including CITE-seq data) or code for your work please cite the following publication**:
